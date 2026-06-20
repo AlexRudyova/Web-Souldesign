@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Služby | Soul Design</title>
+  <meta name="description" content="Prepájam dizajn, stratégiu a technológie do funkčných riešení, ktoré budujú dôveru, priťahujú klientov a prinášajú výsledky." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       1. RESET & TOKENS
+       ═══════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --teal:        #007599;
+      --teal-mid:    #005f7a;
+      --teal-dark:   #003d52;
+      --teal-deeper: #002535;
+      --teal-glow:   #00a3c9;
+      --teal-pale:   #4ecde8;
+      --white:       #ffffff;
+      --bg-start:    #FAF8F5;
+      --bg-mid:      #E9F3F6;
+      --bg-end:      #FCF9F5;
+      --text-color:  #333333;
+      --text-muted:  #555555;
+      --text-light:  #888888;
+      --radius-card: 14px;
+      --font-head:   'Frank Ruhl Libre', Georgia, serif;
+      --font-body:   'Lora', Georgia, serif;
+      --font-script: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-start);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ═══════════════════════════════════════════════
+       2. HEADER
+       ═══════════════════════════════════════════════ */
+    .site-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: clamp(16px, 2.4vh, 26px) clamp(24px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+
+    .site-header.scrolled {
+      position: fixed;
+      background: rgba(244, 242, 238, 0.82);
+      backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding: clamp(12px, 1.8vh, 18px) clamp(24px, 5vw, 72px);
+      animation: headerSlideIn 0.3s ease-out;
+    }
+
+    @keyframes headerSlideIn {
+      from { transform: translateY(-100%); }
+      to   { transform: translateY(0); }
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header__logo img {
+      height: clamp(48px, 6.5vh, 74px);
+      width: auto;
+      opacity: 0.90;
+      transition: opacity 0.3s ease;
+    }
+
+    .header__logo:hover img { opacity: 1; }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 2.8vw, 40px);
+      list-style: none;
+      flex-shrink: 0;
+    }
+
+    .header__nav li {
+      flex-shrink: 0;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: clamp(11px, 1vw, 13px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 63, 82, 0.80);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.28s ease;
+    }
+
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, #005f7a 0%, #007599 35%, #00b5d8 70%, #00a3c9 100%);
+      transition: width 0.32s ease;
+    }
+
+    .header__nav a:hover { color: var(--teal-dark); }
+    .header__nav a:hover::after { width: 100%; }
+
+    .site-header.scrolled .header__nav a      { color: rgba(0, 63, 82, 0.80); }
+    .site-header.scrolled .header__nav a:hover { color: #003d52; }
+
+    .nav__cta {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 148px;
+      height: 40px;
+      padding: 0 !important;
+      clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z");
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px !important;
+      font-weight: 600;
+      letter-spacing: 0.05em !important;
+      color: var(--white) !important;
+      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      filter: drop-shadow(0 0 0px rgba(0,117,153,0));
+      transition: filter 300ms ease;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+
+    .header__nav .nav__cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+
+    .header__nav .nav__cta:hover::after { opacity: 1; }
+    .nav__cta:hover {
+      color: var(--white) !important;
+      filter: drop-shadow(0 0 18px rgba(0,117,153,0.18));
+    }
+
+    .header__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .header__burger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--teal-dark);
+      border-radius: 2px;
+      transition: background-color 0.3s;
+    }
+
+    /* ═══════════════════════════════════════════════
+       3. TITLE GRADIENT
+       ═══════════════════════════════════════════════ */
+    .title-grad {
+      background: linear-gradient(100deg, #005f7a 0%, #007599 45%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══════════════════════════════════════════════
+       4. SUBPAGE HERO
+       ═══════════════════════════════════════════════ */
+    .sub-hero {
+      position: relative;
+      width: 100%;
+      min-height: clamp(500px, 70vh, 800px);
+      background-image: url('../Obrazky/Pozadie/Hero podstranok/sluzby.png');
+      background-size: 100% auto;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .sub-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom,
+          rgba(240, 232, 218, 0.72) 0%,
+          rgba(240, 232, 218, 0.18) 18%,
+          transparent               36%
+        ),
+        linear-gradient(to right,
+          rgba(240, 232, 218, 0.52) 0%,
+          rgba(238, 229, 214, 0.38) 28%,
+          rgba(235, 225, 210, 0.18) 52%,
+          rgba(232, 222, 206, 0.05) 72%,
+          transparent               90%
+        );
+    }
+
+    .sub-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 38%;
+      background: linear-gradient(to bottom,
+        transparent                  0%,
+        rgba(250, 248, 245, 0.18)   25%,
+        rgba(250, 248, 245, 0.52)   55%,
+        rgba(250, 248, 245, 0.86)   78%,
+        #FAF8F5                     100%
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .sub-hero__content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: clamp(110px, 14vh, 160px) clamp(24px, 5.5vw, 80px) clamp(60px, 8vh, 100px);
+      display: grid;
+      grid-template-columns: 52% 48%;
+      align-items: center;
+    }
+
+    .sub-hero__left { max-width: 560px; }
+
+    .sub-hero__title {
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: clamp(28px, 3.4vw, 52px);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      color: var(--teal-dark);
+      margin-bottom: 0;
+    }
+
+    .sub-hero__divider {
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, #005f7a, #00a3c9);
+      border-radius: 2px;
+      margin: clamp(14px, 2vh, 20px) 0 clamp(28px, 4vh, 38px);
+    }
+
+    .sub-hero__desc {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(13px, 1.1vw, 17px);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+      color: rgba(0, 61, 82, 0.80);
+      margin-bottom: clamp(66px, 9vh, 90px);
+      max-width: 460px;
+    }
+
+    /* CTA tlačidlo — identické so subpage-hero.html (218×45) */
+    .cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 218px;
+      height: 45px;
+      padding: 0 20px 0 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 300ms ease;
+    }
+
+    .cta-btn__left {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn__icon {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 42px;
+      max-height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .cta-btn__divider {
+      flex-shrink: 0;
+      display: block;
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px 0 0;
+    }
+
+    .cta-btn__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .cta-btn__arrow {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      margin-left: 8px;
+      transition: transform 300ms ease;
+    }
+
+    .cta-btn--filled {
+      isolation: isolate;
+      overflow: hidden;
+      clip-path: path("M 13 0 L 211 0 A 7 7 0 0 1 218 7 L 218 31 L 205 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z");
+      filter: drop-shadow(0 0 0px rgba(0,117,153,0));
+    }
+
+    .cta-btn--filled::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+
+    .cta-btn--filled::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover {
+      filter: drop-shadow(0 0 18px rgba(0,117,153,0.18));
+    }
+    .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+
+    /* ═══════════════════════════════════════════════
+       5. SEKCIA HEADER (spoločný štýl)
+       ═══════════════════════════════════════════════ */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .section-accent {
+      width: 36px;
+      height: 1.5px;
+      background: linear-gradient(90deg, #005f7a, #00a3c9);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       6. ČO PRE VÁS MÔŽEM UROBIŤ
+       ═══════════════════════════════════════════════ */
+    #co-pre-vas {
+      position: relative;
+      padding: clamp(80px, 11vh, 120px) 0 clamp(60px, 8vh, 90px);
+      background: var(--bg-start);
+      text-align: center;
+    }
+
+    /* H2 — identické so section-title na homepage */
+    .co-header__h2 {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(26px, 3.6vw, 46px);
+      color: var(--text-color);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    /* Tagline — identické so section-tagline na homepage */
+    .co-header__label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .co-header__sub {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(14px, 1.1vw, 17px);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 32px auto 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       7. GRID SLUŽIEB 2×2 (identický štýl ako sv3 na homepage)
+       ═══════════════════════════════════════════════ */
+    #sluzby-grid {
+      position: relative;
+      padding: clamp(20px, 4vh, 60px) 0 clamp(80px, 11vh, 130px);
+      background: var(--bg-start);
+      overflow: hidden;
+    }
+
+    #sluzby-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sv3-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(36px, 6vh, 64px) clamp(24px, 4vw, 56px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .sv3-item {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 0 clamp(18px, 2.2vw, 30px);
+      align-items: start;
+    }
+
+    .sv3-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1.5px solid rgba(0, 117, 153, 0.52);
+    }
+
+    .sv3-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(250,248,245,0.12) 0%, rgba(250,248,245,0.28) 100%);
+    }
+
+    .sv3-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .sv3-item:hover .sv3-photo img { transform: scale(1.03); }
+
+    .sv3-body {
+      padding-top: clamp(6px, 1.2vh, 14px);
+    }
+
+    .sv3-icon {
+      display: block;
+      width: 102px;
+      height: 102px;
+      object-fit: contain;
+      margin-left: -10px;
+      margin-top: -14px;
+      margin-bottom: clamp(4px, 0.6vh, 8px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .sv3-title {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-weight: 400;
+      color: var(--teal-deeper);
+      line-height: 1.2;
+      margin-bottom: clamp(10px, 1.2vh, 14px);
+    }
+
+    .sv3-rule {
+      width: 30px;
+      height: 1.5px;
+      background: var(--teal);
+      margin-bottom: clamp(10px, 1.2vh, 14px);
+    }
+
+    .sv3-desc {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1.1vw, 15px);
+      line-height: 1.72;
+      color: #4a5e66;
+      margin-bottom: clamp(14px, 1.8vh, 20px);
+    }
+
+    .sv3-link {
+      font-family: var(--font-head);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .sv3-link__arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .sv3-link:hover { color: var(--teal-deeper); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--teal); }
+    .sv3-link:hover .sv3-link__arrow { transform: translateX(6px); }
+
+    /* ═══════════════════════════════════════════════
+       8. PREČO SPOLUPRACOVAŤ SO MNOU
+       ═══════════════════════════════════════════════ */
+    #preco {
+      position: relative;
+      padding: clamp(80px, 11vh, 120px) 0 clamp(80px, 11vh, 120px);
+      background: var(--bg-start);
+    }
+
+    .preco-header {
+      text-align: center;
+      margin-bottom: clamp(52px, 7vh, 80px);
+    }
+
+    /* Tagline — identické so section-tagline na homepage */
+    .preco-header__label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .preco-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: clamp(20px, 3vw, 36px);
+    }
+
+    .preco-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .preco-icon {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preco-icon svg.preco-octagon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .preco-icon i {
+      position: relative;
+      z-index: 1;
+      font-size: 22px;
+      color: var(--teal);
+    }
+
+    .preco-title {
+      font-family: var(--font-head);
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-deeper);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .preco-desc {
+      font-family: var(--font-body);
+      font-size: clamp(12px, 0.95vw, 14px);
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════
+       9. ALTERNATÍVNY LAYOUT SLUŽIEB (skúšobná sekcia)
+       ═══════════════════════════════════════════════ */
+    #sluzby-rows {
+      padding: clamp(90px, 12vh, 150px) 0 clamp(60px, 8vh, 110px);
+      background: var(--bg-start);
+    }
+
+    .srow-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .srow-item {
+      display: grid;
+      grid-template-columns: 64px 0.8fr 52px 1fr;
+      grid-template-rows: auto;
+      gap: 0;
+      align-items: center;
+      padding: clamp(40px, 5.5vh, 72px) 0;
+      border-bottom: 1px solid rgba(0, 117, 153, 0.10);
+    }
+    .srow-item:first-child { border-top: 1px solid rgba(0, 117, 153, 0.10); }
+
+    /* Párne položky: foto vpravo */
+    .srow-item:nth-child(even) {
+      grid-template-columns: 1fr 52px 0.8fr 64px;
+    }
+    .srow-item:nth-child(even) .srow-num   { order: 4; text-align: right; }
+    .srow-item:nth-child(even) .srow-photo { order: 3; }
+    .srow-item:nth-child(even) .srow-sep   { order: 2; }
+    .srow-item:nth-child(even) .srow-body  { order: 1; }
+
+    /* Číslo */
+    .srow-num {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.2vw, 48px);
+      font-weight: 300;
+      color: rgba(0, 117, 153, 0.13);
+      line-height: 1;
+      user-select: none;
+      padding-top: 4px;
+      padding-right: 16px;
+    }
+    .srow-item:nth-child(even) .srow-num {
+      padding-right: 0;
+      padding-left: 16px;
+    }
+
+    /* Fotka */
+    .srow-photo {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+    }
+    .srow-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(250,248,245,0.18) 0%, rgba(250,248,245,0.38) 100%);
+    }
+    .srow-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .srow-item:hover .srow-photo img { transform: scale(1.04); }
+
+    /* Vertikálny separátor s otočeným textom */
+    .srow-sep {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 12px;
+      padding: 0 16px;
+    }
+    .srow-sep__line {
+      width: 1px;
+      flex: 1;
+      background: linear-gradient(180deg, transparent, rgba(0,117,153,0.25) 30%, rgba(0,117,153,0.25) 70%, transparent);
+    }
+    .srow-sep__label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(0, 117, 153, 0.45);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      white-space: nowrap;
+    }
+
+    /* Textový blok */
+    .srow-body {
+      padding: 0 clamp(24px, 3vw, 48px);
+    }
+    .srow-body__label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .srow-body__title {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2vw, 32px);
+      font-weight: 400;
+      color: var(--teal-deeper);
+      line-height: 1.22;
+      margin-bottom: 16px;
+    }
+    .srow-body__text {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 0.95vw, 15px);
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .srow-body__link {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,117,153,0.30);
+      padding-bottom: 2px;
+      transition: color 0.28s, border-color 0.28s;
+    }
+    .srow-body__link:hover {
+      color: var(--teal-dark);
+      border-color: var(--teal-dark);
+    }
+
+    /* ═══════════════════════════════════════════════
+       10. ZÁVEREČNÁ CTA SEKCIA
+       ═══════════════════════════════════════════════ */
+    #cta-bottom {
+      position: relative;
+      background: var(--bg-start);
+      padding: clamp(60px, 9vh, 100px) 0;
+      overflow: hidden;
+    }
+
+    #cta-bottom::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(250,248,245,0.88), rgba(250,248,245,0.88)),
+        url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .cta-bottom__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .cta-bottom__photo {
+      position: relative;
+    }
+
+    .cta-bottom__photo img {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      opacity: 0.82;
+      filter: brightness(0.96) saturate(0.9);
+    }
+
+    .cta-bottom__content {
+      max-width: 540px;
+    }
+
+    /* H2 — identické so section-title na homepage */
+    .cta-bottom__h2 {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(26px, 3.6vw, 46px);
+      color: var(--text-color);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    .cta-bottom__rule {
+      width: 36px;
+      height: 1.5px;
+      background: linear-gradient(90deg, #005f7a, #00a3c9);
+      border-radius: 2px;
+      margin-bottom: clamp(18px, 2.6vh, 28px);
+    }
+
+    .cta-bottom__text {
+      font-family: var(--font-body);
+      font-size: clamp(14px, 1.1vw, 17px);
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: clamp(32px, 4.5vh, 48px);
+    }
+
+    /* Outline CTA button (štýl z homepage) */
+    .btn-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 30px;
+      border-radius: 14px 0;
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(0, 117, 153, 0.15);
+      background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal) 100%);
+      box-shadow: 0 6px 24px rgba(0, 117, 153, 0.2);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+      isolation: isolate;
+    }
+
+    .btn-brand:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 117, 153, 0.3);
+    }
+
+    .btn-brand::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px 0;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-glow) 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+
+    .btn-brand:hover::after { opacity: 1; }
+
+    .btn-brand__arrow {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .btn-brand:hover .btn-brand__arrow { transform: translateX(4px); }
+
+    .btn-brand__icon {
+      height: auto;
+      max-width: 32px;
+      max-height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       10. FOOTER (identický so index.html)
+       ═══════════════════════════════════════════════ */
+    .site-footer {
+      position: relative;
+      background:
+        linear-gradient(rgba(248, 246, 242, 0.82), rgba(248, 246, 242, 0.82)),
+        url('../Obrazky/Pozadie/pozadie sluzby.png');
+      background-size: cover;
+      background-position: center right;
+      color: #444444;
+      padding: clamp(68px, 9vh, 92px) 0 clamp(28px, 4vh, 44px);
+      overflow: hidden;
+      z-index: 5;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1.1fr;
+      gap: 0;
+      padding-bottom: 36px;
+      align-items: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer-brand__logo {
+      height: clamp(100px, 11vw, 145px);
+      width: auto;
+      display: block;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .footer-brand__logo:hover { transform: scale(1.05); opacity: 0.85; }
+
+    .footer-brand__socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .footer-brand__icon-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: transparent;
+      border: 1px solid rgba(0, 117, 153, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 15px;
+      transition: transform 0.3s, border-color 0.36s ease;
+    }
+
+    .footer-brand__icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #1AA0C2 0%, #0D89AB 45%, #007898 100%);
+      opacity: 0;
+      transition: opacity 0.36s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .footer-brand__icon-wrap i {
+      position: relative;
+      z-index: 1;
+      transition: color 0.36s ease;
+    }
+
+    .footer-brand__social-link:hover .footer-brand__icon-wrap { transform: translateY(-1px); border-color: transparent; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap::after { opacity: 1; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap i { color: white; }
+
+    .footer-mid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      padding: 0 clamp(44px, 6vw, 80px);
+      position: relative;
+    }
+
+    .footer-mid::before,
+    .footer-mid::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(15, 45, 58, 0.08) 30%, rgba(15, 45, 58, 0.08) 70%, transparent 100%);
+    }
+
+    .footer-mid::before { left: 0; }
+    .footer-mid::after  { right: 0; }
+
+    .footer-col-title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 4px 0 0;
+      padding: 0;
+    }
+
+    .footer-links a {
+      display: block;
+      font-size: 13.5px;
+      color: #444444;
+      text-decoration: none;
+      line-height: 1;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--teal); }
+
+    .footer-col--right { padding-left: clamp(28px, 3.5vw, 48px); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #444444;
+    }
+
+    .footer-contact-item i {
+      color: var(--teal);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 45%, #00a3c9 80%, #005f7a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .footer-bottom > .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.90);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.80);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover { color: rgba(255, 255, 255, 1); }
+
+    .footer__hb {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+      animation: hbHover 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes hbHover {
+      0%   { transform: translate(-50%, -58%); }
+      100% { transform: translate(-50%, -42%); }
+    }
+
+    .footer__hb video {
+      width: clamp(52px, 5.5vw, 70px);
+      filter: grayscale(100%) contrast(200%) brightness(3.5);
+      opacity: 0.65;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════
+       11. RESPONZIVITA
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .preco-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .cta-bottom__inner { grid-template-columns: 1fr; text-align: center; }
+      .cta-bottom__photo { display: flex; justify-content: center; }
+      .cta-bottom__rule { margin-left: auto; margin-right: auto; }
+    }
+
+    @media (max-width: 860px) {
+      .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(100px, 16vh, 140px); }
+      .sub-hero__left { max-width: 100%; }
+      .sub-hero__divider { margin-left: auto; margin-right: auto; }
+      .sub-hero__desc { margin-left: auto; margin-right: auto; }
+      .sub-hero__right { display: none; }
+      .sv3-grid { grid-template-columns: 1fr; }
+      .sv3-item { grid-template-columns: 1fr 1fr; max-width: 600px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-mid { padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .header__nav    { display: none; }
+      .header__burger { display: flex; }
+      .header__nav.mobile-active {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(25, 27, 28, 0.96);
+        backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        padding: 30px 40px; gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 200;
+      }
+      .header__nav.mobile-active a { color: var(--white) !important; font-size: 15px; letter-spacing: 0.15em; }
+      .header__nav.mobile-active a::after { display: none; }
+      .preco-grid { grid-template-columns: repeat(2, 1fr); }
+      .sv3-item { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .preco-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER
+       ══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a href="/" class="header__logo" aria-label="Soul Design – domov">
+      <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
+    </a>
+
+    <nav aria-label="Hlavná navigácia">
+      <ul class="header__nav">
+        <li><a href="/#uvod">Úvod</a></li>
+        <li><a href="/podstranky/sluzby.html" aria-current="page">Služby</a></li>
+        <li><a href="/#cennik">Cenník</a></li>
+        <li><a href="/#omne">O mne</a></li>
+        <li><a href="/#kontakt" class="nav__cta">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <button class="header__burger" aria-label="Otvoriť menu" aria-expanded="false" id="burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════
+       HERO SEKCIA
+       ══════════════════════════════════════════════ -->
+  <section class="sub-hero" id="sub-hero" aria-labelledby="sub-hero-title">
+
+    <div class="sub-hero__overlay" aria-hidden="true"></div>
+
+    <div class="sub-hero__content">
+      <div class="sub-hero__left">
+
+        <h1 class="sub-hero__title" id="sub-hero-title">
+          Služby, ktoré posúvajú<br>
+          <span class="title-grad">vašu značku vpred.</span>
+        </h1>
+
+        <div class="sub-hero__divider" aria-hidden="true"></div>
+
+        <p class="sub-hero__desc">
+          Prepájam dizajn, stratégiu a technológie<br>
+          do funkčných riešení, ktoré budujú dôveru,<br>
+          priťahujú klientov a prinášajú výsledky.
+        </p>
+
+        <a class="cta-btn cta-btn--filled" href="/#kontakt">
+          <span class="cta-btn__left">
+            <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+            <span class="cta-btn__divider" aria-hidden="true"></span>
+            <span class="cta-btn__text">Konzultácia zdarma</span>
+          </span>
+          <span class="cta-btn__arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+      </div>
+      <div class="sub-hero__right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ══════════════════════════════════════════════
+       ALTERNATÍVNY LAYOUT SLUŽIEB (skúšobná sekcia)
+       ══════════════════════════════════════════════ -->
+  <section id="sluzby-rows">
+    <div class="container">
+      <header style="text-align:center; margin-bottom: clamp(40px,5vh,64px);">
+        <h2 class="co-header__h2">Komplexné služby pre vašu <span class="title-grad">značku</span></h2>
+        <span class="co-header__label">Čo pre vás môžem urobiť</span>
+        <p class="co-header__sub">Od prvotnej myšlienky až po dlhodobú podporu – som vaším partnerom na každom kroku vašej cesty k úspechu.</p>
+      </header>
+      <ul class="srow-list">
+
+        <!-- 01 Webové stránky -->
+        <li class="srow-item">
+          <div class="srow-num" aria-hidden="true">01</div>
+          <div class="srow-photo">
+            <img src="../Obrazky/Sluzby/webove stranky.png" alt="Webové stránky" />
+          </div>
+          <div class="srow-sep" aria-hidden="true">
+            <span class="srow-sep__line"></span>
+            <span class="srow-sep__label">Webové stránky</span>
+            <span class="srow-sep__line"></span>
+          </div>
+          <div class="srow-body">
+            <span class="srow-body__label">Web dizajn &amp; vývoj</span>
+            <h3 class="srow-body__title">Funkčný web, ktorý odráža vašu <span class="title-grad">značku</span></h3>
+            <p class="srow-body__text">Navrhujem a vyvíjam weby, ktoré nielenže vyzerajú skvelo, ale aj konvertujú. Od stratégie po spustenie – váš online priestor v tých najlepších rukách.</p>
+            <a href="/webove-stranky" class="srow-body__link">Zistiť viac</a>
+          </div>
+        </li>
+
+        <!-- 02 Grafický dizajn -->
+        <li class="srow-item">
+          <div class="srow-num" aria-hidden="true">02</div>
+          <div class="srow-photo">
+            <img src="../Obrazky/Sluzby/graficky design.png" alt="Grafický dizajn" />
+          </div>
+          <div class="srow-sep" aria-hidden="true">
+            <span class="srow-sep__line"></span>
+            <span class="srow-sep__label">Grafický dizajn</span>
+            <span class="srow-sep__line"></span>
+          </div>
+          <div class="srow-body">
+            <span class="srow-body__label">Vizuálna identita</span>
+            <h3 class="srow-body__title">Dizajn, ktorý hovorí za <span class="title-grad">vás</span></h3>
+            <p class="srow-body__text">Logá, brandbook, grafiky na sociálne siete – vizuálna identita, ktorá odzrkadľuje hodnoty vašej značky a zanecháva trvalý dojem.</p>
+            <a href="/graficky-dizajn" class="srow-body__link">Zistiť viac</a>
+          </div>
+        </li>
+
+        <!-- 03 Reklamné kampane -->
+        <li class="srow-item">
+          <div class="srow-num" aria-hidden="true">03</div>
+          <div class="srow-photo">
+            <img src="../Obrazky/Sluzby/reklamne kampane.png" alt="Reklamné kampane" />
+          </div>
+          <div class="srow-sep" aria-hidden="true">
+            <span class="srow-sep__line"></span>
+            <span class="srow-sep__label">Reklamné kampane</span>
+            <span class="srow-sep__line"></span>
+          </div>
+          <div class="srow-body">
+            <span class="srow-body__label">Google &amp; Meta reklama</span>
+            <h3 class="srow-body__title">Kampane, ktoré oslovujú správnych <span class="title-grad">ľudí</span></h3>
+            <p class="srow-body__text">Cielené kampane na Google a Meta, ktoré oslovujú správnych ľudí v správny čas. Platíte za výsledky, nie za experimenty.</p>
+            <a href="/reklamne-kampane" class="srow-body__link">Zistiť viac</a>
+          </div>
+        </li>
+
+        <!-- 04 Online asistentka -->
+        <li class="srow-item">
+          <div class="srow-num" aria-hidden="true">04</div>
+          <div class="srow-photo">
+            <img src="../Obrazky/Sluzby/kreativna online asistentka.png" alt="Kreatívna online asistentka" />
+          </div>
+          <div class="srow-sep" aria-hidden="true">
+            <span class="srow-sep__line"></span>
+            <span class="srow-sep__label">Online podpora</span>
+            <span class="srow-sep__line"></span>
+          </div>
+          <div class="srow-body">
+            <span class="srow-body__label">Projektová podpora</span>
+            <h3 class="srow-body__title">Podpora presne vtedy, keď ju <span class="title-grad">potrebujete</span></h3>
+            <p class="srow-body__text">Od správy sociálnych sietí po prípravu obsahu – som vaším partnerom online. Ste na všetko sami len dovtedy, kým si to prajete.</p>
+            <a href="/online-projektova-podpora" class="srow-body__link">Zistiť viac</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PREČO SPOLUPRACOVAŤ SO MNOU
+       ══════════════════════════════════════════════ -->
+  <section id="preco" aria-labelledby="preco-title">
+    <div class="container">
+
+      <header class="preco-header">
+        <h2 class="co-header__h2">Spolupráca postavená na <span class="title-grad">dôvere.</span></h2>
+        <span class="preco-header__label">Čo prinášam</span>
+      </header>
+
+      <div class="preco-grid">
+
+        <div class="preco-item">
+          <div class="preco-icon" aria-hidden="true">
+            <svg class="preco-octagon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="21,4 51,4 68,21 68,51 51,68 21,68 4,51 4,21" stroke="#007599" stroke-width="1.4" fill="none"/>
+            </svg>
+            <i class="fa-regular fa-comments"></i>
+          </div>
+          <h3 class="preco-title">Osobný prístup</h3>
+          <p class="preco-desc">Ku každému projektu pristupujem individuálne s dôrazom na vaše ciele a potreby.</p>
+        </div>
+
+        <div class="preco-item">
+          <div class="preco-icon" aria-hidden="true">
+            <svg class="preco-octagon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="21,4 51,4 68,21 68,51 51,68 21,68 4,51 4,21" stroke="#007599" stroke-width="1.4" fill="none"/>
+            </svg>
+            <i class="fa-regular fa-lightbulb"></i>
+          </div>
+          <h3 class="preco-title">Stratégia a dizajn</h3>
+          <p class="preco-desc">Prepájam stratégiu s dizajnom, aby výsledok nebol len pekný, ale aj funkčný.</p>
+        </div>
+
+        <div class="preco-item">
+          <div class="preco-icon" aria-hidden="true">
+            <svg class="preco-octagon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="21,4 51,4 68,21 68,51 51,68 21,68 4,51 4,21" stroke="#007599" stroke-width="1.4" fill="none"/>
+            </svg>
+            <i class="fa-regular fa-circle-dot"></i>
+          </div>
+          <h3 class="preco-title">Zamerané na výsledky</h3>
+          <p class="preco-desc">Tvorím riešenia, ktoré prinášajú reálne výsledky a posúvajú vaše podnikanie vpred.</p>
+        </div>
+
+        <div class="preco-item">
+          <div class="preco-icon" aria-hidden="true">
+            <svg class="preco-octagon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="21,4 51,4 68,21 68,51 51,68 21,68 4,51 4,21" stroke="#007599" stroke-width="1.4" fill="none"/>
+            </svg>
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <h3 class="preco-title">Spoľahlivosť</h3>
+          <p class="preco-desc">Dodržiavam dohody, termíny a vždy komunikujem otvorene a transparentne.</p>
+        </div>
+
+        <div class="preco-item">
+          <div class="preco-icon" aria-hidden="true">
+            <svg class="preco-octagon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="21,4 51,4 68,21 68,51 51,68 21,68 4,51 4,21" stroke="#007599" stroke-width="1.4" fill="none"/>
+            </svg>
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="preco-title">Dlhodobá podpora</h3>
+          <p class="preco-desc">Som tu pre vás aj po spustení projektu a pomáham vám rásť a zlepšovať sa.</p>
+        </div>
+
+      </div><!-- /.preco-grid -->
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       ZÁVEREČNÁ CTA
+       ══════════════════════════════════════════════ -->
+  <section id="cta-bottom" aria-labelledby="cta-bottom-title">
+    <div class="container">
+      <div class="cta-bottom__inner">
+
+        <div class="cta-bottom__photo">
+          <img src="../Obrazky/Pozadie/pozadie sluzby.png" alt="" aria-hidden="true" loading="lazy" />
+        </div>
+
+        <div class="cta-bottom__content">
+          <h2 class="cta-bottom__h2" id="cta-bottom-title">
+            Pripravení posunúť svoju<br>
+            značku na vyššiu <span class="title-grad">úroveň?</span>
+          </h2>
+          <div class="cta-bottom__rule" aria-hidden="true"></div>
+          <p class="cta-bottom__text">
+            Ozvite sa mi a spoločne nájdeme riešenie, ktoré prinesie vašej značke skutočnú hodnotu.
+          </p>
+          <a class="cta-btn cta-btn--filled" href="/#kontakt">
+            <span class="cta-btn__left">
+              <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+              <span class="cta-btn__divider" aria-hidden="true"></span>
+              <span class="cta-btn__text">Konzultácia zdarma</span>
+            </span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Pätička stránky">
+
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="../Obrazky/Logo/Hlavne logo.png" alt="Soul Design" class="footer-brand__logo" loading="lazy" />
+          <div class="footer-brand__socials">
+            <a href="https://www.facebook.com/alex.fecikova" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-mid">
+          <div class="footer-col">
+            <div class="footer-col-title">Navigácia</div>
+            <ul class="footer-links">
+              <li><a href="/#uvod">Úvod</a></li>
+              <li><a href="/podstranky/sluzby.html">Služby</a></li>
+              <li><a href="/#cennik">Cenník</a></li>
+              <li><a href="/#omne">O mne</a></li>
+              <li><a href="/#kontakt">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Služby</div>
+            <ul class="footer-links">
+              <li><a href="/webove-stranky">Webové stránky</a></li>
+              <li><a href="/graficky-dizajn">Grafický dizajn</a></li>
+              <li><a href="/reklamne-kampane">Reklamné kampane</a></li>
+              <li><a href="/online-projektova-podpora">Online projektová podpora</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--right">
+          <div class="footer-col-title">Kontakty</div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-user"></i>
+            <span>Alex Rudyová</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Študentská 2046/39<br>069 01 Snina</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>info@souldesign.sk</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-copyright">
+          &copy; <span id="copyright-year"></span> Soul Design. Všetky práva vyhradené.
+        </div>
+        <div class="footer-legal">
+          <a href="/ochrana-udajov">Ochrana údajov</a>
+          <span aria-hidden="true" style="color: rgba(255,255,255,0.35);">·</span>
+          <a href="/cookies">Cookies</a>
+        </div>
+      </div>
+      <div class="footer__hb" aria-hidden="true">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="../Obrazky/Logo/video kolibrik.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script>
+    /* ── Scroll: header transparent → glass ── */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Mobile burger ── */
+    const burger = document.getElementById('burger-btn');
+    const nav    = document.querySelector('.header__nav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        nav.classList.toggle('mobile-active', !isOpen);
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          burger.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('mobile-active');
+        });
+      });
+    }
+
+    /* ── Copyright year ── */
+    const yearEl = document.getElementById('copyright-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

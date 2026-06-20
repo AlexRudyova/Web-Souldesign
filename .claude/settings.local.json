@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-Item 'c:\\\\Users\\\\Uzivatel\\\\Desktop\\\\VC Weby\\\\Web Souldesign\\\\Web Souldesign\\\\index.html' | Select-Object LastWriteTime\")",
+      "Bash(powershell -Command \"Get-Content 'c:\\\\Users\\\\Uzivatel\\\\Desktop\\\\VC Weby\\\\Web Souldesign\\\\Web Souldesign\\\\Obrazky\\\\Ikony\\\\Ako to funguje\\\\1.svg' -TotalCount 30\")",
+      "PowerShell(python --version)",
+      "PowerShell(python -c \"from PIL import Image; print\\('PIL OK'\\)\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; [System.Drawing.Bitmap] | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Uzivatel\\\\Downloads\" | Where-Object {$_.Extension -match \"\\\\.\\(png|svg|jpg|webp\\)\"} | Sort-Object LastWriteTime -Descending | Select-Object -First 20 Name, LastWriteTime, Length)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Uzivatel\\\\Downloads\" | Where-Object {$_.Name -match \"freepik_br\"} | Select-Object Name, LastWriteTime, Length | Sort-Object LastWriteTime)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\Uzivatel\\\\Desktop\\\\VC Weby\\\\Web Souldesign\\\\Web Souldesign\\\\Obrazky\\\\Ikony\\\\Ako to funguje\" | Where-Object {$_.Name -match \"^\\(17|18|19|20\\)\\\\.png$\"} | Select-Object Name, Length, LastWriteTime)",
+      "WebSearch"
+    ]
+  }
+}

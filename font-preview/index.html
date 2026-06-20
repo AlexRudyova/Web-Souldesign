@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul Design – Podpisové fonty / Round 3</title>
+
+  <!-- Branding fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <!-- Round 3 kandidáti – Abramo/Modernline alternatívy -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Petit+Formal+Script&family=Imperial+Script&family=Luxurious+Script&family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal-deeper: #003344;
+      --teal-dark:   #005f7a;
+      --teal-mid:    #007599;
+      --teal:        #00a3c9;
+      --teal-pale:   #a8eef8;
+      --white:       #ffffff;
+      --text:        #1a1a1a;
+      --muted:       #5a5a5a;
+      --bg:          #f7f5f2;
+      --border:      rgba(0,117,153,0.12);
+      --font-head:   'Frank Ruhl Libre', Georgia, serif;
+      --font-body:   'Lora', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--teal-deeper), var(--teal-dark) 60%, var(--teal-mid));
+      color: var(--white);
+      padding: 56px 40px 46px;
+      text-align: center;
+    }
+    .page-header .label {
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--teal-pale); margin-bottom: 14px; opacity: 0.85;
+    }
+    .page-header h1 {
+      font-family: var(--font-head); font-size: clamp(26px,4vw,44px);
+      font-weight: 700; line-height: 1.1; margin-bottom: 10px;
+    }
+    .page-header h1 em { font-style: italic; font-weight: 300; color: var(--teal-pale); }
+    .page-header .desc {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      max-width: 560px; margin: 0 auto; font-style: italic;
+    }
+
+    /* ── BRAND REF ── */
+    .brand-ref {
+      background: var(--white); border-bottom: 2px solid var(--border);
+      padding: 22px 40px; max-width: 1100px; margin: 0 auto;
+    }
+    .brand-ref__title {
+      font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--teal-mid); margin-bottom: 12px;
+    }
+    .brand-ref__row {
+      display: flex; gap: 48px; flex-wrap: wrap; align-items: baseline;
+    }
+    .brand-ref__item .tag {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 3px;
+    }
+    .bf-head { font-family: 'Frank Ruhl Libre', serif; font-size: 26px; font-weight: 700; color: var(--teal-dark); }
+    .bf-body { font-family: 'Lora', serif; font-size: 16px; color: var(--muted); }
+    .bf-cta  { font-family: 'Lora', serif; font-size: 16px; font-style: italic; font-weight: 500; color: var(--teal); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 48px 40px 80px; }
+
+    .section-intro {
+      margin-bottom: 40px; display: flex; align-items: center; gap: 16px;
+    }
+    .section-intro::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-intro span {
+      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--teal); white-space: nowrap;
+    }
+
+    /* ── FONT CARDS ── */
+    .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+
+    .font-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.25s ease;
+    }
+    .font-card:hover { box-shadow: 0 14px 44px rgba(0,95,122,0.11); transform: translateY(-2px); }
+
+    .font-card:nth-child(1) .card-accent { background: linear-gradient(90deg,#003344,#007599); }
+    .font-card:nth-child(2) .card-accent { background: linear-gradient(90deg,#005f7a,#00a3c9); }
+    .font-card:nth-child(3) .card-accent { background: linear-gradient(90deg,#007599,#00c4e8); }
+    .font-card:nth-child(4) .card-accent { background: linear-gradient(90deg,#003344,#005f7a); }
+    .font-card:nth-child(5) .card-accent { background: linear-gradient(90deg,#00a3c9,#a8eef8); }
+
+    .card-accent { height: 4px; }
+    .card-body { padding: 26px 28px 24px; }
+
+    .card-meta {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 22px;
+    }
+    .card-name {
+      font-family: var(--font-head); font-size: 16px;
+      font-weight: 700; color: var(--teal-dark);
+    }
+    .card-badge {
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      background: rgba(0,163,201,0.07); color: var(--teal-mid);
+      border: 1px solid rgba(0,163,201,0.2);
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+    }
+    .card-badge.warn {
+      background: rgba(200,140,40,0.08); color: #9a6820;
+      border-color: rgba(200,140,40,0.25);
+    }
+
+    /* Showcase */
+    .font-showcase {
+      padding: 26px 0 20px; text-align: center;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, rgba(0,117,153,0.025) 0%, transparent 100%);
+      border-radius: 6px;
+    }
+    .sig-big  { display: block; line-height: 1.25; color: var(--teal-dark); margin-bottom: 10px; }
+    .sig-small{ display: block; color: var(--muted); }
+
+    /* Diacritika */
+    .diacritics-test {
+      background: rgba(0,117,153,0.04); border-radius: 8px;
+      padding: 11px 15px; margin-bottom: 18px;
+    }
+    .diacritics-test .dt-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal-mid); display: block; margin-bottom: 5px;
+    }
+    .diacritics-test .dt-note {
+      font-size: 10px; color: #9a6820; font-style: italic;
+      display: block; margin-top: 4px;
+    }
+
+    /* Context mock */
+    .in-context { margin-bottom: 18px; }
+    .ctx-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 9px;
+    }
+    .mock-dark {
+      background: linear-gradient(135deg, var(--teal-deeper), #004d66);
+      border-radius: 10px; padding: 18px 20px; color: var(--white); margin-bottom: 8px;
+    }
+    .mock-dark .ms-over { display: block; color: var(--teal-pale); margin-bottom: 4px; line-height: 1.2; }
+    .mock-dark .ms-head { font-family: var(--font-head); font-size: 19px; font-weight: 700; line-height: 1.1; margin-bottom: 3px; }
+    .mock-dark .ms-sub  { font-family: var(--font-body); font-size: 11px; font-style: italic; color: rgba(255,255,255,0.42); }
+
+    .mock-light {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px;
+    }
+    .mock-light .ms-over { display: block; color: var(--teal-mid); margin-bottom: 3px; line-height: 1.2; }
+    .mock-light .ms-head { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--teal-dark); line-height: 1.1; margin-bottom: 3px; }
+    .mock-light .ms-sub  { font-family: var(--font-body); font-size: 11px; font-style: italic; color: var(--muted); }
+
+    /* Popis */
+    .card-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.65;
+      font-style: italic; margin-bottom: 14px;
+    }
+    .card-rating {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      padding-top: 12px; border-top: 1px solid var(--border);
+    }
+    .rating-item { font-size: 11px; color: var(--muted); }
+    .rating-item strong { color: var(--teal-dark); font-weight: 600; }
+
+    /* Piata karta – plná šírka */
+    .font-card.full-width { grid-column: 1 / -1; }
+    .font-card.full-width .fw-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    }
+    .font-card.full-width .card-meta { grid-column: 1 / -1; }
+
+    /* ── POROVNANIE ── */
+    .compare { margin-top: 60px; }
+    .compare h2 {
+      font-family: var(--font-head); font-size: clamp(20px,2.4vw,28px);
+      font-weight: 700; color: var(--teal-dark); margin-bottom: 6px;
+    }
+    .compare .sub {
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--muted); font-style: italic; margin-bottom: 24px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal-mid); padding: 12px 14px; text-align: left;
+      border-bottom: 2px solid var(--border); background: rgba(0,117,153,0.03);
+    }
+    td { padding: 13px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:hover td { background: rgba(0,163,201,0.03); }
+    .td-name { font-weight: 600; color: var(--teal-dark); }
+
+    .pill {
+      display: inline-block; padding: 3px 9px;
+      border-radius: 20px; font-size: 10px; letter-spacing: 0.08em;
+    }
+    .pill-yes  { background: rgba(0,163,201,0.1); color: var(--teal-mid); border: 1px solid rgba(0,163,201,0.25); }
+    .pill-warn { background: rgba(200,140,40,0.1); color: #9a6820; border: 1px solid rgba(200,140,40,0.25); }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: var(--teal-deeper); color: rgba(255,255,255,0.3);
+      text-align: center; padding: 26px 20px; font-size: 11px; letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 768px) {
+      .font-grid, .font-card.full-width .fw-grid { grid-template-columns: 1fr; }
+      .font-card.full-width .card-meta { grid-column: auto; }
+      .brand-ref__row { flex-direction: column; gap: 14px; }
+      .content { padding: 28px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <p class="label">Soul Design — Typography Lab · Round 3</p>
+  <h1>Abramo &amp; Modernline<br><em>– najbližšie alternatívy na Google Fonts</em></h1>
+  <p class="desc">5 nových fontov vybraných špeciálne ako bezplatné alternatívy k Abramo Script a Modernline. Diakritika overená priamo nižšie.</p>
+</header>
+
+<!-- BRAND REF -->
+<div class="brand-ref">
+  <p class="brand-ref__title">Schválená brandingová sada – referencia</p>
+  <div class="brand-ref__row">
+    <div class="brand-ref__item">
+      <span class="tag">Heading</span>
+      <span class="bf-head">Frank Ruhl Libre</span>
+    </div>
+    <div class="brand-ref__item">
+      <span class="tag">Body text</span>
+      <span class="bf-body">Lora</span>
+    </div>
+    <div class="brand-ref__item">
+      <span class="tag">CTA</span>
+      <span class="bf-cta">Lora italic</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="content">
+
+  <div class="section-intro">
+    <span>Alternatívy k Abramo Script &amp; Modernline — všetky zadarmo, vrátane komerčného použitia</span>
+  </div>
+
+  <div class="font-grid">
+
+    <!-- ─── 1. GREAT VIBES ─── -->
+    <div class="font-card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">01 — Great Vibes</div>
+          <span class="card-badge">Najbližšie k Abramo</span>
+        </div>
+
+        <div class="font-showcase">
+          <span class="sig-big" style="font-family:'Great Vibes',cursive; font-size:clamp(44px,5.5vw,68px);">Štýl s dušou</span>
+          <span class="sig-small" style="font-family:'Great Vibes',cursive; font-size:clamp(22px,2.8vw,36px);">Každý detail záleží</span>
+        </div>
+
+        <div class="diacritics-test">
+          <span class="dt-label">Diakritika SK/CZ — overená vizuálne</span>
+          <span style="font-family:'Great Vibes',cursive; font-size:24px; line-height:1.5; display:block;">á é í ó ú ý ä č š ž ň ď ľ ť ô ě ů</span>
+          <span style="font-family:'Great Vibes',cursive; font-size:22px; color:var(--teal-dark); display:block; margin-top:4px;">Tvoríme s láskou k detailu</span>
+        </div>
+
+        <div class="in-context">
+          <span class="ctx-label">Na tmavom &amp; svetlom pozadí</span>
+          <div class="mock-dark">
+            <span class="ms-over" style="font-family:'Great Vibes',cursive; font-size:22px;">s láskou k detailu</span>
+            <div class="ms-head">Webový Design</div>
+            <div class="ms-sub">Tvoríme online prítomnosť, ktorá predáva</div>
+          </div>
+          <div style="height:8px;"></div>
+          <div class="mock-light">
+            <span class="ms-over" style="font-family:'Great Vibes',cursive; font-size:22px;">naše služby</span>
+            <div class="ms-head">Každý projekt je jedinečný</div>
+            <div class="ms-sub">Špičková kvalita, osobný prístup</div>
+          </div>
+        </div>
+
+        <p class="card-desc">Plynulý, spojený script s 2000+ glyfmi (rozšírený 2024). Najviac sa blíži k Abramo Script — rovnaká flowing línia, podobné hrúbky ťahu, luxusný fashion feel. Jeden z najelegantnejších scriptových fontov na Google Fonts.</p>
+        <div class="card-rating">
+          <div class="rating-item"><strong>Diakritika:</strong> 2000+ glyfov ✓</div>
+          <div class="rating-item"><strong>Váhy:</strong> 1 (400)</div>
+          <div class="rating-item"><strong>Licencia:</strong> OFL – komerčné ✓</div>
+          <div class="rating-item"><strong>Nálada:</strong> Luxusná, plynulá, fashion</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 2. PETIT FORMAL SCRIPT ─── -->
+    <div class="font-card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">02 — Petit Formal Script</div>
+          <span class="card-badge">Potvrdenená diakritika</span>
+        </div>
+
+        <div class="font-showcase">
+          <span class="sig-big" style="font-family:'Petit Formal Script',cursive; font-size:clamp(38px,4.8vw,60px);">Štýl s dušou</span>
+          <span class="sig-small" style="font-family:'Petit Formal Script',cursive; font-size:clamp(19px,2.4vw,30px);">Každý detail záleží</span>
+        </div>
+
+        <div class="diacritics-test">
+          <span class="dt-label">Diakritika SK/CZ — Latin Ext. A+B potvrdená</span>
+          <span style="font-family:'Petit Formal Script',cursive; font-size:22px; line-height:1.5; display:block;">á é í ó ú ý ä č š ž ň ď ľ ť ô ě ů</span>
+          <span style="font-family:'Petit Formal Script',cursive; font-size:20px; color:var(--teal-dark); display:block; margin-top:4px;">Tvoríme s láskou k detailu</span>
+        </div>
+
+        <div class="in-context">
+          <span class="ctx-label">Na tmavom &amp; svetlom pozadí</span>
+          <div class="mock-dark">
+            <span class="ms-over" style="font-family:'Petit Formal Script',cursive; font-size:21px;">s láskou k detailu</span>
+            <div class="ms-head">Webový Design</div>
+            <div class="ms-sub">Tvoríme online prítomnosť, ktorá predáva</div>
+          </div>
+          <div style="height:8px;"></div>
+          <div class="mock-light">
+            <span class="ms-over" style="font-family:'Petit Formal Script',cursive; font-size:21px;">naše služby</span>
+            <div class="ms-head">Každý projekt je jedinečný</div>
+            <div class="ms-sub">Špičková kvalita, osobný prístup</div>
+          </div>
+        </div>
+
+        <p class="card-desc">Formálny, elegantný script s premenlivou hrúbkou ťahu — pripomína rukopis perom na prémiovom papieri. Potvrdenádiakritika Latin Extended A (127 znakov) aj B. Rafinovanejší a menší ako Great Vibes.</p>
+        <div class="card-rating">
+          <div class="rating-item"><strong>Diakritika:</strong> Latin Ext. A+B ✓</div>
+          <div class="rating-item"><strong>Váhy:</strong> 1 (400)</div>
+          <div class="rating-item"><strong>Licencia:</strong> OFL – komerčné ✓</div>
+          <div class="rating-item"><strong>Nálada:</strong> Formálna, rafinovaná, malá</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 3. IMPERIAL SCRIPT ─── -->
+    <div class="font-card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">03 — Imperial Script</div>
+          <span class="card-badge warn">Diakritiku over vizuálne</span>
+        </div>
+
+        <div class="font-showcase">
+          <span class="sig-big" style="font-family:'Imperial Script',cursive; font-size:clamp(38px,4.8vw,60px);">Štýl s dušou</span>
+          <span class="sig-small" style="font-family:'Imperial Script',cursive; font-size:clamp(19px,2.4vw,30px);">Každý detail záleží</span>
+        </div>
+
+        <div class="diacritics-test">
+          <span class="dt-label">Diakritika SK/CZ — over vizuálne nižšie</span>
+          <span style="font-family:'Imperial Script',cursive; font-size:22px; line-height:1.5; display:block;">á é í ó ú ý ä č š ž ň ď ľ ť ô ě ů</span>
+          <span style="font-family:'Imperial Script',cursive; font-size:20px; color:var(--teal-dark); display:block; margin-top:4px;">Tvoríme s láskou k detailu</span>
+          <span class="dt-note">⚠ Ak vidíš štvorčeky alebo generický font — chýbajúce glyfy</span>
+        </div>
+
+        <div class="in-context">
+          <span class="ctx-label">Na tmavom &amp; svetlom pozadí</span>
+          <div class="mock-dark">
+            <span class="ms-over" style="font-family:'Imperial Script',cursive; font-size:20px;">s láskou k detailu</span>
+            <div class="ms-head">Webový Design</div>
+            <div class="ms-sub">Tvoríme online prítomnosť, ktorá predáva</div>
+          </div>
+          <div style="height:8px;"></div>
+          <div class="mock-light">
+            <span class="ms-over" style="font-family:'Imperial Script',cursive; font-size:20px;">naše služby</span>
+            <div class="ms-head">Každý projekt je jedinečný</div>
+            <div class="ms-sub">Špičková kvalita, osobný prístup</div>
+          </div>
+        </div>
+
+        <p class="card-desc">Formálny, noblesný script s čistými spojeniami — evokuje cisársku korešpondenciu a prémiové diplomy. Veľmi blízky Abramo charakterom. Diakritiku over priamo — ak vyzerá správne, je to výborný kandidát.</p>
+        <div class="card-rating">
+          <div class="rating-item"><strong>Diakritika:</strong> Over vizuálne ↑</div>
+          <div class="rating-item"><strong>Váhy:</strong> 1 (400)</div>
+          <div class="rating-item"><strong>Licencia:</strong> OFL – komerčné ✓</div>
+          <div class="rating-item"><strong>Nálada:</strong> Noblesná, formálna, čistá</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 4. LUXURIOUS SCRIPT ─── -->
+    <div class="font-card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">04 — Luxurious Script</div>
+          <span class="card-badge warn">Diakritiku over vizuálne</span>
+        </div>
+
+        <div class="font-showcase">
+          <span class="sig-big" style="font-family:'Luxurious Script',cursive; font-size:clamp(38px,4.8vw,60px);">Štýl s dušou</span>
+          <span class="sig-small" style="font-family:'Luxurious Script',cursive; font-size:clamp(19px,2.4vw,30px);">Každý detail záleží</span>
+        </div>
+
+        <div class="diacritics-test">
+          <span class="dt-label">Diakritika SK/CZ — over vizuálne nižšie</span>
+          <span style="font-family:'Luxurious Script',cursive; font-size:22px; line-height:1.5; display:block;">á é í ó ú ý ä č š ž ň ď ľ ť ô ě ů</span>
+          <span style="font-family:'Luxurious Script',cursive; font-size:20px; color:var(--teal-dark); display:block; margin-top:4px;">Tvoríme s láskou k detailu</span>
+          <span class="dt-note">⚠ Ak vidíš štvorčeky alebo generický font — chýbajúce glyfy</span>
+        </div>
+
+        <div class="in-context">
+          <span class="ctx-label">Na tmavom &amp; svetlom pozadí</span>
+          <div class="mock-dark">
+            <span class="ms-over" style="font-family:'Luxurious Script',cursive; font-size:20px;">s láskou k detailu</span>
+            <div class="ms-head">Webový Design</div>
+            <div class="ms-sub">Tvoríme online prítomnosť, ktorá predáva</div>
+          </div>
+          <div style="height:8px;"></div>
+          <div class="mock-light">
+            <span class="ms-over" style="font-family:'Luxurious Script',cursive; font-size:20px;">naše služby</span>
+            <div class="ms-head">Každý projekt je jedinečný</div>
+            <div class="ms-sub">Špičková kvalita, osobný prístup</div>
+          </div>
+        </div>
+
+        <p class="card-desc">Honosný, sebavedomý script navrhnutý priamo pre luxusné brandingové projekty. Z celého kola asi najvýraznejší charakter — hrubší ťah, silná osobnosť. Blízky pocitu Abramo aj Modernline zároveň.</p>
+        <div class="card-rating">
+          <div class="rating-item"><strong>Diakritika:</strong> Over vizuálne ↑</div>
+          <div class="rating-item"><strong>Váhy:</strong> 1 (400)</div>
+          <div class="rating-item"><strong>Licencia:</strong> OFL – komerčné ✓</div>
+          <div class="rating-item"><strong>Nálada:</strong> Luxusná, výrazná, sebavedomá</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 5. QWITCHER GRYPEN — plná šírka ─── -->
+    <div class="font-card full-width">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">05 — Qwitcher Grypen</div>
+          <span class="card-badge">Potvrdenená diakritika · 2 váhy · Najbližšie k Modernline</span>
+        </div>
+        <div class="fw-grid">
+          <div>
+            <div class="font-showcase">
+              <span class="sig-big" style="font-family:'Qwitcher Grypen',cursive; font-weight:400; font-size:clamp(40px,5vw,64px);">Štýl s dušou</span>
+              <span class="sig-small" style="font-family:'Qwitcher Grypen',cursive; font-weight:400; font-size:clamp(20px,2.6vw,32px);">Každý detail záleží</span>
+            </div>
+            <div class="diacritics-test">
+              <span class="dt-label">Diakritika SK/CZ — Central European potvrdená</span>
+              <span style="font-family:'Qwitcher Grypen',cursive; font-size:24px; line-height:1.5; display:block;">á é í ó ú ý ä č š ž ň ď ľ ť ô ě ů</span>
+              <span style="font-family:'Qwitcher Grypen',cursive; font-size:22px; color:var(--teal-dark); display:block; margin-top:4px;">Tvoríme s láskou k detailu</span>
+            </div>
+            <div style="display:flex; gap:12px; margin-top:14px;">
+              <div style="flex:1; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:12px 14px;">
+                <span style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">wght 400 — jemný</span>
+                <span style="font-family:'Qwitcher Grypen',cursive; font-weight:400; font-size:24px; color:var(--teal-dark);">Tvoríme s láskou</span>
+              </div>
+              <div style="flex:1; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:12px 14px;">
+                <span style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">wght 700 — silný</span>
+                <span style="font-family:'Qwitcher Grypen',cursive; font-weight:700; font-size:24px; color:var(--teal-dark);">Tvoríme s láskou</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="in-context">
+              <span class="ctx-label">Na tmavom &amp; svetlom pozadí</span>
+              <div class="mock-dark">
+                <span class="ms-over" style="font-family:'Qwitcher Grypen',cursive; font-size:22px; font-weight:400;">s láskou k detailu</span>
+                <div class="ms-head">Webový Design</div>
+                <div class="ms-sub">Tvoríme online prítomnosť, ktorá predáva</div>
+              </div>
+              <div style="height:8px;"></div>
+              <div class="mock-light">
+                <span class="ms-over" style="font-family:'Qwitcher Grypen',cursive; font-size:22px; font-weight:400;">naše služby</span>
+                <div class="ms-head">Každý projekt je jedinečný</div>
+                <div class="ms-sub">Špičková kvalita, osobný prístup</div>
+              </div>
+            </div>
+            <p class="card-desc">Inšpirovaný architektonickým rysovacom perom — organický, moderný, s charakterom. Zo všetkých kandidátov sa najviac blíži k Modernline: rovnaký pocit svieže, autentickej ručnej kresby. Výhoda: 2 váhy (400 / 700) a potvrdená Central European diakritika.</p>
+            <div class="card-rating">
+              <div class="rating-item"><strong>Diakritika:</strong> Central EU ✓</div>
+              <div class="rating-item"><strong>Váhy:</strong> 400 / 700</div>
+              <div class="rating-item"><strong>Licencia:</strong> OFL – komerčné ✓</div>
+              <div class="rating-item"><strong>Nálada:</strong> Moderná, organická, svieža</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /font-grid -->
+
+  <!-- POROVNANIE -->
+  <div class="compare">
+    <h2>Rovnaký text — všetky vedľa seba</h2>
+    <p class="sub">„Tvoríme s láskou" — porovnaj charakter každého fontu</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Font</th>
+          <th>Ukážka</th>
+          <th>Podobá sa na</th>
+          <th>Diakritika</th>
+          <th>Komerčné</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">Great Vibes</td>
+          <td style="font-family:'Great Vibes',cursive; font-size:28px; color:var(--teal-dark);">Tvoríme s láskou</td>
+          <td>Abramo Script ⭐⭐⭐</td>
+          <td><span class="pill pill-yes">2000+ glyfov ✓</span></td>
+          <td><span class="pill pill-yes">OFL ✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Petit Formal Script</td>
+          <td style="font-family:'Petit Formal Script',cursive; font-size:28px; color:var(--teal-dark);">Tvoríme s láskou</td>
+          <td>Abramo – menší, formálnejší</td>
+          <td><span class="pill pill-yes">Latin Ext. A+B ✓</span></td>
+          <td><span class="pill pill-yes">OFL ✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Imperial Script</td>
+          <td style="font-family:'Imperial Script',cursive; font-size:28px; color:var(--teal-dark);">Tvoríme s láskou</td>
+          <td>Abramo – noblesnejší</td>
+          <td><span class="pill pill-warn">Over vizuálne ↑</span></td>
+          <td><span class="pill pill-yes">OFL ✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Luxurious Script</td>
+          <td style="font-family:'Luxurious Script',cursive; font-size:28px; color:var(--teal-dark);">Tvoríme s láskou</td>
+          <td>Abramo + Modernline mix</td>
+          <td><span class="pill pill-warn">Over vizuálne ↑</span></td>
+          <td><span class="pill pill-yes">OFL ✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Qwitcher Grypen</td>
+          <td style="font-family:'Qwitcher Grypen',cursive; font-weight:400; font-size:28px; color:var(--teal-dark);">Tvoríme s láskou</td>
+          <td>Modernline ⭐⭐⭐</td>
+          <td><span class="pill pill-yes">Central EU ✓</span></td>
+          <td><span class="pill pill-yes">OFL ✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  Soul Design — Font Preview Round 3 · Interné použitie · Neimplementovať na web
+</footer>
+
+</body>
+</html>

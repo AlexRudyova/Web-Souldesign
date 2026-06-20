@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" fill="none">
+
+  <!-- ── VETVA ── -->
+  <path d="M8 182 Q45 177 100 181 Q155 185 192 176"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Ľavý list (kosoštvorec) -->
+  <path d="M24 165 L10 178 L24 191 L38 178 Z"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <line x1="24" y1="165" x2="24" y2="191"
+        stroke="currentColor" stroke-width="1"/>
+
+  <!-- Pravý list (menší) -->
+  <path d="M174 167 L164 175 L174 183 L184 175 Z"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- ── TELO — dolná časť ── -->
+  <!-- Chvostové perá (klinovité) -->
+  <path d="M90 176 L100 162 L110 176"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- Obrys tela -->
+  <path d="M72 126 L62 156 L76 178 L90 176
+           M110 176 L124 178 L138 156 L128 126"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- Fasety tela -->
+  <line x1="72" y1="126" x2="100" y2="143" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="128" y1="126" x2="100" y2="143" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="62" y1="156" x2="100" y2="143" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="138" y1="156" x2="100" y2="143" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="62" y1="156" x2="76" y2="178" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="138" y1="156" x2="124" y2="178" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="76" y1="178" x2="100" y2="162" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="124" y1="178" x2="100" y2="162" stroke="currentColor" stroke-width="1.2"/>
+
+  <!-- ── KRÍDLA (bočné) ── -->
+  <path d="M72 126 L48 114 L53 146 L62 156"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <line x1="48" y1="114" x2="62" y2="156" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M128 126 L152 114 L147 146 L138 156"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <line x1="152" y1="114" x2="138" y2="156" stroke="currentColor" stroke-width="1.1"/>
+
+  <!-- ── HLAVA ── -->
+  <!-- Ľavý ušný chochol -->
+  <path d="M79 61 L72 38 L88 54" stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <!-- Pravý ušný chochol -->
+  <path d="M121 61 L128 38 L112 54" stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- Obrys hlavy -->
+  <path d="M72 61 L66 74 L68 94 L78 108 L100 112 L122 108 L132 94 L134 74 L128 61
+           L112 54 L88 54 L72 61 Z"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- Línie tvárovej platne (V-tvar zbiehajúci sa pri zobáku) -->
+  <path d="M72 68 L100 91 L128 68"
+        stroke="currentColor" stroke-width="1.6" fill="none"/>
+
+  <!-- Doplnkové fasety tváre -->
+  <line x1="72" y1="68" x2="82" y2="81" stroke="currentColor" stroke-width="1.1"/>
+  <line x1="128" y1="68" x2="118" y2="81" stroke="currentColor" stroke-width="1.1"/>
+  <line x1="82" y1="81" x2="100" y2="91" stroke="currentColor" stroke-width="1.1"/>
+  <line x1="118" y1="81" x2="100" y2="91" stroke="currentColor" stroke-width="1.1"/>
+
+  <!-- Spojenie hlava–telo -->
+  <line x1="68" y1="94" x2="72" y2="126" stroke="currentColor" stroke-width="1.3"/>
+  <line x1="132" y1="94" x2="128" y2="126" stroke="currentColor" stroke-width="1.3"/>
+  <line x1="78" y1="108" x2="72" y2="126" stroke="currentColor" stroke-width="1.3"/>
+  <line x1="122" y1="108" x2="128" y2="126" stroke="currentColor" stroke-width="1.3"/>
+
+  <!-- ── OČI ── -->
+  <circle cx="84" cy="76" r="9.5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <circle cx="84" cy="76" r="3.5" fill="currentColor"/>
+  <circle cx="116" cy="76" r="9.5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+  <circle cx="116" cy="76" r="3.5" fill="currentColor"/>
+
+  <!-- ── ZOBÁK ── -->
+  <path d="M96 91 L100 98 L104 91" stroke="currentColor" stroke-width="1.5" fill="none"/>
+
+</svg>

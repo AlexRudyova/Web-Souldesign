@@ -1,0 +1,6010 @@
+﻿<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul Design – Webdizajn, grafický dizajn a kreatívna online podpora | souldesign.sk</title>
+  <meta name="description"
+    content="Butikové kreatívne štúdio jednej osoby. Moderný webdizajn, grafický dizajn, reklamné kampane a kreatívna online podpora pre váš business. Soul Design – design that connects." />
+  <link rel="canonical" href="https://souldesign.sk/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Soul Design" />
+  <meta property="og:title" content="Soul Design – Design that connects" />
+  <meta property="og:description"
+    content="Butikové kreatívne štúdio pre moderný webdizajn, grafický dizajn a kreatívnu online podporu vašej značky." />
+  <meta property="og:url" content="https://souldesign.sk/" />
+  <meta property="og:image" content="https://souldesign.sk/Obrazky/og-image.jpg" />
+  <meta property="og:locale" content="sk_SK" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="Obrazky/Logo/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Soul Design",
+    "description": "Butikové kreatívne štúdio pre moderný webdizajn, grafický dizajn a kreatívnu online podporu.",
+    "url": "https://souldesign.sk",
+    "founder": {
+      "@type": "Person",
+      "name": "Alex Rudyová"
+    },
+    "sameAs": [
+      "https://www.facebook.com/alex.fecikova/",
+      "https://www.linkedin.com/in/alex-rudyova-469001156/"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       1. RESET & TOKENS (PRESERVED FROM HERO)
+       ═══════════════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Hero color scheme variables */
+      --teal: #007599;
+      --teal-mid: #005f7a;
+      --teal-dark: #003d52;
+      --teal-deeper: #002535;
+      --teal-glow: #00a3c9;
+      --teal-pale: #4ecde8;
+      --white: #ffffff;
+
+      /* Elegant branding variables */
+      --bg-start: #FAF8F5;
+      /* Warm soft ivory */
+      --bg-mid: #E9F3F6;
+      /* Ice blue / light teal */
+      --bg-end: #FCF9F5;
+      /* Warm cream */
+      --text-color: #333333;
+      --text-muted: #555555;
+      --text-light: #888888;
+      --accent-script: #8C7355;
+      /* Warm gold/bronze for handwriting script accents */
+
+      --radius-card: 14px;
+      --radius-btn: 50px;
+
+      --font-head: 'Frank Ruhl Libre', Georgia, serif;
+      --font-body: 'Lora', Georgia, serif;
+      --font-script: 'Cormorant Garamond', Georgia, serif;
+
+      --transition-base: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-start);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════════════════════════════════════
+       2. HEADER / NAVBAR (PRESERVED FROM HERO WITH ADAPTATIONS)
+       ═══════════════════════════════════════════════ */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: clamp(16px, 2.4vh, 26px) clamp(24px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(0, 25, 38, 0.50) 0%, transparent 100%);
+      transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s, position 0.4s;
+    }
+
+    /* Fixed header on scroll */
+    .site-header.scrolled {
+      position: fixed;
+      background: rgba(244, 242, 238, 0.82);
+      backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22), inset 0 -1px 0 rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      padding: clamp(12px, 1.8vh, 18px) clamp(24px, 5vw, 72px);
+      animation: headerSlideIn 0.3s ease-out;
+    }
+
+    @keyframes headerSlideIn {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo – larger, using "Logo do hlavicky" */
+    .header__logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header__logo img {
+      height: clamp(48px, 6.5vh, 74px);
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.90;
+      transition: opacity 0.3s ease, filter 0.4s ease;
+    }
+
+    .header__logo:hover img {
+      opacity: 1;
+    }
+
+    .site-header.scrolled .header__logo img {
+      filter: none;
+      opacity: 1;
+    }
+
+    /* Nav list */
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 2.8vw, 40px);
+      list-style: none;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: clamp(11px, 1vw, 13px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.28s ease;
+    }
+
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #005f7a 0%, #007599 35%, #00b5d8 70%, #00a3c9 100%);
+      transition: width 0.32s ease;
+    }
+
+    .header__nav a:hover {
+      color: #fff;
+    }
+
+    .header__nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Nav items color on scroll */
+    .site-header.scrolled .header__nav a {
+      color: rgba(0, 63, 82, 0.80);
+    }
+
+    .site-header.scrolled .header__nav a:hover {
+      color: #003d52;
+    }
+
+    .site-header.scrolled .header__nav a::after {
+      background: linear-gradient(90deg, #005f7a 0%, #007599 35%, #00b5d8 70%, #00a3c9 100%);
+    }
+
+    /* Kontakt CTA – chamfer shape, rovnaký štýl ako hero CTA */
+    .nav__cta {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 148px;
+      height: 40px;
+      padding: 0 !important;
+      clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z");
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px !important;
+      font-weight: 600;
+      letter-spacing: 0.05em !important;
+      color: var(--white) !important;
+      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+      transition: filter 300ms ease;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+
+    /* Vyššia špecifickosť (2 triedy) ako .header__nav a::after (trieda+element) */
+    .header__nav .nav__cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+
+    .header__nav .nav__cta:hover::after { opacity: 1; }
+
+    .nav__cta:hover {
+      color: var(--white) !important;
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+
+
+    /* Mobile burger */
+    .header__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .header__burger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, 0.80);
+      border-radius: 2px;
+      transition: background-color 0.3s;
+    }
+
+    .site-header.scrolled .header__burger span {
+      background: var(--text-color);
+    }
+
+    /* ═══════════════════════════════════════════════
+       3. HERO WRAPPER (PRESERVED FROM HERO)
+       ═══════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: var(--teal-deeper);
+      -webkit-mask-image: linear-gradient(to bottom,
+        black             0%,
+        black            91%,
+        rgba(0,0,0,0.82) 93%,
+        rgba(0,0,0,0.55) 95%,
+        rgba(0,0,0,0.22) 97%,
+        rgba(0,0,0,0.05) 99%,
+        transparent      100%
+      );
+      mask-image: linear-gradient(to bottom,
+        black             0%,
+        black            91%,
+        rgba(0,0,0,0.82) 93%,
+        rgba(0,0,0,0.55) 95%,
+        rgba(0,0,0,0.22) 97%,
+        rgba(0,0,0,0.05) 99%,
+        transparent      100%
+      );
+    }
+
+    #hero {
+      padding-top: 80px;
+      padding-bottom: 20px;
+    }
+
+    /* Photo: right side, more zoomed-out */
+    .hero__photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 72%;
+      height: 100%;
+      z-index: 0;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, #000 38%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, #000 38%);
+      will-change: transform;
+    }
+
+    .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 42% top;
+      display: block;
+      will-change: transform;
+      transform-origin: top right;
+      transform: scale(1.06);
+      animation: heroPhotoReveal 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes heroPhotoReveal {
+      to {
+        transform: scale(0.90);
+      }
+    }
+
+    /* Smooth teal gradient overlay */
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(to right,
+          #002535 0%,
+          #002535 24%,
+          #003d52 35%,
+          #005f7a 46%,
+          rgba(0, 95, 122, 0.4) 58%,
+          rgba(0, 117, 153, 0.08) 68%,
+          transparent 78%);
+    }
+
+    /* Bottom vignette */
+    .hero__vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(to top,
+          rgba(0, 20, 30, 0.45) 0%,
+          transparent 35%);
+    }
+
+    /* 3D Blinds (Louvers) */
+    .hero__louvers {
+      position: absolute;
+      top: 0;
+      right: -10vw;
+      width: 85vw;
+      height: 100%;
+      z-index: 4;
+      display: flex;
+      pointer-events: none;
+      transform: skewX(14deg);
+      transform-origin: top left;
+      mask-image: linear-gradient(to right, transparent 0%, black 7%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%);
+    }
+
+    .louver-blade {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px) saturate(1.4) brightness(0.85);
+      -webkit-backdrop-filter: blur(12px) saturate(1.4) brightness(0.85);
+      border-left: 1px solid rgba(255, 255, 255, 0.20);
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: -4px 0 22px rgba(0, 0, 0, 0.35), inset 1px 0 0 rgba(255, 255, 255, 0.07);
+      margin-right: -1px;
+      transition:
+        transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .louver-blade::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(108deg,
+          rgba(255, 255, 255, 0.13) 0%,
+          rgba(255, 255, 255, 0.04) 38%,
+          transparent 58%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .louver-blade.open {
+      transform: translateX(110%);
+      opacity: 0;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    /* Hummingbird (Blend & filter) */
+    .hero__hummingbird {
+      position: absolute;
+      z-index: 15;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: clamp(140px, 18vw, 240px);
+      height: auto;
+      opacity: 0;
+      mix-blend-mode: screen;
+      filter: grayscale(100%) contrast(300%) brightness(3.5);
+      will-change: transform, opacity;
+    }
+
+    /* Content grid */
+    .hero__content {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding:
+        clamp(70px, 8vh, 95px) clamp(24px, 5.5vw, 80px) clamp(80px, 10vh, 120px);
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .hero__text {
+      max-width: 530px;
+      padding-top: 50px;
+    }
+
+    .hero__heading {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(30px, 3.6vw, 54px);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: clamp(24px, 3.5vh, 38px);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .hero__heading .line-italic {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.005em;
+      background: linear-gradient(100deg, #c4f4ff 0%, #00d4f0 30%, #00a3c9 62%, #005f7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 4px;
+    }
+
+    .hero__sub1 {
+      font-family: var(--font-head);
+      font-size: clamp(13px, 1.5vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.5;
+      margin-bottom: clamp(28px, 4vh, 42px);
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .hero__services {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-bottom: clamp(30px, 4.5vh, 50px);
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .svc-item {
+      font-family: var(--font-body);
+      font-size: clamp(9px, 0.85vw, 11px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.50) 0%, rgba(168, 238, 248, 0.85) 50%, rgba(255, 255, 255, 0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .svc-sep {
+      width: 1px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.22);
+      margin: 0 12px;
+      flex-shrink: 0;
+    }
+
+    .hero__cta {
+      opacity: 0;
+      transform: translateY(14px);
+      margin-top: clamp(96px, 11vh, 112px);
+    }
+
+    .cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 240px;
+      height: 50px;
+      padding: 0 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 300ms ease;
+    }
+
+    .cta-btn__left {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn__icon {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 42px;
+      max-height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .cta-btn__divider {
+      flex-shrink: 0;
+      display: block;
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.18);
+      margin: 0 13px;
+    }
+
+    .cta-btn__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .cta-btn__arrow {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: transform 300ms ease;
+    }
+
+    .cta-btn--filled {
+      isolation: isolate;
+      overflow: hidden;
+      clip-path: path("M 15 0 L 233 0 A 7 7 0 0 1 240 7 L 240 35 L 225 50 L 7 50 A 7 7 0 0 1 0 43 L 0 15 Z");
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+    }
+    .cta-btn--filled::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+    .cta-btn--filled::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+
+    .hero__photo-spacer {
+      min-height: 1px;
+    }
+
+    .hero__accent-bar {
+      display: none !important;
+    }
+
+    /* ═══════════════════════════════════════════════
+       4. CSS TRANSITION (HERO TO BENEFITS) - SMOOTH IVORY FADE
+       ═══════════════════════════════════════════════ */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65%;
+      /* Ivory rgba — plynulá interpolácia bez skoku. z-index POD obsahom (20) ale NAD pozadím */
+      background: linear-gradient(to bottom,
+          rgba(250, 248, 245, 0) 0%,
+          rgba(250, 248, 245, 0.05) 15%,
+          rgba(250, 248, 245, 0.14) 28%,
+          rgba(250, 248, 245, 0.30) 42%,
+          rgba(250, 248, 245, 0.52) 56%,
+          rgba(250, 248, 245, 0.74) 70%,
+          rgba(250, 248, 245, 0.90) 82%,
+          rgba(250, 248, 245, 0.97) 92%,
+          #FAF8F5 100%);
+      z-index: 8;
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════════════════
+       5. CONTENT MAIN WRAPPER & BACKGROUND BLOBS
+       ═══════════════════════════════════════════════ */
+    .main-wrapper {
+      position: relative;
+      width: 100%;
+      margin-top: -1px;
+      background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 28%, var(--bg-end) 60%, var(--bg-start) 100%);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .ambient-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      mix-blend-mode: multiply;
+      animation: floatBlob 24s infinite alternate ease-in-out;
+      will-change: transform;
+    }
+
+    .blob-1 {
+      top: 5%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: var(--teal-pale);
+    }
+
+    .blob-2 {
+      top: 30%;
+      right: -15%;
+      width: 600px;
+      height: 600px;
+      background: var(--teal-light);
+      animation-delay: -6s;
+    }
+
+    .blob-3 {
+      top: 55%;
+      left: -5%;
+      width: 550px;
+      height: 550px;
+      background: #EAE5DC;
+      animation-delay: -12s;
+    }
+
+    .blob-4 {
+      top: 80%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: var(--teal-pale);
+      animation-delay: -18s;
+    }
+
+    @keyframes floatBlob {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(50px, -70px) scale(1.1);
+      }
+
+      100% {
+        transform: translate(-30px, 40px) scale(0.9);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       6. GLOBAL STRUCTURE & LAYOUT COMPONENTS
+       ═══════════════════════════════════════════════ */
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    section {
+      padding: clamp(80px, 12vh, 140px) 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .section-header {
+      max-width: 750px;
+      margin: 0 auto clamp(48px, 6.5vh, 72px);
+      text-align: center;
+    }
+
+    .section-tagline {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(26px, 3.6vw, 46px);
+      color: var(--text-color);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    /* Buttons */
+    .btn-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 30px;
+      border-radius: 14px 0;
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(0, 117, 153, 0.15);
+      background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal) 100%);
+      box-shadow: 0 6px 24px rgba(0, 117, 153, 0.2);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+
+    .btn-brand:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 117, 153, 0.3);
+    }
+
+    .btn-brand::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px 0;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-glow) 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+
+    .btn-brand:hover::after {
+      opacity: 1;
+    }
+
+    .btn-brand__arrow {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .btn-brand:hover .btn-brand__arrow {
+      transform: translateX(4px);
+    }
+
+    /* Secondary outline button */
+    .btn-outline {
+      background: transparent;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 14px 0;
+      padding: 13px 29px;
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      color: var(--white);
+      background: var(--teal);
+      box-shadow: 0 8px 24px rgba(0, 117, 153, 0.15);
+    }
+
+    /* Glass Card Base Style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(16px) saturate(120%);
+      -webkit-backdrop-filter: blur(16px) saturate(120%);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 8px 32px 0 rgba(0, 117, 153, 0.04);
+      border-radius: var(--radius-card);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    }
+
+    /* ═══════════════════════════════════════════════
+       7. SECTION: 3 HLAVNÉ VÝHODY
+       ═══════════════════════════════════════════════ */
+    #uvod {
+      padding-top: clamp(8px, 1vh, 14px);
+      position: relative;
+      overflow: hidden;
+      /* Top 300px flat #FAF8F5 → gentle fade to #F5F3EF */
+      background: linear-gradient(to bottom,
+        #FAF8F5 0px,
+        #FAF8F5 300px,
+        #F5F3EF 100%
+      );
+    }
+    /* Grain texture — max 3% opacity */
+    #uvod::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.70' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      background-repeat: repeat;
+    }
+    #uvod .container { position: relative; z-index: 1; }
+
+    /* Existing corner line-art — reduce to max 4% effective opacity */
+    .uvod-net-deco {
+      position: absolute;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.28;
+    }
+    .uvod-net-deco--left  { left: 0; }
+    .uvod-net-deco--right { right: 0; }
+
+    /* Geometric grid line art — bottom corners, max 4% */
+    .uvod-geo-deco {
+      position: absolute;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+    }
+    .uvod-geo-deco--left  { left: 0; }
+    .uvod-geo-deco--right { right: 0; }
+
+    .uvod-deco-word {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Frank Ruhl Libre', serif;
+      font-weight: 300;
+      font-size: clamp(100px, 16vw, 220px);
+      background: linear-gradient(100deg, #005f7a 0%, #007599 45%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.05;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      letter-spacing: 0.08em;
+    }
+
+    .benefits-section-header {
+      text-align: center;
+      margin-bottom: clamp(28px, 3.5vh, 48px);
+      position: relative;
+    }
+
+    .benefits-section-header .sub-tagline {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .benefits-section-header .main-title {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(26px, 3.6vw, 46px);
+      color: #1a1a1a;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      padding-bottom: 0;
+      margin-bottom: 8px;
+    }
+
+    .benefits-section-header .main-title::after {
+      display: none;
+    }
+
+    /* Geometric diamond divider + gradient title util */
+    .benefits-divider-geo {
+      margin: 6px auto 8px;
+      text-align: center;
+      line-height: 0;
+    }
+    .title-grad {
+      background: linear-gradient(100deg, #005f7a 0%, #007599 45%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Benefits grid: open layout, no boxes */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .benefits-grid::before,
+    .benefits-grid::after {
+      display: none;
+    }
+
+    .benefit-col {
+      padding: clamp(28px, 4vw, 44px) clamp(28px, 3vw, 44px) clamp(36px, 4.5vw, 56px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Vertical gradient dividers between columns */
+    .benefit-col:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 12%;
+      bottom: 12%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(15, 45, 58, 0.08) 40%, rgba(15, 45, 58, 0.08) 60%, transparent 100%);
+    }
+
+    .benefit-col:hover {
+      transform: translateY(-4px);
+    }
+
+    .benefit-col__num {
+      display: none;
+    }
+
+    /* ── CRYSTAL BADGE ── */
+    .benefit-col__icon-wrap {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      position: relative;
+      filter:
+        drop-shadow(-2px -3px 0 rgba(255, 255, 255, 0.55))
+        drop-shadow(8px 12px 18px rgba(15, 45, 58, 0.18));
+      transition: all 300ms ease;
+    }
+
+    .benefit-col:hover .benefit-col__icon-wrap {
+      filter:
+        drop-shadow(-2px -3px 0 rgba(255, 255, 255, 0.55))
+        drop-shadow(12px 16px 22px rgba(15, 45, 58, 0.22));
+      transform: translateY(-3px);
+    }
+
+    .benefit-col__icon-wrap::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      clip-path: polygon(50% 8.18%, 86.36% 28.18%, 86.36% 68.18%, 50% 88.18%, 13.64% 68.18%, 13.64% 28.18%);
+      background: linear-gradient(145deg, #1AA0C2 0%, #0D89AB 45%, #007898 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+    }
+
+    .benefit-col__icon-wrap::after {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      clip-path: polygon(50% 8.18%, 86.36% 28.18%, 86.36% 68.18%, 50% 88.18%, 13.64% 68.18%, 13.64% 28.18%);
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      opacity: 0;
+      transition: opacity 0.36s ease;
+      pointer-events: none;
+    }
+
+    .benefit-col:hover .benefit-col__icon-wrap::after {
+      opacity: 1;
+    }
+
+    .icon-geo-ring {
+      display: none;
+    }
+
+    .crystal-glow,
+    .crystal-shadow,
+    .crystal-hex-outer,
+    .crystal-hex-middle,
+    .crystal-circle,
+    .crystal-badge-deco {
+      display: none;
+    }
+
+    /* Badge SVG fills the wrap */
+    .crystal-badge-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Icon floats centered on top */
+    .benefit-col__icon {
+      max-width: 90px;
+      max-height: 90px;
+      height: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .benefit-col:hover .benefit-col__icon {
+      transform: scale(1.07) translateY(-3px);
+    }
+
+    .benefit-col__title {
+      font-family: var(--font-head);
+      font-size: clamp(18px, 1.4vw, 22px);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .benefit-col__text {
+      font-size: clamp(14px, 0.95vw, 15.5px);
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+
+    .benefit-col__link {
+      font-family: var(--font-body);
+      font-size: clamp(12px, 0.85vw, 13.5px);
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.25s, gap 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .benefit-col__link:hover {
+      color: var(--teal-dark);
+      gap: 9px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       8. STATEMENT SEKCIE (ČISTÉ TYPOGRAFICKÉ BLOKY)
+       ═══════════════════════════════════════════════ */
+    .statement-section {
+      padding: clamp(90px, 12vh, 140px) clamp(24px, 5.5vw, 80px);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .statement-section--ivory {
+      background: #FAF8F5;
+    }
+
+    .statement-section--light-teal {
+      background: linear-gradient(135deg, #E9F3F6 0%, #F3F9FB 100%);
+    }
+
+    .statement-section--concrete {
+      background-color: rgba(248, 245, 240, 0.48);
+      background-image: url('Obrazky/Pozadie/pozadie 4.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: lighten;
+      padding: 56px 24px;
+    }
+
+    .quote-mark {
+      display: block;
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 36px;
+      color: #007599;
+      opacity: 0.5;
+      margin-bottom: 8px;
+      line-height: 1;
+      text-align: center;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .quote-text__lead {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(18px, 1.6vw, 26px);
+      line-height: 1.45;
+      color: #17324D;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    .quote-text {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(16px, 1.2vw, 22px);
+      line-height: 1.8;
+      color: #17324D;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    .quote-signature {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      color: #007599;
+      text-align: center;
+      display: block;
+    }
+
+    .statement-section--concrete .statement-section__text {
+      color: #1C2F3A;
+    }
+
+    .statement-section--concrete .statement-section__script {
+      color: #217BA0;
+    }
+
+    .statement-section--concrete .statement-section__line {
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    }
+
+    /* ── Redesigned concrete quote block ── */
+    .st-quote-mark {
+      display: block;
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(72px, 10vw, 120px);
+      line-height: 0.5;
+      color: rgba(255, 255, 255, 0.42);
+      margin-bottom: clamp(8px, 1.5vh, 18px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .st-blockquote {
+      margin: 0;
+    }
+
+    .st-quote-main {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(24px, 3.2vw, 48px);
+      font-weight: 400;
+      color: #1C2F3A;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 0 0 clamp(14px, 2.2vh, 26px);
+    }
+
+    .st-quote-sub {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(14px, 1.45vw, 20px);
+      font-weight: 400;
+      color: #2a4255;
+      opacity: 0.82;
+      line-height: 1.65;
+      margin: 0 0 clamp(22px, 3.5vh, 42px);
+    }
+
+    .st-attribution {
+      font-family: var(--font-head);
+      font-size: clamp(10px, 0.85vw, 13px);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #1E4E6B 0%, #3FB6C6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .statement-section__inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .statement-section__line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 117, 153, 0.4), transparent);
+      margin: 0 auto 36px;
+    }
+
+    .statement-section__line--bottom {
+      margin: 36px auto 0;
+    }
+
+    .statement-section__text {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--teal-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .statement-section__script {
+      font-family: var(--font-script);
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 30px);
+      color: var(--accent-script);
+      display: block;
+      margin-top: 22px;
+      opacity: 0.85;
+    }
+
+    /* ═══════════════════════════════════════════════
+       9. SECTION: ČO PRE VÁS TVORÍM (ALTERNATING BLOCKS)
+       ═══════════════════════════════════════════════ */
+    .services-section {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(80px, 10vh, 120px);
+    }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+      position: relative;
+    }
+
+    .service-block--reverse {
+      grid-template-columns: 1fr 40%;
+    }
+
+    .service-block__img-col {
+      position: relative;
+      /* Offset frame: padding creates space for the frame border behind the photo */
+      padding: 0 18px 18px 0;
+    }
+
+    .service-block__img-col::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 0;
+      bottom: 0;
+      border: 1.5px solid rgba(0, 117, 153, 0.50);
+      border-radius: var(--radius-card);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .service-block--reverse .service-block__img-col {
+      order: 2;
+      padding: 0 0 18px 18px;
+    }
+
+    .service-block--reverse .service-block__img-col::before {
+      left: 0;
+      right: 18px;
+    }
+
+    .service-block__photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: clamp(280px, 32vw, 440px);
+      object-fit: cover;
+      display: block;
+      /* clip-path replaces overflow:hidden on the container */
+      clip-path: inset(0 round var(--radius-card));
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .service-block__img-col:hover .service-block__photo {
+      transform: scale(1.04);
+    }
+
+    .service-block__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-block--reverse .service-block__content {
+      order: 1;
+    }
+
+    .service-block__num {
+      font-family: var(--font-head);
+      font-size: clamp(11px, 0.85vw, 12.5px);
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(0, 117, 153, 0.5);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .service-block__title {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 500;
+      color: var(--teal-dark);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .service-block__text {
+      font-size: clamp(14.5px, 1vw, 16px);
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .service-block__extra {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 117, 153, 0.1);
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .service-block__extra strong {
+      color: var(--teal-mid);
+      font-weight: 500;
+    }
+
+    /* Decorative background word per block */
+    .service-block__deco {
+      position: absolute;
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(70px, 11vw, 160px);
+      color: rgba(0, 117, 153, 0.032);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+
+    .service-block:not(.service-block--reverse) .service-block__deco {
+      right: -1%;
+    }
+
+    .service-block--reverse .service-block__deco {
+      left: -1%;
+    }
+
+    @keyframes floatBird {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-16px) rotate(2deg);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       10. SECTION: AKO TO CELÉ FUNGUJE (SVG TIMELINE)
+       ═══════════════════════════════════════════════ */
+    #postup {
+      background: var(--bg-start);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .postup-deco-word {
+      position: absolute;
+      top: clamp(108px, calc(12vh + 28px), 168px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(90px, 14vw, 200px);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline-container {
+      position: relative;
+    }
+
+    .timeline-svg-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: visible;
+      margin-top: clamp(120px, 15vh, 180px);
+      margin-bottom: clamp(90px, 12vh, 130px);
+    }
+
+    .timeline-svg-path {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    /* Faint dashed background line */
+    .timeline-path-bg {
+      fill: none;
+      stroke: rgba(0, 117, 153, 0.10);
+      stroke-width: 0.8;
+      stroke-linecap: round;
+      stroke-dasharray: 5 5;
+    }
+
+    /* Gradient trace – revealed by clip as kolibrik flies */
+    .timeline-path-line {
+      fill: none;
+      stroke: url(#tl-grad);
+      stroke-width: 1.0;
+      stroke-linecap: round;
+      stroke-dasharray: 5 5;
+      opacity: 0.50;
+    }
+
+    /* ── large kolibrik – animated path flyer ── */
+    .tl-deco-hb-wrap {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+      transform-origin: center center;
+      transition: opacity 0.7s ease;
+    }
+
+    .tl-deco-hb {
+      width: clamp(110px, 13vw, 160px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 18px rgba(0, 117, 153, 0.22));
+    }
+
+    /* ── icon nodes ── */
+    .tl-node {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      visibility: hidden;
+      transform: translateX(-50%) scale(0.28);
+      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .tl-node.visible {
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+      pointer-events: all;
+    }
+
+    /* ═══ CRYSTAL BADGE – hexagon ═══ */
+    .tl-crystal {
+      position: relative;
+      width: clamp(120px, 10.5vw, 150px);
+      height: clamp(120px, 10.5vw, 150px);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(5px 8px 14px rgba(15, 45, 58, 0.18));
+      transition: filter 300ms ease, transform 300ms ease;
+    }
+
+    .tl-node:hover .tl-crystal {
+      filter: drop-shadow(6px 10px 18px rgba(15, 45, 58, 0.24));
+      transform: translateY(-3px);
+    }
+
+    .tl-crystal::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      clip-path: polygon(50% 8.18%, 86.36% 28.18%, 86.36% 68.18%, 50% 88.18%, 13.64% 68.18%, 13.64% 28.18%);
+      background: linear-gradient(145deg, #1AA0C2 0%, #0D89AB 45%, #007898 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+    }
+
+    .tl-crystal::after {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      clip-path: polygon(50% 8.18%, 86.36% 28.18%, 86.36% 68.18%, 50% 88.18%, 13.64% 68.18%, 13.64% 28.18%);
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      opacity: 0;
+      transition: opacity 0.36s ease;
+      pointer-events: none;
+    }
+
+    .tl-node:hover .tl-crystal::after {
+      opacity: 1;
+    }
+
+    .tl-crystal__icon {
+      max-width: 78px;
+      max-height: 78px;
+      height: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Connector dashed drop line */
+    .tl-connector {
+      width: 0;
+      height: 10px;
+      border-left: 1.5px dashed rgba(0, 117, 153, 0.28);
+      margin: 1px auto 1px;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: opacity 0.4s 0.22s ease, transform 0.4s 0.22s ease;
+      flex-shrink: 0;
+    }
+
+    .tl-node.visible .tl-connector {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    /* Number badge */
+    .tl-node__counter {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 45%, #00a3c9 100%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-head);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      opacity: 0;
+      transform: scale(0) rotate(-30deg);
+      filter: drop-shadow(0 3px 8px rgba(0, 117, 153, 0.55));
+      transition:
+        opacity 0.45s 0.38s ease,
+        transform 0.55s 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+
+    .tl-node.visible .tl-node__counter {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* ── text grid ── */
+    .timeline-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: clamp(28px, 4vw, 48px);
+    }
+
+    .timeline-step-item {
+      padding: clamp(16px, 2.5vw, 28px) clamp(14px, 2vw, 26px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-step-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-step-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 16%;
+      bottom: 16%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(0, 117, 153, 0.10), transparent);
+    }
+
+    .timeline-step-title {
+      font-family: var(--font-head);
+      font-size: clamp(15px, 1.2vw, 19px);
+      font-weight: 500;
+      color: var(--teal-dark);
+      margin-bottom: 10px;
+      line-height: 1.25;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .timeline-step-text {
+      font-size: clamp(13px, 0.88vw, 14.5px);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════
+       11. SECTION: ONLINE PRIESTOR (EDITORIAL)
+       ═══════════════════════════════════════════════ */
+    .pro-space-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(50px, 7vw, 100px);
+      align-items: center;
+    }
+
+    .pro-space__visuals {
+      position: relative;
+      padding: 0 18px 18px 0;
+    }
+
+    .pro-space__visuals::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 0;
+      bottom: 0;
+      border: 1.5px solid rgba(0, 117, 153, 0.50);
+      border-radius: var(--radius-card);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .pro-space__img-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .pro-space__img {
+      width: 100%;
+      height: clamp(320px, 38vw, 500px);
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pro-space__img-container:hover .pro-space__img {
+      transform: scale(1.03);
+    }
+
+    .pro-space__caption {
+      margin-top: 14px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: left;
+    }
+
+    .pro-space__content {
+      text-align: left;
+    }
+
+    .pro-space__list {
+      list-style: none;
+      margin: 28px 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 28px;
+    }
+
+    .pro-space__list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(13.5px, 0.95vw, 15px);
+      color: var(--text-muted);
+    }
+
+    .pro-space__list-item i {
+      color: var(--teal);
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       12. SECTION: REFERENCIE (TESTIMONIALS SLIDER)
+       ═══════════════════════════════════════════════ */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 1.3s cubic-bezier(0.45, 0, 0.15, 1);
+      will-change: transform;
+    }
+
+    .ref-card-wrapper {
+      flex: 0 0 33.333%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+    .ref-card {
+      padding: clamp(24px, 3vw, 42px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: none;
+      border: 1px solid rgba(0, 117, 153, 0.20);
+      border-radius: 4px;
+    }
+
+    .ref-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: -5px 4px 16px rgba(0, 117, 153, 0.07);
+    }
+
+    .ref-card__quote-icon {
+      font-family: var(--font-script);
+      font-size: 72px;
+      line-height: 0.4;
+      color: #007599;
+      opacity: 0.5;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      pointer-events: none;
+    }
+
+    .ref-card__body {
+      flex-grow: 1;
+      margin-top: 14px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ref-card__text {
+      font-size: clamp(14px, 0.95vw, 15px);
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Read more logic */
+    .ref-card__more-btn {
+      background: none;
+      border: none;
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 0;
+      transition: color 0.3s;
+    }
+
+    .ref-card__more-btn:hover {
+      color: var(--teal-glow);
+    }
+
+    .ref-text-more {
+      display: inline;
+    }
+
+    .ref-text-more.collapsed {
+      display: none;
+    }
+
+    .ref-card__author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 22px;
+      border-top: none;
+      position: relative;
+    }
+
+    .ref-card__author::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(to right, transparent 0%, rgba(0, 117, 153, 0.18) 20%, rgba(0, 117, 153, 0.18) 80%, transparent 100%);
+    }
+
+    .ref-card__photo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--white);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    .ref-card__initials {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 500;
+      border: 2px solid var(--white);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    .ref-card__author-info {
+      text-align: left;
+    }
+
+    .ref-card__name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--teal-dark);
+    }
+
+    .ref-card__role {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    /* Slider controls */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .slider-arrow {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(0, 117, 153, 0.15);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--teal-mid);
+      transition: all 0.3s;
+    }
+
+    .slider-arrow:hover:not(:disabled) {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .slider-arrow:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .sdot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(0, 117, 153, 0.15);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .sdot.active {
+      background: var(--teal);
+      transform: scale(1.4);
+    }
+
+    /* Slider side arrows – chamfer outline style */
+    .ref-slider-wrap {
+      position: relative;
+    }
+
+    .ref-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 28px;
+      height: 28px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+      transition: color 300ms ease, filter 300ms ease;
+    }
+
+    .ref-nav-arrow--prev { left: -60px; }
+    .ref-nav-arrow--next { right: -60px; }
+
+    .ref-nav-arrow:hover:not(:disabled) {
+      color: rgba(0, 168, 214, 1.0);
+      filter: drop-shadow(0 0 10px rgba(0, 117, 153, 0.18));
+    }
+
+    .ref-nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .ref-nav-arrow__border {
+      position: absolute;
+      top: 0; left: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .ref-nav-arrow__path {
+      stroke: rgba(0, 168, 214, 0.7);
+      fill: transparent;
+      transition: stroke 300ms ease;
+    }
+
+    .ref-nav-arrow:hover:not(:disabled) .ref-nav-arrow__path {
+      stroke: rgba(0, 168, 214, 1.0);
+    }
+
+    /* ═══════════════════════════════════════════════
+       13. SECTION: KTO SOM (EDITORIAL)
+       ═══════════════════════════════════════════════ */
+    #omne {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .omne-deco-word {
+      position: absolute;
+      top: clamp(140px, calc(12vh + 60px), 190px);
+      left: calc((100vw - min(90vw, 1280px)) / 2 + min(90vw, 1280px) * 0.75 + clamp(60px, 8vw, 120px) * 0.25);
+      transform: translateX(-50%) translateY(-50%);
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(90px, 14vw, 200px);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      letter-spacing: 0.08em;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(60px, 8vw, 120px);
+      align-items: center;
+    }
+
+    .about__content {
+      text-align: left;
+    }
+
+    .about__text {
+      font-size: clamp(15px, 1.05vw, 16.5px);
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .about__sig-wrap {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about__signature {
+      height: clamp(44px, 5.5vh, 64px);
+      width: auto;
+      align-self: flex-start;
+      opacity: 0.95;
+    }
+
+    .about__author-title {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--teal-dark);
+    }
+
+    .about__author-tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: -2px;
+    }
+
+    /* Editorial photo side */
+    .about__visuals {
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Vertical "O MNE" watermark */
+    .about__vertical-label {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: var(--font-head);
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 900;
+      color: rgba(0, 117, 153, 0.05);
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .about__photo-frame {
+      position: relative;
+      z-index: 1;
+      padding: 0 15px 15px 0;
+    }
+
+    .about__photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 0;
+      bottom: 0;
+      border: 2px solid rgba(0, 117, 153, 0.52);
+      border-radius: 4px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .about__photo-frame::after {
+      display: none;
+    }
+
+    .about__photo-editorial {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: clamp(380px, 50vw, 620px);
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      clip-path: inset(0 round 4px);
+    }
+
+    .about__photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(250, 248, 245, 0.12) 0%, rgba(250, 248, 245, 0.28) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Dot grid deco */
+    .photo-geo-deco {
+      position: absolute;
+      bottom: -32px;
+      right: -32px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Service block deco – normal (frame right) */
+    .service-block__img-col .photo-geo-deco {
+      bottom: -32px;
+      right: -32px;
+    }
+
+    /* Reversed: deco na ľavom dolnom */
+    .service-block--reverse .service-block__img-col .photo-geo-deco {
+      right: auto;
+      left: -32px;
+      transform: scaleX(-1);
+    }
+
+    /* Frame-top variant: rámček vychádza z horného rohu */
+    .service-block__img-col--frame-top {
+      padding: 18px 18px 0 0;
+    }
+
+    .service-block__img-col--frame-top::before {
+      top: 0;
+      left: 18px;
+      right: 0;
+      bottom: 18px;
+    }
+
+    .service-block--reverse .service-block__img-col--frame-top {
+      padding: 18px 0 0 18px;
+    }
+
+    .service-block--reverse .service-block__img-col--frame-top::before {
+      top: 0;
+      left: 0;
+      right: 18px;
+      bottom: 18px;
+    }
+
+    /* Deco position pre frame-top – bodky otočené nahor */
+    .service-block__img-col--frame-top .photo-geo-deco {
+      bottom: auto;
+      top: -32px;
+      transform: scaleY(-1);
+    }
+
+    .service-block--reverse .service-block__img-col--frame-top .photo-geo-deco {
+      right: auto;
+      left: -32px;
+      bottom: auto;
+      top: -32px;
+      transform: scale(-1, -1);
+    }
+
+    @media (max-width: 960px) {
+
+      .service-block__img-col--frame-top,
+      .service-block--reverse .service-block__img-col--frame-top {
+        padding: 0 14px 14px 0;
+      }
+
+      .service-block__img-col--frame-top::before,
+      .service-block--reverse .service-block__img-col--frame-top::before {
+        top: 14px;
+        left: 14px;
+        right: 0;
+        bottom: 0;
+      }
+
+      .service-block__img-col--frame-top .photo-geo-deco,
+      .service-block--reverse .service-block__img-col--frame-top .photo-geo-deco {
+        top: auto;
+        bottom: -28px;
+        left: auto;
+        right: -28px;
+        transform: none;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       14. SECTION: CENNÍK (PRICING)
+       ═══════════════════════════════════════════════ */
+    .pricing-banner {
+      position: relative;
+      width: 100%;
+      background-image: url('Obrazky/Pozadie/pozadie 6.png');
+      background-size: 85% auto;
+      background-position: center center;
+      background-attachment: fixed;
+      padding: clamp(90px, 12vh, 130px) 20px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .pricing-banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(248, 245, 240, 0.82),
+        rgba(248, 245, 240, 0.82)
+      );
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .pricing-banner__content {
+      position: relative;
+      z-index: 5;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .pricing-banner__heading {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(28px, 2.8vw, 40px);
+      line-height: 1.2;
+      color: var(--teal-dark);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .pricing-banner__deco {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+    .pricing-banner__deco-bird {
+      width: clamp(58px, 6.5vw, 78px);
+      height: auto;
+      opacity: 0.60;
+      display: block;
+    }
+
+    .pricing-banner__subtitle {
+      font-family: var(--font-head);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(16px, 1.4vw, 21px);
+      line-height: 1.5;
+      color: var(--teal);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .pricing-banner__text {
+      font-size: 15px;
+      color: var(--teal-dark);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+
+    /* ═══════════════════════════════════════════════
+       15. SECTION: KONZULTÁCIA ZDARMA
+       ═══════════════════════════════════════════════ */
+    .cta-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(48px, 6vh, 80px) clamp(24px, 4vh, 64px);
+      text-align: center;
+    }
+
+    .cta-card__title {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.6vw, 46px);
+      font-weight: 400;
+      color: var(--teal-dark);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .cta-card__text {
+      font-size: clamp(15px, 1vw, 17px);
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════
+       16. SECTION: KONTAKTNÝ FORMULÁR
+       ═══════════════════════════════════════════════ */
+    #kontakt {
+      background: var(--bg-start);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: clamp(36px, 5vw, 72px);
+      align-items: stretch;
+    }
+
+    .contact-visual-frame {
+      position: relative;
+      padding: 0 18px 18px 0;
+    }
+
+    .contact-visual-frame::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(0, 117, 153, 0.20);
+      border-radius: 4px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .contact-visual-side {
+      position: relative;
+      z-index: 2;
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .contact-visual-side__photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .contact-visual-side__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(250, 248, 245, 0.12) 0%, rgba(250, 248, 245, 0.28) 100%);
+      pointer-events: none;
+    }
+
+    .contact-visual-side__quote {
+      position: absolute;
+      bottom: clamp(22px, 4vh, 38px);
+      left: clamp(20px, 3vw, 30px);
+      right: clamp(20px, 3vw, 30px);
+      font-family: var(--font-head);
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.55;
+    }
+
+    .contact-form-card {
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 0;
+      clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+    }
+
+    .contact-form-side {
+      filter: drop-shadow(0 8px 24px rgba(0, 117, 153, 0.06));
+    }
+
+    .contact-form-side .cta-btn {
+      transform: scale(0.85);
+      transform-origin: center center;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group--full {
+      grid-column: span 2;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 24px 18px 10px;
+      border: 1px solid rgba(0, 117, 153, 0.15);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-color);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(0, 117, 153, 0.07);
+      background-color: var(--white);
+    }
+
+    .form-group label {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: transform 0.25s, font-size 0.25s, color 0.25s;
+      transform-origin: left top;
+    }
+
+    /* Input state transitions */
+    .form-control:focus~label,
+    .form-control:not(:placeholder-shown)~label {
+      transform: translateY(-12px) scale(0.8);
+      color: var(--teal);
+    }
+
+    .form-control::placeholder {
+      color: transparent;
+    }
+
+    /* Textarea & Select specific styling */
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+      padding-top: 28px;
+    }
+
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23007599' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    select.form-control option {
+      background: var(--white);
+      color: #aaaaaa;
+      font-weight: 400;
+    }
+
+    /* Anti-spam honeypot */
+    .form-honeypot {
+      display: none !important;
+      visibility: hidden;
+    }
+
+    .form-submit-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 64px;
+    }
+
+    .form-gdpr-note {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* Contact Info Side (left column) */
+    .contact-info-side {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(16px, 2.5vw, 32px) 0;
+    }
+
+    .contact-info__leaf-bg {
+      display: none;
+    }
+
+    .contact-info__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info__heading {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.8vw, 46px);
+      font-weight: 400;
+      color: var(--text-color);
+      line-height: 1.18;
+      margin: 0 0 14px;
+    }
+
+    .contact-info__tagline {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .contact-info__rule {
+      width: 36px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.5;
+      margin-bottom: 28px;
+    }
+
+    .contact-info__body p {
+      color: var(--text-muted);
+      font-size: clamp(14px, 1vw, 15.5px);
+      line-height: 1.78;
+      margin: 0 0 10px;
+    }
+
+    .contact-info__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-info__items {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-info__item {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0, 117, 153, 0.08);
+    }
+
+    .contact-info__item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item__link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-item__icon-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #1AA0C2 0%, #0D89AB 45%, #007898 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-size: 15px;
+      transition: transform 0.3s;
+    }
+
+    .contact-item__icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      opacity: 0;
+      transition: opacity 0.36s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .contact-item__icon-wrap i {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info__item:hover .contact-item__icon-wrap {
+      transform: translateY(-1px);
+    }
+
+    .contact-info__item:hover .contact-item__icon-wrap::after {
+      opacity: 1;
+    }
+
+    .contact-item__text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .contact-item__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-color);
+    }
+
+    .contact-item__value {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .contact-item__value:hover {
+      color: var(--teal);
+    }
+
+    .contact-info__response-note {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .contact-info__response-note i {
+      color: var(--teal);
+      opacity: 0.65;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       17. FOOTER
+       ═══════════════════════════════════════════════ */
+    .site-footer {
+      position: relative;
+      background:
+        linear-gradient(rgba(248, 246, 242, 0.82), rgba(248, 246, 242, 0.82)),
+        url('Obrazky/Pozadie/pozadie sluzby.png');
+      background-size: cover;
+      background-position: center right;
+      color: #444444;
+      padding: clamp(68px, 9vh, 92px) 0 clamp(28px, 4vh, 44px);
+      overflow: hidden;
+      z-index: 5;
+    }
+
+    .footer-leaf {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    .footer-leaf--left {
+      bottom: -20px;
+      left: -40px;
+      width: clamp(150px, 18vw, 260px);
+    }
+
+    .footer-leaf--right {
+      top: -20px;
+      right: -40px;
+      width: clamp(140px, 16vw, 230px);
+      transform: rotate(180deg);
+    }
+
+    /* Grid – 3 stĺpce */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1.1fr;
+      gap: 0;
+      padding-bottom: 36px;
+      align-items: center;
+    }
+
+    /* Ľavý stĺpec – logo */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0;
+    }
+
+    .footer-brand__logo {
+      height: clamp(100px, 11vw, 145px);
+      width: auto;
+      display: block;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .footer-brand__logo:hover {
+      transform: scale(1.05);
+      opacity: 0.85;
+    }
+
+    .footer-brand__name {
+      font-family: var(--font-head);
+      font-size: clamp(12px, 1vw, 14px);
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 5px;
+    }
+
+    .footer-brand__tagline {
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.38);
+    }
+
+    .footer-brand__socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .footer-brand__icon-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: transparent;
+      border: 1px solid rgba(0, 117, 153, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 15px;
+      transition: transform 0.3s, border-color 0.36s ease;
+    }
+
+    .footer-brand__icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #1AA0C2 0%, #0D89AB 45%, #007898 100%);
+      opacity: 0;
+      transition: opacity 0.36s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .footer-brand__icon-wrap i {
+      position: relative;
+      z-index: 1;
+      transition: color 0.36s ease;
+    }
+
+    .footer-brand__social-link:hover .footer-brand__icon-wrap {
+      transform: translateY(-1px);
+      border-color: transparent;
+    }
+
+    .footer-brand__social-link:hover .footer-brand__icon-wrap::after {
+      opacity: 1;
+    }
+
+    .footer-brand__social-link:hover .footer-brand__icon-wrap i {
+      color: white;
+    }
+
+    /* Stredný stĺpec – navigácia + služby */
+    .footer-mid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      padding: 0 clamp(44px, 6vw, 80px);
+      position: relative;
+    }
+
+    .footer-mid::before,
+    .footer-mid::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(15, 45, 58, 0.08) 30%, rgba(15, 45, 58, 0.08) 70%, transparent 100%);
+    }
+
+    .footer-mid::before { left: 0; }
+    .footer-mid::after  { right: 0; }
+
+    .footer-col-title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 4px 0 0;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-links a {
+      display: block;
+      font-size: 13.5px;
+      color: #444444;
+      text-decoration: none;
+      line-height: 1;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+    }
+
+    /* Pravý stĺpec – kontakty */
+    .footer-col--right {
+      padding-left: clamp(28px, 3.5vw, 48px);
+    }
+
+    .footer-address {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #444444;
+    }
+
+    .footer-contact-item i {
+      color: var(--teal);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .footer-social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 117, 153, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .footer-social-link:hover {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    /* Spodná lišta – totožná so svc-strip */
+    .footer-bottom {
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 45%, #00a3c9 80%, #005f7a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .footer-bottom > .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.90);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.80);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    /* Hummingbird v copyright lište */
+    .footer__hb {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+      animation: hbHover 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes hbHover {
+      0%   { transform: translate(-50%, -58%); }
+      100% { transform: translate(-50%, -42%); }
+    }
+
+    .footer__hb video {
+      width: clamp(52px, 5.5vw, 70px);
+      filter: grayscale(100%) contrast(200%) brightness(3.5);
+      opacity: 0.65;
+      display: block;
+      transition: opacity 0.28s ease;
+    }
+
+    /* ═══════════════════════════════════════════════
+       18. COOKIE BANNER
+       ═══════════════════════════════════════════════ */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9000;
+      background: rgba(25, 27, 28, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: clamp(14px, 2.2vh, 22px) clamp(24px, 4vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .cookie-banner.hidden {
+      transform: translateY(100%);
+    }
+
+    .cookie-banner__text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 580px;
+      line-height: 1.6;
+    }
+
+    .cookie-banner__text a {
+      color: var(--teal-pale);
+      text-decoration: none;
+    }
+
+    .cookie-banner__text a:hover {
+      text-decoration: underline;
+    }
+
+    .cookie-banner__btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cbtn {
+      padding: 10px 22px;
+      border-radius: var(--radius-card);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.25s;
+    }
+
+    .cbtn--accept {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .cbtn--accept:hover {
+      background: var(--teal-glow);
+    }
+
+    .cbtn--decline {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.45);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .cbtn--decline:hover {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* ═══════════════════════════════════════════════
+       19. SCROLL REVEAL (DELICATE SMOOTH FADES)
+       ═══════════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-reveal][data-delay="100"] {
+      transition-delay: 0.1s;
+    }
+
+    [data-reveal][data-delay="200"] {
+      transition-delay: 0.2s;
+    }
+
+    [data-reveal][data-delay="300"] {
+      transition-delay: 0.3s;
+    }
+
+    [data-reveal][data-delay="400"] {
+      transition-delay: 0.4s;
+    }
+
+    /* ═══════════════════════════════════════════════
+       20. RESPONSIVE MEDIA QUERIES
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+
+      .service-block,
+      .service-block--reverse {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .service-block--reverse .service-block__img-col,
+      .service-block--reverse .service-block__content {
+        order: unset;
+      }
+
+      /* Normalize frame direction on mobile – all frames go right+bottom */
+      .service-block--reverse .service-block__img-col {
+        padding: 0 14px 14px 0;
+      }
+
+      .service-block--reverse .service-block__img-col::before {
+        left: 14px;
+        right: 0;
+      }
+
+      .service-block__img-col {
+        padding: 0 14px 14px 0;
+      }
+
+      .service-block__img-col::before {
+        top: 14px;
+        left: 14px;
+        right: 0;
+        bottom: 0;
+      }
+
+      .service-block__deco {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 30px;
+      }
+
+      .pro-space__list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 960px) {
+
+      /* Hero Responsive Adjustments */
+      .hero__content {
+        grid-template-columns: 1fr;
+        align-items: flex-end;
+        padding-bottom: clamp(70px, 10vh, 100px);
+      }
+
+      .hero__photo {
+        width: 100%;
+        right: 0;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+
+      .hero__photo img {
+        object-position: 68% top;
+        transform: none;
+        animation: none;
+      }
+
+      .hero__overlay {
+        background: linear-gradient(to top,
+            #002535 0%,
+            #002535 30%,
+            rgba(0, 37, 53, 0.92) 50%,
+            rgba(0, 61, 82, 0.70) 70%,
+            rgba(0, 95, 122, 0.30) 85%,
+            transparent 100%);
+      }
+
+      .hero__louvers {
+        width: 120%;
+        left: -10%;
+        transform: skewX(8deg);
+      }
+
+      .hero__text {
+        max-width: 100%;
+      }
+
+      .hero__photo-spacer {
+        display: none;
+      }
+
+      /* Navigation Responsive */
+      .header__nav {
+        display: none;
+      }
+
+      .header__burger {
+        display: flex;
+      }
+
+      .header__nav.mobile-active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(25, 27, 28, 0.96);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 30px 40px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 200;
+        animation: mobileMenuSlideDown 0.3s ease-out forwards;
+      }
+
+      @keyframes mobileMenuSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header__nav.mobile-active a {
+        color: var(--white) !important;
+        font-size: 15px;
+        letter-spacing: 0.15em;
+      }
+
+      .header__nav.mobile-active a::after {
+        display: none;
+      }
+
+      /* Benefits */
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .benefit-col:not(:last-child)::after {
+        display: none;
+      }
+
+      .benefit-col:not(:last-child) {
+        border-bottom: 1px solid rgba(15, 45, 58, 0.08);
+        padding-bottom: clamp(32px, 5vw, 48px);
+        margin-bottom: 0;
+      }
+
+      /* Timeline */
+      .timeline-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .timeline-step-item:not(:last-child)::after {
+        display: none;
+      }
+
+      .timeline-step-item {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .timeline-svg-wrapper {
+        display: none;
+      }
+
+      /* Pro space + About + Contact */
+      .pro-space-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about__vertical-label {
+        display: none;
+      }
+
+      .about__photo-editorial {
+        height: clamp(280px, 60vw, 420px);
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-visual-side {
+        min-height: 260px;
+        max-height: 320px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .form-group--full {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ref-card-wrapper {
+        flex: 0 0 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-mid {
+        padding: 0 12px;
+      }
+
+      .footer-mid::before,
+      .footer-mid::after {
+        display: none;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .timeline-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .hero__heading {
+        font-size: clamp(28px, 8vw, 42px);
+      }
+
+      .hero__sub1 {
+        font-size: clamp(17px, 5vw, 22px);
+      }
+
+      .svc-sep {
+        margin: 0 10px;
+      }
+
+      .site-header {
+        padding: 16px 24px;
+      }
+
+      .site-header.scrolled {
+        padding: 12px 24px;
+      }
+    }
+
+    /* Motion reduction fallback */
+    @media (prefers-reduced-motion: reduce) {
+
+      #anim-heading,
+      #anim-sub1,
+      #anim-services,
+      #anim-cta {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .hero__louvers {
+        display: none;
+      }
+
+      .hero__hummingbird {
+        display: none;
+      }
+
+      .services-editorial__image {
+        animation: none;
+      }
+
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       21. NOVÉ KARTY SLUŽIEB – PÁS + GRID LAYOUT
+       ═══════════════════════════════════════════════ */
+
+    /* ── Pás nad sekciou ── */
+    .svc-strip {
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 45%, #00a3c9 80%, #005f7a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .svc-strip__inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      padding: 14px clamp(24px, 5vw, 72px);
+    }
+
+    .svc-strip__text {
+      font-family: var(--font-body);
+      font-size: clamp(9px, 0.76vw, 11px);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: linear-gradient(90deg, #ffffff 0%, #c4f4ff 45%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .svc-strip__dot {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      flex-shrink: 0;
+      margin: 0 13px;
+      align-self: center;
+    }
+
+    .svc-strip__accent {
+      font-family: var(--font-script);
+      font-style: italic;
+      font-size: clamp(13px, 1vw, 17px);
+      color: rgba(255, 255, 255, 0.55);
+      white-space: nowrap;
+      padding-left: 22px;
+      margin-left: 18px;
+      border-left: 1px solid rgba(255, 255, 255, 0.14);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* ── #sluzby: menší top padding (pás je priamo nad) ── */
+    #sluzby {
+      padding-top: clamp(52px, 6.5vh, 76px);
+    }
+
+    /* ── Header pre novú sekciu ── */
+    .services-new__header {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    /* ── Obal s dekoráciou ── */
+    .services-new {
+      position: relative;
+    }
+
+    /* ── Dekoratívny nápis SLUŽBY ── */
+    .services-deco-word {
+      display: block;
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(66px, 12vw, 172px);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      white-space: nowrap;
+      text-align: left;
+      line-height: 1;
+      background: linear-gradient(100deg, #003d52 0%, #005f7a 28%, #007599 58%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.20;
+      pointer-events: none;
+      user-select: none;
+      margin-top: clamp(18px, 2.5vh, 30px);
+      margin-bottom: clamp(-43px, -3vw, -16px);
+      position: relative;
+      z-index: 0;
+    }
+
+    /* ── Riadky ── */
+    .services-row {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-row--reverse {
+      grid-template-columns: 1fr 1.7fr;
+    }
+
+    .services-row-sep {
+      height: 1px;
+      background: linear-gradient(to right,
+        transparent 0%,
+        rgba(0, 117, 153, 0.10) 18%,
+        rgba(0, 117, 153, 0.10) 82%,
+        transparent 100%);
+      margin: clamp(50px, 7vh, 84px) 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Pár kariet ── */
+    .services-cards-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(12px, 2vw, 24px);
+    }
+
+    /* ── Karta služby ── */
+    .svc-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .svc-card__photo-frame {
+      position: relative;
+      padding: 0 14px 14px 0;
+      margin-bottom: clamp(12px, 1.8vh, 18px);
+    }
+
+    .svc-card__photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 0;
+      bottom: 0;
+      border: 1.5px solid rgba(0, 117, 153, 0.50);
+      border-radius: var(--radius-card);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .svc-card__photo-wrap {
+      position: relative;
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(0, 117, 153, 0.22);
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      margin-bottom: 0;
+      z-index: 2;
+    }
+
+    .svc-card__photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      clip-path: inset(0 round calc(var(--radius-card) - 1px));
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .svc-card:hover .svc-card__photo {
+      transform: scale(1.03);
+    }
+
+    .svc-card__num {
+      position: absolute;
+      bottom: 14px;
+      left: calc(50% - 7px);
+      transform: translateX(-50%) translateY(50%);
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(70px, 9vw, 118px);
+      line-height: 1;
+      background: linear-gradient(100deg, #003d52 0%, #005f7a 28%, #007599 58%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.42;
+      pointer-events: none;
+      user-select: none;
+      z-index: 3;
+      letter-spacing: -0.02em;
+    }
+
+    .svc-card__title {
+      font-family: var(--font-head);
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 500;
+      color: var(--teal-dark);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+      line-height: 1.2;
+    }
+
+    .svc-card__desc {
+      font-family: var(--font-body);
+      font-size: clamp(12px, 0.86vw, 13.5px);
+      color: var(--text-muted);
+      line-height: 1.78;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .svc-card__link {
+      font-family: var(--font-body);
+      font-size: clamp(10px, 0.78vw, 11.5px);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      align-self: flex-start;
+      padding-bottom: 1px;
+      border-bottom: 1px solid transparent;
+      transition: gap 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+    }
+
+    .svc-card__link:hover {
+      color: var(--teal-dark);
+      gap: 9px;
+      border-bottom-color: rgba(0, 117, 153, 0.22);
+    }
+
+    /* ── Textové bloky ── */
+    .svc-textblock {
+      padding: clamp(18px, 2.5vw, 42px) clamp(16px, 2.5vw, 38px);
+    }
+
+    .svc-textblock__line {
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(to right, rgba(0, 117, 153, 0.45), transparent);
+      margin-bottom: 20px;
+    }
+
+    .svc-textblock__heading {
+      font-family: var(--font-head);
+      font-size: clamp(19px, 1.9vw, 28px);
+      font-weight: 400;
+      color: var(--teal-dark);
+      line-height: 1.3;
+      letter-spacing: 0.005em;
+      margin-bottom: 16px;
+    }
+
+    .svc-textblock__text {
+      font-family: var(--font-body);
+      font-size: clamp(13.5px, 0.92vw, 15px);
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ── Responsive: tablet ── */
+    @media (max-width: 1024px) {
+      .services-row,
+      .services-row--reverse {
+        grid-template-columns: 1fr;
+        gap: clamp(28px, 4vw, 44px);
+      }
+
+      .services-deco-word {
+        font-size: clamp(52px, 14vw, 96px);
+        margin-bottom: -30px;
+      }
+    }
+
+    /* ── Responsive: mobile ── */
+    @media (max-width: 640px) {
+      .services-cards-pair {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .svc-strip__inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 6px;
+      }
+
+      .svc-strip__accent {
+        display: none;
+      }
+
+      .svc-textblock {
+        padding: 16px 0;
+      }
+
+      .services-deco-word {
+        font-size: clamp(44px, 16vw, 72px);
+        margin-bottom: -20px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SERVICES V3 – LIGHT EDITORIAL
+       ═══════════════════════════════════════════════ */
+
+    #sluzby-v3 {
+      position: relative;
+      padding: clamp(120px, 16vh, 180px) 0 clamp(80px, 11vh, 130px);
+      background: var(--bg-start);
+      overflow: hidden;
+    }
+
+    #sluzby-v3::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('Obrazky/Hlavne/Pozadie sekcii/3.jpg') center/cover no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sv3-deco-word {
+      position: absolute;
+      top: clamp(150px, calc(16vh + 28px), 208px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(90px, 14vw, 200px);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      letter-spacing: 0.08em;
+    }
+
+    .sv3-header {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: clamp(48px, 7vh, 80px);
+    }
+
+    .sv3-header__title {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(26px, 3.6vw, 46px);
+      color: var(--teal-deeper);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .sv3-header__sub {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .sv3-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sv3-divider img {
+      height: 115px;
+      width: auto;
+      margin-top: -56px;
+    }
+
+    .sv3-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(36px, 6vh, 64px) clamp(24px, 4vw, 56px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .sv3-item {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 0 clamp(18px, 2.2vw, 30px);
+      align-items: start;
+    }
+
+    .sv3-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1.5px solid rgba(0, 117, 153, 0.52);
+    }
+
+    .sv3-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(250, 248, 245, 0.12) 0%,
+        rgba(250, 248, 245, 0.28) 100%
+      );
+    }
+
+    .sv3-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .sv3-item:hover .sv3-photo img {
+      transform: scale(1.03);
+    }
+
+    .sv3-body {
+      padding-top: clamp(6px, 1.2vh, 14px);
+    }
+
+    .sv3-icon {
+      display: block;
+      width: 102px;
+      height: 102px;
+      object-fit: contain;
+      margin-left: -10px;
+      margin-top: -14px;
+      margin-bottom: clamp(4px, 0.6vh, 8px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .sv3-title {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-weight: 400;
+      color: var(--teal-deeper);
+      line-height: 1.2;
+      margin-bottom: clamp(10px, 1.2vh, 14px);
+    }
+
+    .sv3-rule {
+      width: 30px;
+      height: 1.5px;
+      background: var(--teal);
+      margin-bottom: clamp(10px, 1.2vh, 14px);
+    }
+
+    .sv3-desc {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1.1vw, 15px);
+      line-height: 1.72;
+      color: #4a5e66;
+      margin-bottom: clamp(14px, 1.8vh, 20px);
+    }
+
+    .sv3-link {
+      font-family: var(--font-head);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    }
+
+    .sv3-link__arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .sv3-link:hover {
+      color: var(--teal-deeper);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--teal);
+    }
+
+    .sv3-link:hover .sv3-link__arrow {
+      transform: translateX(6px);
+    }
+
+    @media (max-width: 900px) {
+      .sv3-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(32px, 5vh, 52px);
+      }
+      .sv3-item {
+        grid-template-columns: 1fr 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .sv3-icon {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .sv3-item {
+        grid-template-columns: 1fr;
+      }
+      .sv3-photo {
+        aspect-ratio: 4 / 3;
+      }
+      .sv3-icon {
+        width: 68px;
+        height: 68px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       GLASS CTA BUTTON (brand component)
+       ═══════════════════════════════════════════════ */
+
+    .glass-wrap {
+      position: relative;
+      width: 325px;
+      height: 74px;
+      display: inline-block;
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+      transition: filter 300ms ease;
+    }
+    .glass-wrap:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .glass-wrap:hover .cta-btn__arrow { transform: translateX(4px); }
+
+    .glass-fill {
+      position: absolute;
+      inset: 0;
+      clip-path: path("M 22 0 L 315 0 A 10 10 0 0 1 325 10 L 325 52 L 303 74 L 10 74 A 10 10 0 0 1 0 64 L 0 22 Z");
+      background: linear-gradient(90deg, rgba(0,117,153,0.42) 0%, rgba(0,117,153,0.14) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      transition: background 300ms ease;
+    }
+    .glass-wrap:hover .glass-fill {
+      background: linear-gradient(90deg, rgba(0,117,153,0.54) 0%, rgba(0,117,153,0.22) 100%);
+    }
+
+    .glass-link {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .glass-link .cta-btn__text { font-family: var(--font-head); }
+
+    .glass-svg {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .glass-path {
+      stroke: rgba(0, 117, 153, 0.9);
+      fill: transparent;
+      transition: stroke 300ms ease;
+    }
+    .glass-wrap:hover .glass-path { stroke: rgba(0, 168, 214, 0.85); }
+
+    /* ═══════════════════════════════════════════════
+       CTA PANEL – TVORÍM S DUŠOU (after services v3)
+       ═══════════════════════════════════════════════ */
+
+    #cta-services {
+      position: relative;
+      overflow: hidden;
+      background: #FAF8F5;
+      text-align: center;
+      padding-top: 0;
+    }
+
+    #cta-services::before {
+      content: '';
+      position: absolute;
+      inset: -120px 0;
+      background:
+        linear-gradient(rgba(250,248,245,0.82), rgba(250,248,245,0.82)),
+        url('Obrazky/Pozadie/pozadie sluzby.png') center 75% / cover no-repeat;
+      transform: translateY(var(--parallax-y, 0px));
+      will-change: transform;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Separator: absolútne na horný okraj sekcie */
+    .cta-sv__sep {
+      position: relative;
+      height: 0;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .cta-sv__sep-line {
+      width: clamp(60px, 8vw, 110px);
+      flex: 0 0 auto;
+      height: 1px;
+      background: rgba(0, 95, 122, 0.12);
+      display: block;
+    }
+
+    .cta-sv__bird {
+      width: clamp(50px, 6.5vw, 78px);
+      height: auto;
+      opacity: 0.65;
+      display: block;
+      flex-shrink: 0;
+      margin: 0 clamp(14px, 2vw, 24px);
+    }
+
+    /* Content block – padding-top kompenzuje výšku absolútneho separátora */
+    .cta-sv__body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: clamp(80px, 9.5vh, 100px) clamp(24px, 5vw, 48px) clamp(14px, 2.2vh, 22px);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .cta-sv__title {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.1vw, 40px);
+      font-weight: 400;
+      color: var(--teal-deeper);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .cta-sv__sub {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      line-height: 1.4;
+      margin-bottom: clamp(44px, 5.5vh, 60px);
+    }
+
+    /* Outline button – menší, väčší text */
+    #cta-services .btn-brand {
+      padding: 10px 26px;
+      font-size: clamp(14px, 1.1vw, 16px);
+      gap: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER (PRESERVED HTML 1:1 FROM HERO)
+       ══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a href="/" class="header__logo" aria-label="Soul Design – domov">
+      <img src="Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
+    </a>
+
+    <nav aria-label="Hlavná navigácia">
+      <ul class="header__nav">
+        <li><a href="#uvod">Úvod</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#cennik">Cenník</a></li>
+        <li><a href="#omne">O mne</a></li>
+        <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <button class="header__burger" aria-label="Otvoriť menu" aria-expanded="false" id="burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════
+       HERO SECTION (PRESERVED HTML 1:1 FROM HERO)
+       ══════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero sekcia – Soul Design">
+
+    <!-- LAYER 0: Photo (right-anchored, zoomed out) -->
+    <div class="hero__photo" id="hero-photo-container" aria-hidden="true">
+      <img id="hero-photo" src="Obrazky/Hlavne/Hero sekcia.PNG" alt="Kreatívna špecialistka Soul Design" loading="eager"
+        decoding="async" fetchpriority="high" />
+    </div>
+
+    <!-- LAYER 1: Smooth teal left-to-right gradient overlay -->
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <!-- LAYER 3: Bottom vignette -->
+    <div class="hero__vignette" aria-hidden="true"></div>
+
+    <!-- LAYER 4: 3D Louver Blinds -->
+    <div class="hero__louvers" id="louvers-container" aria-hidden="true"></div>
+
+    <!-- LAYER 5: Hummingbird Video -->
+    <video class="hero__hummingbird" id="hummingbird" autoplay loop muted playsinline preload="auto" aria-hidden="true"
+      role="presentation">
+      <source src="Obrazky/Logo/video kolibrik.mp4" type="video/mp4" />
+    </video>
+
+    <!-- LAYER 6: Text content -->
+    <div class="hero__content">
+      <div class="hero__text">
+
+        <h1 class="hero__heading" id="anim-heading">
+          Predstavte svetu svoj
+          <span class="line-italic">business</span>
+        </h1>
+
+        <p class="hero__sub1" id="anim-sub1">
+          ja sa postarám o ten zvyšok.
+        </p>
+
+        <div class="hero__services" id="anim-services" role="list">
+          <span class="svc-item" role="listitem">Webové stránky</span>
+          <span class="svc-sep" aria-hidden="true"></span>
+          <span class="svc-item" role="listitem">Grafický design</span>
+          <span class="svc-sep" aria-hidden="true"></span>
+          <span class="svc-item" role="listitem">Kreatívna online podpora</span>
+        </div>
+
+        <div class="hero__cta" id="anim-cta">
+          <a href="#sluzby" class="cta-btn cta-btn--filled" id="cta-btn">
+            <span class="cta-btn__left">
+              <img class="cta-btn__icon"
+                   src="Obrazky/Logo/Kolibrik logo.png"
+                   alt="" aria-hidden="true" draggable="false"/>
+              <span class="cta-btn__divider" aria-hidden="true"></span>
+              <span class="cta-btn__text">Pozrieť služby</span>
+            </span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+      </div><!-- /.hero__text -->
+      <div class="hero__photo-spacer" aria-hidden="true"></div>
+    </div><!-- /.hero__content -->
+
+    <div class="hero__accent-bar" aria-hidden="true"></div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT WRAPPER WITH AMBIENT GRADIENTS
+       ══════════════════════════════════════════════ -->
+  <div class="main-wrapper">
+
+    <!-- Background Animated Blobs -->
+    <div class="ambient-blobs">
+      <div class="ambient-blob blob-1"></div>
+      <div class="ambient-blob blob-2"></div>
+      <div class="ambient-blob blob-3"></div>
+      <div class="ambient-blob blob-4"></div>
+    </div>
+
+    <!-- SVG Defs: gradient + clip (hidden) -->
+    <svg width="0" height="0" style="position:absolute;overflow:hidden;pointer-events:none" aria-hidden="true">
+      <defs>
+        <clipPath id="hex-crystal-clip" clipPathUnits="objectBoundingBox">
+          <path
+            d="M0.457,0.025 Q0.5,0.0,0.543,0.025 L0.890,0.225 Q0.933,0.25,0.933,0.300 L0.933,0.700 Q0.933,0.75,0.890,0.775 L0.543,0.975 Q0.5,1.0,0.457,0.975 L0.110,0.775 Q0.067,0.75,0.067,0.700 L0.067,0.300 Q0.067,0.25,0.110,0.225 Z" />
+        </clipPath>
+        <radialGradient id="hex-badge-gradient" gradientUnits="userSpaceOnUse" cx="100" cy="78" r="95">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="55%" stop-color="#f4fbfd" />
+          <stop offset="100%" stop-color="#d8edf6" />
+        </radialGradient>
+        <radialGradient id="hex-badge-gradient-hover" gradientUnits="userSpaceOnUse" cx="100" cy="78" r="95">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="55%" stop-color="#edf7fc" />
+          <stop offset="100%" stop-color="#c8e4f2" />
+        </radialGradient>
+      </defs>
+    </svg>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: 3 HLAVNÉ VÝHODY (MAIN BENEFITS)
+         ══════════════════════════════════════════════ -->
+    <section id="uvod" aria-labelledby="benefits-title">
+
+      <!-- Geo grid line art — bottom left corner -->
+      <svg class="uvod-geo-deco uvod-geo-deco--left" aria-hidden="true"
+           xmlns="http://www.w3.org/2000/svg" width="300" height="260" viewBox="0 0 300 260" fill="none">
+        <line x1="0"   y1="260" x2="0"   y2="60"  stroke="#007599" stroke-width="0.9"/>
+        <line x1="50"  y1="260" x2="50"  y2="105" stroke="#007599" stroke-width="0.8"/>
+        <line x1="100" y1="260" x2="100" y2="140" stroke="#007599" stroke-width="0.7"/>
+        <line x1="150" y1="260" x2="150" y2="170" stroke="#007599" stroke-width="0.6"/>
+        <line x1="200" y1="260" x2="200" y2="198" stroke="#007599" stroke-width="0.5"/>
+        <line x1="250" y1="260" x2="250" y2="222" stroke="#007599" stroke-width="0.4"/>
+        <line x1="0"   y1="260" x2="270" y2="260" stroke="#007599" stroke-width="0.9"/>
+        <line x1="0"   y1="220" x2="220" y2="220" stroke="#007599" stroke-width="0.8"/>
+        <line x1="0"   y1="182" x2="175" y2="182" stroke="#007599" stroke-width="0.7"/>
+        <line x1="0"   y1="148" x2="130" y2="148" stroke="#007599" stroke-width="0.6"/>
+        <line x1="0"   y1="118" x2="88"  y2="118" stroke="#007599" stroke-width="0.5"/>
+        <line x1="0"   y1="92"  x2="48"  y2="92"  stroke="#007599" stroke-width="0.4"/>
+        <circle cx="0"   cy="260" r="2"   fill="#007599"/>
+        <circle cx="50"  cy="260" r="1.7" fill="#007599"/>
+        <circle cx="100" cy="260" r="1.5" fill="#007599"/>
+        <circle cx="150" cy="260" r="1.3" fill="#007599"/>
+        <circle cx="200" cy="260" r="1.1" fill="#007599"/>
+        <circle cx="0"   cy="220" r="1.7" fill="#007599"/>
+        <circle cx="50"  cy="220" r="1.5" fill="#007599"/>
+        <circle cx="100" cy="220" r="1.3" fill="#007599"/>
+        <circle cx="150" cy="220" r="1.1" fill="#007599"/>
+        <circle cx="0"   cy="182" r="1.5" fill="#007599"/>
+        <circle cx="50"  cy="182" r="1.3" fill="#007599"/>
+        <circle cx="100" cy="182" r="1.1" fill="#007599"/>
+        <circle cx="0"   cy="148" r="1.3" fill="#007599"/>
+        <circle cx="50"  cy="148" r="1.1" fill="#007599"/>
+        <circle cx="0"   cy="118" r="1.1" fill="#007599"/>
+        <circle cx="0"   cy="92"  r="1.0" fill="#007599"/>
+      </svg>
+
+      <!-- Geo grid line art — bottom right corner -->
+      <svg class="uvod-geo-deco uvod-geo-deco--right" aria-hidden="true"
+           xmlns="http://www.w3.org/2000/svg" width="260" height="220" viewBox="0 0 260 220" fill="none">
+        <line x1="260" y1="220" x2="260" y2="45"  stroke="#007599" stroke-width="0.9"/>
+        <line x1="210" y1="220" x2="210" y2="88"  stroke="#007599" stroke-width="0.8"/>
+        <line x1="160" y1="220" x2="160" y2="122" stroke="#007599" stroke-width="0.7"/>
+        <line x1="110" y1="220" x2="110" y2="152" stroke="#007599" stroke-width="0.6"/>
+        <line x1="60"  y1="220" x2="60"  y2="178" stroke="#007599" stroke-width="0.5"/>
+        <line x1="10"  y1="220" x2="10"  y2="200" stroke="#007599" stroke-width="0.4"/>
+        <line x1="0"   y1="220" x2="260" y2="220" stroke="#007599" stroke-width="0.9"/>
+        <line x1="40"  y1="182" x2="260" y2="182" stroke="#007599" stroke-width="0.8"/>
+        <line x1="82"  y1="148" x2="260" y2="148" stroke="#007599" stroke-width="0.7"/>
+        <line x1="122" y1="118" x2="260" y2="118" stroke="#007599" stroke-width="0.6"/>
+        <line x1="158" y1="92"  x2="260" y2="92"  stroke="#007599" stroke-width="0.5"/>
+        <line x1="196" y1="70"  x2="260" y2="70"  stroke="#007599" stroke-width="0.4"/>
+        <circle cx="260" cy="220" r="2"   fill="#007599"/>
+        <circle cx="210" cy="220" r="1.7" fill="#007599"/>
+        <circle cx="160" cy="220" r="1.5" fill="#007599"/>
+        <circle cx="110" cy="220" r="1.3" fill="#007599"/>
+        <circle cx="60"  cy="220" r="1.1" fill="#007599"/>
+        <circle cx="260" cy="182" r="1.7" fill="#007599"/>
+        <circle cx="210" cy="182" r="1.5" fill="#007599"/>
+        <circle cx="160" cy="182" r="1.3" fill="#007599"/>
+        <circle cx="110" cy="182" r="1.1" fill="#007599"/>
+        <circle cx="260" cy="148" r="1.5" fill="#007599"/>
+        <circle cx="210" cy="148" r="1.3" fill="#007599"/>
+        <circle cx="160" cy="148" r="1.1" fill="#007599"/>
+        <circle cx="260" cy="118" r="1.3" fill="#007599"/>
+        <circle cx="210" cy="118" r="1.1" fill="#007599"/>
+        <circle cx="260" cy="92"  r="1.1" fill="#007599"/>
+        <circle cx="260" cy="70"  r="1.0" fill="#007599"/>
+      </svg>
+
+      <!-- Bottom-left geometric line art -->
+      <svg class="uvod-net-deco uvod-net-deco--left" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="360" height="300" viewBox="0 0 360 300" fill="none">
+        <line x1="3"   y1="95"  x2="3"   y2="162" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="162" x2="3"   y2="228" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="228" x2="3"   y2="290" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="290" x2="72"  y2="299" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="72"  y1="299" x2="155" y2="297" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="155" y1="297" x2="245" y2="293" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="245" y1="293" x2="330" y2="287" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="95"  x2="65"  y2="120" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="65"  y1="120" x2="3"   y2="162" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="162" x2="100" y2="180" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="100" y1="180" x2="3"   y2="228" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="65"  y1="120" x2="100" y2="180" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="3"   y1="228" x2="68"  y2="248" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="68"  y1="248" x2="3"   y2="290" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="100" y1="180" x2="68"  y2="248" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="68"  y1="248" x2="72"  y2="299" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="68"  y1="248" x2="145" y2="255" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="145" y1="255" x2="155" y2="297" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="100" y1="180" x2="185" y2="200" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="185" y1="200" x2="145" y2="255" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="185" y1="200" x2="225" y2="258" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="225" y1="258" x2="245" y2="293" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="225" y1="258" x2="330" y2="287" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="65"  y1="120" x2="185" y2="200" stroke="rgba(0,117,153,0.06)" stroke-width="0.7"/>
+        <line x1="145" y1="255" x2="225" y2="258" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <!-- Dots -->
+        <circle cx="3"   cy="95"  r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="3"   cy="162" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="3"   cy="228" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="3"   cy="290" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="72"  cy="299" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="155" cy="297" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="245" cy="293" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="330" cy="287" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="65"  cy="120" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="100" cy="180" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="68"  cy="248" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="145" cy="255" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="185" cy="200" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="225" cy="258" r="2" fill="rgba(0,117,153,0.14)"/>
+      </svg>
+
+      <!-- Bottom-right geometric line art -->
+      <svg class="uvod-net-deco uvod-net-deco--right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="260" height="240" viewBox="0 0 260 240" fill="none">
+        <line x1="257" y1="75"  x2="257" y2="135" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="257" y1="135" x2="257" y2="195" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="257" y1="195" x2="257" y2="237" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="257" y1="237" x2="195" y2="238" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="195" y1="238" x2="118" y2="235" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="257" y1="75"  x2="200" y2="128" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="200" y1="128" x2="257" y2="135" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="200" y1="128" x2="165" y2="182" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="165" y1="182" x2="257" y2="135" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="165" y1="182" x2="257" y2="195" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="165" y1="182" x2="195" y2="238" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="165" y1="182" x2="118" y2="235" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <line x1="200" y1="128" x2="165" y2="182" stroke="rgba(0,117,153,0.07)" stroke-width="0.7"/>
+        <!-- Dots -->
+        <circle cx="257" cy="75"  r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="257" cy="135" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="257" cy="195" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="257" cy="237" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="195" cy="238" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="118" cy="235" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="200" cy="128" r="2" fill="rgba(0,117,153,0.14)"/>
+        <circle cx="165" cy="182" r="2" fill="rgba(0,117,153,0.14)"/>
+      </svg>
+
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="benefits-section-header" data-reveal>
+          <div class="uvod-deco-word" aria-hidden="true">PODPORA</div>
+          <h2 class="main-title" id="benefits-title">So mnou sa v online svete <span class="title-grad">nestratíte.</span></h2>
+          <span class="sub-tagline">Na vašom podnikaní záleží.</span>
+        </div>
+
+        <!-- Three Benefits -->
+        <div class="benefits-grid">
+
+          <!-- Benefit 1 -->
+          <div class="benefit-col" data-reveal data-delay="100">
+            <div class="benefit-col__icon-wrap">
+              <img src="Obrazky/Ikony/hlavne vyhody/4.png" alt="" class="benefit-col__icon" aria-hidden="true" />
+            </div>
+            <h3 class="benefit-col__title">Podtrhnem vašu jedinečnosť</h3>
+            <p class="benefit-col__text">Spolu nastavíme vašu profesionálnu vizitku. Ukážeme vašim zákazníkom to
+              najlepšie z vás a toho, čo prinášate.</p>
+            <a href="#sluzby" class="benefit-col__link">Viac info →</a>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="benefit-col" data-reveal data-delay="200">
+            <div class="benefit-col__icon-wrap">
+              <img src="Obrazky/Ikony/hlavne vyhody/3.png" alt="" class="benefit-col__icon" aria-hidden="true" />
+            </div>
+            <h3 class="benefit-col__title">Naladím sa na váš projekt</h3>
+            <p class="benefit-col__text">Vaše potreby premením na pútavú a funkčnú prezentáciu, vďaka ktorej v online
+              svete vyniknete.</p>
+            <a href="#sluzby" class="benefit-col__link">Viac info →</a>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="benefit-col" data-reveal data-delay="300">
+            <div class="benefit-col__icon-wrap">
+              <img src="Obrazky/Ikony/hlavne vyhody/2.png" alt="" class="benefit-col__icon" aria-hidden="true" />
+            </div>
+            <h3 class="benefit-col__title">Uvoľním vám ruky</h3>
+            <p class="benefit-col__text">Odbremením vás od práce, ktorá vás nebaví, zbytočne zaťažuje a bráni vám
+              prejaviť sa naplno.</p>
+            <a href="#kontakt" class="benefit-col__link">Viac info →</a>
+          </div>
+
+        </div><!-- /.benefits-grid -->
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         PÁS: HODNOTY A TAGLINE NAD SEKCIOU SLUŽIEB
+         ══════════════════════════════════════════════ -->
+    <div class="svc-strip">
+      <div class="svc-strip__inner">
+        <span class="svc-strip__text">Pomáham zjednodušovať procesy</span>
+        <span class="svc-strip__dot" aria-hidden="true"></span>
+        <span class="svc-strip__text">Tvorím</span>
+        <span class="svc-strip__dot" aria-hidden="true"></span>
+        <span class="svc-strip__text">Načúvam</span>
+        <span class="svc-strip__dot" aria-hidden="true"></span>
+        <span class="svc-strip__text">Podporujem</span>
+        <span class="svc-strip__dot" aria-hidden="true"></span>
+        <span class="svc-strip__text">Spolu-tvorím značky s dušou</span>
+        <span class="svc-strip__accent" aria-hidden="true">Design that connects</span>
+      </div>
+    </div>
+
+
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: SLUŽBY V3 – LIGHT EDITORIAL
+         ══════════════════════════════════════════════ -->
+    <section id="sluzby-v3" aria-labelledby="sv3-title">
+
+      <span class="sv3-deco-word" aria-hidden="true">SLUŽBY</span>
+
+      <div class="container">
+
+        <header class="sv3-header" data-reveal>
+          <h2 class="sv3-header__title" id="sv3-title">Vytvorme priestor, v ktorom vaša <span class="title-grad">značka vynikne.</span></h2>
+          <p class="sv3-header__sub">Každý detail odráža vaše hodnoty a jedinečnosť.</p>
+          <div class="sv3-divider" aria-hidden="true">
+            <img src="Obrazky/Ikony/Devider.png" alt="" />
+          </div>
+        </header>
+
+        <div class="sv3-grid">
+
+          <!-- 01 Webové stránky -->
+          <article class="sv3-item" data-reveal data-delay="0">
+            <div class="sv3-photo">
+              <img src="Obrazky/Sluzby/webove stranky.png" alt="Webové stránky – Soul Design" loading="lazy" />
+            </div>
+            <div class="sv3-body">
+              <img class="sv3-icon" src="Obrazky/Sluzby/2.png" alt="" aria-hidden="true" />
+              <h3 class="sv3-title">Webové stránky</h3>
+              <div class="sv3-rule"></div>
+              <p class="sv3-desc">Moderné webové stránky, ktoré prepájajú estetiku, funkčnosť a používateľský zážitok. Vytváram riešenia, ktoré budujú dôveru, podporujú rast značky a premieňajú návštevníkov na klientov.</p>
+              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- 02 Grafický dizajn -->
+          <article class="sv3-item" data-reveal data-delay="100">
+            <div class="sv3-photo">
+              <img src="Obrazky/Sluzby/graficky design.png" alt="Grafický dizajn – Soul Design" loading="lazy" />
+            </div>
+            <div class="sv3-body">
+              <img class="sv3-icon" src="Obrazky/Sluzby/3.png" alt="" aria-hidden="true" />
+              <h3 class="sv3-title">Grafický dizajn</h3>
+              <div class="sv3-rule"></div>
+              <p class="sv3-desc">Vizuálna identita, ktorá vystihuje charakter vašej značky. Od loga cez farebnosť až po komunikačné materiály – každý prvok tvorí jednotný a zapamätateľný celok.</p>
+              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- 03 Reklamné kampane -->
+          <article class="sv3-item" data-reveal data-delay="200">
+            <div class="sv3-photo">
+              <img src="Obrazky/Sluzby/reklamne kampane.png" alt="Reklamné kampane – Soul Design" loading="lazy" />
+            </div>
+            <div class="sv3-body">
+              <img class="sv3-icon" src="Obrazky/Sluzby/4.png" alt="" aria-hidden="true" />
+              <h3 class="sv3-title">Reklamné kampane</h3>
+              <div class="sv3-rule"></div>
+              <p class="sv3-desc">Strategické kampane pre Facebook a Instagram, ktoré zvyšujú viditeľnosť, oslovujú správne publikum a prinášajú merateľné výsledky založené na dátach.</p>
+              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- 04 Kreatívna podpora -->
+          <article class="sv3-item" data-reveal data-delay="300">
+            <div class="sv3-photo">
+              <img src="Obrazky/Sluzby/kreativna online asistentka.png" alt="Kreatívna online podpora – Soul Design" loading="lazy" />
+            </div>
+            <div class="sv3-body">
+              <img class="sv3-icon" src="Obrazky/Sluzby/5.png" alt="" aria-hidden="true" />
+              <h3 class="sv3-title">Kreatívna podpora</h3>
+              <div class="sv3-rule"></div>
+              <p class="sv3-desc">Flexibilná podpora pre váš online biznis – od návrhov a obsahu až po technické riešenia. Spoľahlivé partnerstvo, ktoré vám ušetrí čas a zjednoduší každodennú prácu.</p>
+              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div><!-- /.sv3-grid -->
+
+      </div><!-- /.container -->
+    </section>
+    <!-- /SLUZBY V3 -->
+
+    <!-- Oddeľovač: kolibrik presne na hranici sekcií -->
+    <div class="cta-sv__sep" aria-hidden="true">
+      <span class="cta-sv__sep-line"></span>
+      <img src="Obrazky/Logo/Kolibrik logo.png" class="cta-sv__bird" alt="" />
+      <span class="cta-sv__sep-line"></span>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         CTA PANEL: TVORÍM S DUŠOU
+         ══════════════════════════════════════════════ -->
+    <section id="cta-services" aria-labelledby="cta-sv-title" data-reveal>
+
+      <!-- Obsah: max 800px, centrovaný -->
+      <div class="cta-sv__body">
+        <h2 class="cta-sv__title" id="cta-sv-title">Tvorím dušou, podporujem <span class="title-grad">srdcom.</span></h2>
+        <p class="cta-sv__sub">Vaša značka si zaslúži priestor, ktorý dáva zmysel.</p>
+        <a href="#kontakt" class="btn-brand btn-outline">
+          <span>Konzultácia zdarma</span>
+          <span class="btn-brand__arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 9h11M10 4.5l4.5 4.5L10 13.5" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+    </section>
+    <!-- /CTA-SERVICES -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: AKO TO CELÉ FUNGUJE (SVG TIMELINE)
+         ══════════════════════════════════════════════ -->
+    <section id="postup" aria-labelledby="timeline-title">
+      <span class="postup-deco-word" aria-hidden="true">Proces</span>
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <h2 class="section-title" id="timeline-title">Ako to celé <span class="title-grad">funguje</span></h2>
+          <span class="section-tagline">Cesta k výsledku bez stresu</span>
+          <p class="section-subtitle"
+            style="margin-top:14px;font-size:clamp(14px,1vw,16px);color:var(--text-muted);max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7;">
+            Od prvého rozhovoru až po finálny výsledok – jasne, citlivo<br>a s dôrazom na to, čo je podstatné.</p>
+        </div>
+
+        <div class="timeline-container" id="timeline-container" style="position:relative;overflow:visible;">
+
+          <!-- SVG path with geometric decorations -->
+          <div class="timeline-svg-wrapper" id="timeline-svg-wrapper">
+            <svg class="timeline-svg-path" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="tl-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#005f7a" />
+                  <stop offset="42%" stop-color="#007599" />
+                  <stop offset="100%" stop-color="#00a3c9" />
+                </linearGradient>
+                <clipPath id="tl-clip">
+                  <rect id="tl-clip-rect" x="-2" y="-30" width="0" height="175" />
+                </clipPath>
+              </defs>
+
+              <!-- Faint background hilly path -->
+              <path class="timeline-path-bg"
+                d="M 0,76 C 80,76 140,8 255,8 C 370,8 430,76 530,76 C 630,76 690,8 805,8 C 920,8 980,76 1080,76 C 1140,76 1170,40 1200,40" />
+              <!-- Gradient trace revealed by clip -->
+              <path id="timeline-path" class="timeline-path-line"
+                d="M 0,76 C 80,76 140,8 255,8 C 370,8 430,76 530,76 C 630,76 690,8 805,8 C 920,8 980,76 1080,76 C 1140,76 1170,40 1200,40"
+                clip-path="url(#tl-clip)" />
+
+            </svg>
+
+            <!-- Icon nodes – positioned on path by JS -->
+            <div class="tl-node" id="tl-node-0">
+              <div class="tl-crystal">
+                <img src="Obrazky/Ikony/Ako to funguje/5.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
+              </div>
+              <div class="tl-connector"></div>
+              <div class="tl-node__counter">1</div>
+            </div>
+
+            <div class="tl-node" id="tl-node-1">
+              <div class="tl-crystal">
+                <img src="Obrazky/Ikony/Ako to funguje/6.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
+              </div>
+              <div class="tl-connector"></div>
+              <div class="tl-node__counter">2</div>
+            </div>
+
+            <div class="tl-node" id="tl-node-2">
+              <div class="tl-crystal">
+                <img src="Obrazky/Ikony/Ako to funguje/7.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
+              </div>
+              <div class="tl-connector"></div>
+              <div class="tl-node__counter">3</div>
+            </div>
+
+            <div class="tl-node" id="tl-node-3">
+              <div class="tl-crystal">
+                <img src="Obrazky/Ikony/Ako to funguje/8.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
+              </div>
+              <div class="tl-connector"></div>
+              <div class="tl-node__counter">4</div>
+            </div>
+
+            <!-- Large kolibrik – flies along path, positioned by JS -->
+            <div class="tl-deco-hb-wrap" id="tl-deco-hb-wrap" aria-hidden="true">
+              <img class="tl-deco-hb" src="Obrazky/Logo/Kolibrik logo.png" alt="" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Step texts -->
+          <div class="timeline-steps">
+            <div class="timeline-step-item" id="tl-text-0">
+              <h3 class="timeline-step-title">Dajte o sebe vedieť</h3>
+              <p class="timeline-step-text">Napíšte mi, čo tvoríte a s čím potrebujete pomôcť.</p>
+            </div>
+            <div class="timeline-step-item" id="tl-text-1">
+              <h3 class="timeline-step-title">Úvodné stretnutie</h3>
+              <p class="timeline-step-text">Prejdeme si vaše predstavy, potreby a smer, ktorým sa chce vaša značka
+                uberať.</p>
+            </div>
+            <div class="timeline-step-item" id="tl-text-2">
+              <h3 class="timeline-step-title">Proces tvorby</h3>
+              <p class="timeline-step-text">Začínam tvoriť priestor, vizuál alebo komunikáciu, ktorá prirodzene
+                vystihuje vašu značku.</p>
+            </div>
+            <div class="timeline-step-item" id="tl-text-3">
+              <h3 class="timeline-step-title">Máme hotovo</h3>
+              <p class="timeline-step-text">Záverečné úpravy a schvaľovanie. Púšťame váš nový produkt do sveta.</p>
+            </div>
+          </div><!-- /.timeline-steps -->
+
+        </div><!-- /.timeline-container -->
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         STATEMENT 2 (BREATHING ROOM / TYPOGRAPHIC)
+         ══════════════════════════════════════════════ -->
+    <div class="statement-section statement-section--concrete" data-reveal>
+      <div class="statement-section__inner">
+        <span class="quote-mark" aria-hidden="true">„</span>
+        <p class="quote-text__lead">Niektoré značky zaujmú.<br>Tie správne vytvoria spojenie.</p>
+        <p class="quote-text">Verím, že najlepšie značky nevznikajú podľa trendov,<br>ale z pochopenia ľudí a príbehov, ktoré za nimi stoja.</p>
+        <span class="quote-signature">— Soul Design — Design that connects</span>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: REFERENCIE (TESTIMONIALS SLIDER)
+         ══════════════════════════════════════════════ -->
+    <section id="referencie" aria-labelledby="testimonials-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <h2 class="section-title" id="testimonials-title"><span class="title-grad">Referencie</span></h2>
+          <span class="section-tagline">Skúsenosti mojich klientov</span>
+        </div>
+
+        <div class="ref-slider-wrap">
+        <button class="ref-nav-arrow ref-nav-arrow--prev" id="ref-prev" aria-label="Predchádzajúca referencia">
+          <svg class="ref-nav-arrow__border" width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path class="ref-nav-arrow__path" stroke-width="1.5"
+                  d="M 7 0.75 L 32.25 0.75 A 3 3 0 0 1 35.25 3.75 L 35.25 28.25 L 28.25 35.25 L 3.75 35.25 A 3 3 0 0 1 0.75 32.25 L 0.75 7 Z"/>
+          </svg>
+          <i class="fa-solid fa-chevron-left" style="font-size:11px;position:relative;z-index:1;"></i>
+        </button>
+
+        <div class="slider-container" data-reveal>
+          <div class="slider-track" id="ref-track">
+
+            <!-- Testimonial 1 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Nejlepší spolupráce vznikají tehdy, když se spojí záměry podobně
+                      laděných lidí. Alex mi tuhle teorii kouzelným způsobem potvrdila v praxi. Zvládla osobitě ztvárnit
+                      víc, než já si uměla představit.</span>
+                    <span class="ref-text-more collapsed"> Výsledné promo video včetně loga dokonale vyjadřují mou
+                      tvorbu, s velkým citem pro detail, přesto v jednoduchosti, která je mi vlastní. S velkou vděčností
+                      můžu její profesionální služby doporučit každému, kdo hledá spolupráci s lidským přesahem.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Krystaly Eleven.jpg" alt="Lucie Hlaváčová" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Lucie Hlaváčová</div>
+                    <div class="ref-card__role">Krystaly Eleven</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Alex, chci ti poděkovat za tvé tvoření, je opravdu ze srdce. Obdivuji
+                      tvůj smysl pro krásu, soulad, detail i celek. Propagační materiály, které tvoříš, jsou poutavé,
+                      výjimečné a především vyjadřují mě samotnou.</span>
+                    <span class="ref-text-more collapsed"> Dokážeš se nacítit na mou potřebu a především na mou esenci,
+                      takže propagační materiály jsou přirozené, v souladu se mnou a mým tvořením. Díky tomu také
+                      přitáhnou ty správné klienty, protože si nacítí opravdu mě. Je to opravdové a tvé tvoření bych
+                      nazvala MARKETING SRDCE. Odezva na tvou práci je velká, často se mě lidé ptají, kdo „za tím
+                      stojí". Cením si také tvé nápaditosti, pružnosti a rychlé komunikace. Za naše spolutvoření jsem
+                      velmi vděčná.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Petra Košťálová.jpg" alt="Petra Košťálová" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Petra Košťálová</div>
+                    <div class="ref-card__role">Průvodkyně odemykáním potenciálu</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Děkuji Alex za propagační videa a materiály pro naše prodejní kampaně.
+                      V tvé tvorbě se snoubí profesionalita a přirozenost. Dokážeš se nacítit na mou jedinečnost a vnést
+                      ji pak do těchto materiálů.</span>
+                    <span class="ref-text-more collapsed"> Mám i krásné zpětné vazby přímo od mých klientů. Moc se mi
+                      líbí tvé estetické cítění. Způsob, jakým dokážeš kombinovat barvy, písma, mě pokaždé ohromí a
+                      všichni, kterým jsem tvé výtvory poslala, říkali to samé. Také moc oceňuji tvé nápady a
+                      kreativitu, které do našeho projektu přinesla. Je radost se takto prezentovat navenek.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Lucie Bednářová.jpg" alt="Lucie Bednářová" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Lucie Bednářová</div>
+                    <div class="ref-card__role">Průvodkyně genovými klíči</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Alex was amazing with helping me with my logo design. She responded
+                      quickly, gave me several options to choose from, and made customization so that the logo was
+                      exactly the way I wanted!</span>
+                    <span class="ref-text-more collapsed"> Awesome to work with and I would recommend her to anyone who
+                      needs a new logo!</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Ann Losinski.jpg" alt="Ann Losinski" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Ann Losinski</div>
+                    <div class="ref-card__role">Photographer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Alex, chci ti poděkovat za to, co přinášíš, protože hloubka a
+                      citlivost, s jakou přistupuješ k projektům, je prostě úžasná. Člověka, jako jsi ty, jsem dlouho
+                      hledala. Vzpomínám si, když jsi mi poslala...</span>
+                    <span class="ref-text-more collapsed"> první návrhy, ze kterých mi doslova spadla brada. Tehdy jsem
+                      si řekla: „Páni, ona mě vůbec nezná, a přesto naprosto vystihla podstatu, kterou jsem chtěla mít
+                      ve svých grafikách.\" Svou prací jsi mě naprosto vystihla a toho si na tobě opravdu vážím. Z tvé
+                      práce je cítit, že člověku nasloucháš, přinášíš nové vhledy, poradíš a nasměruješ, ale zároveň
+                      respektuješ autenticitu a požadavky každého človeka. Je vidět, že do svých projektů vkládáš
+                      všechno. Především svou energií, tím, jak dokážeš člověka zacítit, naladit se na projekt, aby to
+                      všechno šlo ruka v ruce a vzniklo z toho to, co má. Moc ti děkuji a těším se na naši další
+                      spolupráci.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Lenka Poborská.jpg" alt="Lenka Poborská" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Lenka Poborská</div>
+                    <div class="ref-card__role">Jemností zpět k sobě</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Alex doporučuji všem ženám, které potřebuji kopat do zadku, aby uměly
+                      dokončovat své projekty. V tom Alex opravdu miluju, a proto se ji i držím, protože vždy, když si
+                      něco vymyslím, tak díky Alex to opravdu dokončím.</span>
+                    <span class="ref-text-more collapsed"> A za to si ji moc vážím. Zároveň má obrovský cit pro krásu a
+                      dokáže se na vás naladit. Dokáže se nacítit i na vašeho klienta, proto mi v hodně věcech pomohla,
+                      kdy jsem začala určité věci vnímat z jiného úhlu pohledu. Dále bych ještě chtěla Alex pochválit a
+                      doporučit kvůli tomu, že mi hodně pomáhá i v textech. Já jsem v tom docela laik a úplně nemám
+                      prostor řešit copywriting. Takže když jsem někdy Alex poslala text, hned mě upozornila, že bych
+                      mohla určité slova obměnit, abych více svého klienta zaujala. Děkuji Ti ze srdce Alex a věřím, že
+                      nadále půjdeme spolu a budeme vzájemně růst.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Žaneta Prejdová.jpg" alt="Žaneta Prejdová" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Žaneta Prejdová</div>
+                    <div class="ref-card__role">Průvodkyně životem</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 7 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">I had an excellent experience working with Alex on my logo design. From
+                      our very first conversation, she demonstrated a high level of professionalism and clear
+                      communication that immediately put me at ease.</span>
+                    <span class="ref-text-more collapsed"> She took the time to understand my vision and intuitively
+                      translated it into a concept with impressive accuracy. The final logo exceeded my expectations.
+                      It's clean, professional, and perfectly captures the identity I was going for. Honestly, it turned
+                      out even better than what I had imagined. If you're looking for a designer who truly listens,
+                      delivers quality work, and is a pleasure to collaborate with, I highly recommend her without
+                      hesitation.</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Róbert Rohun.jpg" alt="Róbert Rohun" class="ref-card__photo"
+                    loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Róbert Rohun</div>
+                    <div class="ref-card__role">IT Specialist</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 8 -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Chci ti poděkovat za mé logo a ještě jsem Ti chtěla napsat, jak cítím
+                      tvoji práci na webech, logech a další grafice… Tvé průvodcování totiž začíná právě v momentě
+                      zadání loga atd…</span>
+                    <span class="ref-text-more collapsed"> protože Ty jsi ta, která vycítí energii člověka, jeho
+                      potenciál a směr. Je to jako bys mu ukázala dveře, do kterých má vejít a dala mu od nich klíč.
+                      Cítím to až tak silně, že bys spolu s vytvářením loga, mohla naciťovat záměr duše a tím logem ho
+                      pomohla ukotvit ve hmotě…</span>
+                  </p>
+                  <button class="ref-card__more-btn">Čítať viac</button>
+                </div>
+                <div class="ref-card__author">
+                  <img src="Obrazky/Referencie/Kateřina Aiola Jiřincová.jpg" alt="Kateřina Aiola Jiřincová"
+                    class="ref-card__photo" loading="lazy" />
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Kateřina Aiola Jiřincová</div>
+                    <div class="ref-card__role">Mentorka, průvodkyně</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 9 (Anonymous / Špajza) -->
+            <div class="ref-card-wrapper">
+              <div class="ref-card glass-card">
+                <span class="ref-card__quote-icon">“</span>
+                <div class="ref-card__body">
+                  <p class="ref-card__text">
+                    <span class="ref-text-short">Odporúčam veeeľmi šikovnú a milú žienku. Logo nám spravila úplne podľa
+                      predstáv. Veľmi ochotná, mala s nami veľa trpezlivosti, aby vyzeralo všetko tip top. Okrem iného
+                      aj poradila a usmernila. Všetko vybavila v krátkom čase, takže za nás úplne správna voľba.</span>
+                  </p>
+                  <!-- No Read more button needed because this text is short -->
+                </div>
+                <div class="ref-card__author">
+                  <div class="ref-card__initials">Š</div>
+                  <div class="ref-card__author-info">
+                    <div class="ref-card__name">Špajza</div>
+                    <div class="ref-card__role">Bezobalový obchod</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.slider-track -->
+        </div><!-- /.slider-container -->
+
+        <button class="ref-nav-arrow ref-nav-arrow--next" id="ref-next" aria-label="Nasledujúca referencia">
+          <svg class="ref-nav-arrow__border" width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path class="ref-nav-arrow__path" stroke-width="1.5"
+                  d="M 7 0.75 L 32.25 0.75 A 3 3 0 0 1 35.25 3.75 L 35.25 28.25 L 28.25 35.25 L 3.75 35.25 A 3 3 0 0 1 0.75 32.25 L 0.75 7 Z"/>
+          </svg>
+          <i class="fa-solid fa-chevron-right" style="font-size:11px;position:relative;z-index:1;"></i>
+        </button>
+
+        </div><!-- /.ref-slider-wrap -->
+
+        <!-- Slider Controls – dots only -->
+        <div class="slider-controls" data-reveal>
+          <div class="slider-dots" id="ref-dots"></div>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: KTO SOM (ABOUT ME – EDITORIAL)
+         ══════════════════════════════════════════════ -->
+    <section id="omne" aria-labelledby="about-title">
+      <span class="omne-deco-word" aria-hidden="true">O mne</span>
+      <div class="container">
+
+        <div class="about-layout">
+
+          <!-- Editorial Photo Column -->
+          <div class="about__visuals" data-reveal data-delay="200">
+            <span class="about__vertical-label" aria-hidden="true">O MNE</span>
+            <div class="about__photo-frame">
+              <img src="Obrazky/Omne/Alex 3.PNG" alt="Alex Rudyová – Soul Design" class="about__photo-editorial"
+                loading="lazy" />
+              <div class="about__photo-overlay" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="about__content" data-reveal>
+            <h2 class="section-title" id="about-title">Spoznajme sa <span class="title-grad">bližšie</span></h2>
+            <span class="section-tagline">Viac o mne</span>
+
+            <p class="about__text" style="margin-top: 24px;">Som online podpora pre vedomých tvorcov a podnikateľov,
+              ktorí chcú, aby ich projekty rástli v súlade s ich hodnotami a životom.</p>
+            <p class="about__text">Spájam vizuálny cit, moderné technológie a funkčné digitálne riešenia do priestoru,
+              ktorý pôsobí prirodzene, profesionálne a ľudsky.</p>
+            <p class="about__text">Verím, že dobrý dizajn nie je len o tom, ako veci vyzerajú — ale o tom, ako sa pri
+              nich ľudia cítia. Ak hľadáte niekoho, kto vás podrží v tvorbe aj v detailoch, rada sa stanem súčasťou
+              vašej cesty.</p>
+
+            <a href="/o-mne" class="benefit-col__link" style="margin-top: 12px; display: inline-flex;">Chcete sa o mne dozvedieť viac? →</a>
+
+            <div class="about__sig-wrap">
+              <img src="Obrazky/Hlavne/Podpis.png" alt="Podpis Alex Rudyová" class="about__signature" loading="lazy" />
+              <div>
+                <div class="about__author-title">Alex Rudyová</div>
+                <div class="about__author-tag">SoulDesign – Design that connects</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.about-layout -->
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: CENNÍK (PRICING BANNER)
+         ══════════════════════════════════════════════ -->
+    <div class="pricing-banner" id="cennik" aria-labelledby="pricing-title">
+      <div class="pricing-banner__overlay"></div>
+      <div class="container">
+        <div class="pricing-banner__content" data-reveal>
+          <div class="pricing-banner__deco" aria-hidden="true">
+            <img src="Obrazky/Logo/Kolibrik logo.png" class="pricing-banner__deco-bird" alt="" />
+          </div>
+          <h2 class="pricing-banner__heading" id="pricing-title">Za každým projektom je príbeh.</h2>
+          <p class="pricing-banner__subtitle">Aby mohol rásť, potrebuje spoločný cieľ a jasné podmienky.</p>
+          <p class="pricing-banner__text">Podrobný prehľad služieb a cien nájdete v cenníku.</p>
+
+          <a href="/cennik" class="cta-btn cta-btn--filled">
+            <span class="cta-btn__left">
+              <img class="cta-btn__icon" src="Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false"/>
+              <span class="cta-btn__divider" aria-hidden="true"></span>
+              <span class="cta-btn__text">Zobraziť cenník</span>
+            </span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION: KONTAKTNÝ FORMULÁR
+         ══════════════════════════════════════════════ -->
+    <section id="kontakt" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="contact-layout" data-reveal>
+
+          <!-- Info Side (left) -->
+          <div class="contact-info-side" data-reveal>
+            <div class="contact-info__content">
+              <h2 class="contact-info__heading" id="contact-title">Povedzte mi o svojom <span class="title-grad">projekte.</span></h2>
+              <span class="contact-info__tagline">Spolu ukážeme svetu, čo prinášate.</span>
+              <div class="contact-info__rule" aria-hidden="true"></div>
+
+              <div class="contact-info__body">
+                <p>Každý projekt začína rozhovorom.</p>
+                <p>Napíšte mi, s čím potrebujete pomôcť a spoločne nájdeme riešenie, ktoré bude dávať zmysel.</p>
+                <p>Úvodná 20-minútová konzultácia je nezáväzná a zdarma.</p>
+                <p>Môžete ma kontaktovať e-mailom, prostredníctvom sociálnych sietí alebo jednoducho využiť kontaktný formulár.</p>
+              </div>
+
+              <ul class="contact-info__items" aria-label="Kontaktné informácie">
+                <li class="contact-info__item">
+                  <a href="mailto:alex@souldesign.sk" class="contact-item__link">
+                    <div class="contact-item__icon-wrap" aria-hidden="true">
+                      <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="contact-item__text">
+                      <span class="contact-item__label">E-mail</span>
+                      <span class="contact-item__value">alex@souldesign.sk</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="contact-info__item">
+                  <a href="https://www.facebook.com/alex.fecikova" class="contact-item__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <div class="contact-item__icon-wrap" aria-hidden="true">
+                      <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <div class="contact-item__text">
+                      <span class="contact-item__label">Facebook</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="contact-info__item">
+                  <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="contact-item__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <div class="contact-item__icon-wrap" aria-hidden="true">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-item__text">
+                      <span class="contact-item__label">LinkedIn</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <p class="contact-info__response-note">
+                <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                Odpovedám zvyčajne do 24 hodín počas pracovných dní.
+              </p>
+            </div>
+          </div><!-- /.contact-info-side -->
+
+          <!-- Form Side (right) -->
+          <div class="contact-form-side">
+            <div class="contact-form-card glass-card">
+
+              <form action="https://formspree.io/f/xvonzgop" method="POST" id="main-contact-form">
+
+                <!-- Anti-spam Honeypot Protection -->
+                <div class="form-honeypot" aria-hidden="true">
+                  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" placeholder="Leave this empty" />
+                </div>
+
+                <div class="form-grid">
+
+                  <!-- Name Field -->
+                  <div class="form-group">
+                    <input type="text" id="form-name" name="name" class="form-control" placeholder="Meno a priezvisko"
+                      required autocomplete="name" />
+                    <label for="form-name">Meno a priezvisko</label>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="form-group">
+                    <input type="email" id="form-email" name="email" class="form-control" placeholder="E-mail" required
+                      autocomplete="email" />
+                    <label for="form-email">E-mail</label>
+                  </div>
+
+                  <!-- Services Dropdown -->
+                  <div class="form-group form-group--full">
+                    <select id="form-service" name="service" class="form-control" required>
+                      <option value="" disabled selected></option>
+                      <option value="Web">Webové stránky</option>
+                      <option value="Grafika">Grafický dizajn</option>
+                      <option value="Reklamná kampaň">Reklamná kampaň</option>
+                      <option value="Online podpora">Kreatívna online podpora</option>
+                      <option value="Konzultácia">Konzultácia zdarma</option>
+                    </select>
+                    <label for="form-service">O akú službu máte záujem?</label>
+                  </div>
+
+                  <!-- Subject Field -->
+                  <div class="form-group form-group--full">
+                    <input type="text" id="form-subject" name="subject" class="form-control" placeholder="Predmet"
+                      required />
+                    <label for="form-subject">Predmet</label>
+                  </div>
+
+                  <!-- Message Field -->
+                  <div class="form-group form-group--full">
+                    <textarea id="form-message" name="message" class="form-control" placeholder="Správa"
+                      required></textarea>
+                    <label for="form-message">Vaša správa</label>
+                  </div>
+
+                </div><!-- /.form-grid -->
+
+                <div class="form-submit-container">
+                  <button type="submit" class="cta-btn cta-btn--filled" style="border: none; cursor: pointer;">
+                    <span class="cta-btn__left">
+                      <img class="cta-btn__icon" src="Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+                      <span class="cta-btn__divider" aria-hidden="true"></span>
+                      <span class="cta-btn__text">Odoslať správu</span>
+                    </span>
+                    <span class="cta-btn__arrow" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="form-gdpr-note">Odoslaním formulára súhlasíte so spracovaním osobných údajov pre účely
+                    kontaktovania.</div>
+                </div>
+
+              </form>
+
+            </div><!-- /.contact-form-card -->
+          </div><!-- /.contact-form-side -->
+
+        </div><!-- /.contact-layout -->
+
+      </div><!-- /.container -->
+    </section>
+
+  </div><!-- /.main-wrapper -->
+
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Pätička stránky">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Stĺpec 1: Logo a brand -->
+        <div class="footer-brand" data-reveal>
+          <img src="Obrazky/Logo/Hlavne logo.png" alt="Soul Design" class="footer-brand__logo" loading="lazy" />
+          <div class="footer-brand__socials">
+            <a href="https://www.facebook.com/alex.fecikova" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Stĺpec 2: Navigácia + Služby -->
+        <div class="footer-mid" data-reveal data-delay="100">
+          <div class="footer-col">
+            <div class="footer-col-title">Navigácia</div>
+            <ul class="footer-links">
+              <li><a href="#uvod">Úvod</a></li>
+              <li><a href="#sluzby">Služby</a></li>
+              <li><a href="#cennik">Cenník</a></li>
+              <li><a href="#omne">O mne</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Služby</div>
+            <ul class="footer-links">
+              <li><a href="/sluzby">Webové stránky</a></li>
+              <li><a href="/sluzby">Grafický dizajn</a></li>
+              <li><a href="/sluzby">Reklamné kampane</a></li>
+              <li><a href="/sluzby">Kreatívna online podpora</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Stĺpec 3: Kontakty -->
+        <div class="footer-col footer-col--right" data-reveal data-delay="200">
+          <div class="footer-col-title">Kontakty</div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-user"></i>
+            <span>Alex Rudyová</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Študentská 2046/39<br>069 01 Snina</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>info@souldesign.sk</span>
+          </div>
+        </div>
+
+      </div><!-- /.footer-grid -->
+
+    </div><!-- /.container -->
+
+    <!-- Spodná lišta -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-copyright">
+          &copy; <span id="copyright-year"></span> Soul Design. Všetky práva vyhradené.
+        </div>
+        <div class="footer-legal">
+          <a href="/ochrana-udajov">Ochrana údajov</a>
+          <span aria-hidden="true" style="color: rgba(255,255,255,0.35);">·</span>
+          <a href="/cookies">Cookies</a>
+        </div>
+      </div>
+      <div class="footer__hb" aria-hidden="true">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="Obrazky/Logo/video kolibrik.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════
+       COOKIE BANNER
+       ══════════════════════════════════════════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Súhlas s používaním cookies">
+    <p class="cookie-banner__text">
+      Tento web používa súbory cookie na zlepšenie používateľského zážitku a analýzu návštevnosti. Viac informácií
+      nájdete v sekcii <a href="/cookies">Zásady používania cookies</a>.
+    </p>
+    <div class="cookie-banner__btns">
+      <button class="cbtn cbtn--decline" id="cookie-decline">Odmietnuť</button>
+      <button class="cbtn cbtn--accept" id="cookie-accept">Prijať všetko</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       SCRIPTS (PRESERVED & EXPANDED)
+       ══════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Reduced motion detect ─────────────────────────── */
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        ['anim-heading', 'anim-sub1', 'anim-services', 'anim-cta'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+        });
+        // Auto reveal all elements if reduced motion is preferred
+        document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
+      }
+
+      /* ══ CONFIG FOR HERO (PRESERVED FROM HERO) ═══════════ */
+      const C = {
+        bladeCount: 8,
+        bladeOpenDur: 1600,
+        bladeDelay: 100,
+        hbDelay: 100,
+        hbDur: 5000,
+        textDelay: 1500,
+        textStep: 100,
+      };
+
+      const RAF = requestAnimationFrame;
+      const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+      /* ══ LOUVER GENERATOR (PRESERVED FROM HERO) ══════════ */
+      const bladesContainer = document.getElementById('louvers-container');
+      const blades = [];
+      if (bladesContainer && !reducedMotion) {
+        const rect = bladesContainer.getBoundingClientRect();
+        const L = rect.left;
+        const W = rect.width;
+
+        for (let i = 0; i < C.bladeCount; i++) {
+          const blade = document.createElement('div');
+          blade.className = 'louver-blade';
+
+          const p = i / (C.bladeCount - 1);
+          const g = Math.round(30 + p * 55);
+          const b = Math.round(48 + p * 72);
+          const a = (0.58 - p * 0.20).toFixed(2);
+          blade.style.background = `rgba(0, ${g}, ${b}, ${a})`;
+
+          bladesContainer.appendChild(blade);
+
+          const xTrigger = L + (i / C.bladeCount) * W;
+          blades.push({
+            el: blade,
+            xTrigger: xTrigger,
+            opened: false
+          });
+        }
+      }
+
+      let fallbackTimeout = setTimeout(() => {
+        blades.forEach((b, i) => {
+          setTimeout(() => {
+            if (!b.opened) {
+              b.opened = true;
+              b.el.classList.add('open');
+            }
+          }, i * 100);
+        });
+      }, 3000);
+
+      /* ══ HUMMINGBIRD FLIGHT (PRESERVED FROM HERO) ════════ */
+      const hb = document.getElementById('hummingbird');
+      let hbT0 = null;
+
+      function hbFrame(now) {
+        if (!hbT0) hbT0 = now;
+        const elapsed = now - hbT0;
+        const t = Math.min(1, elapsed / C.hbDur);
+        const et = easeOutCubic(t);
+
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const sz = hb.offsetWidth || 180;
+
+        const P0 = { x: -sz - 30, y: vh * 0.58 };
+        const P1 = { x: vw * 0.20, y: vh * 0.35 };
+        const P2 = { x: vw * 0.48, y: vh * 0.24 };
+        const P3 = { x: vw + sz + 30, y: vh * 0.30 };
+
+        const mt = 1 - et;
+        const bx = mt * mt * mt * P0.x + 3 * mt * mt * et * P1.x + 3 * mt * et * et * P2.x + et * et * et * P3.x;
+        const by = mt * mt * mt * P0.y + 3 * mt * mt * et * P1.y + 3 * mt * et * et * P2.y + et * et * et * P3.y;
+
+        const step = 0.012;
+        const et2 = Math.min(1, et + step);
+        const mt2 = 1 - et2;
+        const bx2 = mt2 * mt2 * mt2 * P0.x + 3 * mt2 * mt2 * et2 * P1.x + 3 * mt2 * et2 * et2 * P2.x + et2 * et2 * et2 * P3.x;
+        const by2 = mt2 * mt2 * mt2 * P0.y + 3 * mt2 * mt2 * et2 * P1.y + 3 * mt2 * et2 * et2 * P2.y + et2 * et2 * et2 * P3.y;
+        const angle = Math.atan2(by2 - by, bx2 - bx) * 180 / Math.PI;
+
+        let alpha = 1;
+        if (t < 0.07) alpha = t / 0.07;
+        if (t > 0.93) alpha = (1 - t) / 0.07;
+
+        hb.style.opacity = String(alpha);
+        hb.style.transform = `translate(${bx}px, ${by}px) rotate(${angle}deg)`;
+
+        blades.forEach((b) => {
+          if (!b.opened && bx >= b.xTrigger) {
+            b.opened = true;
+            b.el.classList.add('open');
+          }
+        });
+
+        if (t < 1) {
+          RAF(hbFrame);
+        } else {
+          hb.style.opacity = '0';
+          blades.forEach(b => {
+            if (!b.opened) {
+              b.opened = true;
+              b.el.classList.add('open');
+            }
+          });
+        }
+      }
+
+      if (!reducedMotion) {
+        setTimeout(() => {
+          clearTimeout(fallbackTimeout);
+          hbT0 = null;
+          RAF(hbFrame);
+          if (hb && typeof hb.play === 'function') {
+            hb.currentTime = 0;
+            hb.play().catch(e => console.log('Autoplay play trigger log:', e));
+          }
+        }, C.hbDelay);
+
+        /* ══ TEXT REVEAL (PRESERVED FROM HERO) ══════════════ */
+        ['anim-heading', 'anim-sub1', 'anim-services', 'anim-cta'].forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          setTimeout(() => {
+            el.style.transition =
+              `opacity 0.9s cubic-bezier(.22,.61,.36,1),
+             transform 0.9s cubic-bezier(.22,.61,.36,1)`;
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, C.textDelay + i * C.textStep);
+        });
+      }
+
+      /* ══ HERO SCROLL PARALLAX (PRESERVED FROM HERO) ══════ */
+      const VH = window.innerHeight;
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        RAF(() => {
+          const sy = window.scrollY;
+
+          // Parallax for hero photo container
+          const ph = document.getElementById('hero-photo-container');
+          if (ph && sy < VH) {
+            ph.style.transform = `translateY(${sy * 0.15}px)`;
+          }
+
+          // Header scrolled state handling
+          const header = document.getElementById('site-header');
+          if (header) {
+            header.classList.toggle('scrolled', sy > 60);
+          }
+
+          ticking = false;
+        });
+      }, { passive: true });
+
+      /* ══ MOBILE BURGER MENU (PRESERVED & EXPANDED FOR ACCESSIBILITY) ══ */
+      const burger = document.getElementById('burger-btn');
+      const nav = document.querySelector('.header__nav');
+      if (burger && nav) {
+        burger.addEventListener('click', () => {
+          const isOpen = burger.getAttribute('aria-expanded') === 'true';
+          burger.setAttribute('aria-expanded', String(!isOpen));
+
+          if (!isOpen) {
+            nav.classList.add('mobile-active');
+          } else {
+            nav.classList.remove('mobile-active');
+          }
+        });
+
+        // Close mobile menu when nav link is clicked
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            burger.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('mobile-active');
+          });
+        });
+      }
+
+      /* ══ INTERSECTION OBSERVER FOR SCROLL REVEALS ════════ */
+      if (!reducedMotion && 'IntersectionObserver' in window) {
+        const revealCallback = (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+          root: null,
+          threshold: 0.12,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => {
+          revealObserver.observe(el);
+        });
+      } else {
+        // Direct reveal if observer isn't supported or reduced motion is enabled
+        document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
+      }
+
+      /* ══ TESTIMONIAL SLIDER INTERACTIVITY ════════════════ */
+      (function () {
+        const track = document.getElementById('ref-track');
+        if (!track) return;
+
+        const cards = track.querySelectorAll('.ref-card-wrapper');
+        const prevBtn = document.getElementById('ref-prev');
+        const nextBtn = document.getElementById('ref-next');
+        const dotsContainer = document.getElementById('ref-dots');
+
+        let currentIndex = 0;
+        let cardsPerView = 3;
+
+        function updateCardsPerView() {
+          const w = window.innerWidth;
+          if (w <= 768) {
+            cardsPerView = 1;
+          } else if (w <= 1100) {
+            cardsPerView = 2;
+          } else {
+            cardsPerView = 3;
+          }
+        }
+
+        function getPagesCount() {
+          return Math.max(1, cards.length - cardsPerView + 1);
+        }
+
+        function updateSlider() {
+          updateCardsPerView();
+          const maxIndex = getPagesCount() - 1;
+          if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+          }
+
+          // Set cards widths dynamically
+          cards.forEach(c => {
+            c.style.flex = `0 0 ${100 / cardsPerView}%`;
+            c.style.maxWidth = `${100 / cardsPerView}%`;
+          });
+
+          const cardWidth = cards[0].getBoundingClientRect().width;
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+          // Render indicator dots dynamically
+          dotsContainer.innerHTML = '';
+          const pages = getPagesCount();
+          for (let i = 0; i < pages; i++) {
+            const dot = document.createElement('button');
+            dot.className = `sdot ${i === currentIndex ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Prejsť na snímku ${i + 1}`);
+            dot.addEventListener('click', () => {
+              currentIndex = i;
+              updateSlider();
+              resetAutoPlay();
+            });
+            dotsContainer.appendChild(dot);
+          }
+
+          // Disable/enable arrows
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= maxIndex;
+        }
+
+        // Auto-play
+        let autoPlayTimer = null;
+
+        function startAutoPlay() {
+          autoPlayTimer = setInterval(() => {
+            currentIndex = currentIndex < getPagesCount() - 1 ? currentIndex + 1 : 0;
+            updateSlider();
+          }, 6000);
+        }
+
+        function resetAutoPlay() {
+          clearInterval(autoPlayTimer);
+          startAutoPlay();
+        }
+
+        // Pause on hover
+        const sliderWrap = track.closest('.ref-slider-wrap');
+        if (sliderWrap) {
+          sliderWrap.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+          sliderWrap.addEventListener('mouseleave', () => startAutoPlay());
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+            resetAutoPlay();
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < getPagesCount() - 1) {
+            currentIndex++;
+            updateSlider();
+            resetAutoPlay();
+          }
+        });
+
+        // Swipe guestures support for tablets and mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', e => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const threshold = 50;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+              // Swipe Left -> Next
+              if (currentIndex < getPagesCount() - 1) {
+                currentIndex++;
+                updateSlider();
+              }
+            } else {
+              // Swipe Right -> Prev
+              if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+              }
+            }
+          }
+        }
+
+        window.addEventListener('resize', updateSlider, { passive: true });
+        updateSlider();
+        startAutoPlay();
+      })();
+
+      /* ══ EXPANDABLE TESTIMONIALS ("ČÍTAŤ VIAC") LOGIC ════ */
+      document.querySelectorAll('.ref-card__body').forEach(body => {
+        const moreText = body.querySelector('.ref-text-more');
+        const moreBtn = body.querySelector('.ref-card__more-btn');
+
+        if (moreText && moreBtn) {
+          moreBtn.addEventListener('click', () => {
+            const isCollapsed = moreText.classList.contains('collapsed');
+
+            if (isCollapsed) {
+              moreText.classList.remove('collapsed');
+              moreBtn.textContent = 'Menej';
+              moreBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              moreText.classList.add('collapsed');
+              moreBtn.textContent = 'Čítať viac';
+              moreBtn.setAttribute('aria-expanded', 'false');
+
+              // Scroll smoothly back to top of the card if out of view
+              const card = body.closest('.ref-card');
+              if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+            }
+          });
+        }
+      });
+
+      /* ══ SVG TIMELINE ANIMATION ══════════════════════════ */
+      (function () {
+        const pathEl = document.getElementById('timeline-path');
+        const hbWrap = document.getElementById('tl-deco-hb-wrap');
+        const wrapper = document.getElementById('timeline-svg-wrapper');
+        if (!pathEl || !wrapper || !hbWrap) return;
+
+        const NODE_T = [0.13, 0.375, 0.63, 0.875];
+        const triggered = [false, false, false, false];
+        const DUR = 4800;
+
+        function revealStep(i, delay) {
+          setTimeout(() => {
+            const n = document.getElementById('tl-node-' + i);
+            const t = document.getElementById('tl-text-' + i);
+            if (n) n.classList.add('visible');
+            if (t) t.classList.add('visible');
+          }, delay || 0);
+        }
+
+        if (reducedMotion) {
+          [0, 1, 2, 3].forEach(i => revealStep(i, i * 150));
+          return;
+        }
+
+        function animateTimeline() {
+          const svgEl = wrapper.querySelector('.timeline-svg-path');
+          const svgRect = svgEl.getBoundingClientRect();
+
+          if (svgRect.width === 0) {
+            [0, 1, 2, 3].forEach(i => revealStep(i, i * 280));
+            return;
+          }
+
+          const wrapRect = wrapper.getBoundingClientRect();
+          const vb = svgEl.viewBox.baseVal;
+          const totalLen = pathEl.getTotalLength();
+          const scaleX = svgRect.width / vb.width;
+          const scaleY = svgRect.height / vb.height;
+          const offX = svgRect.left - wrapRect.left;
+          const offY = svgRect.top - wrapRect.top;
+
+          NODE_T.forEach((t, i) => {
+            const pt = pathEl.getPointAtLength(t * totalLen);
+            const nd = document.getElementById('tl-node-' + i);
+            if (nd) {
+              const crystal = nd.querySelector('.tl-crystal');
+              const halfH = crystal ? Math.round(crystal.offsetHeight / 2) : 62;
+              nd.style.left = (pt.x * scaleX + offX) + 'px';
+              nd.style.top = (pt.y * scaleY + offY - halfH) + 'px';
+            }
+          });
+
+          const clipRect = document.getElementById('tl-clip-rect');
+
+          hbWrap.style.opacity = '1';
+          const hbW = hbWrap.offsetWidth;
+          const hbH = hbWrap.offsetHeight;
+          hbWrap.style.left = '0';
+          hbWrap.style.top = '0';
+          hbWrap.style.willChange = 'transform, opacity';
+
+          let startTs = null;
+          let prevAng = 0;
+
+          function frame(ts) {
+            if (!startTs) startTs = ts;
+            const p = Math.min(1, (ts - startTs) / DUR);
+
+            const pt = pathEl.getPointAtLength(p * totalLen);
+            const pt2 = pathEl.getPointAtLength(Math.min(totalLen, p * totalLen + 10));
+            const rawAng = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+            const ang = prevAng + (rawAng - prevAng) * 0.18;
+            prevAng = ang;
+
+            const x = pt.x * scaleX + offX - hbW / 2;
+            const y = pt.y * scaleY + offY - hbH / 2;
+            hbWrap.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + ang + 'deg)';
+
+            if (clipRect) clipRect.setAttribute('width', String(Math.max(0, pt.x + 3)));
+
+            NODE_T.forEach((threshold, i) => {
+              if (!triggered[i] && p >= threshold) {
+                triggered[i] = true;
+                const nd = document.getElementById('tl-node-' + i);
+                if (nd) nd.classList.add('visible');
+                setTimeout(() => {
+                  const tx = document.getElementById('tl-text-' + i);
+                  if (tx) tx.classList.add('visible');
+                }, 320);
+              }
+            });
+
+            if (p < 1) {
+              requestAnimationFrame(frame);
+            } else {
+              hbWrap.style.opacity = '0';
+            }
+          }
+
+          requestAnimationFrame(frame);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            setTimeout(animateTimeline, 400);
+            observer.disconnect();
+          }
+        }, { threshold: 0.25 });
+
+        const section = document.getElementById('postup');
+        if (section) observer.observe(section);
+      })();
+
+      /* ══ COOKIE BANNER ACTION EVENTS ═════════════════════ */
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('cookie-accept');
+      const declineBtn = document.getElementById('cookie-decline');
+
+      if (cookieBanner) {
+        const consent = localStorage.getItem('souldesign_cookie_consent');
+        if (consent !== null) {
+          cookieBanner.classList.add('hidden');
+        }
+
+        acceptBtn.addEventListener('click', () => {
+          localStorage.setItem('souldesign_cookie_consent', 'accepted');
+          cookieBanner.classList.add('hidden');
+        });
+
+        declineBtn.addEventListener('click', () => {
+          localStorage.setItem('souldesign_cookie_consent', 'declined');
+          cookieBanner.classList.add('hidden');
+        });
+      }
+
+      /* ══ AUTO UPDATE CURRENT YEAR IN FOOTER ══════════════ */
+      const yearSpan = document.getElementById('copyright-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+    })();
+
+    /* ── CTA parallax: pozadie sa pohybuje 0.5× rýchlosťou scrollu, max ±100px ── */
+    (function () {
+      if (window.matchMedia('(max-width: 768px)').matches) return;
+      const section = document.getElementById('cta-services');
+      if (!section) return;
+      function onScroll() {
+        const rect    = section.getBoundingClientRect();
+        const center  = rect.top + rect.height / 2;
+        const offset  = (window.innerHeight / 2 - center) * 0.5;
+        const clamped = Math.max(-100, Math.min(100, offset));
+        section.style.setProperty('--parallax-y', clamped + 'px');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ── Hummingbird video – plynulý loop (crossfade pri reštarte) ── */
+    (function () {
+      const vid = document.querySelector('.footer__hb video');
+      if (!vid) return;
+      const FADE_START = 0.35;
+      let fading = false;
+      vid.addEventListener('timeupdate', function () {
+        const remaining = vid.duration - vid.currentTime;
+        if (!isNaN(remaining) && remaining < FADE_START && !fading) {
+          fading = true;
+          vid.style.opacity = '0';
+          setTimeout(function () {
+            vid.currentTime = 0;
+            vid.style.opacity = '0.65';
+            fading = false;
+          }, 300);
+        }
+      });
+    })();
+
+  </script>
+</body>
+
+</html>

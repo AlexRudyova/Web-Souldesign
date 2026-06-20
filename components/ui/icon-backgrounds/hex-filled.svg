@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <defs>
+
+    <linearGradient id="grad-filled" x1="15%" y1="85%" x2="85%" y2="15%">
+      <stop offset="0%"   stop-color="#005f7a"/>
+      <stop offset="40%"  stop-color="#007599"/>
+      <stop offset="100%" stop-color="#00a3c9"/>
+    </linearGradient>
+
+    <linearGradient id="grad-highlight" x1="0%" y1="0%" x2="70%" y2="70%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="45%"  stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <clipPath id="hex-clip">
+      <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"/>
+    </clipPath>
+
+  </defs>
+
+  <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"
+           fill="url(#grad-filled)"/>
+
+  <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"
+           fill="url(#grad-highlight)" clip-path="url(#hex-clip)"/>
+
+</svg>

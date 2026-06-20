@@ -1,0 +1,19 @@
+# Soul Design - LLM Reference Guide
+
+Soul Design is a bespoke boutique creative studio run by Alex Rudyová, blending vibe coding, graphic design, ad campaigns, and creative online support.
+
+## Pages & Structure
+- Home (`/`): Core landing page. Main benefits, services outline, timeline process, testimonials slider, profile, and email form.
+- Services (`/sluzby`): Detailed listing of web development, graphics, social ads, and AI content.
+- About (`/omne`): Backstage details, bio of Alex Rudyová, and client-centric philosophy.
+- Testimonials (`/referencie`): Full authentic client feedback reviews.
+- Pricing (`/cennik`): Detailed services packages.
+- Contact (`/kontakt`): Interactive glassmorphic consultation and contact forms.
+
+## Design System & Tokens
+- Primary Accent: `#007599` (Deep Teal)
+- Secondary Light: `#E9F3F6` (Ice Blue)
+- Base Background: Warm soft ivory (`#FAF8F5`) transitioning to `#FCF9F5`.
+- Text Color: `#333333`
+- Accent Font Script: Cormorant Garamond Italic (used exclusively for signature details and small overlays)
+- Primary Font: Frank Ruhl Libre (Headings) & Lora (Body)

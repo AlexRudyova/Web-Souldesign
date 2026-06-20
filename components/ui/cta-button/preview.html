@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTA Button – Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #002535;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+      padding: 80px 60px;
+      min-height: 100vh;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .label {
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       ZDIEĽANÉ ŠTÝLY OBSAHU
+       Platia pre všetky tri varianty
+    ═══════════════════════════════════════════════ */
+
+    .cta-btn__left {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn__icon {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 68px;
+      max-height: 56px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .cta-btn__divider {
+      flex-shrink: 0;
+      display: block;
+      width: 1px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.18);
+      margin: 0 20px;
+    }
+
+    .cta-btn__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .cta-btn__arrow {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: transform 300ms ease;
+    }
+
+
+    /* ═══════════════════════════════════════════════
+       OUTLINE
+       SVG border (chamfer ľavý horný + pravý dolný)
+    ═══════════════════════════════════════════════ */
+
+    .cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 325px;
+      height: 74px;
+      padding: 0 28px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 300ms ease;
+    }
+
+    .cta-btn--outline {
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+    }
+    .cta-btn--outline:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .cta-btn--outline:hover .cta-btn__arrow {
+      transform: translateX(4px);
+    }
+
+    .cta-btn__border {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .cta-btn__border-path {
+      stroke: rgba(0, 168, 214, 0.7);
+      fill: transparent;
+      transition: stroke 300ms ease;
+    }
+    .cta-btn--outline:hover .cta-btn__border-path {
+      stroke: rgba(0, 168, 214, 1.0);
+    }
+
+
+    /* ═══════════════════════════════════════════════
+       FILLED
+       clip-path tvar + hero gradient (::before/::after)
+    ═══════════════════════════════════════════════ */
+
+    .cta-btn--filled {
+      isolation: isolate;
+      overflow: hidden;
+      clip-path: path("M 22 0 L 315 0 A 10 10 0 0 1 325 10 L 325 52 L 303 74 L 10 74 A 10 10 0 0 1 0 64 L 0 22 Z");
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+    }
+    .cta-btn--filled::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+    .cta-btn--filled::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .cta-btn--filled:hover .cta-btn__arrow {
+      transform: translateX(4px);
+    }
+
+
+    /* ═══════════════════════════════════════════════
+       GLASS
+       Wrapper technika:
+         glass-fill  → clip-path + backdrop-filter + bg
+         glass-link  → absolútny flex link, obsah
+         glass-svg   → SVG border MIMO clip-path
+    ═══════════════════════════════════════════════ */
+
+    .glass-wrap {
+      position: relative;
+      width: 325px;
+      height: 74px;
+      display: inline-block;
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+      transition: filter 300ms ease;
+    }
+    .glass-wrap:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .glass-wrap:hover .cta-btn__arrow {
+      transform: translateX(4px);
+    }
+
+    /* Skosená plocha s blur efektom */
+    .glass-fill {
+      position: absolute;
+      inset: 0;
+      clip-path: path("M 22 0 L 315 0 A 10 10 0 0 1 325 10 L 325 52 L 303 74 L 10 74 A 10 10 0 0 1 0 64 L 0 22 Z");
+      background: linear-gradient(90deg, rgba(0,117,153,0.42) 0%, rgba(0,117,153,0.14) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      transition: background 300ms ease;
+    }
+    .glass-wrap:hover .glass-fill {
+      background: linear-gradient(90deg, rgba(0,117,153,0.54) 0%, rgba(0,117,153,0.22) 100%);
+    }
+
+    /* Link – absolútne vypĺňa wrapper, flex layout */
+    .glass-link {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* SVG border – mimo clip-path, zobrazí celý tvar */
+    .glass-svg {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .glass-path {
+      stroke: rgba(0, 117, 153, 0.9);
+      fill: transparent;
+      transition: stroke 300ms ease;
+    }
+    .glass-wrap:hover .glass-path {
+      stroke: rgba(0, 168, 214, 0.85);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ OUTLINE ══════════════ -->
+  <div>
+    <p class="label">Outline</p>
+    <a class="cta-btn cta-btn--outline" href="#">
+
+      <svg class="cta-btn__border" width="325" height="74"
+           viewBox="0 0 325 74" fill="none" aria-hidden="true">
+        <path class="cta-btn__border-path" stroke-width="1.5"
+              d="M 22.5 0.75 L 315 0.75
+                 A 9.25 9.25 0 0 1 324.25 10
+                 L 324.25 51.5
+                 L 302.5 73.25
+                 L 10 73.25
+                 A 9.25 9.25 0 0 1 0.75 64
+                 L 0.75 22.5 Z"/>
+      </svg>
+
+      <span class="cta-btn__left">
+        <img class="cta-btn__icon"
+             src="../../../Obrazky/Logo/Kolibrik logo.png"
+             alt="" aria-hidden="true" draggable="false"/>
+        <span class="cta-btn__divider" aria-hidden="true"></span>
+        <span class="cta-btn__text">Kontaktovať ma</span>
+      </span>
+
+      <span class="cta-btn__arrow" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+    </a>
+  </div>
+
+
+  <!-- ══════════════ FILLED ══════════════ -->
+  <div>
+    <p class="label">Filled</p>
+    <a class="cta-btn cta-btn--filled" href="#">
+
+      <span class="cta-btn__left">
+        <img class="cta-btn__icon"
+             src="../../../Obrazky/Logo/Kolibrik logo.png"
+             alt="" aria-hidden="true" draggable="false"/>
+        <span class="cta-btn__divider" aria-hidden="true"></span>
+        <span class="cta-btn__text">Kontaktovať ma</span>
+      </span>
+
+      <span class="cta-btn__arrow" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+    </a>
+  </div>
+
+
+  <!-- ══════════════ GLASS ══════════════ -->
+  <div>
+    <p class="label">Glass</p>
+    <div class="glass-wrap">
+
+      <!-- 1. Plocha: clip-path tvar + backdrop-filter -->
+      <div class="glass-fill" aria-hidden="true"></div>
+
+      <!-- 2. Link s obsahom -->
+      <a class="glass-link" href="#">
+
+        <span class="cta-btn__left">
+          <img class="cta-btn__icon"
+               src="../../../Obrazky/Logo/Kolibrik logo.png"
+               alt="" aria-hidden="true" draggable="false"/>
+          <span class="cta-btn__divider" aria-hidden="true"></span>
+          <span class="cta-btn__text">Kontaktovať ma</span>
+        </span>
+
+        <span class="cta-btn__arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+
+      </a>
+
+      <!-- 3. SVG border – mimo clip-path, zobrazí celý tvar -->
+      <svg class="glass-svg" width="325" height="74"
+           viewBox="0 0 325 74" fill="none" aria-hidden="true">
+        <path class="glass-path" stroke-width="1.5"
+              d="M 22.5 0.75 L 315 0.75
+                 A 9.25 9.25 0 0 1 324.25 10
+                 L 324.25 51.5
+                 L 302.5 73.25
+                 L 10 73.25
+                 A 9.25 9.25 0 0 1 0.75 64
+                 L 0.75 22.5 Z"/>
+      </svg>
+
+    </div>
+  </div>
+
+</body>
+</html>

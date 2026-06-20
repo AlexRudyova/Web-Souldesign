@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <defs>
+
+    <!-- Filled gradient — totožný s filled CTA tlačidlom (118deg) -->
+    <linearGradient id="grad-filled" x1="15%" y1="85%" x2="85%" y2="15%">
+      <stop offset="0%"   stop-color="#005f7a"/>
+      <stop offset="40%"  stop-color="#007599"/>
+      <stop offset="100%" stop-color="#00a3c9"/>
+    </linearGradient>
+
+    <!-- Jemný svetelný odraz na povrchu (glass quality) -->
+    <linearGradient id="grad-highlight" x1="0%" y1="0%" x2="70%" y2="70%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="45%"  stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <!-- Glow blur -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+
+    <!-- Clip path — špička nahor (pointy-top) -->
+    <clipPath id="hex-clip">
+      <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- 1. Teal glow za hexagónom -->
+  <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"
+           fill="#007599" opacity="0.38"
+           filter="url(#glow)"/>
+
+  <!-- 2. Plná výplň — brand gradient (rovnaká ako filled CTA tlačidlo) -->
+  <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"
+           fill="url(#grad-filled)"/>
+
+  <!-- 3. Svetelný odraz — kvalita povrchu -->
+  <polygon points="110,18 190,62 190,150 110,194 30,150 30,62"
+           fill="url(#grad-highlight)"
+           clip-path="url(#hex-clip)"/>
+
+</svg>

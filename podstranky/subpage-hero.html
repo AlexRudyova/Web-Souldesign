@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webové stránky | Soul Design</title>
+  <meta name="description" content="Funkčný online priestor, ktorý odráža hodnoty vašej značky a prirodzene vedie návštevníkov k akcii." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       1. RESET & TOKENS
+       ═══════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --teal:        #007599;
+      --teal-mid:    #005f7a;
+      --teal-dark:   #003d52;
+      --teal-deeper: #002535;
+      --teal-glow:   #00a3c9;
+      --teal-pale:   #4ecde8;
+      --white:       #ffffff;
+
+      --bg-start: #FAF8F5;
+      --bg-mid:   #E9F3F6;
+      --bg-end:   #FCF9F5;
+      --text-color:  #333333;
+      --text-muted:  #555555;
+      --text-light:  #888888;
+
+      --radius-card: 14px;
+      --font-head:   'Frank Ruhl Libre', Georgia, serif;
+      --font-body:   'Lora', Georgia, serif;
+      --font-script: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-start);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════════════════════════════════════
+       2. HEADER — transparentný nad hero, glass pri scrolle
+          Rovnaká logika ako index.html.
+          Rozdiel: počiatočný text je tmavý teal (nie biely),
+          lebo pozadie hero je svetlé/teplé.
+       ═══════════════════════════════════════════════ */
+    .site-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: clamp(16px, 2.4vh, 26px) clamp(24px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+
+    .site-header.scrolled {
+      position: fixed;
+      background: rgba(244, 242, 238, 0.82);
+      backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5) brightness(0.88);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding: clamp(12px, 1.8vh, 18px) clamp(24px, 5vw, 72px);
+      animation: headerSlideIn 0.3s ease-out;
+    }
+
+    @keyframes headerSlideIn {
+      from { transform: translateY(-100%); }
+      to   { transform: translateY(0); }
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header__logo img {
+      height: clamp(48px, 6.5vh, 74px);
+      width: auto;
+      opacity: 0.90;
+      transition: opacity 0.3s ease, filter 0.4s ease;
+    }
+
+    .header__logo:hover img { opacity: 1; }
+
+    .site-header.scrolled .header__logo img {
+      filter: none;
+      opacity: 1;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 2.8vw, 40px);
+      list-style: none;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: clamp(11px, 1vw, 13px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 63, 82, 0.80);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.28s ease;
+    }
+
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, #005f7a 0%, #007599 35%, #00b5d8 70%, #00a3c9 100%);
+      transition: width 0.32s ease;
+    }
+
+    .header__nav a:hover { color: var(--teal-dark); }
+    .header__nav a:hover::after { width: 100%; }
+
+    .site-header.scrolled .header__nav a      { color: rgba(0, 63, 82, 0.80); }
+    .site-header.scrolled .header__nav a:hover { color: #003d52; }
+
+    /* KONTAKT chamfer button */
+    .nav__cta {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 148px;
+      height: 40px;
+      padding: 0 !important;
+      clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z");
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px !important;
+      font-weight: 600;
+      letter-spacing: 0.05em !important;
+      color: var(--white) !important;
+      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      filter: drop-shadow(0 0 0px rgba(0,117,153,0));
+      transition: filter 300ms ease;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+
+    .header__nav .nav__cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+
+    .header__nav .nav__cta:hover::after { opacity: 1; }
+    .nav__cta:hover {
+      color: var(--white) !important;
+      filter: drop-shadow(0 0 18px rgba(0,117,153,0.18));
+    }
+
+    /* Mobile burger */
+    .header__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .header__burger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--teal-dark);
+      border-radius: 2px;
+      transition: background-color 0.3s;
+    }
+
+    .site-header.scrolled .header__burger span { background: var(--text-color); }
+
+    /* ═══════════════════════════════════════════════
+       3. TITLE GRADIENT — rovnaký ako na celom webe
+       ═══════════════════════════════════════════════ */
+    .title-grad {
+      background: linear-gradient(100deg, #005f7a 0%, #007599 45%, #00a3c9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══════════════════════════════════════════════
+       4. SUBPAGE HERO
+       ═══════════════════════════════════════════════ */
+    .sub-hero {
+      position: relative;
+      width: 100%;
+      min-height: clamp(600px, 85vh, 960px);
+      background-image: url('../Obrazky/Pozadie/Hero podstranok/8.png');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Teplý béžový overlay — zjednotí všetky fotografie, zachová čitateľnosť textu */
+    .sub-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom,
+          rgba(240, 232, 218, 0.72) 0%,
+          rgba(240, 232, 218, 0.18) 18%,
+          transparent               36%
+        ),
+        linear-gradient(to right,
+          rgba(240, 232, 218, 0.52) 0%,
+          rgba(238, 229, 214, 0.38) 28%,
+          rgba(235, 225, 210, 0.18) 52%,
+          rgba(232, 222, 206, 0.05) 72%,
+          transparent               90%
+        );
+    }
+
+    /* Prechod do ďalšej sekcie — plynulý spodný fade */
+    .sub-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 38%;
+      background: linear-gradient(to bottom,
+        transparent                  0%,
+        rgba(250, 248, 245, 0.18)   25%,
+        rgba(250, 248, 245, 0.52)   55%,
+        rgba(250, 248, 245, 0.86)   78%,
+        #FAF8F5                     100%
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Dvojstĺpcový layout obsahu */
+    .sub-hero__content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: clamp(110px, 14vh, 160px) clamp(24px, 5.5vw, 80px) clamp(60px, 8vh, 100px);
+      display: grid;
+      grid-template-columns: 52% 48%;
+      align-items: center;
+    }
+
+    /* Ľavý stĺpec – obsah */
+    .sub-hero__left {
+      max-width: 560px;
+    }
+
+    /* Pravý stĺpec – prázdny, fotografia v pozadí */
+    .sub-hero__right {
+      /* intentionally empty */
+    }
+
+    /* ── Breadcrumb ── */
+    .sub-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: clamp(16px, 2.2vh, 24px);
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sub-hero__breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .sub-hero__breadcrumb a:hover { color: var(--teal); }
+
+    .sub-hero__breadcrumb-sep {
+      color: var(--text-light);
+      font-style: normal;
+    }
+
+    .sub-hero__breadcrumb-current {
+      color: var(--teal);
+    }
+
+    /* ── H1 nadpis ── */
+    .sub-hero__title {
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: clamp(34px, 4.2vw, 62px);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      color: var(--teal-dark);
+      margin-bottom: 0;
+    }
+
+    /* ── Dekoratívna linka pod nadpisom ── */
+    .sub-hero__divider {
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, #005f7a, #00a3c9);
+      border-radius: 2px;
+      margin: clamp(14px, 2vh, 20px) 0 clamp(28px, 4vh, 38px);
+    }
+
+    /* ── Popis — štýl Playfair Display ako CTA, väčšie pismo ── */
+    .sub-hero__desc {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(16px, 1.4vw, 22px);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+      color: rgba(0, 61, 82, 0.80);
+      margin-bottom: clamp(66px, 9vh, 90px);
+      max-width: 460px;
+    }
+
+    /* ── CTA tlačidlo — brand chamfer 240×50 (zhodné s hero index.html) ── */
+    .cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 218px;
+      height: 45px;
+      padding: 0 16px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 300ms ease;
+    }
+
+    .cta-btn__left {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn__icon {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 42px;
+      max-height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .cta-btn__divider {
+      flex-shrink: 0;
+      display: block;
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 5px 0 0;
+    }
+
+    .cta-btn__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .cta-btn__arrow {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      margin-left: 8px;
+      transition: transform 300ms ease;
+    }
+
+    .cta-btn--filled {
+      isolation: isolate;
+      overflow: hidden;
+      clip-path: path("M 13 0 L 211 0 A 7 7 0 0 1 218 7 L 218 31 L 205 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z");
+      filter: drop-shadow(0 0 0px rgba(0,117,153,0));
+    }
+
+    .cta-btn--filled::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%);
+      z-index: -1;
+    }
+
+    .cta-btn--filled::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(118deg, #007599 0%, #00b5d8 55%, #006585 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.36s ease;
+    }
+
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover {
+      filter: drop-shadow(0 0 18px rgba(0,117,153,0.18));
+    }
+    .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+
+    /* ═══════════════════════════════════════════════
+       5. PLACEHOLDER PRE ĎALŠÍ OBSAH
+       ═══════════════════════════════════════════════ */
+    .page-content {
+      background: var(--bg-start);
+      padding: clamp(60px, 8vh, 100px) clamp(24px, 5.5vw, 80px);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════
+       6. RESPONZIVITA
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .sub-hero__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: clamp(100px, 16vh, 140px);
+      }
+
+      .sub-hero__left {
+        max-width: 100%;
+      }
+
+      .sub-hero__breadcrumb {
+        justify-content: center;
+      }
+
+      .sub-hero__divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sub-hero__desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sub-hero__right { display: none; }
+
+      .cta-btn {
+        width: 100%;
+        max-width: 325px;
+      }
+
+      .sub-hero__overlay {
+        background: rgba(250, 248, 245, 0.82);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header__nav    { display: none; }
+      .header__burger { display: flex; }
+
+      .header__nav.mobile-active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(25, 27, 28, 0.96);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 30px 40px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 200;
+        animation: mobileMenuSlideDown 0.3s ease-out forwards;
+      }
+
+      @keyframes mobileMenuSlideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .header__nav.mobile-active a {
+        color: var(--white) !important;
+        font-size: 15px;
+        letter-spacing: 0.15em;
+      }
+
+      .header__nav.mobile-active a::after { display: none; }
+
+      .site-header { padding: 16px 24px; }
+      .site-header.scrolled { padding: 12px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER — transparentný, glass pri scrolle
+       Navigačné linky vedú na domovskú stránku
+       ══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a href="/" class="header__logo" aria-label="Soul Design – domov">
+      <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
+    </a>
+
+    <nav aria-label="Hlavná navigácia">
+      <ul class="header__nav">
+        <li><a href="/#uvod">Úvod</a></li>
+        <li><a href="/#sluzby">Služby</a></li>
+        <li><a href="/#cennik">Cenník</a></li>
+        <li><a href="/#omne">O mne</a></li>
+        <li><a href="/#kontakt" class="nav__cta">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <button class="header__burger" aria-label="Otvoriť menu" aria-expanded="false" id="burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════
+       SUBPAGE HERO
+       Meniť: breadcrumb text, H1 text, popis, href CTA
+       Nemeniť: CSS, overlay, fade, štruktúru
+       Obrázok: ../Obrazky/Pozadie/Hero podstranok/X.png
+       ══════════════════════════════════════════════ -->
+  <section class="sub-hero" id="sub-hero" aria-labelledby="sub-hero-title">
+
+    <!-- Teplý overlay — zjednotí všetky fotografie -->
+    <div class="sub-hero__overlay" aria-hidden="true"></div>
+
+    <div class="sub-hero__content">
+
+      <!-- Ľavý stĺpec: obsah -->
+      <div class="sub-hero__left">
+
+        <!-- H1 nadpis — posledné slovo má gradient -->
+        <h1 class="sub-hero__title" id="sub-hero-title">
+          Webové <span class="title-grad">stránky</span>
+        </h1>
+
+        <!-- Dekoratívna linka -->
+        <div class="sub-hero__divider" aria-hidden="true"></div>
+
+        <!-- Krátky popis -->
+        <p class="sub-hero__desc">
+          Funkčný online priestor, ktorý odráža<br>
+          hodnoty vašej značky a prirodzene<br>
+          vedie návštevníkov k akcii.
+        </p>
+
+        <!-- CTA tlačidlo — brand chamfer 325×74px s kolibrikom -->
+        <a class="cta-btn cta-btn--filled" href="/kontakt">
+          <span class="cta-btn__left">
+            <img class="cta-btn__icon"
+                 src="../Obrazky/Logo/Kolibrik logo.png"
+                 alt="" aria-hidden="true" draggable="false" />
+            <span class="cta-btn__divider" aria-hidden="true"></span>
+            <span class="cta-btn__text">Chcem nový web</span>
+          </span>
+          <span class="cta-btn__arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+      </div>
+
+      <!-- Pravý stĺpec — prázdny, fotografia viditeľná cez overlay -->
+      <div class="sub-hero__right" aria-hidden="true"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PLACEHOLDER — sem príde obsah podstránky
+       ══════════════════════════════════════════════ -->
+  <main class="page-content">
+    <!-- obsah podstránky -->
+  </main>
+
+
+  <script>
+    /* ── Scroll: header transparent → glass ── */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Mobile burger ── */
+    const burger = document.getElementById('burger-btn');
+    const nav    = document.querySelector('.header__nav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        nav.classList.toggle('mobile-active', !isOpen);
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          burger.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('mobile-active');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

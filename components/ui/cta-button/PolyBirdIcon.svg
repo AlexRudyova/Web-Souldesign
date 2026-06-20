@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42">
+  <!-- Poly Hummingbird — white geometric, facing right -->
+
+  <!-- Beak -->
+  <polygon points="28,18 42,20 28,22" fill="rgba(255,255,255,0.88)"/>
+
+  <!-- Head top face -->
+  <polygon points="20,12 28,14 28,20 20,18" fill="rgba(255,255,255,0.95)"/>
+  <!-- Head bottom face -->
+  <polygon points="20,18 28,20 27,25 19,24" fill="rgba(255,255,255,0.78)"/>
+
+  <!-- Body upper face -->
+  <polygon points="8,12 20,10 20,16 8,14" fill="rgba(255,255,255,0.88)"/>
+  <!-- Body center face (brightest) -->
+  <polygon points="8,14 20,16 20,22 8,20" fill="rgba(255,255,255,0.98)"/>
+  <!-- Body lower face -->
+  <polygon points="8,20 20,22 19,26 8,24" fill="rgba(255,255,255,0.72)"/>
+
+  <!-- Wing upper section -->
+  <polygon points="12,14 18,2 24,6 20,14" fill="rgba(255,255,255,0.90)"/>
+  <!-- Wing tip -->
+  <polygon points="18,2 28,4 24,6" fill="rgba(255,255,255,0.68)"/>
+
+  <!-- Tail top face -->
+  <polygon points="1,16 8,12 8,18 3,20" fill="rgba(255,255,255,0.85)"/>
+  <!-- Tail bottom face -->
+  <polygon points="1,24 8,18 8,24 3,26" fill="rgba(255,255,255,0.62)"/>
+  <!-- Tail edge -->
+  <polygon points="1,16 3,20 1,24" fill="rgba(255,255,255,0.72)"/>
+</svg>

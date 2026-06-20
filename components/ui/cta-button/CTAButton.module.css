@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════
+   CTA BUTTON — Soul Design
+   Varianty: outline | filled | glass
+
+   OUTLINE — implementované (pixel-perfect)
+   FILLED  — čaká na pokyny
+   GLASS   — čaká na pokyny
+═══════════════════════════════════════════ */
+
+/* ── Základné rozmery a layout ── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 325px;
+  height: 74px;
+  padding: 0 28px;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* Glow: štartuje neviditeľný, transitions on hover */
+  filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+  transition: filter 300ms ease;
+}
+
+/* ── SVG border element (vkladaný v TSX) ── */
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.borderPath {
+  stroke: rgba(0, 168, 214, 0.7);
+  fill: transparent;
+  transition: stroke 300ms ease;
+}
+
+/* ── Ľavá skupina ── */
+.left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Ikona ── */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  transition: transform 300ms ease;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* ── Vertikálny oddeľovač ── */
+.divider {
+  flex-shrink: 0;
+  display: block;
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 0 20px;
+}
+
+/* ── Text ── */
+.text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ── Šípka ── */
+.arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 300ms ease;
+}
+
+/* ══════════════════════════════════════════
+   VARIANT: OUTLINE
+   Border: SVG path v TSX (chamfer + radius)
+   Background: transparent
+══════════════════════════════════════════ */
+.outline {
+  background: transparent;
+}
+
+.outline:hover {
+  filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+}
+
+.outline:hover .borderPath {
+  stroke: rgba(0, 168, 214, 1.0);
+}
+
+.outline:hover .arrow {
+  transform: translateX(4px);
+}
+
+.outline:active {
+  transform: scale(0.98);
+}
+
+.outline:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 117, 153, 0.15);
+}
+
+/* ══════════════════════════════════════════
+   VARIANT: FILLED — čaká na špecifikáciu
+══════════════════════════════════════════ */
+.filled {
+  background: linear-gradient(90deg, #007599 0%, #1493C7 100%);
+  border: none;
+}
+
+/* ══════════════════════════════════════════
+   VARIANT: GLASS — čaká na špecifikáciu
+══════════════════════════════════════════ */
+.glass {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 117, 153, 0.45) 0%,
+    rgba(0, 117, 153, 0.15) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(0, 117, 153, 0.9);
+}
