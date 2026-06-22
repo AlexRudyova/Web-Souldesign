@@ -225,6 +225,80 @@
       background: linear-gradient(90deg, #005f7a 0%, #007599 35%, #00b5d8 70%, #00a3c9 100%);
     }
 
+    /* ── Dropdown podmenu pod Služby ── */
+    .nav-has-drop {
+      position: relative;
+    }
+
+    .nav-has-drop > a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-drop__arrow {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 0.28s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-has-drop:hover .nav-drop__arrow,
+    .nav-has-drop:focus-within .nav-drop__arrow {
+      transform: rotate(-135deg) translateY(-2px);
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 220px;
+      background: rgba(250, 248, 245, 0.58);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 117, 153, 0.14);
+      border-radius: 2px;
+      padding: 18px 0 10px;
+      list-style: none;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.26s ease, transform 0.26s ease;
+      z-index: 200;
+    }
+
+    .nav-has-drop:hover .nav-dropdown,
+    .nav-has-drop:focus-within .nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown li a {
+      display: block;
+      padding: 10px 22px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0, 63, 82, 0.78);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.22s ease, background 0.22s ease;
+    }
+
+    .nav-dropdown li a::after { display: none; }
+
+    .nav-dropdown li a:hover {
+      color: var(--teal);
+      background: rgba(0, 117, 153, 0.06);
+    }
+
     /* Kontakt CTA – chamfer shape, rovnaký štýl ako hero CTA */
     .nav__cta {
       display: inline-flex !important;
@@ -3936,9 +4010,10 @@
 
     .sv3-item {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 0 clamp(18px, 2.2vw, 30px);
+      grid-template-columns: 30px 1.05fr 1fr;
+      gap: 0;
       align-items: start;
+      position: relative;
     }
 
     .sv3-photo {
@@ -3969,20 +4044,49 @@
       transition: transform 0.6s ease;
     }
 
+    .sv3-sep {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      gap: 12px;
+      padding: 18px 16px 18px 0;
+    }
+    .sv3-sep__line {
+      width: 1px;
+      flex: 1;
+      background: linear-gradient(180deg, transparent, rgba(0,117,153,0.25) 30%, rgba(0,117,153,0.25) 70%, transparent);
+    }
+    .sv3-sep__label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(0, 117, 153, 0.45);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      white-space: nowrap;
+    }
+
     .sv3-item:hover .sv3-photo img {
       transform: scale(1.03);
     }
 
     .sv3-body {
       padding-top: clamp(6px, 1.2vh, 14px);
+      padding-left: clamp(18px, 2.2vw, 30px);
     }
 
     .sv3-icon {
       display: block;
-      width: 102px;
-      height: 102px;
-      object-fit: contain;
-      margin-left: -10px;
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.2vw, 48px);
+      font-weight: 300;
+      color: rgba(0, 117, 153, 0.13);
+      line-height: 1;
+      margin-left: 0;
       margin-top: -14px;
       margin-bottom: clamp(4px, 0.6vh, 8px);
       user-select: none;
@@ -4049,26 +4153,20 @@
         gap: clamp(32px, 5vh, 52px);
       }
       .sv3-item {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 30px 1fr 1fr;
         max-width: 600px;
         margin: 0 auto;
-      }
-      .sv3-icon {
-        width: 85px;
-        height: 85px;
       }
     }
 
     @media (max-width: 540px) {
+      .sv3-sep { display: none; }
+      .sv3-body { padding-left: 0; }
       .sv3-item {
         grid-template-columns: 1fr;
       }
       .sv3-photo {
         aspect-ratio: 4 / 3;
-      }
-      .sv3-icon {
-        width: 68px;
-        height: 68px;
       }
     }
 
@@ -4235,11 +4333,19 @@
 
     <nav aria-label="Hlavná navigácia">
       <ul class="header__nav">
-        <li><a href="#uvod">Úvod</a></li>
-        <li><a href="#sluzby">Služby</a></li>
-        <li><a href="#cennik">Cenník</a></li>
-        <li><a href="#omne">O mne</a></li>
-        <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
+        <li><a href="index.html">Úvod</a></li>
+        <li class="nav-has-drop">
+          <a href="podstranky/sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
+          <ul class="nav-dropdown" aria-label="Podstránky služieb">
+            <li><a href="podstranky/webove-stranky.html">Tvorba web stránok</a></li>
+            <li><a href="podstranky/graficky-dizajn.html">Grafický dizajn</a></li>
+            <li><a href="podstranky/reklamne-kampane.html">Reklamné kampane</a></li>
+            <li><a href="podstranky/online-projektova-podpora.html">Projektová podpora</a></li>
+          </ul>
+        </li>
+        <li><a href="podstranky/cennik.html">Cenník</a></li>
+        <li><a href="podstranky/o-mne.html">O mne</a></li>
+        <li><a href="podstranky/kontakt.html" class="nav__cta">Kontakt</a></li>
       </ul>
     </nav>
 
@@ -4590,11 +4696,16 @@
 
           <!-- 01 Webové stránky -->
           <article class="sv3-item" data-reveal data-delay="0">
+            <div class="sv3-sep" aria-hidden="true">
+              <span class="sv3-sep__line"></span>
+              <span class="sv3-sep__label">Webové stránky</span>
+              <span class="sv3-sep__line"></span>
+            </div>
             <div class="sv3-photo">
               <img src="Obrazky/Sluzby/webove stranky.png" alt="Webové stránky – Soul Design" loading="lazy" />
             </div>
             <div class="sv3-body">
-              <img class="sv3-icon" src="Obrazky/Sluzby/2.png" alt="" aria-hidden="true" />
+              <span class="sv3-icon" aria-hidden="true">01</span>
               <h3 class="sv3-title">Webové stránky</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Moderné webové stránky, ktoré prepájajú estetiku, funkčnosť a používateľský zážitok. Vytváram riešenia, ktoré budujú dôveru, podporujú rast značky a premieňajú návštevníkov na klientov.</p>
@@ -4604,11 +4715,16 @@
 
           <!-- 02 Grafický dizajn -->
           <article class="sv3-item" data-reveal data-delay="100">
+            <div class="sv3-sep" aria-hidden="true">
+              <span class="sv3-sep__line"></span>
+              <span class="sv3-sep__label">Grafický dizajn</span>
+              <span class="sv3-sep__line"></span>
+            </div>
             <div class="sv3-photo">
               <img src="Obrazky/Sluzby/graficky design.png" alt="Grafický dizajn – Soul Design" loading="lazy" />
             </div>
             <div class="sv3-body">
-              <img class="sv3-icon" src="Obrazky/Sluzby/3.png" alt="" aria-hidden="true" />
+              <span class="sv3-icon" aria-hidden="true">02</span>
               <h3 class="sv3-title">Grafický dizajn</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Vizuálna identita, ktorá vystihuje charakter vašej značky. Od loga cez farebnosť až po komunikačné materiály – každý prvok tvorí jednotný a zapamätateľný celok.</p>
@@ -4618,11 +4734,16 @@
 
           <!-- 03 Reklamné kampane -->
           <article class="sv3-item" data-reveal data-delay="200">
+            <div class="sv3-sep" aria-hidden="true">
+              <span class="sv3-sep__line"></span>
+              <span class="sv3-sep__label">Reklamné kampane</span>
+              <span class="sv3-sep__line"></span>
+            </div>
             <div class="sv3-photo">
               <img src="Obrazky/Sluzby/reklamne kampane.png" alt="Reklamné kampane – Soul Design" loading="lazy" />
             </div>
             <div class="sv3-body">
-              <img class="sv3-icon" src="Obrazky/Sluzby/4.png" alt="" aria-hidden="true" />
+              <span class="sv3-icon" aria-hidden="true">03</span>
               <h3 class="sv3-title">Reklamné kampane</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Strategické kampane pre Facebook a Instagram, ktoré zvyšujú viditeľnosť, oslovujú správne publikum a prinášajú merateľné výsledky založené na dátach.</p>
@@ -4632,11 +4753,16 @@
 
           <!-- 04 Kreatívna podpora -->
           <article class="sv3-item" data-reveal data-delay="300">
+            <div class="sv3-sep" aria-hidden="true">
+              <span class="sv3-sep__line"></span>
+              <span class="sv3-sep__label">Kreatívna podpora</span>
+              <span class="sv3-sep__line"></span>
+            </div>
             <div class="sv3-photo">
               <img src="Obrazky/Sluzby/kreativna online asistentka.png" alt="Kreatívna online podpora – Soul Design" loading="lazy" />
             </div>
             <div class="sv3-body">
-              <img class="sv3-icon" src="Obrazky/Sluzby/5.png" alt="" aria-hidden="true" />
+              <span class="sv3-icon" aria-hidden="true">04</span>
               <h3 class="sv3-title">Kreatívna podpora</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Flexibilná podpora pre váš online biznis – od návrhov a obsahu až po technické riešenia. Spoľahlivé partnerstvo, ktoré vám ušetrí čas a zjednoduší každodennú prácu.</p>

@@ -189,6 +189,64 @@
       filter: drop-shadow(0 0 18px rgba(0,117,153,0.18));
     }
 
+    /* ── Dropdown podmenu ── */
+    .nav-has-drop { position: relative; }
+    .nav-has-drop > a { display: flex; align-items: center; gap: 5px; }
+
+    .nav-drop__arrow {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 0.28s ease;
+      flex-shrink: 0;
+    }
+    .nav-has-drop:hover .nav-drop__arrow,
+    .nav-has-drop:focus-within .nav-drop__arrow { transform: rotate(-135deg) translateY(-2px); }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 220px;
+      background: rgba(250, 248, 245, 0.58);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 117, 153, 0.14);
+      border-radius: 2px;
+      padding: 18px 0 10px;
+      list-style: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.26s ease, transform 0.26s ease;
+      z-index: 200;
+    }
+    .nav-has-drop:hover .nav-dropdown,
+    .nav-has-drop:focus-within .nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown li a {
+      display: block;
+      padding: 10px 22px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0, 63, 82, 0.78);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.22s ease, background 0.22s ease;
+    }
+    .nav-dropdown li a::after { display: none; }
+    .nav-dropdown li a:hover {
+      color: var(--teal);
+      background: rgba(0, 117, 153, 0.06);
+    }
+
     /* Mobile burger */
     .header__burger {
       display: none;
@@ -554,7 +612,15 @@
     <nav aria-label="Hlavná navigácia">
       <ul class="header__nav">
         <li><a href="/#uvod">Úvod</a></li>
-        <li><a href="/#sluzby">Služby</a></li>
+        <li class="nav-has-drop">
+          <a href="sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
+          <ul class="nav-dropdown" aria-label="Podstránky služieb">
+            <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
+            <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+            <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+            <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
+          </ul>
+        </li>
         <li><a href="/#cennik">Cenník</a></li>
         <li><a href="/#omne">O mne</a></li>
         <li><a href="/#kontakt" class="nav__cta">Kontakt</a></li>
