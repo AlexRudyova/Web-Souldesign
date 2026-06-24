@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
@@ -409,7 +409,7 @@
       justify-content: space-between;
       width: 218px;
       height: 45px;
-      padding: 0 16px;
+      padding: 0 20px 0 10px;
       text-decoration: none;
       cursor: pointer;
       transition: filter 300ms ease;
@@ -440,7 +440,7 @@
       width: 1px;
       height: 22px;
       background: rgba(255,255,255,0.18);
-      margin: 0 5px 0 0;
+      margin: 0 2px 0 0;
     }
 
     .cta-btn__text {
@@ -460,7 +460,6 @@
       position: relative;
       z-index: 1;
       margin-left: 8px;
-      color: #ffffff;
       transition: transform 300ms ease;
     }
 
@@ -546,6 +545,8 @@
       margin-top: 20px;
       justify-content: center;
     }
+
+    .footer-brand__social-link { text-decoration: none; }
 
     .footer-brand__icon-wrap {
       position: relative;
@@ -902,7 +903,7 @@
       position: relative;
       padding: clamp(90px, 13vh, 140px) 0;
       overflow: hidden;
-      background-image: url('../Obrazky/Pozadie/Hero podstranok/1.png');
+      background-image: url('../Obrazky/Pozadie/pozadie10.png');
       background-size: cover;
       background-position: center 40%;
       background-attachment: fixed;
@@ -923,13 +924,12 @@
     }
     .wcit-deco {
       display: block;
-      font-family: var(--font-script);
+      font-family: Georgia, serif;
       font-style: italic;
-      font-size: 72px;
-      line-height: 0.4;
+      font-size: 200px;
+      line-height: 1;
       color: #007599;
-      opacity: 0.5;
-      margin-bottom: clamp(22px, 3.5vh, 36px);
+      margin-bottom: 20px;
     }
     .wcit-title {
       font-family: var(--font-body);
@@ -959,8 +959,25 @@
 
     /* ── #web-faq2 (FAQ 2-col) ── */
     #web-faq2 {
-      padding: clamp(72px, 10vh, 110px) 0;
-      background: var(--bg-start);
+      padding: clamp(56px, 8vh, 90px) 0 clamp(72px, 10vh, 110px);
+      position: relative;
+      background-image: url('../Obrazky/Pozadie/pozadie11.png');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+    #web-faq2::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(248, 245, 240, 0.72);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 0;
+    }
+    #web-faq2 .container {
+      position: relative;
+      z-index: 1;
     }
     .wfaq2-header {
       text-align: center;
@@ -970,8 +987,9 @@
       font-family: var(--font-head);
       font-size: clamp(26px, 3.5vw, 46px);
       font-weight: 400;
+      line-height: 1.15;
       color: var(--text-color);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .wfaq2-sub {
       font-family: var(--font-body);
@@ -979,9 +997,10 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 14px;
+      margin-top: 0;
+      margin-bottom: 10px;
     }
-    .wfaq2-accent { width: 32px; height: 2px; background: var(--teal); margin: 0 auto; }
+    .wfaq2-accent { width: 32px; height: 1px; background: rgba(0,117,153,0.35); margin: 0 auto; }
     .wfaq2-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1058,11 +1077,12 @@
       display: grid;
       grid-template-columns: 1.1fr 1fr 1.08fr;
       gap: clamp(28px, 3.5vw, 56px);
-      align-items: stretch;
+      align-items: start;
     }
     .web-about__text-col {
       display: flex;
       flex-direction: column;
+      padding-top: clamp(32px, 5vh, 64px);
     }
     .web-about__text-col .cta-btn {
       margin-top: clamp(20px, 3vh, 32px);
@@ -1092,6 +1112,20 @@
       line-height: 1.82;
       color: var(--text-muted);
       margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .web-about__text-col .web-about__p:first-of-type {
+      margin-top: clamp(22px, 3vh, 36px);
+    }
+    .web-about__text-col .section-label {
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+      font-size: clamp(14px, 1.1vw, 17px);
+      margin-top: 10px;
+      margin-bottom: 0;
     }
     .web-about__sig-img {
       height: clamp(44px, 5.8vh, 62px);
@@ -1109,11 +1143,15 @@
       text-transform: uppercase;
       color: var(--text-light);
       margin-top: 0;
+      margin-bottom: clamp(28px, 4vh, 44px);
+    }
+    .web-about__text-col .cta-btn {
+      margin-top: clamp(24px, 3.5vh, 40px);
     }
     .web-about__photo-col {
       display: flex;
       flex-direction: row;
-      align-items: stretch;
+      align-items: center;
       gap: 0;
     }
     .wa-sep {
@@ -1127,7 +1165,8 @@
     }
     .wa-sep__line {
       width: 1px;
-      flex: 1;
+      height: clamp(90px, 13vh, 150px);
+      flex-shrink: 0;
       background: linear-gradient(180deg, transparent, rgba(0,117,153,0.25) 30%, rgba(0,117,153,0.25) 70%, transparent);
     }
     .wa-sep__label {
@@ -1213,7 +1252,7 @@
       position: relative;
       overflow: hidden;
     }
-    #web-timeline .container { padding-top: clamp(72px, 10vh, 110px); padding-bottom: clamp(20px, 3vh, 40px); }
+    #web-timeline .container { padding-top: clamp(32px, 4vh, 52px); padding-bottom: clamp(20px, 3vh, 40px); }
 
     .wtl-svg-wrapper {
       position: relative;
@@ -1314,6 +1353,9 @@
       height: auto; object-fit: contain;
       position: relative; z-index: 1;
     }
+    #wtl-node-4 .tl-crystal__icon {
+      max-width: 80px; max-height: 80px;
+    }
     .tl-connector {
       width: 0;
       height: 10px;
@@ -1386,8 +1428,14 @@
       margin: 0 auto;
     }
 
-    .faq-col > .faq-item:first-child { border-top: 1px solid rgba(0, 117, 153, 0.14); }
-    .faq-item { border-bottom: 1px solid rgba(0, 117, 153, 0.14); }
+    .faq-col > .faq-item:first-child { border-top: none; }
+    .faq-item {
+      border: 1px solid rgba(0, 117, 153, 0.14);
+      border-radius: 8px;
+      padding: 0 16px;
+      margin-bottom: 8px;
+    }
+    .faq-item:last-child { margin-bottom: 0; }
     .faq-btn {
       width: 100%;
       background: none;
@@ -1429,12 +1477,24 @@
       overflow: hidden;
       transition: max-height 0.38s ease, padding-bottom 0.3s ease;
     }
-    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
+    .faq-item.open .faq-a { max-height: 700px; padding-bottom: 20px; }
     .faq-a-text {
       font-size: 13.5px;
       line-height: 1.78;
       color: var(--text-muted);
+      margin-bottom: 8px;
     }
+    .faq-a-text:last-child { margin-bottom: 0; }
+    .faq-a-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13.5px;
+      line-height: 1.78;
+      color: var(--text-muted);
+      list-style: disc;
+    }
+    .faq-a-list li { margin-bottom: 4px; }
+    .faq-a-list li:last-child { margin-bottom: 0; }
 
     /* ── Responzivita sekcií ── */
     @media (max-width: 1100px) {
@@ -1464,7 +1524,7 @@
        HEADER
        ══════════════════════════════════════════════ -->
   <header class="site-header" id="site-header">
-    <a href="/" class="header__logo" aria-label="Soul Design – domov">
+    <a href="../index.html" class="header__logo" aria-label="Soul Design – domov">
       <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
     </a>
 
@@ -1596,7 +1656,7 @@
        ══════════════════════════════════════════════ -->
   <section id="web-citat" aria-label="Citát">
     <div class="wcit-inner" data-reveal>
-      <span class="wcit-deco" aria-hidden="true">"</span>
+      <span class=”wcit-deco” aria-hidden=”true” style=”display:block;font-family:Georgia,serif;font-style:italic;font-size:80px;line-height:1;color:#007599;margin-bottom:20px;”>&ldquo;</span>
       <p class="wcit-title">Spolu dáme vášmu podnikaniu hlas.</p>
       <p class="wcit-text">Ukotvená v dizajne, obklopená magickými kódmi a obdarená veľkou dávkou kreativity… To všetko sú prísady, ktoré vkladám do svojej tvorby tak, aby ste v online svete vynikli.</p>
       <p class="wcit-text">Nebudem vás však trápiť IT frázami, ale radšej si s vami pohovorím v ľudskej reči.</p>
@@ -1620,8 +1680,8 @@
 
         <!-- Ľavý stĺpec: text + podpis + CTA -->
         <div class="web-about__text-col" data-reveal>
-          <span class="section-label">Web, ktorý rozpráva váš príbeh</span>
           <h2 class="web-about__title" id="web-about-title">Tvorba moderných<br>webových <span class="title-grad">stránok</span></h2>
+          <span class="section-label">Web, ktorý rozpráva váš príbeh</span>
           <p class="web-about__p">V digitálnom svete je prvý dojem všetko, na čom záleží. Zaujmite svojich zákazníkov na prvý pokus. Som tu, aby som vám pomohla premeniť vaše vízie na atraktívnu a funkčnú formu, vďaka ktorej v online svete vyniknete.</p>
           <p class="web-about__p">Vytvorím pre vás nový web, oprášim design tomu starému a postarám sa o pravidelnú údržbu, aby všetko fungovalo, ako má.</p>
           <img src="../Obrazky/Hlavne/Podpis.png" class="web-about__sig-img" alt="Podpis Alex Rudyová" loading="lazy" />
@@ -1632,7 +1692,11 @@
               <span class="cta-btn__divider" aria-hidden="true"></span>
               <span class="cta-btn__text">Cesta za novým webom</span>
             </span>
-            <span class="cta-btn__arrow" aria-hidden="true">→</span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
           </a>
         </div>
 
@@ -1687,8 +1751,8 @@
     <div class="container">
 
       <div class="section-header" data-reveal>
-        <span class="section-label">Postup spolupráce</span>
         <h2 class="section-title" id="web-timeline-title">Ako tvorba webu <span class="title-grad">prebieha?</span></h2>
+        <span class="section-label">Postup spolupráce</span>
       </div>
 
       <div id="wtl-container" style="position:relative;overflow:visible;">
@@ -1747,7 +1811,7 @@
 
           <div class="tl-node" id="wtl-node-4">
             <div class="tl-crystal">
-              <img src="../Obrazky/Ikony/Ako to funguje/10.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
+              <img src="../Obrazky/Ikony/Ako to funguje/9.png" alt="" class="tl-crystal__icon" aria-hidden="true" />
             </div>
             <div class="tl-connector"></div>
             <div class="tl-node__counter">5</div>
@@ -1763,23 +1827,23 @@
         <div class="wtl-steps">
           <div class="wtl-step-item" id="wtl-text-0">
             <h3 class="wtl-step-title">Kontaktujte ma</h3>
-            <p class="wtl-step-text">Napíšte mi vašu predstavu, dohodneme sa na termíne úvodnej konzultácie.</p>
+            <p class="wtl-step-text">Napíšte mi svoju predstavu a ciele. Dohodneme si termín úvodnej konzultácie a prvé kroky spolupráce.</p>
           </div>
           <div class="wtl-step-item" id="wtl-text-1">
             <h3 class="wtl-step-title">Úvodné stretnutie</h3>
-            <p class="wtl-step-text">Spoločne preberieme vaše podnikanie, pustíme sa do brainstormingu, navrhneme rozloženie webu.</p>
+            <p class="wtl-step-text">Preberieme vaše podnikanie, potreby a vízie. Spoločne navrhneme smer a štruktúru nového webu.</p>
           </div>
           <div class="wtl-step-item" id="wtl-text-2">
             <h3 class="wtl-step-title">Začínam kúzliť</h3>
-            <p class="wtl-step-text">Po dodaní vašich podkladov začínam tvoriť váš jedinečný web.</p>
+            <p class="wtl-step-text">Po dodaní podkladov začínam tvoriť váš web. Každý detail skladám s dôrazom na funkčnosť aj estetiku.</p>
           </div>
           <div class="wtl-step-item" id="wtl-text-3">
             <h3 class="wtl-step-title">Sme v spojení</h3>
-            <p class="wtl-step-text">Prebieha priebežná konzultácia a odsúhlasenie.</p>
+            <p class="wtl-step-text">Počas tvorby zostávame v kontakte. Konzultujeme návrhy a priebežne schvaľujeme riešenia.</p>
           </div>
           <div class="wtl-step-item" id="wtl-text-4">
-            <h3 class="wtl-step-title">Máme hotovo…</h3>
-            <p class="wtl-step-text">Oslavujeme a spúšťame váš nový web. Zasielam faktúru na úhradu zvyšných 50&nbsp;%.</p>
+            <h3 class="wtl-step-title">Máme hotovo</h3>
+            <p class="wtl-step-text">Doladíme posledné detaily a web púšťame do sveta. V tejto fáze zasielam faktúru na úhradu zostávajúcich 50&nbsp;%.</p>
           </div>
         </div><!-- /.wtl-steps -->
 
@@ -1796,7 +1860,7 @@
     <div class="container">
 
       <div class="wfaq2-header" data-reveal>
-        <h2 class="wfaq2-h2" id="web-faq2-title">Často kladené otázky.</h2>
+        <h2 class="wfaq2-h2" id="web-faq2-title">Často kladené <span class="title-grad">otázky.</span></h2>
         <div class="wfaq2-sub">Tvorba webových stránok</div>
         <div class="wfaq2-accent"></div>
       </div>
@@ -1809,28 +1873,42 @@
               <span class="faq-q">Čo je zahrnuté v cene webovej stránky?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">V cene sú zahrnuté návrh a dizajn webu, vývoj, responzívne prispôsobenie pre všetky zariadenia, základné SEO nastavenia, integrácia kontaktného formulára a odovzdanie hotovej stránky.</p></div>
+            <div class="faq-a"><ul class="faq-a-list">
+              <li>Úvodná konzultácia o Vašich potrebách a cieľoch webu.</li>
+              <li>Revízia a pomoc s obsahom s dôrazom na SEO.</li>
+              <li>Tvorba pútaveho a moderného webu s použitím princípov UI/UX dizajnu.</li>
+              <li>Zabezpečenie fotografií a prvkov s príslušnými licenciami.</li>
+              <li>Nastavenie responzivity, aby Váš web vyzeral skvele na všetkých zariadeniach.</li>
+              <li>V prípade Wordpress webu, doživotná licencia DIVI v hodnote viac než 250 Eur.</li>
+              <li>Základné nastavenie SEO pre zlepšenie viditeľnosti.</li>
+              <li>Implementácia bezpečnostných opatrení a zálohovanie webu.</li>
+            </ul></div>
           </div>
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
               <span class="faq-q">Čo nie je zahrnuté v cene webovej stránky?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">Cena nezahŕňa hosting a doménu, profesionálne fotografie ani copywriting. Tieto služby vám viem odporučiť a pomôžem vám s ich nastavením.</p></div>
+            <div class="faq-a"><ul class="faq-a-list">
+              <li>Doména a webhosting. V prípade potreby Vám však pomôžem s ich zabezpečením a mám pre Vás aj 10 % zľavu.</li>
+              <li>Zmeny po spustení webu, ktoré sú účtované hodinovou sadzbou.</li>
+              <li>Webová údržba, ktorú odporúčam vykonávať každý štvrťrok, aby web fungoval, ako mal. (Iba pri WP stránkach)</li>
+              <li>Zaškolenie do práce s WP a DIVI, v prípade, že sa o web budete chcieť ďalej starať vy. Cena školenia 70 Eur.</li>
+            </ul></div>
           </div>
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
               <span class="faq-q">Ako dlho trvá vytvorenie novej webovej stránky?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">Štandardná webová stránka trvá 3–6 týždňov od dodania podkladov. Termín závisí od rozsahu projektu a rýchlosti dodania materiálov z vašej strany.</p></div>
+            <div class="faq-a"><p class="faq-a-text">Tvorba webovej stránky môže závisieť od rozsahu a zložitosti projektu. Vo väčšine prípadov máte nový web, po dodaní všetkých materiálov a textov, hotový do mesiaca.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
               <span class="faq-q">Potrebujem web, pokiaľ mám účet na sociálnych sieťach?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">Sociálne siete sú skvelý doplnok, no vlastný web vám dáva plnú kontrolu a buduje dôveryhodnosť. Váš web pracuje pre vás 24/7, bez obmedzení algoritmov.</p></div>
+            <div class="faq-a"><p class="faq-a-text">Zatiaľ čo Facebook a iné platformy môžu byť užitočné pre komunikáciu a marketing, vlastná webová stránka poskytuje viac flexibility a kontrolu nad obsahom a prezentáciou ako sociálne média.</p><p class="faq-a-text">Navyše, obsah zdieľaný na sociálnych sieťach často rýchlo mizne v prúde nových príspevkov, zatiaľ čo obsah na webovej stránke zostáva prístupný dlhodobo a môže slúžiť ako stabilný zdroj informácií pre vašich návštevníkov.</p></div>
           </div>
         </div>
 
@@ -1848,21 +1926,21 @@
               <span class="faq-q">Čo ak nemám vlastný branding, či kvalitné foto?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">Nebojte sa, poradíme si. Pomôžem vám navrhnúť základný vizuálny štýl, alebo odporučím osvedčených fotografov a grafikov vo vašom okolí.</p></div>
+            <div class="faq-a"><p class="faq-a-text">To vôbec nevadí. Rada vám pomôžem s vytvorením vlastného brandu, výberom písma, farieb, prvkov, aby váš nový web pôsobil nie len pútavo, ale bol aj užívateľsky príťažlivý.</p><p class="faq-a-text">V prípade, že nemáte vlastné fotky vo fotografickej kvalite, dokážem vám zabezpečiť fotky a ďalšie prvky z fotobánk, spolu s príslušnými licenciami.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
               <span class="faq-q">Ako funguje služba „Vytvorím si web sám"?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">V rámci tejto služby vám pripravím šablónu alebo nastavenie webového nástroja, kde si obsah môžete editovať sami bez technických znalostí. Ideálne pre jednoduché projekty.</p></div>
+            <div class="faq-a"><p class="faq-a-text">Ste kreatívna duša a máte záujem si web postaviť sám? Nebavia vás však všetky tie technikálie a nastavenia, ktoré to so sebou prináša?</p><p class="faq-a-text">Žiaden problém. Zabezpečím vám hosting a doménu, prevediem prvotné nastavenia, nainštalujem potrebné pluginy. K tomu vám poskytnem doživotnú licenciu DIVI builder, vďaka ktorému budete pripravený si web začať tvoriť sám. Nastavím Váš branding a na záver Váš výtvor prebehnem okom odborníka — a môžete spustiť svoju novú webovú prezentáciu.</p><p class="faq-a-text">V prípade, že dodatočné editácie zveríte do rúk odborníka, rada vám s tým pomôžem. V takom prípade je účtovaná moja sadzba 25 Eur/h.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
               <span class="faq-q">Chcete ponechať dodatočné editácie na mne?</span>
               <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
-            <div class="faq-a"><p class="faq-a-text">Samozrejme. Po odovzdaní webu poskytujem garanciu editácií. Ak budete potrebovať zmeny, som tu – stačí sa ozvať. Môžeme dohodnúť aj pravidelný servisný balík.</p></div>
+            <div class="faq-a"><p class="faq-a-text">Vážim si vašej dôvery a teší ma naša pretrvávajúca spolupráca.</p><p class="faq-a-text">V prípade akýchkoľvek dodatočných úprav, zmien, pridávania článkov na blog či vytvorenia nových stránok, si účtujem sadzbu 25 Eur/h.</p></div>
           </div>
         </div>
       </div><!-- /.wfaq2-grid -->
@@ -1877,7 +1955,7 @@
       <div class="wcta2-inner" data-reveal>
 
         <div>
-          <h2 class="wcta2-title">Pripravení ukázať svetu<br>svoj príbeh?</h2>
+          <h2 class="wcta2-title">Pripravení ukázať svetu<br>svoj <span class="title-grad">príbeh?</span></h2>
           <p class="wcta2-text">Spoločne vytvoríme web, ktorý bude odrážať vaše hodnoty, osloví správnych ľudí a podporí rast vášho podnikania.</p>
         </div>
 
@@ -1888,7 +1966,11 @@
               <span class="cta-btn__divider" aria-hidden="true"></span>
               <span class="cta-btn__text">Konzultácia zdarma</span>
             </span>
-            <span class="cta-btn__arrow" aria-hidden="true">→</span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
           </a>
         </div>
 
@@ -1921,19 +2003,19 @@
             <div class="footer-col-title">Navigácia</div>
             <ul class="footer-links">
               <li><a href="/#uvod">Úvod</a></li>
-              <li><a href="/#sluzby">Služby</a></li>
-              <li><a href="/#cennik">Cenník</a></li>
-              <li><a href="/#omne">O mne</a></li>
-              <li><a href="/#kontakt">Kontakt</a></li>
+              <li><a href="sluzby.html">Služby</a></li>
+              <li><a href="cennik.html">Cenník</a></li>
+              <li><a href="o-mne.html">O mne</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Služby</div>
             <ul class="footer-links">
-              <li><a href="/podstranky/tvorba-web-stranok.html">Webové stránky</a></li>
-              <li><a href="/graficky-dizajn">Grafický dizajn</a></li>
-              <li><a href="/reklamne-kampane">Reklamné kampane</a></li>
-              <li><a href="/online-projektova-podpora">Online projektová podpora</a></li>
+              <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
+              <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+              <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
             </ul>
           </div>
         </div>
@@ -2022,7 +2104,7 @@
       const wrapper = document.getElementById('wtl-svg-wrapper');
       if (!pathEl || !wrapper || !hbWrap) return;
 
-      const NODE_T    = [0.10, 0.28, 0.50, 0.72, 0.90];
+      const NODE_T    = [0.10, 0.30, 0.50, 0.70, 0.90];
       const triggered = [false, false, false, false, false];
       const DUR       = 5200;
 

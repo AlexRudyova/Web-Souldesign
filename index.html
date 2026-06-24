@@ -713,6 +713,31 @@
       filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
     }
     .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+    .cta-btn--outline {
+      filter: drop-shadow(0 0 0px rgba(0, 117, 153, 0));
+    }
+    .cta-btn--outline:hover {
+      filter: drop-shadow(0 0 18px rgba(0, 117, 153, 0.18));
+    }
+    .cta-btn--outline:hover .cta-btn__arrow { transform: translateX(4px); }
+    .cta-btn--outline .cta-btn__text { color: var(--teal); }
+    .cta-btn--outline .cta-btn__icon { filter: brightness(0) saturate(100%) invert(32%) sepia(60%) saturate(600%) hue-rotate(163deg); }
+    .cta-btn--outline .cta-btn__divider { background: rgba(0, 117, 153, 0.25); }
+    .cta-btn--outline .cta-btn__arrow { color: var(--teal); }
+    .cta-btn__border {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .cta-btn__border-path {
+      stroke: rgba(0, 168, 214, 0.7);
+      fill: transparent;
+      transition: stroke 300ms ease;
+    }
+    .cta-btn--outline:hover .cta-btn__border-path {
+      stroke: rgba(0, 168, 214, 1.0);
+    }
 
     .hero__photo-spacer {
       min-height: 1px;
@@ -1586,9 +1611,9 @@
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       font-family: var(--font-head);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(90px, 14vw, 200px);
-      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.015) 0%, rgba(21, 150, 199, 0.02) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -2202,9 +2227,9 @@
       left: calc((100vw - min(90vw, 1280px)) / 2 + min(90vw, 1280px) * 0.75 + clamp(60px, 8vw, 120px) * 0.25);
       transform: translateX(-50%) translateY(-50%);
       font-family: var(--font-head);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(90px, 14vw, 200px);
-      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.015) 0%, rgba(21, 150, 199, 0.02) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -2420,8 +2445,8 @@
     .pricing-banner {
       position: relative;
       width: 100%;
-      background-image: url('Obrazky/Pozadie/pozadie 6.png');
-      background-size: 85% auto;
+      background-image: url('Obrazky/Pozadie/pozadie10.png');
+      background-size: cover;
       background-position: center center;
       background-attachment: fixed;
       padding: clamp(90px, 12vh, 130px) 20px;
@@ -2433,8 +2458,8 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        rgba(248, 245, 240, 0.82),
-        rgba(248, 245, 240, 0.82)
+        rgba(248, 245, 240, 0.75),
+        rgba(248, 245, 240, 0.75)
       );
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -2961,6 +2986,9 @@
       gap: 10px;
       margin-top: 20px;
       justify-content: center;
+    }
+    .footer-brand__social-link {
+      text-decoration: none;
     }
 
     .footer-brand__icon-wrap {
@@ -3948,9 +3976,9 @@
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       font-family: var(--font-head);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(90px, 14vw, 200px);
-      background: linear-gradient(90deg, rgba(15, 76, 92, 0.03) 0%, rgba(21, 150, 199, 0.04) 100%);
+      background: linear-gradient(90deg, rgba(15, 76, 92, 0.015) 0%, rgba(21, 150, 199, 0.02) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -4308,14 +4336,12 @@
       text-transform: uppercase;
       color: var(--teal);
       line-height: 1.4;
-      margin-bottom: clamp(44px, 5.5vh, 60px);
+      margin-bottom: clamp(60px, 7.5vh, 80px);
     }
 
     /* Outline button – menší, väčší text */
-    #cta-services .btn-brand {
-      padding: 10px 26px;
+    #cta-services .cta-btn {
       font-size: clamp(14px, 1.1vw, 16px);
-      gap: 10px;
     }
 
   </style>
@@ -4337,7 +4363,7 @@
         <li class="nav-has-drop">
           <a href="podstranky/sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
-            <li><a href="podstranky/webove-stranky.html">Tvorba web stránok</a></li>
+            <li><a href="podstranky/tvorba-web-stranok.html">Tvorba web stránok</a></li>
             <li><a href="podstranky/graficky-dizajn.html">Grafický dizajn</a></li>
             <li><a href="podstranky/reklamne-kampane.html">Reklamné kampane</a></li>
             <li><a href="podstranky/online-projektova-podpora.html">Projektová podpora</a></li>
@@ -4403,7 +4429,7 @@
         </div>
 
         <div class="hero__cta" id="anim-cta">
-          <a href="#sluzby" class="cta-btn cta-btn--filled" id="cta-btn">
+          <a href="podstranky/sluzby.html" class="cta-btn cta-btn--filled" id="cta-btn">
             <span class="cta-btn__left">
               <img class="cta-btn__icon"
                    src="Obrazky/Logo/Kolibrik logo.png"
@@ -4623,7 +4649,7 @@
             <h3 class="benefit-col__title">Podtrhnem vašu jedinečnosť</h3>
             <p class="benefit-col__text">Spolu nastavíme vašu profesionálnu vizitku. Ukážeme vašim zákazníkom to
               najlepšie z vás a toho, čo prinášate.</p>
-            <a href="#sluzby" class="benefit-col__link">Viac info →</a>
+            <a href="podstranky/sluzby.html" class="benefit-col__link">Viac info →</a>
           </div>
 
           <!-- Benefit 2 -->
@@ -4634,7 +4660,7 @@
             <h3 class="benefit-col__title">Naladím sa na váš projekt</h3>
             <p class="benefit-col__text">Vaše potreby premením na pútavú a funkčnú prezentáciu, vďaka ktorej v online
               svete vyniknete.</p>
-            <a href="#sluzby" class="benefit-col__link">Viac info →</a>
+            <a href="podstranky/sluzby.html" class="benefit-col__link">Viac info →</a>
           </div>
 
           <!-- Benefit 3 -->
@@ -4645,7 +4671,7 @@
             <h3 class="benefit-col__title">Uvoľním vám ruky</h3>
             <p class="benefit-col__text">Odbremením vás od práce, ktorá vás nebaví, zbytočne zaťažuje a bráni vám
               prejaviť sa naplno.</p>
-            <a href="#kontakt" class="benefit-col__link">Viac info →</a>
+            <a href="podstranky/sluzby.html" class="benefit-col__link">Viac info →</a>
           </div>
 
         </div><!-- /.benefits-grid -->
@@ -4687,9 +4713,6 @@
         <header class="sv3-header" data-reveal>
           <h2 class="sv3-header__title" id="sv3-title">Vytvorme priestor, v ktorom vaša <span class="title-grad">značka vynikne.</span></h2>
           <p class="sv3-header__sub">Každý detail odráža vaše hodnoty a jedinečnosť.</p>
-          <div class="sv3-divider" aria-hidden="true">
-            <img src="Obrazky/Ikony/Devider.png" alt="" />
-          </div>
         </header>
 
         <div class="sv3-grid">
@@ -4709,7 +4732,7 @@
               <h3 class="sv3-title">Webové stránky</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Moderné webové stránky, ktoré prepájajú estetiku, funkčnosť a používateľský zážitok. Vytváram riešenia, ktoré budujú dôveru, podporujú rast značky a premieňajú návštevníkov na klientov.</p>
-              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+              <a href="podstranky/tvorba-web-stranok.html" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -4728,7 +4751,7 @@
               <h3 class="sv3-title">Grafický dizajn</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Vizuálna identita, ktorá vystihuje charakter vašej značky. Od loga cez farebnosť až po komunikačné materiály – každý prvok tvorí jednotný a zapamätateľný celok.</p>
-              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+              <a href="podstranky/graficky-dizajn.html" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -4747,7 +4770,7 @@
               <h3 class="sv3-title">Reklamné kampane</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Strategické kampane pre Facebook a Instagram, ktoré zvyšujú viditeľnosť, oslovujú správne publikum a prinášajú merateľné výsledky založené na dátach.</p>
-              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+              <a href="podstranky/reklamne-kampane.html" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -4766,7 +4789,7 @@
               <h3 class="sv3-title">Kreatívna podpora</h3>
               <div class="sv3-rule"></div>
               <p class="sv3-desc">Flexibilná podpora pre váš online biznis – od návrhov a obsahu až po technické riešenia. Spoľahlivé partnerstvo, ktoré vám ušetrí čas a zjednoduší každodennú prácu.</p>
-              <a href="#kontakt" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
+              <a href="podstranky/online-projektova-podpora.html" class="sv3-link">Zistiť viac <span class="sv3-link__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -4792,12 +4815,32 @@
       <div class="cta-sv__body">
         <h2 class="cta-sv__title" id="cta-sv-title">Tvorím dušou, podporujem <span class="title-grad">srdcom.</span></h2>
         <p class="cta-sv__sub">Vaša značka si zaslúži priestor, ktorý dáva zmysel.</p>
-        <a href="#kontakt" class="btn-brand btn-outline">
-          <span>Konzultácia zdarma</span>
-          <span class="btn-brand__arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3.5 9h11M10 4.5l4.5 4.5L10 13.5" stroke="currentColor" stroke-width="1.6"
-                    stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="cta-btn cta-btn--outline" href="podstranky/kontakt.html" style="margin: 0 auto; display: flex; width: 252px; padding-right: 28px;">
+          <svg class="cta-btn__border" width="252" height="50" viewBox="0 0 252 50" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="outline-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#005f7a"/>
+                <stop offset="45%"  stop-color="#007599"/>
+                <stop offset="100%" stop-color="#00a3c9"/>
+              </linearGradient>
+            </defs>
+            <path class="cta-btn__border-path" stroke="url(#outline-grad)" stroke-width="1.5"
+                  d="M 15.75 0.75 L 244.25 0.75
+                     A 6.25 6.25 0 0 1 251.25 7
+                     L 251.25 34.5
+                     L 235.75 49.25
+                     L 8.5 49.25
+                     A 6.25 6.25 0 0 1 0.75 42.5
+                     L 0.75 15.75 Z"/>
+          </svg>
+          <span class="cta-btn__left">
+            <img class="cta-btn__icon" src="Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+            <span class="cta-btn__divider" aria-hidden="true"></span>
+            <span class="cta-btn__text">Konzultácia zdarma</span>
+          </span>
+          <span class="cta-btn__arrow" style="margin-left: 8px;" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
           </span>
         </a>
@@ -5250,7 +5293,7 @@
               nich ľudia cítia. Ak hľadáte niekoho, kto vás podrží v tvorbe aj v detailoch, rada sa stanem súčasťou
               vašej cesty.</p>
 
-            <a href="/o-mne" class="benefit-col__link" style="margin-top: 12px; display: inline-flex;">Chcete sa o mne dozvedieť viac? →</a>
+            <a href="podstranky/o-mne.html" class="benefit-col__link" style="margin-top: 12px; display: inline-flex;">Chcete sa o mne dozvedieť viac? →</a>
 
             <div class="about__sig-wrap">
               <img src="Obrazky/Hlavne/Podpis.png" alt="Podpis Alex Rudyová" class="about__signature" loading="lazy" />
@@ -5281,7 +5324,7 @@
           <p class="pricing-banner__subtitle">Aby mohol rásť, potrebuje spoločný cieľ a jasné podmienky.</p>
           <p class="pricing-banner__text">Podrobný prehľad služieb a cien nájdete v cenníku.</p>
 
-          <a href="/cennik" class="cta-btn cta-btn--filled">
+          <a href="podstranky/cennik.html" class="cta-btn cta-btn--filled">
             <span class="cta-btn__left">
               <img class="cta-btn__icon" src="Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false"/>
               <span class="cta-btn__divider" aria-hidden="true"></span>
@@ -5421,16 +5464,15 @@
                 </div><!-- /.form-grid -->
 
                 <div class="form-submit-container">
-                  <button type="submit" class="cta-btn cta-btn--filled" style="border: none; cursor: pointer;">
+                  <button type="submit" class="cta-btn cta-btn--filled" style="border: none; cursor: pointer; width: 262px; height: 50px; clip-path: path('M 15 0 L 255 0 A 7 7 0 0 1 262 7 L 262 35 L 247 50 L 7 50 A 7 7 0 0 1 0 43 L 0 15 Z'); justify-content: flex-start; gap: 18px; font-size: 15px;">
                     <span class="cta-btn__left">
                       <img class="cta-btn__icon" src="Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
                       <span class="cta-btn__divider" aria-hidden="true"></span>
-                      <span class="cta-btn__text">Odoslať správu</span>
+                      <span class="cta-btn__text" style="font-size: 15px;">Odoslať správu</span>
                     </span>
                     <span class="cta-btn__arrow" aria-hidden="true">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
                       </svg>
                     </span>
                   </button>
@@ -5478,20 +5520,20 @@
           <div class="footer-col">
             <div class="footer-col-title">Navigácia</div>
             <ul class="footer-links">
-              <li><a href="#uvod">Úvod</a></li>
-              <li><a href="#sluzby">Služby</a></li>
-              <li><a href="#cennik">Cenník</a></li>
-              <li><a href="#omne">O mne</a></li>
-              <li><a href="#kontakt">Kontakt</a></li>
+              <li><a href="index.html">Úvod</a></li>
+              <li><a href="podstranky/sluzby.html">Služby</a></li>
+              <li><a href="podstranky/cennik.html">Cenník</a></li>
+              <li><a href="podstranky/o-mne.html">O mne</a></li>
+              <li><a href="podstranky/kontakt.html">Kontakt</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Služby</div>
             <ul class="footer-links">
-              <li><a href="/sluzby">Webové stránky</a></li>
-              <li><a href="/sluzby">Grafický dizajn</a></li>
-              <li><a href="/sluzby">Reklamné kampane</a></li>
-              <li><a href="/sluzby">Kreatívna online podpora</a></li>
+              <li><a href="podstranky/tvorba-web-stranok.html">Webové stránky</a></li>
+              <li><a href="podstranky/graficky-dizajn.html">Grafický dizajn</a></li>
+              <li><a href="podstranky/reklamne-kampane.html">Reklamné kampane</a></li>
+              <li><a href="podstranky/online-projektova-podpora.html">Kreatívna online podpora</a></li>
             </ul>
           </div>
         </div>

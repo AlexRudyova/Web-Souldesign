@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cenník | Soul Design</title>
+  <meta name="description" content="Prehľad služieb a individuálnych riešení, ktoré sa prispôsobia potrebám vašej značky." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal:        #007599;
+      --teal-mid:    #005f7a;
+      --teal-dark:   #003d52;
+      --teal-deeper: #002535;
+      --teal-glow:   #00a3c9;
+      --teal-pale:   #4ecde8;
+      --white:       #ffffff;
+      --bg-start: #FAF8F5;
+      --bg-mid:   #E9F3F6;
+      --bg-end:   #FCF9F5;
+      --text-color:  #333333;
+      --text-muted:  #555555;
+      --text-light:  #888888;
+      --radius-card: 14px;
+      --font-head:   'Frank Ruhl Libre', Georgia, serif;
+      --font-body:   'Lora', Georgia, serif;
+      --font-script: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg-start); color: var(--text-color); overflow-x: hidden; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; position: relative; z-index: 10; }
+
+    .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(16px,2.4vh,26px) clamp(24px,5vw,72px); display: flex; align-items: center; justify-content: space-between; background: transparent; transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
+    .site-header.scrolled { position: fixed; background: rgba(244,242,238,0.82); backdrop-filter: blur(14px) saturate(1.5) brightness(0.88); -webkit-backdrop-filter: blur(14px) saturate(1.5) brightness(0.88); box-shadow: 0 4px 24px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.10); padding: clamp(12px,1.8vh,18px) clamp(24px,5vw,72px); animation: headerSlideIn 0.3s ease-out; }
+    @keyframes headerSlideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+    .header__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .header__logo img { height: clamp(48px,6.5vh,74px); width: auto; opacity: 0.90; transition: opacity 0.3s ease, filter 0.4s ease; }
+    .header__logo:hover img { opacity: 1; }
+    .site-header.scrolled .header__logo img { filter: none; opacity: 1; }
+    .header__nav { display: flex; align-items: center; gap: clamp(20px,2.8vw,40px); list-style: none; }
+    .header__nav a { font-family: var(--font-body); font-size: clamp(11px,1vw,13px); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,63,82,0.80); text-decoration: none; position: relative; transition: color 0.28s ease; }
+    .header__nav a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: linear-gradient(90deg,#005f7a 0%,#007599 35%,#00b5d8 70%,#00a3c9 100%); transition: width 0.32s ease; }
+    .header__nav a:hover { color: var(--teal-dark); }
+    .header__nav a:hover::after { width: 100%; }
+    .site-header.scrolled .header__nav a { color: rgba(0,63,82,0.80); }
+    .site-header.scrolled .header__nav a:hover { color: #003d52; }
+    .nav__cta { display: inline-flex !important; align-items: center; justify-content: center; width: 148px; height: 40px; padding: 0 !important; clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z"); font-family: 'Playfair Display',Georgia,serif; font-size: 13px !important; font-weight: 600; letter-spacing: 0.05em !important; color: var(--white) !important; text-decoration: none; position: relative; isolation: isolate; filter: drop-shadow(0 0 0px rgba(0,117,153,0)); transition: filter 300ms ease; }
+    .nav__cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
+    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .header__nav .nav__cta:hover::after { opacity: 1; }
+    .nav__cta:hover { color: var(--white) !important; filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
+    .nav-has-drop { position: relative; }
+    .nav-has-drop > a { display: flex; align-items: center; gap: 5px; }
+    .nav-drop__arrow { display: inline-block; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.28s ease; flex-shrink: 0; }
+    .nav-has-drop:hover .nav-drop__arrow, .nav-has-drop:focus-within .nav-drop__arrow { transform: rotate(-135deg) translateY(-2px); }
+    .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 220px; background: rgba(250,248,245,0.58); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(0,117,153,0.14); border-radius: 2px; padding: 18px 0 10px; list-style: none; opacity: 0; pointer-events: none; transition: opacity 0.26s ease, transform 0.26s ease; z-index: 200; }
+    .nav-has-drop:hover .nav-dropdown, .nav-has-drop:focus-within .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown li a { display: block; padding: 10px 22px; font-family: var(--font-body); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,63,82,0.78); text-decoration: none; white-space: nowrap; transition: color 0.22s ease, background 0.22s ease; }
+    .nav-dropdown li a::after { display: none; }
+    .nav-dropdown li a:hover { color: var(--teal); background: rgba(0,117,153,0.06); }
+    .header__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .header__burger span { display: block; width: 24px; height: 1.5px; background: var(--teal-dark); border-radius: 2px; transition: background-color 0.3s; }
+    .site-header.scrolled .header__burger span { background: var(--text-color); }
+
+    .title-grad { background: linear-gradient(100deg,#005f7a 0%,#007599 45%,#00a3c9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .sub-hero { position: relative; width: 100%; min-height: clamp(500px,70vh,800px); background-image: url('../Obrazky/Pozadie/Hero podstranok/8.png'); background-size: 100% auto; background-position: center 40%; background-repeat: no-repeat; display: flex; align-items: center; overflow: hidden; }
+    .sub-hero__overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom,rgba(240,232,218,0.72) 0%,rgba(240,232,218,0.18) 18%,transparent 36%), linear-gradient(to right,rgba(240,232,218,0.52) 0%,rgba(238,229,214,0.38) 28%,rgba(235,225,210,0.18) 52%,rgba(232,222,206,0.05) 72%,transparent 90%); }
+    .sub-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 38%; background: linear-gradient(to bottom,transparent 0%,rgba(250,248,245,0.18) 25%,rgba(250,248,245,0.52) 55%,rgba(250,248,245,0.86) 78%,#FAF8F5 100%); z-index: 2; pointer-events: none; }
+    .sub-hero__content { position: relative; z-index: 10; width: 100%; max-width: 1400px; margin: 0 auto; padding: clamp(110px,14vh,160px) clamp(24px,5.5vw,80px) clamp(60px,8vh,100px); display: grid; grid-template-columns: 52% 48%; align-items: center; }
+    .sub-hero__left { max-width: 560px; }
+    .sub-hero__title { font-family: var(--font-head); font-weight: 500; font-size: clamp(28px,3.4vw,52px); line-height: 1.12; letter-spacing: 0.01em; color: var(--teal-dark); margin-bottom: 0; }
+    .sub-hero__divider { width: 44px; height: 2px; background: linear-gradient(90deg,#005f7a,#00a3c9); border-radius: 2px; margin: clamp(14px,2vh,20px) 0 clamp(28px,4vh,38px); }
+    .sub-hero__desc { font-family: 'Lora',Georgia,serif; font-style: italic; font-size: clamp(13px,1.1vw,17px); font-weight: 400; letter-spacing: 0.03em; line-height: 1.6; color: rgba(0,61,82,0.80); margin-bottom: clamp(66px,9vh,90px); max-width: 460px; }
+
+    .cta-btn { position: relative; display: inline-flex; align-items: center; justify-content: space-between; width: 218px; height: 45px; padding: 0 20px 0 10px; text-decoration: none; cursor: pointer; transition: filter 300ms ease; }
+    .cta-btn__left { display: flex; align-items: center; flex-shrink: 0; position: relative; z-index: 1; }
+    .cta-btn__icon { display: block; width: auto; height: auto; max-width: 42px; max-height: 36px; object-fit: contain; filter: brightness(0) invert(1); flex-shrink: 0; }
+    .cta-btn__divider { flex-shrink: 0; display: block; width: 1px; height: 22px; background: rgba(255,255,255,0.18); margin: 0 2px 0 0; }
+    .cta-btn__text { font-family: 'Playfair Display',Georgia,serif; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; color: #ffffff; white-space: nowrap; user-select: none; }
+    .cta-btn__arrow { display: flex; align-items: center; flex-shrink: 0; position: relative; z-index: 1; margin-left: 8px; transition: transform 300ms ease; }
+    .cta-btn--filled { isolation: isolate; overflow: hidden; clip-path: path("M 13 0 L 211 0 A 7 7 0 0 1 218 7 L 218 31 L 205 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); filter: drop-shadow(0 0 0px rgba(0,117,153,0)); }
+    .cta-btn--filled::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
+    .cta-btn--filled::after  { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover { filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
+    .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+    .cta-btn--lg { width: 252px; }
+    .cta-btn--lg.cta-btn--filled { clip-path: path("M 13 0 L 245 0 A 7 7 0 0 1 252 7 L 252 31 L 238 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
+
+    .site-footer { position: relative; background: linear-gradient(rgba(248,246,242,0.82),rgba(248,246,242,0.82)), url('../Obrazky/Pozadie/pozadie sluzby.png'); background-size: cover; background-position: center right; color: #444444; padding: clamp(68px,9vh,92px) 0 clamp(28px,4vh,44px); overflow: hidden; z-index: 5; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 2fr 1.1fr; gap: 0; padding-bottom: 36px; align-items: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .footer-brand__logo { height: clamp(100px,11vw,145px); width: auto; display: block; transition: transform 0.35s ease, opacity 0.35s ease; }
+    .footer-brand__logo:hover { transform: scale(1.05); opacity: 0.85; }
+    .footer-brand__socials { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+    .footer-brand__social-link { text-decoration: none; }
+    .footer-brand__icon-wrap { position: relative; width: 42px; height: 42px; border-radius: 4px; overflow: hidden; background: transparent; border: 1px solid rgba(0,117,153,0.35); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 15px; transition: transform 0.3s, border-color 0.36s ease; }
+    .footer-brand__icon-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg,#1AA0C2 0%,#0D89AB 45%,#007898 100%); opacity: 0; transition: opacity 0.36s ease; pointer-events: none; z-index: 0; }
+    .footer-brand__icon-wrap i { position: relative; z-index: 1; transition: color 0.36s ease; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap { transform: translateY(-1px); border-color: transparent; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap::after { opacity: 1; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap i { color: white; }
+    .footer-mid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px,3vw,40px); padding: 0 clamp(44px,6vw,80px); position: relative; }
+    .footer-mid::before, .footer-mid::after { content: ''; position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom,transparent 0%,rgba(15,45,58,0.08) 30%,rgba(15,45,58,0.08) 70%,transparent 100%); }
+    .footer-mid::before { left: 0; }
+    .footer-mid::after  { right: 0; }
+    .footer-col-title { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0; margin: 4px 0 0; padding: 0; }
+    .footer-links a { display: block; font-size: 13.5px; color: #444444; text-decoration: none; line-height: 1; padding: 6px 0; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-col--right { padding-left: clamp(28px,3.5vw,48px); }
+    .footer-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #444444; }
+    .footer-contact-item i { color: var(--teal); font-size: 13px; flex-shrink: 0; }
+    .footer-bottom { position: relative; width: 100%; min-height: 60px; display: flex; align-items: center; background: linear-gradient(118deg,#005f7a 0%,#007599 45%,#00a3c9 80%,#005f7a 100%); border-top: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+    .footer-bottom > .container { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-copyright { font-size: 13px; color: rgba(255,255,255,0.90); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.80); text-decoration: none; transition: color 0.3s; }
+    .footer-legal a:hover { color: rgba(255,255,255,1); }
+    .footer__hb { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); pointer-events: none; z-index: 0; mix-blend-mode: screen; animation: hbHover 2.8s ease-in-out infinite alternate; }
+    @keyframes hbHover { 0% { transform: translate(-50%,-58%); } 100% { transform: translate(-50%,-42%); } }
+    .footer__hb video { width: clamp(52px,5.5vw,70px); filter: grayscale(100%) contrast(200%) brightness(3.5); opacity: 0.65; display: block; }
+
+    @media (max-width: 860px) {
+      .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(100px,16vh,140px); }
+      .sub-hero__left { max-width: 100%; }
+      .sub-hero__divider { margin-left: auto; margin-right: auto; }
+      .sub-hero__desc { margin-left: auto; margin-right: auto; }
+      .sub-hero__right { display: none; }
+      .sub-hero__overlay { background: rgba(250,248,245,0.82); }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-mid { padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+    @media (max-width: 640px) {
+      .header__nav { display: none; }
+      .header__burger { display: flex; }
+      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(25,27,28,0.96); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; }
+      .header__nav.mobile-active a { color: var(--white) !important; font-size: 15px; letter-spacing: 0.15em; }
+      .header__nav.mobile-active a::after { display: none; }
+      .site-header { padding: 16px 24px; }
+      .site-header.scrolled { padding: 12px 24px; }
+    }
+
+    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="1"] { transition-delay: 0.10s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.20s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.30s; }
+    [data-reveal][data-delay="4"] { transition-delay: 0.40s; }
+
+    .section-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+    .section-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(26px,3.6vw,46px); line-height: 1.15; letter-spacing: 0.01em; color: var(--text-color); margin-bottom: 8px; }
+    .section-header { text-align: center; max-width: 760px; margin: 0 auto clamp(40px,6vh,64px); }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header" id="site-header">
+    <a href="../index.html" class="header__logo" aria-label="Soul Design – domov">
+      <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
+    </a>
+    <nav aria-label="Hlavná navigácia">
+      <ul class="header__nav">
+        <li><a href="/#uvod">Úvod</a></li>
+        <li class="nav-has-drop">
+          <a href="sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
+          <ul class="nav-dropdown" aria-label="Podstránky služieb">
+            <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
+            <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+            <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+            <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
+          </ul>
+        </li>
+        <li><a href="cennik.html" aria-current="page">Cenník</a></li>
+        <li><a href="o-mne.html">O mne</a></li>
+        <li><a href="kontakt.html" class="nav__cta">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="header__burger" aria-label="Otvoriť menu" aria-expanded="false" id="burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <section class="sub-hero" id="sub-hero" aria-labelledby="sub-hero-title">
+    <div class="sub-hero__overlay" aria-hidden="true"></div>
+    <div class="sub-hero__content">
+      <div class="sub-hero__left">
+        <h1 class="sub-hero__title" id="sub-hero-title">
+          <span class="title-grad">Cenník</span>
+        </h1>
+        <div class="sub-hero__divider" aria-hidden="true"></div>
+        <p class="sub-hero__desc">
+          Prehľad služieb a individuálnych riešení, ktoré sa prispôsobia potrebám vašej značky.
+        </p>
+        <a class="cta-btn cta-btn--filled" href="#cennik">
+          <span class="cta-btn__left">
+            <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+            <span class="cta-btn__divider" aria-hidden="true"></span>
+            <span class="cta-btn__text">Zobraziť cenník</span>
+          </span>
+          <span class="cta-btn__arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+      <div class="sub-hero__right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIE — budú doplnené neskôr
+       ══════════════════════════════════════════════ -->
+  <div id="cennik"></div>
+
+
+  <footer class="site-footer" aria-label="Pätička stránky">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../Obrazky/Logo/Hlavne logo.png" alt="Soul Design" class="footer-brand__logo" loading="lazy" />
+          <div class="footer-brand__socials">
+            <a href="https://www.facebook.com/alex.fecikova" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-col">
+            <div class="footer-col-title">Navigácia</div>
+            <ul class="footer-links">
+              <li><a href="/#uvod">Úvod</a></li>
+              <li><a href="sluzby.html">Služby</a></li>
+              <li><a href="cennik.html">Cenník</a></li>
+              <li><a href="o-mne.html">O mne</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Služby</div>
+            <ul class="footer-links">
+              <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
+              <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+              <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-col footer-col--right">
+          <div class="footer-col-title">Kontakty</div>
+          <div class="footer-contact-item"><i class="fa-regular fa-user"></i><span>Alex Rudyová</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Študentská 2046/39<br>069 01 Snina</span></div>
+          <div class="footer-contact-item"><i class="fa-regular fa-envelope"></i><span>info@souldesign.sk</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-copyright">&copy; <span id="copyright-year"></span> Soul Design. Všetky práva vyhradené.</div>
+        <div class="footer-legal">
+          <a href="/ochrana-udajov">Ochrana údajov</a>
+          <span aria-hidden="true" style="color:rgba(255,255,255,0.35);">·</span>
+          <a href="/cookies">Cookies</a>
+        </div>
+      </div>
+      <div class="footer__hb" aria-hidden="true">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="../Obrazky/Logo/video kolibrik.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { if (header) header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const burger = document.getElementById('burger-btn');
+    const nav    = document.querySelector('.header__nav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => { const isOpen = burger.getAttribute('aria-expanded') === 'true'; burger.setAttribute('aria-expanded', String(!isOpen)); nav.classList.toggle('mobile-active', !isOpen); });
+      nav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('mobile-active'); }); });
+    }
+    const yearEl = document.getElementById('copyright-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    if (revealEls.length) {
+      const ro = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } }); }, { threshold: 0.12 });
+      revealEls.forEach(el => ro.observe(el));
+    }
+  </script>
+
+</body>
+</html>
