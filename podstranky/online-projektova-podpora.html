@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Online projektová podpora | Soul Design</title>
-  <meta name="description" content="Od administratívy cez grafiku a strih videí až po AI nástroje a online systémy – postarám sa o úlohy, ktoré vám umožnia venovať sa tomu, na čom skutočne záleží." />
+  <meta name="description" content="Vaša online pravá ruka, ktorá sa postará o detaily, aby ste sa mohli venovať tomu, čo je pre vás dôležité." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,8 +13,10 @@
   <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
 
   <style>
+    /* ═══════════════════════════════════════════
+       RESET & TOKENS
+       ═══════════════════════════════════════════ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --teal:        #007599;
       --teal-mid:    #005f7a;
@@ -23,22 +25,22 @@
       --teal-glow:   #00a3c9;
       --teal-pale:   #4ecde8;
       --white:       #ffffff;
-      --bg-start: #FAF8F5;
-      --bg-mid:   #E9F3F6;
-      --bg-end:   #FCF9F5;
-      --text-color:  #333333;
-      --text-muted:  #555555;
-      --text-light:  #888888;
-      --radius-card: 14px;
+      --bg-start:    #FAF8F5;
+      --bg-mid:      #E9F3F6;
       --font-head:   'Frank Ruhl Libre', Georgia, serif;
       --font-body:   'Lora', Georgia, serif;
       --font-script: 'Cormorant Garamond', Georgia, serif;
+      --text-color:  #333333;
+      --text-muted:  #555555;
+      --text-light:  #888888;
     }
-
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); background: var(--bg-start); color: var(--text-color); overflow-x: hidden; line-height: 1.8; -webkit-font-smoothing: antialiased; }
     .container { width: 90%; max-width: 1280px; margin: 0 auto; position: relative; z-index: 10; }
 
+    /* ═══════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════ */
     .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(16px,2.4vh,26px) clamp(24px,5vw,72px); display: flex; align-items: center; justify-content: space-between; background: transparent; transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
     .site-header.scrolled { position: fixed; background: rgba(244,242,238,0.82); backdrop-filter: blur(14px) saturate(1.5) brightness(0.88); -webkit-backdrop-filter: blur(14px) saturate(1.5) brightness(0.88); box-shadow: 0 4px 24px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.10); padding: clamp(12px,1.8vh,18px) clamp(24px,5vw,72px); animation: headerSlideIn 0.3s ease-out; }
     @keyframes headerSlideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
@@ -53,9 +55,9 @@
     .header__nav a:hover::after { width: 100%; }
     .site-header.scrolled .header__nav a { color: rgba(0,63,82,0.80); }
     .site-header.scrolled .header__nav a:hover { color: #003d52; }
-    .nav__cta { display: inline-flex !important; align-items: center; justify-content: center; width: 148px; height: 40px; padding: 0 !important; clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z"); font-family: 'Playfair Display',Georgia,serif; font-size: 13px !important; font-weight: 600; letter-spacing: 0.05em !important; color: var(--white) !important; text-decoration: none; position: relative; isolation: isolate; filter: drop-shadow(0 0 0px rgba(0,117,153,0)); transition: filter 300ms ease; }
+    .nav__cta { display: inline-flex !important; align-items: center; justify-content: center; width: 148px; height: 40px; padding: 0 !important; clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z"); font-family: 'Playfair Display',Georgia,serif; font-size: 13px !important; font-weight: 600; letter-spacing: 0.05em !important; color: var(--white) !important; text-decoration: none; position: relative; isolation: isolate; transition: filter 300ms ease; }
     .nav__cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
-    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
     .header__nav .nav__cta:hover::after { opacity: 1; }
     .nav__cta:hover { color: var(--white) !important; filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
     .nav-has-drop { position: relative; }
@@ -71,32 +73,225 @@
     .header__burger span { display: block; width: 24px; height: 1.5px; background: var(--teal-dark); border-radius: 2px; transition: background-color 0.3s; }
     .site-header.scrolled .header__burger span { background: var(--text-color); }
 
+    /* ═══════════════════════════════════════════
+       TITLE GRADIENT
+       ═══════════════════════════════════════════ */
     .title-grad { background: linear-gradient(100deg,#005f7a 0%,#007599 45%,#00a3c9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    .sub-hero { position: relative; width: 100%; min-height: clamp(500px,70vh,800px); background-image: url('../Obrazky/Pozadie/Hero podstranok/8.png'); background-size: 100% auto; background-position: center 40%; background-repeat: no-repeat; display: flex; align-items: center; overflow: hidden; }
+    /* ═══════════════════════════════════════════
+       SUB-HERO
+       ═══════════════════════════════════════════ */
+    .sub-hero { position: relative; width: 100%; min-height: clamp(500px,70vh,800px); background-image: url('../Obrazky/Pozadie/Hero podstranok/online asistentka.png'); background-size: cover; background-position: center 40%; background-repeat: no-repeat; display: flex; align-items: center; overflow: hidden; }
     .sub-hero__overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom,rgba(240,232,218,0.72) 0%,rgba(240,232,218,0.18) 18%,transparent 36%), linear-gradient(to right,rgba(240,232,218,0.52) 0%,rgba(238,229,214,0.38) 28%,rgba(235,225,210,0.18) 52%,rgba(232,222,206,0.05) 72%,transparent 90%); }
     .sub-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 38%; background: linear-gradient(to bottom,transparent 0%,rgba(250,248,245,0.18) 25%,rgba(250,248,245,0.52) 55%,rgba(250,248,245,0.86) 78%,#FAF8F5 100%); z-index: 2; pointer-events: none; }
     .sub-hero__content { position: relative; z-index: 10; width: 100%; max-width: 1400px; margin: 0 auto; padding: clamp(110px,14vh,160px) clamp(24px,5.5vw,80px) clamp(60px,8vh,100px); display: grid; grid-template-columns: 52% 48%; align-items: center; }
     .sub-hero__left { max-width: 560px; }
+    .sub-hero__breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: clamp(16px,2.2vh,24px); font-family: var(--font-body); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .sub-hero__breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.25s; }
+    .sub-hero__breadcrumb a:hover { color: var(--teal); }
+    .sub-hero__breadcrumb-sep { color: var(--text-light); }
+    .sub-hero__breadcrumb-current { color: var(--teal); }
     .sub-hero__title { font-family: var(--font-head); font-weight: 500; font-size: clamp(28px,3.4vw,52px); line-height: 1.12; letter-spacing: 0.01em; color: var(--teal-dark); margin-bottom: 0; }
     .sub-hero__divider { width: 44px; height: 2px; background: linear-gradient(90deg,#005f7a,#00a3c9); border-radius: 2px; margin: clamp(14px,2vh,20px) 0 clamp(28px,4vh,38px); }
-    .sub-hero__desc { font-family: 'Lora',Georgia,serif; font-style: italic; font-size: clamp(13px,1.1vw,17px); font-weight: 400; letter-spacing: 0.03em; line-height: 1.6; color: rgba(0,61,82,0.80); margin-bottom: clamp(66px,9vh,90px); max-width: 460px; }
+    .sub-hero__desc { font-family: 'Lora',Georgia,serif; font-style: italic; font-size: clamp(13px,1.1vw,17px); font-weight: 400; letter-spacing: 0.03em; line-height: 1.6; color: rgba(0,61,82,0.80); margin-bottom: clamp(36px,5vh,50px); max-width: 460px; }
 
+    /* ═══════════════════════════════════════════
+       CTA BUTTON
+       ═══════════════════════════════════════════ */
     .cta-btn { position: relative; display: inline-flex; align-items: center; justify-content: space-between; width: 218px; height: 45px; padding: 0 20px 0 10px; text-decoration: none; cursor: pointer; transition: filter 300ms ease; }
     .cta-btn__left { display: flex; align-items: center; flex-shrink: 0; position: relative; z-index: 1; }
     .cta-btn__icon { display: block; width: auto; height: auto; max-width: 42px; max-height: 36px; object-fit: contain; filter: brightness(0) invert(1); flex-shrink: 0; }
     .cta-btn__divider { flex-shrink: 0; display: block; width: 1px; height: 22px; background: rgba(255,255,255,0.18); margin: 0 2px 0 0; }
     .cta-btn__text { font-family: 'Playfair Display',Georgia,serif; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; color: #ffffff; white-space: nowrap; user-select: none; }
     .cta-btn__arrow { display: flex; align-items: center; flex-shrink: 0; position: relative; z-index: 1; margin-left: 8px; transition: transform 300ms ease; }
-    .cta-btn--filled { isolation: isolate; overflow: hidden; clip-path: path("M 13 0 L 211 0 A 7 7 0 0 1 218 7 L 218 31 L 205 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); filter: drop-shadow(0 0 0px rgba(0,117,153,0)); }
+    .cta-btn--filled { isolation: isolate; overflow: hidden; clip-path: path("M 13 0 L 211 0 A 7 7 0 0 1 218 7 L 218 31 L 205 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
     .cta-btn--filled::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
-    .cta-btn--filled::after  { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .cta-btn--filled::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
     .cta-btn--filled:hover::after { opacity: 1; }
     .cta-btn--filled:hover { filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
     .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
-    .cta-btn--lg { width: 252px; }
-    .cta-btn--lg.cta-btn--filled { clip-path: path("M 13 0 L 245 0 A 7 7 0 0 1 252 7 L 252 31 L 238 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
+    .cta-btn--wide { width: 260px; clip-path: path("M 13 0 L 253 0 A 7 7 0 0 1 260 7 L 260 31 L 246 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
+    .pp-outline-frame { clip-path: path("M 13 0 L 253 0 A 7 7 0 0 1 260 7 L 260 31 L 246 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); background: rgba(255,255,255,0.82); width: 260px; height: 45px; display: flex; align-items: center; justify-content: center; }
+    .pp-outline-btn { width: 257px !important; height: 42px !important; clip-path: path("M 11.5 0 L 251.5 0 A 5.5 5.5 0 0 1 257 5.5 L 257 28 L 243 42 L 5.5 42 A 5.5 5.5 0 0 1 0 36.5 L 0 11.5 Z") !important; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); padding: 0 16px 0 6px !important; pointer-events: auto; }
+    .pp-outline-btn::before, .pp-outline-btn::after { display: none; }
 
+    /* ═══════════════════════════════════════════
+       SPOLOČNÉ SEKCIE
+       ═══════════════════════════════════════════ */
+    [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1); will-change: transform, opacity; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="1"] { transition-delay: 0.10s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.20s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.30s; }
+    [data-reveal][data-delay="4"] { transition-delay: 0.40s; }
+    [data-reveal][data-delay="5"] { transition-delay: 0.50s; }
+    .section-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(26px,3.6vw,46px); line-height: 1.15; letter-spacing: 0.01em; color: var(--text-color); margin-bottom: 8px; }
+    .section-accent { width: 32px; height: 1px; background: rgba(0,117,153,0.35); margin: 12px auto 0; }
+    .section-header { text-align: center; margin-bottom: clamp(40px,6vh,64px); }
+
+    /* ═══════════════════════════════════════════
+       #podpora-values — Čo ma vystihuje?
+       ═══════════════════════════════════════════ */
+    #podpora-values { padding: clamp(80px,11vh,120px) 0; background: var(--bg-start); }
+    .pv-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(20px,3vw,40px); }
+    .pv-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .pv-icon-img { width: 144px; height: 144px; object-fit: contain; margin-bottom: 18px; transition: transform 0.55s ease; }
+    .pv-card:hover .pv-icon-img { transform: translateY(-8px); }
+    .pv-title { font-family: var(--font-head); font-size: clamp(13px,1.1vw,15px); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; line-height: 1.3; }
+    .pv-desc { font-size: clamp(12px,0.88vw,14px); color: var(--text-muted); line-height: 1.72; font-style: italic; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-about — Ahojte, som Alex.
+       ═══════════════════════════════════════════ */
+    #podpora-about { padding: clamp(80px,11vh,120px) 0; background: var(--bg-start); }
+    .pa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: center; }
+    .pa-photo-col { position: relative; }
+    .pa-photo-frame { position: relative; border: 1.5px solid rgba(0,117,153,0.30); overflow: hidden; border-radius: 2px; }
+    .pa-photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(250,248,245,0.12) 0%,rgba(250,248,245,0.28) 100%); z-index: 1; pointer-events: none; }
+    .pa-photo { width: 100%; height: clamp(360px,45vw,560px); object-fit: cover; object-position: top center; display: block; transition: transform 0.6s ease; }
+    .pa-photo-frame:hover .pa-photo { transform: scale(1.02); }
+    .pa-offset-border { position: absolute; bottom: -14px; right: -14px; width: calc(100% - 20px); height: calc(100% - 20px); border: 1px solid rgba(0,117,153,0.18); border-radius: 2px; z-index: -1; }
+    .pa-label { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .pa-title { font-family: var(--font-head); font-size: clamp(26px,3vw,42px); font-weight: 400; line-height: 1.15; color: var(--text-color); margin-bottom: clamp(16px,2.5vh,24px); }
+    .pa-text { font-size: clamp(13px,0.9vw,15px); color: var(--text-muted); line-height: 1.82; margin-bottom: 14px; }
+    .pa-socials { display: flex; gap: 10px; margin: clamp(20px,3vh,28px) 0 clamp(28px,4vh,40px); }
+    .pa-social { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 4px; border: 1px solid rgba(0,117,153,0.30); color: var(--teal); font-size: 14px; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s; }
+    .pa-social:hover { background: var(--teal); color: white; border-color: transparent; transform: translateY(-2px); }
+
+    /* ═══════════════════════════════════════════
+       #podpora-benefits — Prečo spolupracovať?
+       ═══════════════════════════════════════════ */
+    #podpora-benefits { position: relative; padding: clamp(80px,11vh,120px) 0; background-image: url('../Obrazky/Pozadie/pozadie11.png'); background-size: cover; background-position: center; background-attachment: fixed; }
+    #podpora-benefits::before { content: ''; position: absolute; inset: 0; background: rgba(248,245,240,0.78); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); z-index: 0; }
+    #podpora-benefits .container { position: relative; z-index: 1; }
+    .pb-row { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
+    .pb-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 clamp(10px,1.5vw,20px); position: relative; }
+    .pb-item:not(:last-child)::after { content: ''; position: absolute; top: 28px; right: 0; width: 1px; height: 36px; background: linear-gradient(to bottom,transparent,rgba(0,117,153,0.22),transparent); }
+    .pb-crystal { position: relative; width: clamp(90px,8vw,118px); height: clamp(90px,8vw,118px); flex-shrink: 0; display: flex; align-items: center; justify-content: center; filter: drop-shadow(5px 8px 14px rgba(15,45,58,0.18)); transition: filter 300ms ease, transform 300ms ease; margin-bottom: 18px; }
+    .pb-item:hover .pb-crystal { filter: drop-shadow(6px 10px 18px rgba(15,45,58,0.24)); transform: translateY(-3px); }
+    .pb-crystal-bg { position: absolute; inset: 0; clip-path: polygon(50% 8.18%,86.36% 28.18%,86.36% 68.18%,50% 88.18%,13.64% 68.18%,13.64% 28.18%); background: linear-gradient(145deg,#1AA0C2 0%,#0D89AB 45%,#007898 100%); transition: background 0.36s ease; z-index: 0; }
+    .pb-item:hover .pb-crystal-bg { background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); }
+    .pb-crystal__icon { max-width: 54px; max-height: 54px; height: auto; object-fit: contain; position: relative; z-index: 1; }
+    .pb-name { font-family: var(--font-head); font-size: clamp(13px,1vw,16px); font-weight: 500; color: var(--text-color); margin-bottom: 8px; }
+    .pb-desc { font-size: clamp(11px,0.78vw,13px); color: var(--text-muted); line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-services — S čím vám viem pomôcť?
+       ═══════════════════════════════════════════ */
+    #podpora-services { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
+    .ps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,2vw,26px); }
+    .ps-card { border-radius: 2px; overflow: visible; }
+    .ps-card-photo-wrap { position: relative; overflow: hidden; border: 1.5px solid rgba(0,117,153,0.52); border-bottom: none; border-radius: 2px 2px 0 0; }
+    .ps-card-photo-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,rgba(250,248,245,0.12) 0%,rgba(250,248,245,0.28) 100%); z-index: 1; }
+    .ps-card-photo { width: 100%; height: clamp(280px,28vw,420px); object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+    .ps-card:hover .ps-card-photo { transform: scale(1.04); }
+    .ps-card-btn { width: 100%; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); border: none; padding: clamp(13px,1.8vh,18px) clamp(14px,1.5vw,20px); display: flex; align-items: center; justify-content: space-between; cursor: pointer; gap: 10px; transition: filter 0.3s ease; }
+    .ps-card-btn:hover { filter: brightness(1.08); }
+    .ps-card.open .ps-card-btn { filter: brightness(0.92); }
+    .ps-card-title { font-family: var(--font-head); font-size: clamp(13px,1.1vw,17px); font-weight: 400; font-style: italic; color: #ffffff; flex: 1; text-align: left; letter-spacing: 0.01em; line-height: 1.25; }
+    .ps-card-plus { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: flex; align-items: center; justify-content: center; color: white; font-size: 17px; font-weight: 300; flex-shrink: 0; transition: transform 0.35s ease, border-color 0.3s ease; line-height: 1; }
+    .ps-card.open .ps-card-plus { transform: rotate(45deg); border-color: rgba(255,255,255,0.80); }
+    .ps-card-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; background: #ffffff; border: 1.5px solid rgba(0,117,153,0.20); border-top: none; border-radius: 0 0 2px 2px; }
+    .ps-card.open .ps-card-body { max-height: 700px; }
+    .ps-card-content { padding: clamp(14px,2vh,22px) clamp(16px,1.8vw,24px) clamp(16px,2.5vh,22px); }
+    .ps-list { list-style: none; padding: 0; margin: 0; }
+    .ps-list li { font-size: clamp(11px,0.75vw,13px); color: var(--text-muted); line-height: 1.72; padding: 3px 0 3px 14px; position: relative; }
+    .ps-list li::before { content: '–'; position: absolute; left: 0; color: rgba(0,117,153,0.45); }
+    .ps-list li.ps-sub { padding-left: 26px; }
+    .ps-list li.ps-sub::before { left: 14px; }
+    .ps-list-title { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin: 12px 0 5px; display: block; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-numbers — Prax v číslach
+       ═══════════════════════════════════════════ */
+    #podpora-numbers { padding: clamp(44px,6vh,72px) 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); position: relative; overflow: hidden; }
+    #podpora-numbers::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.09); opacity: 0; transition: opacity 0.4s ease; z-index: 0; pointer-events: none; }
+    #podpora-numbers:hover::before { opacity: 1; }
+    #podpora-numbers .container { position: relative; z-index: 1; }
+    .pn-header { text-align: center; margin-bottom: clamp(28px,4vh,44px); }
+    .pn-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(20px,3vw,40px); }
+    .pn-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.18); padding: 0 clamp(16px,2vw,28px); display: flex; flex-direction: column; align-items: center; }
+    .pn-item:last-child { border-right: none; }
+    .pn-icon { font-size: clamp(26px,2.4vw,34px); color: #ffffff; margin-bottom: clamp(12px,1.6vh,18px); }
+    .pn-label { font-family: var(--font-body); font-size: clamp(11px,0.85vw,14px); color: #ffffff; letter-spacing: 0.06em; line-height: 1.5; margin-bottom: clamp(12px,1.6vh,18px); }
+    .pn-number { font-family: var(--font-head); font-size: clamp(38px,5vw,70px); font-weight: 400; line-height: 1; margin-top: auto; color: #ffffff; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-experience — Skúsenosti
+       ═══════════════════════════════════════════ */
+    #podpora-experience { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
+    .pe-intro { text-align: center; margin-bottom: clamp(40px,6vh,60px); }
+    .pe-intro-sub { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,1vw,16px); color: var(--text-muted); max-width: 640px; margin: 8px auto 0; line-height: 1.8; }
+    .pe-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(20px,2.5vw,36px); }
+    .pe-col { background: #ffffff; border: 1px solid rgba(0,117,153,0.10); border-radius: 12px; padding: clamp(28px,4vh,40px) clamp(20px,2vw,28px); }
+    .pe-col-icon { font-size: 24px; color: var(--teal); margin-bottom: 16px; }
+    .pe-col-title { font-family: var(--font-head); font-size: clamp(15px,1.2vw,19px); font-weight: 500; color: var(--text-color); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,117,153,0.12); }
+    .pe-item { margin-bottom: 16px; }
+    .pe-item:last-child { margin-bottom: 0; }
+    .pe-item-title { font-family: var(--font-body); font-size: clamp(11px,0.82vw,12.5px); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; }
+    .pe-item-text { font-size: clamp(12px,0.82vw,13.5px); color: var(--text-muted); line-height: 1.72; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-pricing — Flexibilná spolupráca
+       ═══════════════════════════════════════════ */
+    #podpora-pricing { padding: clamp(72px,10vh,110px) 0; background: linear-gradient(180deg,var(--bg-mid) 0%,var(--bg-start) 100%); }
+    .pp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(18px,2.2vw,28px); align-items: stretch; }
+    .pp-card { background: #ffffff; border: 1px solid rgba(0,117,153,0.14); border-radius: 3px; padding: clamp(32px,4.5vh,52px) clamp(24px,2.5vw,36px) clamp(28px,3.5vh,44px); display: flex; flex-direction: column; position: relative; transition: box-shadow 0.35s ease, transform 0.35s ease; overflow: visible; }
+    .pp-card:not(.pp-card--featured):hover { box-shadow: 0 10px 36px rgba(0,117,153,0.10); transform: translateY(-4px); }
+    .pp-card--featured { background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); border-color: transparent; }
+    .pp-card--featured::before { content: ''; position: absolute; inset: 0; border-radius: 3px; background: rgba(255,255,255,0.09); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; }
+    .pp-card--featured:hover::before { opacity: 1; }
+    .pp-card--featured > * { position: relative; z-index: 1; }
+    .pp-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .pp-icon-wrap { width: clamp(62px,6vw,80px); height: clamp(62px,6vw,80px); border-radius: 50%; background: rgba(0,117,153,0.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: -4px; }
+    .pp-card--featured .pp-icon-wrap { background: rgba(255,255,255,0.14); }
+    .pp-icon { font-size: clamp(24px,2.4vw,32px); color: rgba(0,117,153,0.65); }
+    .pp-card--featured .pp-icon { color: rgba(255,255,255,0.88); }
+    .pp-title { font-family: var(--font-head); font-size: clamp(17px,1.5vw,22px); font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; }
+    .pp-card--featured .pp-title { color: #ffffff; }
+    .pp-price { font-family: var(--font-head); font-size: clamp(34px,3.8vw,54px); font-weight: 700; color: var(--text-color); line-height: 1.05; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: rgba(0,117,153,0.28); }
+    .pp-price span { font-size: 0.5em; font-weight: 400; vertical-align: middle; }
+    .pp-card--featured .pp-price { color: #ffffff; text-decoration-color: rgba(255,255,255,0.35); }
+    .pp-price-note { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; margin-bottom: 0; }
+    .pp-card--featured .pp-price-note { color: rgba(255,255,255,0.60); }
+    .pp-divider { height: 1px; background: rgba(0,117,153,0.12); margin: clamp(18px,2.5vh,26px) 0; }
+    .pp-card--featured .pp-divider { background: rgba(255,255,255,0.18); }
+    .pp-features { display: flex; flex-direction: column; gap: clamp(14px,2vh,20px); flex: 1; margin-bottom: clamp(24px,3.5vh,36px); }
+    .pp-feat { display: flex; gap: 12px; align-items: flex-start; }
+    .pp-feat-check { color: var(--teal); font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+    .pp-card--featured .pp-feat-check { color: rgba(255,255,255,0.88); }
+    .pp-feat-title { font-family: var(--font-body); font-size: clamp(12px,0.88vw,14px); font-weight: 600; color: var(--text-color); margin-bottom: 2px; }
+    .pp-card--featured .pp-feat-title { color: #ffffff; }
+    .pp-feat-desc { font-size: clamp(11px,0.78vw,13px); color: var(--text-muted); line-height: 1.72; }
+    .pp-card--featured .pp-feat-desc { color: rgba(255,255,255,0.70); }
+    .pp-features { margin-bottom: clamp(20px,3vh,30px); }
+    .pp-card-btn-wrap { display: flex; justify-content: center; margin-top: auto; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-testimonial — Referencia
+       ═══════════════════════════════════════════ */
+    #podpora-testimonial { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
+    .pt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: center; }
+    .pt-quote-mark { font-family: var(--font-script); font-size: clamp(80px,10vw,140px); line-height: 0.7; color: rgba(0,117,153,0.12); margin-bottom: -16px; display: block; user-select: none; }
+    .pt-quote { font-family: var(--font-body); font-style: italic; font-size: clamp(14px,1.1vw,17px); line-height: 1.85; color: var(--text-muted); margin-bottom: clamp(20px,3vh,30px); }
+    .pt-author { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.12em; color: var(--teal); text-transform: uppercase; font-weight: 600; }
+    .pt-photo-frame { position: relative; border: 1.5px solid rgba(0,117,153,0.25); overflow: hidden; border-radius: 2px; }
+    .pt-photo { width: 100%; height: clamp(320px,40vw,480px); object-fit: cover; object-position: top center; display: block; }
+    .pt-photo-offset { position: absolute; top: -12px; left: -12px; width: calc(100% - 20px); height: calc(100% - 20px); border: 1px solid rgba(0,117,153,0.14); border-radius: 2px; z-index: -1; }
+
+    /* ═══════════════════════════════════════════
+       #podpora-cta — Záverečná CTA
+       ═══════════════════════════════════════════ */
+    #podpora-cta { padding: clamp(90px,13vh,140px) 0; background: var(--bg-start); text-align: center; position: relative; }
+    .pcta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .pcta-bird { position: absolute; right: clamp(20px,5vw,80px); top: 50%; transform: translateY(-50%); opacity: 0.07; width: clamp(120px,14vw,180px); pointer-events: none; }
+    .pcta-title { font-family: var(--font-head); font-size: clamp(30px,4.5vw,60px); font-weight: 400; line-height: 1.12; color: var(--text-color); margin-bottom: clamp(14px,2vh,20px); }
+    .pcta-sub { font-family: var(--font-body); font-size: clamp(13px,1vw,16px); color: var(--text-muted); line-height: 1.82; margin-bottom: clamp(36px,5vh,52px); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
     .site-footer { position: relative; background: linear-gradient(rgba(248,246,242,0.82),rgba(248,246,242,0.82)), url('../Obrazky/Pozadie/pozadie sluzby.png'); background-size: cover; background-position: center right; color: #444444; padding: clamp(68px,9vh,92px) 0 clamp(28px,4vh,44px); overflow: hidden; z-index: 5; }
     .footer-grid { display: grid; grid-template-columns: 1fr 2fr 1.1fr; gap: 0; padding-bottom: 36px; align-items: center; }
     .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -113,7 +308,7 @@
     .footer-mid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px,3vw,40px); padding: 0 clamp(44px,6vw,80px); position: relative; }
     .footer-mid::before, .footer-mid::after { content: ''; position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom,transparent 0%,rgba(15,45,58,0.08) 30%,rgba(15,45,58,0.08) 70%,transparent 100%); }
     .footer-mid::before { left: 0; }
-    .footer-mid::after  { right: 0; }
+    .footer-mid::after { right: 0; }
     .footer-col-title { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0; margin: 4px 0 0; padding: 0; }
     .footer-links a { display: block; font-size: 13.5px; color: #444444; text-decoration: none; line-height: 1; padding: 6px 0; transition: color 0.3s; }
@@ -131,13 +326,32 @@
     @keyframes hbHover { 0% { transform: translate(-50%,-58%); } 100% { transform: translate(-50%,-42%); } }
     .footer__hb video { width: clamp(52px,5.5vw,70px); filter: grayscale(100%) contrast(200%) brightness(3.5); opacity: 0.65; display: block; }
 
+    /* ═══════════════════════════════════════════
+       RESPONZIVITA
+       ═══════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .pi-grid { grid-template-columns: repeat(2,1fr); }
+      .pv-grid { grid-template-columns: repeat(2,1fr); }
+      .pe-grid { grid-template-columns: repeat(2,1fr); }
+      .pn-grid { grid-template-columns: repeat(2,1fr); }
+      .pn-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 28px; margin-bottom: 8px; }
+      .pn-item:last-child { border-bottom: none; margin-bottom: 0; }
+    }
     @media (max-width: 860px) {
       .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(100px,16vh,140px); }
       .sub-hero__left { max-width: 100%; }
+      .sub-hero__breadcrumb { justify-content: center; }
       .sub-hero__divider { margin-left: auto; margin-right: auto; }
       .sub-hero__desc { margin-left: auto; margin-right: auto; }
-      .sub-hero__right { display: none; }
       .sub-hero__overlay { background: rgba(250,248,245,0.82); }
+      .pa-grid { grid-template-columns: 1fr; }
+      .pa-photo-col { order: -1; }
+      .pb-row { flex-wrap: wrap; gap: clamp(24px,4vh,36px); }
+      .pb-item { flex: 0 1 calc(50% - 20px); }
+      .pb-item::after { display: none; }
+      .ps-grid { grid-template-columns: repeat(2,1fr); }
+      .pp-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .pt-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
       .footer-mid { padding: 0; }
       .footer-mid::before, .footer-mid::after { display: none; }
@@ -151,23 +365,20 @@
       .header__nav.mobile-active a::after { display: none; }
       .site-header { padding: 16px 24px; }
       .site-header.scrolled { padding: 12px 24px; }
+      .pi-grid { grid-template-columns: 1fr; }
+      .pv-grid { grid-template-columns: 1fr 1fr; }
+      .pe-grid { grid-template-columns: 1fr; }
+      .pn-grid { grid-template-columns: 1fr 1fr; }
+      .pb-item { flex: 0 1 100%; }
     }
-
-    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    [data-reveal].revealed { opacity: 1; transform: none; }
-    [data-reveal][data-delay="1"] { transition-delay: 0.10s; }
-    [data-reveal][data-delay="2"] { transition-delay: 0.20s; }
-    [data-reveal][data-delay="3"] { transition-delay: 0.30s; }
-    [data-reveal][data-delay="4"] { transition-delay: 0.40s; }
-
-    .section-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
-    .section-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(26px,3.6vw,46px); line-height: 1.15; letter-spacing: 0.01em; color: var(--text-color); margin-bottom: 8px; }
-    .section-header { text-align: center; max-width: 760px; margin: 0 auto clamp(40px,6vh,64px); }
   </style>
 </head>
 
 <body>
 
+  <!-- ══════════════════════════════
+       HEADER
+       ══════════════════════════════ -->
   <header class="site-header" id="site-header">
     <a href="../index.html" class="header__logo" aria-label="Soul Design – domov">
       <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design – Design That Connects" loading="eager" />
@@ -195,29 +406,36 @@
   </header>
 
 
-  <section class="sub-hero" id="sub-hero" aria-labelledby="sub-hero-title">
+  <!-- ══════════════════════════════
+       HERO
+       ══════════════════════════════ -->
+  <section class="sub-hero" aria-labelledby="sub-hero-title">
     <div class="sub-hero__overlay" aria-hidden="true"></div>
     <div class="sub-hero__content">
       <div class="sub-hero__left">
+        <nav class="sub-hero__breadcrumb" aria-label="Navigačná drobčenka">
+          <a href="../index.html">Domov</a>
+          <span class="sub-hero__breadcrumb-sep" aria-hidden="true">›</span>
+          <a href="sluzby.html">Služby</a>
+          <span class="sub-hero__breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="sub-hero__breadcrumb-current">Online projektová podpora</span>
+        </nav>
         <h1 class="sub-hero__title" id="sub-hero-title">
           Online projektová <span class="title-grad">podpora</span>
         </h1>
         <div class="sub-hero__divider" aria-hidden="true"></div>
         <p class="sub-hero__desc">
-          Od administratívy cez grafiku a strih videí až po AI nástroje a online systémy –
-          postarám sa o úlohy, ktoré vám umožnia venovať sa tomu, na čom skutočne záleží.
+          Vaša online pravá ruka, ktorá sa postará o detaily,<br>
+          aby ste sa mohli venovať tomu, čo je pre vás dôležité.
         </p>
-        <a class="cta-btn cta-btn--filled" href="kontakt.html">
+        <a class="cta-btn cta-btn--filled cta-btn--wide" href="kontakt.html">
           <span class="cta-btn__left">
             <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
             <span class="cta-btn__divider" aria-hidden="true"></span>
-            <span class="cta-btn__text">Konzultácia zdarma</span>
+            <span class="cta-btn__text">Poďme spolupracovať</span>
           </span>
           <span class="cta-btn__arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </span>
         </a>
       </div>
@@ -226,11 +444,574 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════════════
-       SEKCIE — budú doplnené neskôr
-       ══════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════
+       ČO MA VYSTIHUJE?
+       ══════════════════════════════ -->
+  <section id="podpora-values" aria-labelledby="podpora-values-title">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2 class="section-title" id="podpora-values-title">Komplexná online <span class="title-grad">podpora.</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Čo ma vystihuje</span>
+      </div>
+      <div class="pv-grid">
+        <div class="pv-card" data-reveal data-delay="1">
+          <img src="../Obrazky/Sluzby/8.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <div class="pv-title">Kreativita</div>
+          <p class="pv-desc">Premieňam všednosť na neobyčajné riešenia, ktoré vypovedia váš príbeh a odlíšia vás od konkurencie.</p>
+        </div>
+        <div class="pv-card" data-reveal data-delay="2">
+          <img src="../Obrazky/Sluzby/10.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <div class="pv-title">Spoľahlivosť</div>
+          <p class="pv-desc">Som tu, aby som vám pomohla uskutočniť váš sen o online podnikaní. Na mňa sa môžete vždy spoľahnúť.</p>
+        </div>
+        <div class="pv-card" data-reveal data-delay="3">
+          <img src="../Obrazky/Sluzby/7.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <div class="pv-title">Načítenie</div>
+          <p class="pv-desc">Neplním len zadané úlohy, ale vnímam podstatu projektu, vaše potreby a ciele, ktoré sú za nimi.</p>
+        </div>
+        <div class="pv-card" data-reveal data-delay="4">
+          <img src="../Obrazky/Sluzby/9.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <div class="pv-title">Úsmev</div>
+          <p class="pv-desc">Úsmev je mojou neoddeliteľnou súčasťou. Pracujem s radosťou a prenášam ju aj na tých okolo seba.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
+  <!-- ══════════════════════════════
+       AHOJTE, SOM ALEX
+       ══════════════════════════════ -->
+  <section id="podpora-about" aria-labelledby="podpora-about-title">
+    <div class="container">
+      <div class="pa-grid">
+
+        <div class="pa-photo-col" data-reveal>
+          <div class="pa-photo-frame">
+            <img src="../Obrazky/Omne/Alex2.png" alt="Alex Rudyová – Soul Design" class="pa-photo" loading="lazy" />
+          </div>
+          <div class="pa-offset-border" aria-hidden="true"></div>
+        </div>
+
+        <div data-reveal data-delay="1">
+          <span class="pa-label">Ahojte, som Alex.</span>
+          <h2 class="pa-title" id="podpora-about-title">Vaša online <span class="title-grad">podpora.</span></h2>
+          <p class="pa-text">Svojim klientom pomáham zjednodušiť každodenný chod ich podnikania. Preberám za nich úlohy, ktoré ich stoja čas, energiu a odvážam sa povedať, aj nervy. Som organizovaná, spoľahlivá a dôsledná. Vďaka 20-ročnej skúsenosti v administratíve vybavím, zaradím a spravím prakticky čokoľvek.</p>
+          <p class="pa-text">Mojím cieľom je, aby ste mali viac priestoru na rast, tvorenie a život — na to, čo vás skutočne napĺňa a posúva vpred.</p>
+          <p class="pa-text">Či potrebujete pomoc s administráciou, grafikou, webom alebo technickými nastaveniami — som tu. Pracujem rýchlo, diskrétne a vždy s úsmevom.</p>
+          <div class="pa-socials">
+            <a href="https://www.facebook.com/alex.fecikova" class="pa-social" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="pa-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:info@souldesign.sk" class="pa-social" aria-label="E-mail">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       PREČO SPOLUPRACOVAŤ SO MNOU?
+       ══════════════════════════════ -->
+  <section id="podpora-benefits" aria-labelledby="podpora-benefits-title">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2 class="section-title" id="podpora-benefits-title">Spolupráca, ktorá vás <span class="title-grad">odbremeňuje.</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Prečo spolupracovať so mnou</span>
+        <div class="section-accent" style="margin-top:14px;"></div>
+      </div>
+      <div class="pb-row">
+        <div class="pb-item" data-reveal data-delay="1">
+          <div class="pb-crystal">
+            <div class="pb-crystal-bg" aria-hidden="true"></div>
+            <img src="../Obrazky/Ikony/Ako to funguje/5.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
+          </div>
+          <div class="pb-name">Ľudský prístup</div>
+          <p class="pb-desc">Na prvom mieste je vždy človek. Pristupujem k vám otvorene, úprimne a so záujmom.</p>
+        </div>
+        <div class="pb-item" data-reveal data-delay="2">
+          <div class="pb-crystal">
+            <div class="pb-crystal-bg" aria-hidden="true"></div>
+            <img src="../Obrazky/Ikony/Ako to funguje/6.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
+          </div>
+          <div class="pb-name">Spoľahlivosť</div>
+          <p class="pb-desc">Na termíny sa môžete spoľahnúť. Vždy splním to, čo sľúbim — včas a so záujmom o kvalitu.</p>
+        </div>
+        <div class="pb-item" data-reveal data-delay="3">
+          <div class="pb-crystal">
+            <div class="pb-crystal-bg" aria-hidden="true"></div>
+            <img src="../Obrazky/Ikony/Ako to funguje/7.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
+          </div>
+          <div class="pb-name">Diskrétnosť</div>
+          <p class="pb-desc">Vaše dáta a informácie sú u mna v bezpečí. Pracujem s plnou dôverou a rešpektom.</p>
+        </div>
+        <div class="pb-item" data-reveal data-delay="4">
+          <div class="pb-crystal">
+            <div class="pb-crystal-bg" aria-hidden="true"></div>
+            <img src="../Obrazky/Ikony/Ako to funguje/8.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
+          </div>
+          <div class="pb-name">Flexibilita</div>
+          <p class="pb-desc">Prispôsobujem sa vašim potrebám, tempu aj zmenám. Riešenia hľadám vždy s otvorenou mysľou.</p>
+        </div>
+        <div class="pb-item" data-reveal data-delay="5">
+          <div class="pb-crystal">
+            <div class="pb-crystal-bg" aria-hidden="true"></div>
+            <img src="../Obrazky/Ikony/Ako to funguje/9.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
+          </div>
+          <div class="pb-name">Proaktivita</div>
+          <p class="pb-desc">Nečakám na inštrukcie — prichádzam s nápadmi a zlepšeniami skôr, ako nastanú problémy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       S ČÍM VÁM VIEM POMÔCŤ?
+       ══════════════════════════════ -->
+  <section id="podpora-services" aria-labelledby="podpora-services-title">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2 class="section-title" id="podpora-services-title">S čím vám viem <span class="title-grad">pomôcť?</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Môj rozsah spolupráce</span>
+        <div class="section-accent" style="margin-top:14px;"></div>
+      </div>
+      <div class="ps-grid">
+
+        <div class="ps-card" data-reveal data-delay="1">
+          <div class="ps-card-photo-wrap">
+            <img src="../Obrazky/Pozadie/businesswoman-writing-note-sitting-her-desk-modern-office-min.jpg" alt="Administratíva" class="ps-card-photo" loading="lazy" />
+          </div>
+          <button class="ps-card-btn" aria-expanded="false">
+            <span class="ps-card-title">Administratíva</span>
+            <span class="ps-card-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="ps-card-body">
+            <div class="ps-card-content">
+              <ul class="ps-list">
+                <li>Vyhľadávanie potrebných dát a informácií</li>
+                <li>Organizácia a údržba online úložiska (Google Drive, Dropbox a iné)</li>
+                <li>Spravovanie firemného kalendára, pripomínanie dôležitých termínov</li>
+                <li>Plánovanie firemných ciest a teambuildingov</li>
+                <li>Rezervácia leteniek a ubytovania</li>
+                <li>Dohadovanie firemných stretnutí</li>
+                <li>Vytváranie cenových ponúk</li>
+                <li>Objednávanie tovaru a služieb</li>
+                <li>Komunikácia so zákazníkmi (e-mail, telefón, sociálne siete)</li>
+                <li>Prepisy a digitalizácia textov</li>
+                <li>Prepisy audio nahrávok a videí</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ps-card" data-reveal data-delay="2">
+          <div class="ps-card-photo-wrap">
+            <img src="../Obrazky/Sluzby/graficky design.png" alt="Tvorba grafík" class="ps-card-photo" loading="lazy" />
+          </div>
+          <button class="ps-card-btn" aria-expanded="false">
+            <span class="ps-card-title">Tvorba grafík</span>
+            <span class="ps-card-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="ps-card-body">
+            <div class="ps-card-content">
+              <ul class="ps-list">
+                <li>Tvorba grafík v Canve</li>
+                <li>Možnosť vektorovej grafiky</li>
+                <li>Grafiky pre sociálne médiá</li>
+                <li>Promo videá a reelsy</li>
+                <li>Tvorba prezentácií a školiacich materiálov</li>
+                <li>Tvorba e-bookov a rôznych obálok</li>
+                <li>Vizitky, bannery, infografiky</li>
+                <li>Grafiky pre reklamné kampane</li>
+                <li>Intro videá pre YouTube kanál</li>
+                <li>Tvorba loga a firemnej identity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ps-card" data-reveal data-delay="3">
+          <div class="ps-card-photo-wrap">
+            <img src="../Obrazky/Sluzby/webove stranky.png" alt="Weby a iné" class="ps-card-photo" loading="lazy" />
+          </div>
+          <button class="ps-card-btn" aria-expanded="false">
+            <span class="ps-card-title">Weby a iné</span>
+            <span class="ps-card-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="ps-card-body">
+            <div class="ps-card-content">
+              <ul class="ps-list">
+                <li>Spravovanie webov a e-shopov:</li>
+                <li class="ps-sub">Administratívna podpora a komunikácia s dodávateľmi</li>
+                <li class="ps-sub">Aktualizácia produktov, akcií a obsahu webu</li>
+                <li class="ps-sub">Zákaznícky servis – riešenie objednávok a reklamácií</li>
+                <li class="ps-sub">Tvorba landing pages</li>
+                <li class="ps-sub">Administrácia blogu – vkladanie článkov a fotografií</li>
+                <span class="ps-list-title">Iné</span>
+                <li>Ovládam mnoho zručností a nástrojov – neváhajte sa ozvať s akoukoľvek požiadavkou.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ps-card" data-reveal data-delay="4">
+          <div class="ps-card-photo-wrap">
+            <img src="../Obrazky/Sluzby/kreativna online asistentka.png" alt="AI tvorba" class="ps-card-photo" loading="lazy" />
+          </div>
+          <button class="ps-card-btn" aria-expanded="false">
+            <span class="ps-card-title">AI tvorba a nastavenia</span>
+            <span class="ps-card-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="ps-card-body">
+            <div class="ps-card-content">
+              <ul class="ps-list">
+                <li>Tvorba AI-asistovaného obsahu (texty, obrázky, videá)</li>
+                <li>Nastavenie automatizácií a workflows</li>
+                <li>Optimalizácia firemných procesov pomocou AI nástrojov</li>
+                <li>Nastavenie chatbotov a virtuálnych asistentov</li>
+                <li>AI-generované grafiky a vizuálny obsah</li>
+                <li>Konzultácie a školenia v oblasti AI pre váš tím</li>
+                <li>Integrácia AI nástrojov do existujúcich procesov</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       PRAX V ČÍSLACH
+       ══════════════════════════════ -->
+  <section id="podpora-numbers" aria-labelledby="podpora-numbers-title">
+    <div class="container">
+      <div class="pn-header" data-reveal>
+        <h2 class="section-title" id="podpora-numbers-title" style="color:#ffffff;">Prax v <span style="color:#ffffff;">číslach.</span></h2>
+      </div>
+      <div class="pn-grid">
+        <div class="pn-item" data-reveal data-delay="1">
+          <div class="pn-icon"><i class="fa-regular fa-clock"></i></div>
+          <div class="pn-label">Rokov v administratíve</div>
+          <div class="pn-number" data-target="20" data-suffix="+">0</div>
+        </div>
+        <div class="pn-item" data-reveal data-delay="2">
+          <div class="pn-icon"><i class="fa-regular fa-face-smile"></i></div>
+          <div class="pn-label">Spokojných zákazníkov</div>
+          <div class="pn-number" data-target="30" data-suffix="+">0</div>
+        </div>
+        <div class="pn-item" data-reveal data-delay="3">
+          <div class="pn-icon"><i class="fa-regular fa-folder-open"></i></div>
+          <div class="pn-label">Vypracovaných projektov</div>
+          <div class="pn-number" data-target="200" data-suffix="+">0</div>
+        </div>
+        <div class="pn-item" data-reveal data-delay="4">
+          <div class="pn-icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="pn-label">Šálok kávy</div>
+          <div class="pn-number" data-target="11011" data-suffix="+" data-format="space">0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       SKÚSENOSTI
+       ══════════════════════════════ -->
+  <section id="podpora-experience" aria-labelledby="podpora-experience-title">
+    <div class="container">
+      <div class="pe-intro" data-reveal>
+        <h2 class="section-title" id="podpora-experience-title">Čo na to moje <span class="title-grad">skúsenosti?</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Neustále sa rozvíjam a posúvam vpred</span>
+        <p class="pe-intro-sub">Rada a rýchlo sa učím nové veci a neustále sa vzdelávam. Vo svojej každodennej práci využívam moderné technológie a nástroje. Ovládam prstoklad a všetko okolo administratívy ma proste neskutočne baví.</p>
+      </div>
+      <div class="pe-grid">
+        <div class="pe-col" data-reveal data-delay="1">
+          <div class="pe-col-icon"><i class="fa-regular fa-house-laptop"></i></div>
+          <div class="pe-col-title">V čom som doma?</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Web development & web design</div>
+            <div class="pe-item-text">Tvorba webových stránok vo WordPress.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Canva, Figma, Adobe Suite, Camtasia</div>
+            <div class="pe-item-text">Tvorba grafík, promo reelsov a videa, úprava videí, postprodukcia.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Technika všetkého druhu</div>
+            <div class="pe-item-text">Rýchlo sa učím a bavia ma technikálie — od nastavení až po integrácie.</div>
+          </div>
+        </div>
+        <div class="pe-col" data-reveal data-delay="2">
+          <div class="pe-col-icon"><i class="fa-regular fa-graduation-cap"></i></div>
+          <div class="pe-col-title">Moje vzdelanie</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Webařce pod rukou</div>
+            <div class="pe-item-text">Web developerský kurz a práca s DIVI.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Educo – akreditovaný kurz</div>
+            <div class="pe-item-text">Web Graphic Designer & Web Developer.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Adobe PS, Illustrator, Premier Pro</div>
+            <div class="pe-item-text">Udemy, Skillmea.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Social media marketing</div>
+            <div class="pe-item-text">Udemy, Skillmea — FB a IG reklama.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">National Certificate English Level I</div>
+            <div class="pe-item-text">Stanmore College, London.</div>
+          </div>
+        </div>
+        <div class="pe-col" data-reveal data-delay="3">
+          <div class="pe-col-icon"><i class="fa-regular fa-spa"></i></div>
+          <div class="pe-col-title">Moje hobby</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Rast a sloboda bytia</div>
+            <div class="pe-item-text">Rada sa neustále rozvíjam, učím nové veci a posúvam sa vpred.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Príroda a prechádzky</div>
+            <div class="pe-item-text">Všetko, čo potrebujem ku šťastiu je les, zem, voda, vzduch a oheň.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Minerálne kamene</div>
+            <div class="pe-item-text">Neodmysliteľní pomocníci na mojej ceste životom.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FLEXIBILNÁ SPOLUPRÁCA
+       ══════════════════════════════ -->
+  <section id="podpora-pricing" aria-labelledby="podpora-pricing-title">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2 class="section-title" id="podpora-pricing-title">Flexibilná <span class="title-grad">spolupráca.</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Spolupráca podľa vašich potrieb</span>
+        <div class="section-accent" style="margin-top:14px;"></div>
+      </div>
+      <div class="pp-grid">
+
+        <!-- Mini -->
+        <div class="pp-card" data-reveal data-delay="1">
+          <div class="pp-head">
+            <div>
+              <div class="pp-title">Mini</div>
+              <div class="pp-price">25 <span>€/h</span></div>
+              <div class="pp-price-note">bez DPH</div>
+            </div>
+            <div class="pp-icon-wrap">
+              <i class="fa-regular fa-headset pp-icon"></i>
+            </div>
+          </div>
+          <div class="pp-divider"></div>
+          <div class="pp-features">
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Skúšobná spolupráca</div>
+                <div class="pp-feat-desc">Vhodný pre tých, ktorí by si radi vyskúšali spoluprácu s virtuálnou asistentkou.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">3 hodiny</div>
+                <div class="pp-feat-desc">Balíček 3 h práce, či konzultácií.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Zahŕňa všetky ponúkané služby VA</div>
+                <div class="pp-feat-desc">Administratíva, zákaznícky servis, spravovanie emailov, tvorba grafík, spravovanie e-shopov, tvorba videí a ich postprodukcia...</div>
+              </div>
+            </div>
+          </div>
+          <div class="pp-card-btn-wrap">
+            <a href="kontakt.html" class="cta-btn cta-btn--filled cta-btn--wide">
+              <span class="cta-btn__left">
+                <span class="cta-btn__divider" aria-hidden="true"></span>
+                <span class="cta-btn__text">Chcem tento balíček</span>
+              </span>
+              <span class="cta-btn__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Klasik (featured) -->
+        <div class="pp-card pp-card--featured" data-reveal data-delay="2">
+          <div class="pp-head">
+            <div>
+              <div class="pp-title">Klasik</div>
+              <div class="pp-price">25 <span>€/h</span></div>
+              <div class="pp-price-note">bez DPH</div>
+            </div>
+            <div class="pp-icon-wrap">
+              <i class="fa-regular fa-comments pp-icon"></i>
+            </div>
+          </div>
+          <div class="pp-divider"></div>
+          <div class="pp-features">
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Štandardný balíček</div>
+                <div class="pp-feat-desc">Pre tých, ktorí potrebujú pravidelnú podporu s administratívnymi úlohami a organizáciou.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Do 30 h mesačne</div>
+                <div class="pp-feat-desc">Stála a spoľahlivá podpora.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Zahŕňa všetky ponúkané služby VA</div>
+                <div class="pp-feat-desc">Administratíva, zákaznícky servis, spravovanie emailov, tvorba grafík, spravovanie e-shopov, tvorba videí a ich postprodukcia...</div>
+              </div>
+            </div>
+          </div>
+          <div class="pp-card-btn-wrap">
+            <div class="pp-outline-frame">
+              <a href="kontakt.html" class="cta-btn pp-outline-btn">
+                <span class="cta-btn__left">
+                  <span class="cta-btn__divider" aria-hidden="true"></span>
+                  <span class="cta-btn__text">Chcem tento balíček</span>
+                </span>
+                <span class="cta-btn__arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Individual -->
+        <div class="pp-card" data-reveal data-delay="3">
+          <div class="pp-head">
+            <div>
+              <div class="pp-title">Individual</div>
+              <div class="pp-price">23 <span>€/h</span></div>
+              <div class="pp-price-note">bez DPH</div>
+            </div>
+            <div class="pp-icon-wrap">
+              <i class="fa-regular fa-desktop pp-icon"></i>
+            </div>
+          </div>
+          <div class="pp-divider"></div>
+          <div class="pp-features">
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Pre koho je vhodný?</div>
+                <div class="pp-feat-desc">Pre veľké spoločnosti, či projekty, kde je potrebná rozsiahlejšia podpora.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">30+ hodín mesačne</div>
+                <div class="pp-feat-desc">Flexibilná podpora v závislosti od potrieb projektu alebo firmy.</div>
+              </div>
+            </div>
+            <div class="pp-feat">
+              <i class="fa-regular fa-circle-check pp-feat-check"></i>
+              <div>
+                <div class="pp-feat-title">Zľava pre stálych zákazníkov</div>
+                <div class="pp-feat-desc">Cením si dôveru svojich zákazníkov, preto pri väčšom počte hodín poskytujem zľavu a individuálny prístup.</div>
+              </div>
+            </div>
+          </div>
+          <div class="pp-card-btn-wrap">
+            <a href="kontakt.html" class="cta-btn cta-btn--filled cta-btn--wide">
+              <span class="cta-btn__left">
+                <span class="cta-btn__divider" aria-hidden="true"></span>
+                <span class="cta-btn__text">Chcem tento balíček</span>
+              </span>
+              <span class="cta-btn__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       REFERENCIA KLIENTA
+       ══════════════════════════════ -->
+  <section id="podpora-testimonial" aria-labelledby="podpora-testimonial-title">
+    <div class="container">
+      <div class="pt-grid">
+        <div data-reveal>
+          <span class="pt-quote-mark" aria-hidden="true">"</span>
+          <blockquote>
+            <p class="pt-quote">Vďaka Alex mám konečne poriadok v administratíve, prehľad v úlohách a viac času na to, čo skutočne posúva moje podnikanie vpred. Je spoľahlivá, rýchla a vždy prichádza s riešeniami.</p>
+          </blockquote>
+          <div class="pt-author">— Jana, koučka a mentorka</div>
+        </div>
+        <div data-reveal data-delay="1">
+          <div class="pt-photo-frame">
+            <img src="../Obrazky/Omne/Alex4.png" alt="Alex Rudyová" class="pt-photo" loading="lazy" />
+          </div>
+          <div class="pt-photo-offset" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       ZÁVEREČNÁ CTA
+       ══════════════════════════════ -->
+  <section id="podpora-cta" aria-label="Záverečná výzva na akciu">
+    <img src="../Obrazky/Logo/Kolibrik logo.png" alt="" class="pcta-bird" aria-hidden="true" />
+    <div class="pcta-inner" data-reveal>
+      <span class="section-label" style="display:block; margin-bottom:16px;">Ste pripravení?</span>
+      <h2 class="pcta-title">Pripravení uvoľniť si <span class="title-grad">ruky?</span></h2>
+      <p class="pcta-sub">Delegujte úlohy, ktoré vás zdržujú, a získajte späť čas, energiu a priestor na rozvoj vášho podnikania.</p>
+      <a class="cta-btn cta-btn--filled cta-btn--wide" href="kontakt.html">
+        <span class="cta-btn__left">
+          <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+          <span class="cta-btn__divider" aria-hidden="true"></span>
+          <span class="cta-btn__text">Poďme sa porozprávať</span>
+        </span>
+        <span class="cta-btn__arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FOOTER
+       ══════════════════════════════ -->
   <footer class="site-footer" aria-label="Pätička stránky">
     <div class="container">
       <div class="footer-grid">
@@ -293,20 +1074,95 @@
 
 
   <script>
+    /* ── Header scroll ── */
     const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => { if (header) header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    window.addEventListener('scroll', () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Burger menu ── */
     const burger = document.getElementById('burger-btn');
     const nav    = document.querySelector('.header__nav');
     if (burger && nav) {
-      burger.addEventListener('click', () => { const isOpen = burger.getAttribute('aria-expanded') === 'true'; burger.setAttribute('aria-expanded', String(!isOpen)); nav.classList.toggle('mobile-active', !isOpen); });
-      nav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('mobile-active'); }); });
+      burger.addEventListener('click', () => {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        nav.classList.toggle('mobile-active', !isOpen);
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          burger.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('mobile-active');
+        });
+      });
     }
+
+    /* ── Copyright year ── */
     const yearEl = document.getElementById('copyright-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ── Scroll reveal ── */
     const revealEls = document.querySelectorAll('[data-reveal]');
     if (revealEls.length) {
-      const ro = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } }); }, { threshold: 0.12 });
+      const ro = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); }
+        });
+      }, { threshold: 0.10 });
       revealEls.forEach(el => ro.observe(el));
+    }
+
+    /* ── Services accordion ── */
+    document.querySelectorAll('.ps-card-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card   = btn.closest('.ps-card');
+        const isOpen = card.classList.contains('open');
+        document.querySelectorAll('.ps-card').forEach(c => {
+          c.classList.remove('open');
+          c.querySelector('.ps-card-btn').setAttribute('aria-expanded', 'false');
+          const pl = c.querySelector('.ps-card-plus');
+          if (pl) pl.textContent = '+';
+        });
+        if (!isOpen) {
+          card.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          const pl = btn.querySelector('.ps-card-plus');
+          if (pl) pl.textContent = '−';
+        }
+      });
+    });
+    /* ── Number counter ── */
+    const counters = document.querySelectorAll('.pn-number[data-target]');
+    if (counters.length) {
+      let counted = false;
+      const formatNum = (n, useSpace) => {
+        const s = Math.round(n).toString();
+        return useSpace ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : s;
+      };
+      const runCounters = () => {
+        counters.forEach(el => {
+          const target = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || '';
+          const useSpace = el.dataset.format === 'space';
+          const duration = 1800;
+          const start = performance.now();
+          const tick = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = formatNum(eased * target, useSpace) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+        counted = true;
+      };
+      const section = document.getElementById('podpora-numbers');
+      if (section) {
+        new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !counted) { runCounters(); }
+        }, { threshold: 0.3 }).observe(section);
+      }
     }
   </script>
 

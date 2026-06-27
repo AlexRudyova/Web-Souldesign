@@ -1626,6 +1626,23 @@
       .ref-nav-arrow { display: none; }
       .ref-card-wrapper { flex: 0 0 100%; }
     }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-reveal][data-delay="100"] { transition-delay: 0.1s; }
+    [data-reveal][data-delay="200"] { transition-delay: 0.2s; }
+    [data-reveal][data-delay="300"] { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 
@@ -1686,7 +1703,7 @@
           priťahujú klientov a prinášajú výsledky.
         </p>
 
-        <a class="cta-btn cta-btn--filled" href="/#kontakt">
+        <a class="cta-btn cta-btn--filled" href="kontakt.html">
           <span class="cta-btn__left">
             <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
             <span class="cta-btn__divider" aria-hidden="true"></span>
@@ -1715,7 +1732,7 @@
        ══════════════════════════════════════════════ -->
   <section id="sluzby-rows">
     <div class="container">
-      <header style="text-align:center; margin-bottom: clamp(40px,5vh,64px);">
+      <header style="text-align:center; margin-bottom: clamp(40px,5vh,64px);" data-reveal>
         <h2 class="co-header__h2">Komplexné služby pre vašu <span class="title-grad">značku</span></h2>
         <span class="co-header__label">Čo pre vás môžem urobiť</span>
         <p class="co-header__sub">Od prvého nápadu až po dlhodobú podporu. Som tu, aby vaše podnikanie<br>mohlo rásť s väčšou ľahkosťou.</p>
@@ -1723,7 +1740,7 @@
       <ul class="srow-list">
 
         <!-- 01 Webové stránky -->
-        <li class="srow-item">
+        <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">01</div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/webove stranky.png" alt="Webové stránky" />
@@ -1739,12 +1756,12 @@
             <p class="srow-body__text">V digitálnom svete je prvý dojem všetko, na čom záleží. Zaujmite svojich zákazníkov na prvý pohľad.</p>
             <p class="srow-body__text">Vytvorím pre vás web, ktorý nielen dobre vyzerá, ale prirodzene buduje dôveru a pomáha vašim klientom pochopiť, čo robíte a prečo si vybrať práve vás.</p>
             <p class="srow-body__text">Spoločne premeníme vaše vízie na funkčný a estetický online priestor, v ktorom vaša značka vynikne.</p>
-            <a href="webove-stranky.html" class="srow-body__link">Cesta za novým webom →</a>
+            <a href="tvorba-web-stranok.html" class="srow-body__link">Cesta za novým webom →</a>
           </div>
         </li>
 
         <!-- 02 Grafický dizajn -->
-        <li class="srow-item">
+        <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">02</div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/graficky design.png" alt="Grafický dizajn" />
@@ -1764,7 +1781,7 @@
         </li>
 
         <!-- 03 Reklamné kampane -->
-        <li class="srow-item">
+        <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">03</div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/reklamne kampane.png" alt="Reklamné kampane" />
@@ -1784,7 +1801,7 @@
         </li>
 
         <!-- 04 Online asistentka -->
-        <li class="srow-item">
+        <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">04</div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/kreativna online asistentka.png" alt="Kreatívna online asistentka" />
@@ -1813,7 +1830,7 @@
   <section id="preco" aria-labelledby="preco-title">
     <div class="container">
 
-      <header class="preco-header">
+      <header class="preco-header" data-reveal>
         <h2 class="co-header__h2">Spolupráca postavená na <span class="title-grad">dôvere.</span></h2>
         <span class="preco-header__label">Čo prinášam</span>
       </header>
@@ -2143,7 +2160,7 @@
     <div class="container">
       <div class="cta-bottom__inner">
 
-        <div class="cta-bottom__content">
+        <div class="cta-bottom__content" data-reveal>
           <h2 class="cta-bottom__h2" id="cta-bottom-title">
             Pripravení posunúť svoju značku<br>na vyššiu <span class="title-grad">úroveň?</span>
           </h2>
@@ -2153,7 +2170,7 @@
           <p class="cta-bottom__text">
             Venujte sa svojmu podnikaniu a talentom naplno a veci, ktoré vás zaťažujú zverte do mojich rúk. Pomôžem vám zrealizovať váš sen o online podnikaní.
           </p>
-          <a class="cta-btn cta-btn--filled" href="/#kontakt">
+          <a class="cta-btn cta-btn--filled" href="kontakt.html">
             <span class="cta-btn__left">
               <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png"
                    alt="" aria-hidden="true" draggable="false" />
@@ -2416,6 +2433,22 @@
         });
       }
     });
+
+    /* ══ SCROLL REVEAL ══════════════════════════════════ */
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
+    }
   </script>
 
 </body>
