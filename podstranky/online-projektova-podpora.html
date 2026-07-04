@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
-  <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
+  <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
 
   <style>
     /* ═══════════════════════════════════════════
@@ -57,7 +57,7 @@
     .site-header.scrolled .header__nav a:hover { color: #003d52; }
     .nav__cta { display: inline-flex !important; align-items: center; justify-content: center; width: 148px; height: 40px; padding: 0 !important; clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z"); font-family: 'Playfair Display',Georgia,serif; font-size: 13px !important; font-weight: 600; letter-spacing: 0.05em !important; color: var(--white) !important; text-decoration: none; position: relative; isolation: isolate; transition: filter 300ms ease; }
     .nav__cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
-    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; width: auto; height: auto; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
     .header__nav .nav__cta:hover::after { opacity: 1; }
     .nav__cta:hover { color: var(--white) !important; filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
     .nav-has-drop { position: relative; }
@@ -82,7 +82,7 @@
        SUB-HERO
        ═══════════════════════════════════════════ */
     .sub-hero { position: relative; width: 100%; min-height: clamp(500px,70vh,800px); background-image: url('../Obrazky/Pozadie/Hero podstranok/online asistentka.png'); background-size: cover; background-position: center 40%; background-repeat: no-repeat; display: flex; align-items: center; overflow: hidden; }
-    .sub-hero__overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom,rgba(240,232,218,0.72) 0%,rgba(240,232,218,0.18) 18%,transparent 36%), linear-gradient(to right,rgba(240,232,218,0.52) 0%,rgba(238,229,214,0.38) 28%,rgba(235,225,210,0.18) 52%,rgba(232,222,206,0.05) 72%,transparent 90%); }
+    .sub-hero__overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom,rgba(240,232,218,0.82) 0%,rgba(240,232,218,0.22) 18%,transparent 36%), linear-gradient(to right,rgba(240,232,218,0.52) 0%,rgba(238,229,214,0.38) 28%,rgba(235,225,210,0.18) 52%,rgba(232,222,206,0.05) 72%,transparent 90%), linear-gradient(to left,rgba(240,232,218,0.62) 0%,rgba(240,232,218,0.38) 20%,transparent 55%); }
     .sub-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 38%; background: linear-gradient(to bottom,transparent 0%,rgba(250,248,245,0.18) 25%,rgba(250,248,245,0.52) 55%,rgba(250,248,245,0.86) 78%,#FAF8F5 100%); z-index: 2; pointer-events: none; }
     .sub-hero__content { position: relative; z-index: 10; width: 100%; max-width: 1400px; margin: 0 auto; padding: clamp(110px,14vh,160px) clamp(24px,5.5vw,80px) clamp(60px,8vh,100px); display: grid; grid-template-columns: 52% 48%; align-items: center; }
     .sub-hero__left { max-width: 560px; }
@@ -111,9 +111,11 @@
     .cta-btn--filled:hover { filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
     .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
     .cta-btn--wide { width: 260px; clip-path: path("M 13 0 L 253 0 A 7 7 0 0 1 260 7 L 260 31 L 246 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
-    .pp-outline-frame { clip-path: path("M 13 0 L 253 0 A 7 7 0 0 1 260 7 L 260 31 L 246 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); background: rgba(255,255,255,0.82); width: 260px; height: 45px; display: flex; align-items: center; justify-content: center; }
-    .pp-outline-btn { width: 257px !important; height: 42px !important; clip-path: path("M 11.5 0 L 251.5 0 A 5.5 5.5 0 0 1 257 5.5 L 257 28 L 243 42 L 5.5 42 A 5.5 5.5 0 0 1 0 36.5 L 0 11.5 Z") !important; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); padding: 0 16px 0 6px !important; pointer-events: auto; }
-    .pp-outline-btn::before, .pp-outline-btn::after { display: none; }
+    .pp-outline-frame { display: flex; align-items: center; justify-content: center; background: none; }
+    .pp-outline-btn { width: 225px !important; height: 45px !important; clip-path: none !important; background: transparent !important; box-shadow: none !important; position: relative !important; justify-content: flex-start !important; padding: 0 16px 0 8px !important; pointer-events: auto; transition: none !important; }
+    .pp-outline-btn::before, .pp-outline-btn::after { display: none !important; }
+    .pp-outline-btn .pp-btn-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+    .pp-card .cta-btn--filled { width: 225px; clip-path: path("M 13 0 L 218 0 A 7 7 0 0 1 225 7 L 225 31 L 211 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); justify-content: flex-start; }
 
     /* ═══════════════════════════════════════════
        SPOLOČNÉ SEKCIE
@@ -152,12 +154,12 @@
     .pa-photo { width: 100%; height: clamp(360px,45vw,560px); object-fit: cover; object-position: top center; display: block; transition: transform 0.6s ease; }
     .pa-photo-frame:hover .pa-photo { transform: scale(1.02); }
     .pa-offset-border { position: absolute; bottom: -14px; right: -14px; width: calc(100% - 20px); height: calc(100% - 20px); border: 1px solid rgba(0,117,153,0.18); border-radius: 2px; z-index: -1; }
-    .pa-label { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .pa-label { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 36px; }
     .pa-title { font-family: var(--font-head); font-size: clamp(26px,3vw,42px); font-weight: 400; line-height: 1.15; color: var(--text-color); margin-bottom: clamp(16px,2.5vh,24px); }
     .pa-text { font-size: clamp(13px,0.9vw,15px); color: var(--text-muted); line-height: 1.82; margin-bottom: 14px; }
     .pa-socials { display: flex; gap: 10px; margin: clamp(20px,3vh,28px) 0 clamp(28px,4vh,40px); }
     .pa-social { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 4px; border: 1px solid rgba(0,117,153,0.30); color: var(--teal); font-size: 14px; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s; }
-    .pa-social:hover { background: var(--teal); color: white; border-color: transparent; transform: translateY(-2px); }
+    .pa-social:hover { background: linear-gradient(100deg,#005f7a 0%,#007599 45%,#00a3c9 100%); color: white; border-color: transparent; transform: translateY(-2px); }
 
     /* ═══════════════════════════════════════════
        #podpora-benefits — Prečo spolupracovať?
@@ -202,61 +204,63 @@
     .ps-list li.ps-sub::before { left: 14px; }
     .ps-list-title { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin: 12px 0 5px; display: block; }
 
-    /* ═══════════════════════════════════════════
-       #podpora-numbers — Prax v číslach
-       ═══════════════════════════════════════════ */
-    #podpora-numbers { padding: clamp(44px,6vh,72px) 0; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); position: relative; overflow: hidden; }
-    #podpora-numbers::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.09); opacity: 0; transition: opacity 0.4s ease; z-index: 0; pointer-events: none; }
-    #podpora-numbers:hover::before { opacity: 1; }
-    #podpora-numbers .container { position: relative; z-index: 1; }
-    .pn-header { text-align: center; margin-bottom: clamp(28px,4vh,44px); }
+    .pn-header { text-align: center; margin-bottom: clamp(44px,7vh,72px); }
     .pn-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(20px,3vw,40px); }
-    .pn-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.18); padding: 0 clamp(16px,2vw,28px); display: flex; flex-direction: column; align-items: center; }
+    .pn-item { text-align: center; border-right: 1px solid rgba(0,117,153,0.22); padding: 0 clamp(16px,2vw,28px); display: flex; flex-direction: column; align-items: center; }
     .pn-item:last-child { border-right: none; }
-    .pn-icon { font-size: clamp(26px,2.4vw,34px); color: #ffffff; margin-bottom: clamp(12px,1.6vh,18px); }
-    .pn-label { font-family: var(--font-body); font-size: clamp(11px,0.85vw,14px); color: #ffffff; letter-spacing: 0.06em; line-height: 1.5; margin-bottom: clamp(12px,1.6vh,18px); }
-    .pn-number { font-family: var(--font-head); font-size: clamp(38px,5vw,70px); font-weight: 400; line-height: 1; margin-top: auto; color: #ffffff; }
+    .pn-icon { margin-bottom: clamp(12px,1.6vh,18px); display: flex; align-items: center; justify-content: center; }
+    .pn-icon-img { width: clamp(80px,7.5vw,108px); height: clamp(80px,7.5vw,108px); object-fit: contain; }
+    .pn-icon-img.teal-icon { filter: brightness(0) invert(29%) sepia(98%) saturate(620%) hue-rotate(163deg) brightness(90%); }
+    .pn-label { font-family: var(--font-body); font-size: clamp(13px,1.05vw,17px); color: var(--teal); letter-spacing: 0.06em; line-height: 1.5; margin-bottom: clamp(12px,1.6vh,18px); }
+    .pn-number { font-family: var(--font-head); font-size: clamp(22px,2.6vw,38px); font-weight: 400; line-height: 1; margin-top: auto; color: var(--teal); }
 
     /* ═══════════════════════════════════════════
        #podpora-experience — Skúsenosti
        ═══════════════════════════════════════════ */
     #podpora-experience { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
     .pe-intro { text-align: center; margin-bottom: clamp(40px,6vh,60px); }
-    .pe-intro-sub { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,1vw,16px); color: var(--text-muted); max-width: 640px; margin: 8px auto 0; line-height: 1.8; }
+    .pe-intro-sub { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,1vw,16px); color: var(--text-muted); max-width: 640px; margin: 28px auto 0; line-height: 1.8; }
     .pe-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(20px,2.5vw,36px); }
     .pe-col { background: #ffffff; border: 1px solid rgba(0,117,153,0.10); border-radius: 12px; padding: clamp(28px,4vh,40px) clamp(20px,2vw,28px); }
-    .pe-col-icon { font-size: 24px; color: var(--teal); margin-bottom: 16px; }
+    .pe-col-icon { margin-bottom: 16px; }
+    .pe-col-icon img { width: 80px; height: 80px; object-fit: contain; }
+    .pe-col-icon img.teal-icon { filter: brightness(0) invert(35%) sepia(90%) saturate(580%) hue-rotate(155deg) brightness(88%); }
     .pe-col-title { font-family: var(--font-head); font-size: clamp(15px,1.2vw,19px); font-weight: 500; color: var(--text-color); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,117,153,0.12); }
     .pe-item { margin-bottom: 16px; }
     .pe-item:last-child { margin-bottom: 0; }
-    .pe-item-title { font-family: var(--font-body); font-size: clamp(11px,0.82vw,12.5px); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; }
+    .pe-item-title { font-family: var(--font-body); font-size: clamp(11px,0.82vw,12.5px); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
     .pe-item-text { font-size: clamp(12px,0.82vw,13.5px); color: var(--text-muted); line-height: 1.72; }
 
     /* ═══════════════════════════════════════════
        #podpora-pricing — Flexibilná spolupráca
        ═══════════════════════════════════════════ */
-    #podpora-pricing { padding: clamp(72px,10vh,110px) 0; background: linear-gradient(180deg,var(--bg-mid) 0%,var(--bg-start) 100%); }
-    .pp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(18px,2.2vw,28px); align-items: stretch; }
-    .pp-card { background: #ffffff; border: 1px solid rgba(0,117,153,0.14); border-radius: 3px; padding: clamp(32px,4.5vh,52px) clamp(24px,2.5vw,36px) clamp(28px,3.5vh,44px); display: flex; flex-direction: column; position: relative; transition: box-shadow 0.35s ease, transform 0.35s ease; overflow: visible; }
+    #podpora-pricing { padding: clamp(72px,10vh,110px) 0; background: url('../Obrazky/Pozadie/pozadie10.png') center/cover no-repeat; position: relative; }
+    #podpora-pricing::before { content: ''; position: absolute; inset: 0; background: rgba(248,245,240,0.90); pointer-events: none; z-index: 0; }
+    #podpora-pricing > .container { position: relative; z-index: 1; }
+    .pp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(18px,2.2vw,28px); align-items: stretch; max-width: 1120px; margin: 0 auto; }
+    .pp-card { background: #ffffff; border: 1px solid rgba(0,117,153,0.14); border-radius: 3px; padding: clamp(32px,4.5vh,52px) clamp(24px,2.5vw,36px) clamp(44px,6vh,64px); display: flex; flex-direction: column; position: relative; transition: box-shadow 0.35s ease, transform 0.35s ease; overflow: visible; }
     .pp-card:not(.pp-card--featured):hover { box-shadow: 0 10px 36px rgba(0,117,153,0.10); transform: translateY(-4px); }
     .pp-card--featured { background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); border-color: transparent; }
-    .pp-card--featured::before { content: ''; position: absolute; inset: 0; border-radius: 3px; background: rgba(255,255,255,0.09); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; }
-    .pp-card--featured:hover::before { opacity: 1; }
+    .pp-card--featured:hover { box-shadow: 0 10px 36px rgba(0,30,50,0.28); transform: translateY(-4px); }
     .pp-card--featured > * { position: relative; z-index: 1; }
     .pp-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
-    .pp-icon-wrap { width: clamp(62px,6vw,80px); height: clamp(62px,6vw,80px); border-radius: 50%; background: rgba(0,117,153,0.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: -4px; }
-    .pp-card--featured .pp-icon-wrap { background: rgba(255,255,255,0.14); }
+    .pp-icon-wrap { width: clamp(72px,7vw,90px); height: clamp(72px,7vw,90px); border-radius: 0; background: none; position: relative; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: -4px; }
+    .pp-icon-wrap::before { content: ''; position: absolute; inset: 0; background: url('../Obrazky/Ikony/projektova podpora/ramcek.png') center/contain no-repeat; }
+    .pp-card--featured .pp-icon-wrap::before { filter: brightness(0) invert(1); }
     .pp-icon { font-size: clamp(24px,2.4vw,32px); color: rgba(0,117,153,0.65); }
     .pp-card--featured .pp-icon { color: rgba(255,255,255,0.88); }
+    .pp-icon-img { width: clamp(52px,5vw,68px); height: clamp(52px,5vw,68px); object-fit: contain; }
+    .pp-card--featured .pp-icon-img { filter: brightness(0) invert(1); }
+    .pp-card-btn-wrap { display: flex; justify-content: center; margin-top: auto; padding-top: clamp(28px,3.5vh,44px); }
     .pp-title { font-family: var(--font-head); font-size: clamp(17px,1.5vw,22px); font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; }
     .pp-card--featured .pp-title { color: #ffffff; }
-    .pp-price { font-family: var(--font-head); font-size: clamp(34px,3.8vw,54px); font-weight: 700; color: var(--text-color); line-height: 1.05; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: rgba(0,117,153,0.28); }
+    .pp-price { font-family: var(--font-head); font-size: clamp(22px,2.6vw,38px); font-weight: 400; color: var(--text-color); line-height: 1.05; text-decoration: none; }
     .pp-price span { font-size: 0.5em; font-weight: 400; vertical-align: middle; }
-    .pp-card--featured .pp-price { color: #ffffff; text-decoration-color: rgba(255,255,255,0.35); }
+    .pp-card--featured .pp-price { color: #ffffff; }
     .pp-price-note { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; margin-bottom: 0; }
     .pp-card--featured .pp-price-note { color: rgba(255,255,255,0.60); }
-    .pp-divider { height: 1px; background: rgba(0,117,153,0.12); margin: clamp(18px,2.5vh,26px) 0; }
-    .pp-card--featured .pp-divider { background: rgba(255,255,255,0.18); }
+    .pp-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(0,117,153,0.18) 25%, rgba(0,117,153,0.18) 75%, transparent); margin: clamp(18px,2.5vh,26px) 0; }
+    .pp-card--featured .pp-divider { background: linear-gradient(to right, transparent, rgba(255,255,255,0.22) 25%, rgba(255,255,255,0.22) 75%, transparent); }
     .pp-features { display: flex; flex-direction: column; gap: clamp(14px,2vh,20px); flex: 1; margin-bottom: clamp(24px,3.5vh,36px); }
     .pp-feat { display: flex; gap: 12px; align-items: flex-start; }
     .pp-feat-check { color: var(--teal); font-size: 15px; margin-top: 1px; flex-shrink: 0; }
@@ -264,7 +268,7 @@
     .pp-feat-title { font-family: var(--font-body); font-size: clamp(12px,0.88vw,14px); font-weight: 600; color: var(--text-color); margin-bottom: 2px; }
     .pp-card--featured .pp-feat-title { color: #ffffff; }
     .pp-feat-desc { font-size: clamp(11px,0.78vw,13px); color: var(--text-muted); line-height: 1.72; }
-    .pp-card--featured .pp-feat-desc { color: rgba(255,255,255,0.70); }
+    .pp-card--featured .pp-feat-desc { color: #ffffff; }
     .pp-features { margin-bottom: clamp(20px,3vh,30px); }
     .pp-card-btn-wrap { display: flex; justify-content: center; margin-top: auto; }
 
@@ -277,7 +281,8 @@
     .pt-quote { font-family: var(--font-body); font-style: italic; font-size: clamp(14px,1.1vw,17px); line-height: 1.85; color: var(--text-muted); margin-bottom: clamp(20px,3vh,30px); }
     .pt-author { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.12em; color: var(--teal); text-transform: uppercase; font-weight: 600; }
     .pt-photo-frame { position: relative; border: 1.5px solid rgba(0,117,153,0.25); overflow: hidden; border-radius: 2px; }
-    .pt-photo { width: 100%; height: clamp(320px,40vw,480px); object-fit: cover; object-position: top center; display: block; }
+    .pt-photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(240,232,218,0.42) 0%, rgba(240,232,218,0.18) 40%, transparent 70%), linear-gradient(to right, rgba(240,232,218,0.38) 0%, transparent 50%); pointer-events: none; z-index: 1; }
+    .pt-photo { width: 100%; height: clamp(320px,40vw,480px); object-fit: cover; object-position: center 25%; display: block; }
     .pt-photo-offset { position: absolute; top: -12px; left: -12px; width: calc(100% - 20px); height: calc(100% - 20px); border: 1px solid rgba(0,117,153,0.14); border-radius: 2px; z-index: -1; }
 
     /* ═══════════════════════════════════════════
@@ -286,8 +291,8 @@
     #podpora-cta { padding: clamp(90px,13vh,140px) 0; background: var(--bg-start); text-align: center; position: relative; }
     .pcta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
     .pcta-bird { position: absolute; right: clamp(20px,5vw,80px); top: 50%; transform: translateY(-50%); opacity: 0.07; width: clamp(120px,14vw,180px); pointer-events: none; }
-    .pcta-title { font-family: var(--font-head); font-size: clamp(30px,4.5vw,60px); font-weight: 400; line-height: 1.12; color: var(--text-color); margin-bottom: clamp(14px,2vh,20px); }
-    .pcta-sub { font-family: var(--font-body); font-size: clamp(13px,1vw,16px); color: var(--text-muted); line-height: 1.82; margin-bottom: clamp(36px,5vh,52px); }
+    .pcta-title { font-family: var(--font-head); font-size: clamp(22px,2.6vw,36px); font-weight: 400; line-height: 1.12; color: var(--text-color); margin-bottom: clamp(14px,2vh,20px); }
+    .pcta-sub { font-family: var(--font-body); font-size: clamp(13px,1vw,16px); color: var(--text-muted); line-height: 1.82; margin-top: clamp(24px,3vh,36px); margin-bottom: clamp(52px,7vh,72px); }
 
     /* ═══════════════════════════════════════════
        FOOTER
@@ -326,6 +331,65 @@
     @keyframes hbHover { 0% { transform: translate(-50%,-58%); } 100% { transform: translate(-50%,-42%); } }
     .footer__hb video { width: clamp(52px,5.5vw,70px); filter: grayscale(100%) contrast(200%) brightness(3.5); opacity: 0.65; display: block; }
 
+    /* ══════════════════════════════════════════
+       RK-ABOUT — 3 stĺpce kampane
+       ══════════════════════════════════════════ */
+    #rk-about { padding: clamp(80px,11vh,120px) 0; background: var(--bg-start); }
+    .rk-about__grid { display: grid; grid-template-columns: 1.1fr 1fr 1.08fr; gap: clamp(28px,3.5vw,56px); align-items: start; }
+    .rk-about__text-col { display: flex; flex-direction: column; padding-top: clamp(32px,5vh,64px); }
+    .rk-about__title { font-family: var(--font-head); font-size: clamp(20px,2.2vw,34px); font-weight: 400; color: var(--text-color); line-height: 1.2; margin-bottom: 6px; }
+    .rk-about__subtitle { font-family: var(--font-body); font-style: italic; font-size: clamp(15px,1.2vw,19px); font-weight: 500; color: var(--text-color); line-height: 1.65; margin-bottom: clamp(20px,3vh,28px); }
+    .rk-about__p { font-size: 14px; line-height: 1.82; color: var(--text-muted); margin-bottom: 12px; margin-top: 0; }
+    .rk-about__text-col .rk-about__p:first-of-type { margin-top: clamp(22px,3vh,36px); }
+    .rk-about__text-col .section-label { font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0.02em; color: var(--text-muted); font-size: clamp(14px,1.1vw,17px); margin-top: 10px; margin-bottom: 0; }
+    .rk-sig-img { height: clamp(44px,5.8vh,62px); width: auto; opacity: 0.92; margin-top: 28px; margin-bottom: 2px; align-self: flex-start; }
+    .rk-about__brand { font-family: var(--font-head); font-size: clamp(9px,0.72vw,11px); font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); margin-top: 0; margin-bottom: clamp(28px,4vh,44px); }
+    .rk-about__text-col .cta-btn { width: 252px; }
+    .rk-about__text-col .cta-btn--filled { clip-path: path("M 13 0 L 245 0 A 7 7 0 0 1 252 7 L 252 31 L 238 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z"); }
+    .rk-about__photo-col { display: flex; flex-direction: row; align-items: center; gap: 0; }
+    .rk-sep { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px 14px 18px 0; flex-shrink: 0; }
+    .rk-sep__line { width: 1px; height: clamp(90px,13vh,150px); flex-shrink: 0; background: linear-gradient(180deg, transparent, rgba(0,117,153,0.25) 30%, rgba(0,117,153,0.25) 70%, transparent); }
+    .rk-sep__label { font-family: var(--font-body); font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(0,117,153,0.45); writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap; }
+    .rk-photo-frame { position: relative; width: 100%; overflow: hidden; border: 1.5px solid rgba(0,117,153,0.52); }
+    .rk-photo-frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,rgba(250,248,245,0.18) 0%,rgba(250,248,245,0.38) 100%); z-index: 1; }
+    .rk-photo { width: 100%; height: clamp(340px,44vw,560px); object-fit: cover; object-position: center center; display: block; transition: transform 0.6s ease; }
+    .rk-photo-frame:hover .rk-photo { transform: scale(1.03); }
+    .rk-bullet { display: flex; flex-direction: row; align-items: flex-start; gap: 14px; padding: clamp(14px,2vh,22px) 0; border-bottom: 1px solid rgba(0,117,153,0.12); }
+    .rk-bullet:first-child { padding-top: 0; }
+    .rk-bullet:last-child { border-bottom: none; }
+    .rk-bullet__icon { width: 52px; height: 52px; flex-shrink: 0; margin-top: 2px; }
+    .rk-bullet__icon img { width: 100%; height: 100%; object-fit: contain; }
+    .rk-bullet__body { display: flex; flex-direction: column; }
+    .rk-bullet__tag { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+    .rk-bullet__title { font-family: var(--font-head); font-size: clamp(14px,1.1vw,17px); font-weight: 500; color: var(--text-color); margin-bottom: 5px; }
+    .rk-bullet__text { font-size: 13px; line-height: 1.75; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════
+       RK-FAQ
+       ══════════════════════════════════════════ */
+    #rk-faq, #rk-faq-podpora { padding: clamp(56px,8vh,90px) 0 clamp(72px,10vh,110px); position: relative; background-image: url('../Obrazky/Pozadie/pozadie11.png'); background-size: cover; background-position: center center; background-attachment: fixed; }
+    #rk-faq::before, #rk-faq-podpora::before { content: ''; position: absolute; inset: 0; background: rgba(248,245,240,0.72); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 0; }
+    #rk-faq .container, #rk-faq-podpora .container { position: relative; z-index: 1; }
+    .rfaq-header { text-align: center; margin-bottom: clamp(42px,6vh,64px); }
+    .rfaq-h2 { font-family: var(--font-head); font-size: clamp(26px,3.5vw,46px); font-weight: 400; line-height: 1.15; color: var(--text-color); margin-bottom: 8px; }
+    .rfaq-sub { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-top: 0; margin-bottom: 10px; }
+    .rfaq-accent { width: 32px; height: 1px; background: rgba(0,117,153,0.35); margin: 0 auto; }
+    .rfaq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(32px,4vw,56px); }
+    .faq-item { border: 1px solid rgba(0,117,153,0.14); border-radius: 8px; padding: 0 16px; margin-bottom: 8px; }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-btn { width: 100%; background: none; border: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; text-align: left; }
+    .faq-q { font-family: var(--font-head); font-size: clamp(13px,1.05vw,16px); font-weight: 500; color: var(--text-color); line-height: 1.4; transition: color 0.25s; }
+    .faq-btn:hover .faq-q { color: var(--teal); }
+    .faq-arrow { flex-shrink: 0; width: 28px; height: 28px; border: 1.5px solid rgba(0,117,153,0.32); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--teal); transition: transform 0.32s ease, background 0.25s, border-color 0.25s, color 0.25s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: #fff; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding-bottom 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 700px; padding-bottom: 20px; }
+    .faq-a-text { font-size: 13.5px; line-height: 1.78; color: var(--text-muted); margin-bottom: 8px; }
+    .faq-a-text:last-child { margin-bottom: 0; }
+    .faq-a-list { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.78; color: var(--text-muted); list-style: disc; }
+    .faq-a-list li { margin-bottom: 4px; }
+    .faq-a-list li:last-child { margin-bottom: 0; }
+
     /* ═══════════════════════════════════════════
        RESPONZIVITA
        ═══════════════════════════════════════════ */
@@ -334,7 +398,7 @@
       .pv-grid { grid-template-columns: repeat(2,1fr); }
       .pe-grid { grid-template-columns: repeat(2,1fr); }
       .pn-grid { grid-template-columns: repeat(2,1fr); }
-      .pn-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 28px; margin-bottom: 8px; }
+      .pn-item { border-right: none; border-bottom: 1px solid rgba(0,117,153,0.22); padding-bottom: 28px; margin-bottom: 8px; }
       .pn-item:last-child { border-bottom: none; margin-bottom: 0; }
     }
     @media (max-width: 860px) {
@@ -385,7 +449,7 @@
     </a>
     <nav aria-label="Hlavná navigácia">
       <ul class="header__nav">
-        <li><a href="/#uvod">Úvod</a></li>
+        <li><a href="../index.html">Úvod</a></li>
         <li class="nav-has-drop">
           <a href="sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
@@ -413,14 +477,7 @@
     <div class="sub-hero__overlay" aria-hidden="true"></div>
     <div class="sub-hero__content">
       <div class="sub-hero__left">
-        <nav class="sub-hero__breadcrumb" aria-label="Navigačná drobčenka">
-          <a href="../index.html">Domov</a>
-          <span class="sub-hero__breadcrumb-sep" aria-hidden="true">›</span>
-          <a href="sluzby.html">Služby</a>
-          <span class="sub-hero__breadcrumb-sep" aria-hidden="true">›</span>
-          <span class="sub-hero__breadcrumb-current">Online projektová podpora</span>
-        </nav>
-        <h1 class="sub-hero__title" id="sub-hero-title">
+<h1 class="sub-hero__title" id="sub-hero-title">
           Online projektová <span class="title-grad">podpora</span>
         </h1>
         <div class="sub-hero__divider" aria-hidden="true"></div>
@@ -451,26 +508,26 @@
     <div class="container">
       <div class="section-header" data-reveal>
         <h2 class="section-title" id="podpora-values-title">Komplexná online <span class="title-grad">podpora.</span></h2>
-        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Čo ma vystihuje</span>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Prečo spolupracovať so mnou</span>
       </div>
       <div class="pv-grid">
         <div class="pv-card" data-reveal data-delay="1">
-          <img src="../Obrazky/Sluzby/8.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <img src="../Obrazky/Ikony/projektova podpora/kreativita.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" style="transform: scale(1.14);" />
           <div class="pv-title">Kreativita</div>
           <p class="pv-desc">Premieňam všednosť na neobyčajné riešenia, ktoré vypovedia váš príbeh a odlíšia vás od konkurencie.</p>
         </div>
         <div class="pv-card" data-reveal data-delay="2">
-          <img src="../Obrazky/Sluzby/10.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <img src="../Obrazky/Ikony/projektova podpora/spolahlivost.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
           <div class="pv-title">Spoľahlivosť</div>
           <p class="pv-desc">Som tu, aby som vám pomohla uskutočniť váš sen o online podnikaní. Na mňa sa môžete vždy spoľahnúť.</p>
         </div>
         <div class="pv-card" data-reveal data-delay="3">
-          <img src="../Obrazky/Sluzby/7.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <img src="../Obrazky/Ikony/projektova podpora/nacitenie.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
           <div class="pv-title">Načítenie</div>
           <p class="pv-desc">Neplním len zadané úlohy, ale vnímam podstatu projektu, vaše potreby a ciele, ktoré sú za nimi.</p>
         </div>
         <div class="pv-card" data-reveal data-delay="4">
-          <img src="../Obrazky/Sluzby/9.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
+          <img src="../Obrazky/Ikony/projektova podpora/usmev.png" alt="" class="pv-icon-img" loading="lazy" aria-hidden="true" />
           <div class="pv-title">Úsmev</div>
           <p class="pv-desc">Úsmev je mojou neoddeliteľnou súčasťou. Pracujem s radosťou a prenášam ju aj na tých okolo seba.</p>
         </div>
@@ -488,7 +545,7 @@
 
         <div class="pa-photo-col" data-reveal>
           <div class="pa-photo-frame">
-            <img src="../Obrazky/Omne/Alex2.png" alt="Alex Rudyová – Soul Design" class="pa-photo" loading="lazy" />
+            <img src="../Obrazky/Omne/Alex5.png" alt="Alex Rudyová – Soul Design" class="pa-photo" loading="lazy" />
           </div>
           <div class="pa-offset-border" aria-hidden="true"></div>
         </div>
@@ -496,9 +553,10 @@
         <div data-reveal data-delay="1">
           <span class="pa-label">Ahojte, som Alex.</span>
           <h2 class="pa-title" id="podpora-about-title">Vaša online <span class="title-grad">podpora.</span></h2>
-          <p class="pa-text">Svojim klientom pomáham zjednodušiť každodenný chod ich podnikania. Preberám za nich úlohy, ktoré ich stoja čas, energiu a odvážam sa povedať, aj nervy. Som organizovaná, spoľahlivá a dôsledná. Vďaka 20-ročnej skúsenosti v administratíve vybavím, zaradím a spravím prakticky čokoľvek.</p>
-          <p class="pa-text">Mojím cieľom je, aby ste mali viac priestoru na rast, tvorenie a život — na to, čo vás skutočne napĺňa a posúva vpred.</p>
-          <p class="pa-text">Či potrebujete pomoc s administráciou, grafikou, webom alebo technickými nastaveniami — som tu. Pracujem rýchlo, diskrétne a vždy s úsmevom.</p>
+          <p class="pa-text"><strong>Od designu, reklamných kampaní a AI nástrojov, cez správu webu až po administratívu, technické nastavenia či starostlivosť o zákazníkov. Keď váš projekt potrebuje spoľahlivú podporu, všetko nájdete pod jednou strechou. Som tu, aby som veci prepájala, zjednodušovala a pomáhala vášmu podnikaniu fungovať s ľahkosťou.</strong></p>
+          <p class="pa-text">Svojim klientom pomáham zjednodušiť každodenný chod ich podnikania. Preberám za nich úlohy, ktoré ich stoja čas a energiu.</p>
+          <p class="pa-text">Vďaka viac ako 20-ročným skúsenostiam v administratíve a dlhoročnej práci v online prostredí prepájam organizáciu, kreativitu aj technické myslenie do jedného funkčného celku.</p>
+          <p class="pa-text">Mojím cieľom nie je byť len externou pomocou. Chcem byť partnerkou, na ktorú sa môžete spoľahnúť, aby ste mali viac priestoru tvoriť, rásť a venovať sa tomu, čo robíte najlepšie.</p>
           <div class="pa-socials">
             <a href="https://www.facebook.com/alex.fecikova" class="pa-social" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>
@@ -522,51 +580,29 @@
        ══════════════════════════════ -->
   <section id="podpora-benefits" aria-labelledby="podpora-benefits-title">
     <div class="container">
-      <div class="section-header" data-reveal>
-        <h2 class="section-title" id="podpora-benefits-title">Spolupráca, ktorá vás <span class="title-grad">odbremeňuje.</span></h2>
-        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Prečo spolupracovať so mnou</span>
-        <div class="section-accent" style="margin-top:14px;"></div>
+      <div class="pn-header" data-reveal>
+        <h2 class="section-title" id="podpora-benefits-title">Prax v <span class="title-grad">číslach.</span></h2>
       </div>
-      <div class="pb-row">
-        <div class="pb-item" data-reveal data-delay="1">
-          <div class="pb-crystal">
-            <div class="pb-crystal-bg" aria-hidden="true"></div>
-            <img src="../Obrazky/Ikony/Ako to funguje/5.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
-          </div>
-          <div class="pb-name">Ľudský prístup</div>
-          <p class="pb-desc">Na prvom mieste je vždy človek. Pristupujem k vám otvorene, úprimne a so záujmom.</p>
+      <div class="pn-grid">
+        <div class="pn-item" data-reveal data-delay="1">
+          <div class="pn-icon"><img src="../Obrazky/Ikony/projektova podpora/Timeline/rokov v administrative.png" class="pn-icon-img" alt="" aria-hidden="true" loading="lazy" style="transform: scale(1.18);" /></div>
+          <div class="pn-label">Rokov v administratíve</div>
+          <div class="pn-number" data-target="20" data-suffix="+">0</div>
         </div>
-        <div class="pb-item" data-reveal data-delay="2">
-          <div class="pb-crystal">
-            <div class="pb-crystal-bg" aria-hidden="true"></div>
-            <img src="../Obrazky/Ikony/Ako to funguje/6.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
-          </div>
-          <div class="pb-name">Spoľahlivosť</div>
-          <p class="pb-desc">Na termíny sa môžete spoľahnúť. Vždy splním to, čo sľúbim — včas a so záujmom o kvalitu.</p>
+        <div class="pn-item" data-reveal data-delay="2">
+          <div class="pn-icon"><img src="../Obrazky/Ikony/projektova podpora/Timeline/spokojny zakaznici.png" class="pn-icon-img" alt="" aria-hidden="true" loading="lazy" style="transform: scale(1.3);" /></div>
+          <div class="pn-label">Spokojných zákazníkov</div>
+          <div class="pn-number" data-target="30" data-suffix="+">0</div>
         </div>
-        <div class="pb-item" data-reveal data-delay="3">
-          <div class="pb-crystal">
-            <div class="pb-crystal-bg" aria-hidden="true"></div>
-            <img src="../Obrazky/Ikony/Ako to funguje/7.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
-          </div>
-          <div class="pb-name">Diskrétnosť</div>
-          <p class="pb-desc">Vaše dáta a informácie sú u mna v bezpečí. Pracujem s plnou dôverou a rešpektom.</p>
+        <div class="pn-item" data-reveal data-delay="3">
+          <div class="pn-icon"><img src="../Obrazky/Ikony/projektova podpora/Timeline/vypracovanych projektov.png" class="pn-icon-img teal-icon" alt="" aria-hidden="true" loading="lazy" style="transform: scale(1.18);" /></div>
+          <div class="pn-label">Vypracovaných projektov</div>
+          <div class="pn-number" data-target="200" data-suffix="+">0</div>
         </div>
-        <div class="pb-item" data-reveal data-delay="4">
-          <div class="pb-crystal">
-            <div class="pb-crystal-bg" aria-hidden="true"></div>
-            <img src="../Obrazky/Ikony/Ako to funguje/8.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
-          </div>
-          <div class="pb-name">Flexibilita</div>
-          <p class="pb-desc">Prispôsobujem sa vašim potrebám, tempu aj zmenám. Riešenia hľadám vždy s otvorenou mysľou.</p>
-        </div>
-        <div class="pb-item" data-reveal data-delay="5">
-          <div class="pb-crystal">
-            <div class="pb-crystal-bg" aria-hidden="true"></div>
-            <img src="../Obrazky/Ikony/Ako to funguje/9.png" alt="" class="pb-crystal__icon" loading="lazy" aria-hidden="true" />
-          </div>
-          <div class="pb-name">Proaktivita</div>
-          <p class="pb-desc">Nečakám na inštrukcie — prichádzam s nápadmi a zlepšeniami skôr, ako nastanú problémy.</p>
+        <div class="pn-item" data-reveal data-delay="4">
+          <div class="pn-icon"><img src="../Obrazky/Ikony/projektova podpora/Timeline/salok kavy.png" class="pn-icon-img teal-icon" alt="" aria-hidden="true" loading="lazy" style="transform: translateY(-10px);" /></div>
+          <div class="pn-label">Šálok kávy</div>
+          <div class="pn-number" data-target="11011" data-suffix="+" data-format="space">0</div>
         </div>
       </div>
     </div>
@@ -580,14 +616,14 @@
     <div class="container">
       <div class="section-header" data-reveal>
         <h2 class="section-title" id="podpora-services-title">S čím vám viem <span class="title-grad">pomôcť?</span></h2>
-        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Môj rozsah spolupráce</span>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Spolupráca, ktorá vás odbremeňuje</span>
         <div class="section-accent" style="margin-top:14px;"></div>
       </div>
       <div class="ps-grid">
 
         <div class="ps-card" data-reveal data-delay="1">
           <div class="ps-card-photo-wrap">
-            <img src="../Obrazky/Pozadie/businesswoman-writing-note-sitting-her-desk-modern-office-min.jpg" alt="Administratíva" class="ps-card-photo" loading="lazy" />
+            <img src="../Obrazky/Omne/Administratíva.png" alt="Administratíva" class="ps-card-photo" loading="lazy" />
           </div>
           <button class="ps-card-btn" aria-expanded="false">
             <span class="ps-card-title">Administratíva</span>
@@ -596,17 +632,16 @@
           <div class="ps-card-body">
             <div class="ps-card-content">
               <ul class="ps-list">
-                <li>Vyhľadávanie potrebných dát a informácií</li>
-                <li>Organizácia a údržba online úložiska (Google Drive, Dropbox a iné)</li>
-                <li>Spravovanie firemného kalendára, pripomínanie dôležitých termínov</li>
-                <li>Plánovanie firemných ciest a teambuildingov</li>
-                <li>Rezervácia leteniek a ubytovania</li>
-                <li>Dohadovanie firemných stretnutí</li>
-                <li>Vytváranie cenových ponúk</li>
-                <li>Objednávanie tovaru a služieb</li>
-                <li>Komunikácia so zákazníkmi (e-mail, telefón, sociálne siete)</li>
-                <li>Prepisy a digitalizácia textov</li>
-                <li>Prepisy audio nahrávok a videí</li>
+                <li>Organizácia a každodenná podpora</li>
+                <li>Organizácia e-mailovej komunikácie a kalendára</li>
+                <li>Správa online dokumentov a zdieľaných úložísk</li>
+                <li>Príprava podkladov, dokumentov a prezentácií</li>
+                <li>Tvorba cenových ponúk a jednoduchých firemných materiálov</li>
+                <li>Komunikácia s klientmi a obchodnými partnermi</li>
+                <li>Plánovanie stretnutí, ciest a pracovného harmonogramu</li>
+                <li>Online prieskumy, vyhľadávanie informácií a spracovanie podkladov</li>
+                <li>Prepis, úprava a formátovanie textov s využitím AI nástrojov</li>
+                <li>Pomoc pri organizácii každodenného chodu podnikania</li>
               </ul>
             </div>
           </div>
@@ -614,7 +649,7 @@
 
         <div class="ps-card" data-reveal data-delay="2">
           <div class="ps-card-photo-wrap">
-            <img src="../Obrazky/Sluzby/graficky design.png" alt="Tvorba grafík" class="ps-card-photo" loading="lazy" />
+            <img src="../Obrazky/Omne/Tvorba grafík.png" alt="Tvorba grafík" class="ps-card-photo" loading="lazy" />
           </div>
           <button class="ps-card-btn" aria-expanded="false">
             <span class="ps-card-title">Tvorba grafík</span>
@@ -623,16 +658,15 @@
           <div class="ps-card-body">
             <div class="ps-card-content">
               <ul class="ps-list">
-                <li>Tvorba grafík v Canve</li>
-                <li>Možnosť vektorovej grafiky</li>
-                <li>Grafiky pre sociálne médiá</li>
-                <li>Promo videá a reelsy</li>
-                <li>Tvorba prezentácií a školiacich materiálov</li>
-                <li>Tvorba e-bookov a rôznych obálok</li>
-                <li>Vizitky, bannery, infografiky</li>
-                <li>Grafiky pre reklamné kampane</li>
-                <li>Intro videá pre YouTube kanál</li>
-                <li>Tvorba loga a firemnej identity</li>
+                <li>Grafiky pre sociálne siete</li>
+                <li>Vizuály pre reklamné kampane</li>
+                <li>Prezentácie, e-booky a pracovné materiály</li>
+                <li>Bannery, infografiky a promo grafiky</li>
+                <li>Jednoduché animácie a video vizuály</li>
+                <li>Návrhy loga a základnej vizuálnej identity</li>
+                <li>Grafické podklady pre web a online projekty</li>
+                <li>Návrhy vytvorené s podporou moderných AI nástrojov</li>
+                <li>Príprava grafík v Canve a Figme</li>
               </ul>
             </div>
           </div>
@@ -649,14 +683,13 @@
           <div class="ps-card-body">
             <div class="ps-card-content">
               <ul class="ps-list">
-                <li>Spravovanie webov a e-shopov:</li>
-                <li class="ps-sub">Administratívna podpora a komunikácia s dodávateľmi</li>
-                <li class="ps-sub">Aktualizácia produktov, akcií a obsahu webu</li>
-                <li class="ps-sub">Zákaznícky servis – riešenie objednávok a reklamácií</li>
-                <li class="ps-sub">Tvorba landing pages</li>
-                <li class="ps-sub">Administrácia blogu – vkladanie článkov a fotografií</li>
-                <span class="ps-list-title">Iné</span>
-                <li>Ovládam mnoho zručností a nástrojov – neváhajte sa ozvať s akoukoľvek požiadavkou.</li>
+                <li>Aktualizácia obsahu webových stránok</li>
+                <li>Správa WordPress webov a e-shopov</li>
+                <li>Tvorba landing pages</li>
+                <li>Publikovanie článkov, noviniek a fotografií</li>
+                <li>Úpravy obsahu, štruktúry a používateľského zážitku</li>
+                <li>Technické nastavenia a drobné úpravy webu</li>
+                <li>Základná SEO optimalizácia obsahu</li>
               </ul>
             </div>
           </div>
@@ -664,7 +697,7 @@
 
         <div class="ps-card" data-reveal data-delay="4">
           <div class="ps-card-photo-wrap">
-            <img src="../Obrazky/Sluzby/kreativna online asistentka.png" alt="AI tvorba" class="ps-card-photo" loading="lazy" />
+            <img src="../Obrazky/Sluzby/online asistentka.png" alt="AI tvorba" class="ps-card-photo" loading="lazy" />
           </div>
           <button class="ps-card-btn" aria-expanded="false">
             <span class="ps-card-title">AI tvorba a nastavenia</span>
@@ -673,14 +706,179 @@
           <div class="ps-card-body">
             <div class="ps-card-content">
               <ul class="ps-list">
-                <li>Tvorba AI-asistovaného obsahu (texty, obrázky, videá)</li>
-                <li>Nastavenie automatizácií a workflows</li>
-                <li>Optimalizácia firemných procesov pomocou AI nástrojov</li>
-                <li>Nastavenie chatbotov a virtuálnych asistentov</li>
-                <li>AI-generované grafiky a vizuálny obsah</li>
-                <li>Konzultácie a školenia v oblasti AI pre váš tím</li>
-                <li>Integrácia AI nástrojov do existujúcich procesov</li>
+                <li>Tvorba textov s využitím AI</li>
+                <li>Tvorba obrázkov a vizuálov pomocou AI</li>
+                <li>AI asistenti pre každodennú prácu</li>
+                <li>Nastavenie ChatGPT, Claude a ďalších AI nástrojov</li>
+                <li>Tvorba promptov na mieru</li>
+                <li>Automatizácia opakujúcich sa úloh</li>
+                <li>AI riešenia pre marketing a podnikanie</li>
+                <li>Školenie a konzultácie práce s AI</li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ══════════════════════════════════════════════
+       FAQ — Online projektová podpora
+       ══════════════════════════════════════════════ -->
+  <section id="rk-faq-podpora" aria-labelledby="rk-faq-podpora-title">
+    <div class="container">
+
+      <div class="rfaq-header" data-reveal>
+        <h2 class="rfaq-h2" id="rk-faq-podpora-title">Často kladené <span class="title-grad">otázky.</span></h2>
+        <div class="rfaq-sub">Online projektová podpora</div>
+        <div class="rfaq-accent"></div>
+      </div>
+
+      <div class="rfaq-grid">
+        <div class="faq-col">
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Čo všetko patrí do online projektovej podpory?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Online projektová podpora je flexibilná služba, ktorá sa prispôsobí tomu, čo práve váš projekt potrebuje.</p>
+              <p class="faq-a-text">Môže ísť o administratívu, správu webu, tvorbu grafík, AI nástroje, technické nastavenia, komunikáciu so zákazníkmi, Meta reklamy alebo pomoc s každodenným fungovaním vášho podnikania.</p>
+              <p class="faq-a-text">Ak si nie ste istí, či je vaša požiadavka vhodná, pokojne sa ozvite. Veľmi často riešim aj úlohy, ktoré sa nedajú zaradiť len do jednej konkrétnej oblasti.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Ako môžem pomôcť vášmu podnikaniu?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Nie vždy je potrebné zamestnať ďalšieho človeka alebo osloviť viacero dodávateľov.</p>
+              <p class="faq-a-text">Pomôžem vám odbremeniť sa od každodenných úloh, zjednodušiť procesy a zastrešiť rôzne oblasti online podnikania na jednom mieste. Vy sa tak môžete naplno venovať tomu, čo robíte najlepšie, zatiaľ čo ja sa postarám o zvyšok.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Musím si objednať balík hodín?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Nie.</p>
+              <p class="faq-a-text">Balíky sú výhodné najmä pre klientov, ktorí potrebujú pravidelnú podporu.</p>
+              <p class="faq-a-text">Ak potrebujete pomoc len s jednorazovou úlohou alebo konkrétnym projektom, rada pripravím individuálnu cenovú ponuku podľa rozsahu práce.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="faq-col">
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">S akými projektmi najradšej spolupracujem?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Rada vytváram partnerstvá, ktoré sú zmysluplné a prinášajú vzájomné obohatenie. Tvorím srdcom a autenticky a je pre mňa dôležité prepájať sa s ľuďmi, ktorí to vnímajú rovnako.</p>
+              <p class="faq-a-text">Každý projekt je pre mňa jedinečný. Nehľadám dokonalé značky, ale ľudí, ktorí svoju prácu robia s láskou a chcú ju ukázať svetu profesionálnym spôsobom.</p>
+              <p class="faq-a-text">Všetko, čo tvorím, v sebe nesie esenciu klienta, ktorú podčiarknem funkčným dizajnom, premyslenými riešeniami a citom pre detail.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Ako prebieha spolupráca?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Na začiatku si spoločne prejdeme vaše potreby, predstavy a ciele. Následne navrhnem spôsob spolupráce, ktorý bude dávať zmysel vášmu projektu aj vášmu rozpočtu.</p>
+              <p class="faq-a-text">Počas celej spolupráce komunikujeme otvorene a priebežne, aby ste vždy vedeli, na čom pracujeme a kam sa projekt posúva.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Čo ak neviem, čo presne potrebujem?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">To je úplne prirodzené.</p>
+              <p class="faq-a-text">Veľa klientov prichádza len s pocitom, že nestíhajú, potrebujú sa posunúť ďalej alebo hľadajú niekoho, komu môžu dôverovať.</p>
+              <p class="faq-a-text">Spoločne zistíme, čo vám zaberá najviac času a energie, a navrhneme riešenie, ktoré bude najlepšie fungovať práve pre vás.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       ABOUT — 3 stĺpce: text, foto, typy kampaní
+       ══════════════════════════════════════════════ -->
+  <section id="rk-about" aria-labelledby="rk-about-title">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <h2 class="section-title" id="rk-about-title">Reklama ako súčasť vašej online <span class="title-grad">podpory.</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Reklamné kampane pre Facebook a Instagram</span>
+      </div>
+
+      <div class="rk-about__grid">
+
+        <div class="rk-about__text-col" data-reveal>
+          <p class="rk-about__subtitle">Najlepšie kampane vznikajú v momente, keď stratégia, dizajn a správne slová začnú spolupracovať.</p>
+          <p class="rk-about__p">Za každou reklamou je človek, značka a jeho príbeh. Preto kampane netvorím len podľa čísel, ale aj s ohľadom na hodnoty vášho projektu a ľudí, ktorých chcete osloviť. Až keď sa spojí správna stratégia, kvalitná kreatíva a priebežná optimalizácia, môže reklama prinášať výsledky, ktoré majú dlhodobý zmysel.</p>
+          <p class="rk-about__p">Postarám sa o celý proces – od návrhu stratégie a nastavenia cieľovej skupiny, cez tvorbu grafických kreatív a reklamných textov, až po priebežné vyhodnocovanie, optimalizáciu a hľadanie nových príležitostí na rast.</p>
+          <img src="../Obrazky/Hlavne/Podpis.png" class="rk-sig-img" alt="Podpis Alex Rudyová" loading="lazy" />
+          <div class="rk-about__brand">Soul Design – Design that connects</div>
+        </div>
+
+        <div class="rk-about__photo-col" data-reveal data-delay="1">
+          <div class="rk-sep" aria-hidden="true">
+            <span class="rk-sep__line"></span>
+            <span class="rk-sep__label">Reklamné kampane</span>
+            <span class="rk-sep__line"></span>
+          </div>
+          <div style="flex:1;">
+            <div class="rk-photo-frame">
+              <img src="../Obrazky/Sluzby/reklamne kampane.png" alt="Soul Design – Reklamné kampane" class="rk-photo" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="rk-about__bullets-col" data-reveal data-delay="2">
+          <div class="rk-bullet">
+            <div class="rk-bullet__icon" aria-hidden="true"><img src="../Obrazky/Sluzby/9.png" alt="" loading="lazy" /></div>
+            <div class="rk-bullet__body">
+              <span class="rk-bullet__tag">Meta Ads</span>
+              <div class="rk-bullet__title">Funkčné kampane s jasným cieľom.</div>
+              <p class="rk-bullet__text">Či už ide o budovanie povedomia, získavanie kontaktov, remarketing alebo predaj, každú kampaň nastavujem podľa cieľa vášho projektu a s dôrazom na merateľné výsledky.</p>
+            </div>
+          </div>
+          <div class="rk-bullet">
+            <div class="rk-bullet__icon" aria-hidden="true"><img src="../Obrazky/Sluzby/10.png" alt="" loading="lazy" /></div>
+            <div class="rk-bullet__body">
+              <span class="rk-bullet__tag">Kreatívy</span>
+              <div class="rk-bullet__title">Všetko pod jednou strechou.</div>
+              <p class="rk-bullet__text">Nestačí reklamu spustiť – musí zaujať. K reklame vám ako doplnkové služby dokážem pripraviť taktiež vizuály aj texty, ktoré prirodzene nadväzujú na vašu značku a oslovia tých správnych ľudí.</p>
+            </div>
+          </div>
+          <div class="rk-bullet">
+            <div class="rk-bullet__icon" aria-hidden="true"><img src="../Obrazky/Sluzby/11.png" alt="" loading="lazy" /></div>
+            <div class="rk-bullet__body">
+              <span class="rk-bullet__tag">Optimalizácia</span>
+              <div class="rk-bullet__title">Reklama rastie spolu s projektom.</div>
+              <p class="rk-bullet__text">Kampane pravidelne sledujem, testujem a optimalizujem, aby prinášali čo najlepšie výsledky aj z dlhodobého hľadiska. V oblasti Meta Ads sa priebežne vzdelávam už viac ako 8 rokov.</p>
             </div>
           </div>
         </div>
@@ -690,36 +888,125 @@
   </section>
 
 
-  <!-- ══════════════════════════════
-       PRAX V ČÍSLACH
-       ══════════════════════════════ -->
-  <section id="podpora-numbers" aria-labelledby="podpora-numbers-title">
+  <!-- ══════════════════════════════════════════════
+       FAQ — Reklamné kampane
+       ══════════════════════════════════════════════ -->
+  <section id="rk-faq" aria-labelledby="rk-faq-title">
     <div class="container">
-      <div class="pn-header" data-reveal>
-        <h2 class="section-title" id="podpora-numbers-title" style="color:#ffffff;">Prax v <span style="color:#ffffff;">číslach.</span></h2>
+
+      <div class="rfaq-header" data-reveal>
+        <h2 class="rfaq-h2" id="rk-faq-title">Často kladené <span class="title-grad">otázky.</span></h2>
+        <div class="rfaq-sub">Reklamné kampane</div>
+        <div class="rfaq-accent"></div>
       </div>
-      <div class="pn-grid">
-        <div class="pn-item" data-reveal data-delay="1">
-          <div class="pn-icon"><i class="fa-regular fa-clock"></i></div>
-          <div class="pn-label">Rokov v administratíve</div>
-          <div class="pn-number" data-target="20" data-suffix="+">0</div>
+
+      <div class="rfaq-grid">
+        <div class="faq-col">
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Čo všetko je zahrnuté v cene reklám?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Každá spolupráca začína krátkou konzultáciou, počas ktorej si prejdeme vaše ciele, ponuku a cieľových zákazníkov.</p>
+              <p class="faq-a-text">V cene nastavenia alebo správy reklám je zahrnuté:</p>
+              <ul class="faq-a-list">
+                <li>návrh stratégie kampane</li>
+                <li>nastavenie reklamného účtu a merania výsledkov</li>
+                <li>vytvorenie a optimalizácia kampaní</li>
+                <li>remarketing (ak je vhodný)</li>
+                <li>priebežné sledovanie výsledkov</li>
+                <li>konzultácie a odporúčania</li>
+              </ul>
+              <p class="faq-a-text" style="margin-top:10px;">Súčasťou spolupráce sú aj drobné úpravy existujúcich kreatív a textov.</p>
+              <p class="faq-a-text">Nové reklamné grafiky, videá, landing pages alebo rozsiahlejší copywriting pripravujem ako doplnkové služby podľa rozsahu projektu.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Koľko treba investovať do reklamy?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Minimálny odporúčaný mesačný rozpočet na reklamu je 100–150 € — to je suma, ktorá platforme umožní zbierať dáta a optimalizovať zobrazovanie. Vo väčšine prípadov odporúčam začínať približne od 200 € mesačne. Rozpočet vždy nastavíme tak, aby bol zmysluplný a zodpovedal možnostiam vášho podnikania.</p>
+              <p class="faq-a-text">Reklamný rozpočet sa platí priamo spoločnosti Meta a nie je súčasťou ceny mojich služieb.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Ako dlho trvá nastavenie kampane?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Po úvodnej konzultácii a dodaní všetkých potrebných podkladov (logo, fotky, informácie o produkte/službe) je kampaň zvyčajne pripravená na spustenie do 5–7 pracovných dní. Prvé výsledky zvyčajne vidíme po 2–4 týždňoch behu kampane.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Pre koho sú moje reklamné služby vhodné?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Spolupracujem najmä s menšími firmami, službami a srdcovými projektmi, ktoré chcú rásť premyslene a dlhodobo.</p>
+              <p class="faq-a-text">Nejde mi o čo najvyšší reklamný rozpočet, ale o to, aby reklama prinášala zmysluplné výsledky. Verím, že aj menší projekt si zaslúži profesionálny prístup, jasnú stratégiu a reklamu, ktorá rešpektuje jeho hodnoty.</p>
+            </div>
+          </div>
+
         </div>
-        <div class="pn-item" data-reveal data-delay="2">
-          <div class="pn-icon"><i class="fa-regular fa-face-smile"></i></div>
-          <div class="pn-label">Spokojných zákazníkov</div>
-          <div class="pn-number" data-target="30" data-suffix="+">0</div>
-        </div>
-        <div class="pn-item" data-reveal data-delay="3">
-          <div class="pn-icon"><i class="fa-regular fa-folder-open"></i></div>
-          <div class="pn-label">Vypracovaných projektov</div>
-          <div class="pn-number" data-target="200" data-suffix="+">0</div>
-        </div>
-        <div class="pn-item" data-reveal data-delay="4">
-          <div class="pn-icon"><i class="fa-solid fa-mug-hot"></i></div>
-          <div class="pn-label">Šálok kávy</div>
-          <div class="pn-number" data-target="11011" data-suffix="+" data-format="space">0</div>
+        <div class="faq-col">
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Ako určíme správnych zákazníkov?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Nebudeme strieľať naslepo.</p>
+              <p class="faq-a-text">Spoločne si prejdeme, komu je váš produkt alebo služba určená, aké problémy riešite a čo robí váš projekt výnimočným. Na základe toho nastavím publikum, ktoré má najväčší potenciál stať sa vašimi zákazníkmi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Kedy uvidíte prvé výsledky?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Prvé dáta sa začínajú zbierať hneď po spustení, no na zmysluplné vyhodnotenie treba zvyčajne 2–4 týždne. Algoritmy potrebujú čas na optimalizáciu — preto pri kampaniach platí, že trpezlivosť a konzistencia sa vždy vyplatia viac ako unáhlené zmeny.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Budete mať prístup k reklamnému účtu?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Áno.</p>
+              <p class="faq-a-text">Reklamný účet zostáva vždy vo vašom vlastníctve. Ku všetkým kampaniam, výsledkom aj nastaveniam máte počas celej spolupráce plný prístup.</p>
+              <p class="faq-a-text">Verím v transparentnú spoluprácu bez zbytočných závislostí.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false">
+              <span class="faq-q">Čo ak reklama nebude fungovať podľa očakávaní?</span>
+              <span class="faq-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-a">
+              <p class="faq-a-text">Reklama nie je jednorazové nastavenie, ale proces.</p>
+              <p class="faq-a-text">Priebežne sledujem výsledky a podľa nich upravujem publikum, kreatívy alebo texty. Niekedy stačí malá zmena, inokedy je potrebné upraviť stratégiu.</p>
+              <p class="faq-a-text">Mojím cieľom nie je reklamu len spustiť, ale hľadať riešenie, ktoré bude dlhodobo fungovať.</p>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
@@ -736,59 +1023,63 @@
       </div>
       <div class="pe-grid">
         <div class="pe-col" data-reveal data-delay="1">
-          <div class="pe-col-icon"><i class="fa-regular fa-house-laptop"></i></div>
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/1.png" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="pe-col-title">V čom som doma?</div>
           <div class="pe-item">
-            <div class="pe-item-title">Web development & web design</div>
-            <div class="pe-item-text">Tvorba webových stránok vo WordPress.</div>
+            <div class="pe-item-title">Web development & Vibe Coding</div>
+            <div class="pe-item-text">Tvorba moderných webových stránok s využitím AI a vibe codingu. Vytváram rýchle, čisté a funkčné weby, ktoré nie sú závislé od množstva pluginov a zbytočnej administrácie.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Canva, Figma, Adobe Suite, Camtasia</div>
-            <div class="pe-item-text">Tvorba grafík, promo reelsov a videa, úprava videí, postprodukcia.</div>
+            <div class="pe-item-title">Web dizajn a online projekty</div>
+            <div class="pe-item-text">Tvorba moderných webových stránok, UX myslenie, landing pages, úpravy a správa webov.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Technika všetkého druhu</div>
-            <div class="pe-item-text">Rýchlo sa učím a bavia ma technikálie — od nastavení až po integrácie.</div>
+            <div class="pe-item-title">Grafika a vizuálna identita</div>
+            <div class="pe-item-text">Canva, Figma, AI nástroje, tvorba vizuálov, branding, grafiky pre sociálne siete a reklamné kampane.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">AI a automatizácie</div>
+            <div class="pe-item-text">Moderné AI riešenia, technické nastavenia, online platformy, prepájanie nástrojov a zjednodušovanie procesov.</div>
           </div>
         </div>
         <div class="pe-col" data-reveal data-delay="2">
-          <div class="pe-col-icon"><i class="fa-regular fa-graduation-cap"></i></div>
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/2.png" alt="" aria-hidden="true" loading="lazy" class="teal-icon" /></div>
           <div class="pe-col-title">Moje vzdelanie</div>
           <div class="pe-item">
             <div class="pe-item-title">Webařce pod rukou</div>
-            <div class="pe-item-text">Web developerský kurz a práca s DIVI.</div>
+            <div class="pe-item-text">Tvorba vibe coding webov. Web developerský kurz a práca s DIVI.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Educo – akreditovaný kurz</div>
-            <div class="pe-item-text">Web Graphic Designer & Web Developer.</div>
+            <div class="pe-item-title">Grafický dizajn a vizuálna identita</div>
+            <div class="pe-item-text">Akreditované vzdelávanie Web Graphic Designer & Web Developer, Adobe nástroje, Figma a Canva.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Adobe PS, Illustrator, Premier Pro</div>
-            <div class="pe-item-text">Udemy, Skillmea.</div>
+            <div class="pe-item-title">AI a digitálny marketing</div>
+            <div class="pe-item-text">AI nástroje v marketingu, tvorba videí, automatizácie, PPC reklama a moderné online stratégie.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Social media marketing</div>
-            <div class="pe-item-text">Udemy, Skillmea — FB a IG reklama.</div>
-          </div>
-          <div class="pe-item">
-            <div class="pe-item-title">National Certificate English Level I</div>
-            <div class="pe-item-text">Stanmore College, London.</div>
+            <div class="pe-item-title">Anglický jazyk</div>
+            <div class="pe-item-text">National Certificate English Level I – Stanmore College, London.</div>
           </div>
         </div>
         <div class="pe-col" data-reveal data-delay="3">
-          <div class="pe-col-icon"><i class="fa-regular fa-spa"></i></div>
-          <div class="pe-col-title">Moje hobby</div>
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/3.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="pe-col-title">Moje hodnoty</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Tvoriť so zmyslom</div>
+            <div class="pe-item-text">Každý projekt vnímam ako jedinečný príbeh. Hľadám riešenia, ktoré sú nielen pekné, ale aj funkčné.</div>
+          </div>
           <div class="pe-item">
             <div class="pe-item-title">Rast a sloboda bytia</div>
             <div class="pe-item-text">Rada sa neustále rozvíjam, učím nové veci a posúvam sa vpred.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Príroda a prechádzky</div>
-            <div class="pe-item-text">Všetko, čo potrebujem ku šťastiu je les, zem, voda, vzduch a oheň.</div>
+            <div class="pe-item-title">Zvedavosť</div>
+            <div class="pe-item-text">Technológie sa menia každý deň. Baví ma objavovať nové možnosti a premieňať ich na praktické riešenia pre klientov.</div>
           </div>
           <div class="pe-item">
-            <div class="pe-item-title">Minerálne kamene</div>
-            <div class="pe-item-text">Neodmysliteľní pomocníci na mojej ceste životom.</div>
+            <div class="pe-item-title">Príroda a vnútorná rovnováha</div>
+            <div class="pe-item-text">Najlepšie nápady prichádzajú v tichu. Príroda je miestom, kde čerpám energiu, pokoj aj novú inšpiráciu.</div>
           </div>
         </div>
       </div>
@@ -796,170 +1087,6 @@
   </section>
 
 
-  <!-- ══════════════════════════════
-       FLEXIBILNÁ SPOLUPRÁCA
-       ══════════════════════════════ -->
-  <section id="podpora-pricing" aria-labelledby="podpora-pricing-title">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <h2 class="section-title" id="podpora-pricing-title">Flexibilná <span class="title-grad">spolupráca.</span></h2>
-        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Spolupráca podľa vašich potrieb</span>
-        <div class="section-accent" style="margin-top:14px;"></div>
-      </div>
-      <div class="pp-grid">
-
-        <!-- Mini -->
-        <div class="pp-card" data-reveal data-delay="1">
-          <div class="pp-head">
-            <div>
-              <div class="pp-title">Mini</div>
-              <div class="pp-price">25 <span>€/h</span></div>
-              <div class="pp-price-note">bez DPH</div>
-            </div>
-            <div class="pp-icon-wrap">
-              <i class="fa-regular fa-headset pp-icon"></i>
-            </div>
-          </div>
-          <div class="pp-divider"></div>
-          <div class="pp-features">
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Skúšobná spolupráca</div>
-                <div class="pp-feat-desc">Vhodný pre tých, ktorí by si radi vyskúšali spoluprácu s virtuálnou asistentkou.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">3 hodiny</div>
-                <div class="pp-feat-desc">Balíček 3 h práce, či konzultácií.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Zahŕňa všetky ponúkané služby VA</div>
-                <div class="pp-feat-desc">Administratíva, zákaznícky servis, spravovanie emailov, tvorba grafík, spravovanie e-shopov, tvorba videí a ich postprodukcia...</div>
-              </div>
-            </div>
-          </div>
-          <div class="pp-card-btn-wrap">
-            <a href="kontakt.html" class="cta-btn cta-btn--filled cta-btn--wide">
-              <span class="cta-btn__left">
-                <span class="cta-btn__divider" aria-hidden="true"></span>
-                <span class="cta-btn__text">Chcem tento balíček</span>
-              </span>
-              <span class="cta-btn__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Klasik (featured) -->
-        <div class="pp-card pp-card--featured" data-reveal data-delay="2">
-          <div class="pp-head">
-            <div>
-              <div class="pp-title">Klasik</div>
-              <div class="pp-price">25 <span>€/h</span></div>
-              <div class="pp-price-note">bez DPH</div>
-            </div>
-            <div class="pp-icon-wrap">
-              <i class="fa-regular fa-comments pp-icon"></i>
-            </div>
-          </div>
-          <div class="pp-divider"></div>
-          <div class="pp-features">
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Štandardný balíček</div>
-                <div class="pp-feat-desc">Pre tých, ktorí potrebujú pravidelnú podporu s administratívnymi úlohami a organizáciou.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Do 30 h mesačne</div>
-                <div class="pp-feat-desc">Stála a spoľahlivá podpora.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Zahŕňa všetky ponúkané služby VA</div>
-                <div class="pp-feat-desc">Administratíva, zákaznícky servis, spravovanie emailov, tvorba grafík, spravovanie e-shopov, tvorba videí a ich postprodukcia...</div>
-              </div>
-            </div>
-          </div>
-          <div class="pp-card-btn-wrap">
-            <div class="pp-outline-frame">
-              <a href="kontakt.html" class="cta-btn pp-outline-btn">
-                <span class="cta-btn__left">
-                  <span class="cta-btn__divider" aria-hidden="true"></span>
-                  <span class="cta-btn__text">Chcem tento balíček</span>
-                </span>
-                <span class="cta-btn__arrow" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Individual -->
-        <div class="pp-card" data-reveal data-delay="3">
-          <div class="pp-head">
-            <div>
-              <div class="pp-title">Individual</div>
-              <div class="pp-price">23 <span>€/h</span></div>
-              <div class="pp-price-note">bez DPH</div>
-            </div>
-            <div class="pp-icon-wrap">
-              <i class="fa-regular fa-desktop pp-icon"></i>
-            </div>
-          </div>
-          <div class="pp-divider"></div>
-          <div class="pp-features">
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Pre koho je vhodný?</div>
-                <div class="pp-feat-desc">Pre veľké spoločnosti, či projekty, kde je potrebná rozsiahlejšia podpora.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">30+ hodín mesačne</div>
-                <div class="pp-feat-desc">Flexibilná podpora v závislosti od potrieb projektu alebo firmy.</div>
-              </div>
-            </div>
-            <div class="pp-feat">
-              <i class="fa-regular fa-circle-check pp-feat-check"></i>
-              <div>
-                <div class="pp-feat-title">Zľava pre stálych zákazníkov</div>
-                <div class="pp-feat-desc">Cením si dôveru svojich zákazníkov, preto pri väčšom počte hodín poskytujem zľavu a individuálny prístup.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pp-card-btn-wrap">
-            <a href="kontakt.html" class="cta-btn cta-btn--filled cta-btn--wide">
-              <span class="cta-btn__left">
-                <span class="cta-btn__divider" aria-hidden="true"></span>
-                <span class="cta-btn__text">Chcem tento balíček</span>
-              </span>
-              <span class="cta-btn__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 
   <!-- ══════════════════════════════
@@ -969,11 +1096,11 @@
     <div class="container">
       <div class="pt-grid">
         <div data-reveal>
-          <span class="pt-quote-mark" aria-hidden="true">"</span>
+          <span class="pt-quote-mark" aria-hidden="true">&ldquo;</span>
           <blockquote>
             <p class="pt-quote">Vďaka Alex mám konečne poriadok v administratíve, prehľad v úlohách a viac času na to, čo skutočne posúva moje podnikanie vpred. Je spoľahlivá, rýchla a vždy prichádza s riešeniami.</p>
           </blockquote>
-          <div class="pt-author">— Jana, koučka a mentorka</div>
+          <div class="pt-author">— Zuzana, koučka a mentorka</div>
         </div>
         <div data-reveal data-delay="1">
           <div class="pt-photo-frame">
@@ -992,9 +1119,9 @@
   <section id="podpora-cta" aria-label="Záverečná výzva na akciu">
     <img src="../Obrazky/Logo/Kolibrik logo.png" alt="" class="pcta-bird" aria-hidden="true" />
     <div class="pcta-inner" data-reveal>
-      <span class="section-label" style="display:block; margin-bottom:16px;">Ste pripravení?</span>
-      <h2 class="pcta-title">Pripravení uvoľniť si <span class="title-grad">ruky?</span></h2>
-      <p class="pcta-sub">Delegujte úlohy, ktoré vás zdržujú, a získajte späť čas, energiu a priestor na rozvoj vášho podnikania.</p>
+      <h2 class="pcta-title">Poďme vytvoriť niečo, na čo <span class="title-grad">budete hrdí.</span></h2>
+      <p class="section-label" style="display:block; margin-top:4px; margin-bottom:24px;">Máte nápad? Ja mu pomôžem získať podobu.</p>
+      <p class="pcta-sub">Každý úspešný projekt začína rozhovorom. Od prvého nápadu až po dlhodobú podporu. Som tu, aby som vám pomohla vytvoriť funkčné a estetické riešenie, ktoré bude rásť spolu s vaším podnikaním.</p>
       <a class="cta-btn cta-btn--filled cta-btn--wide" href="kontakt.html">
         <span class="cta-btn__left">
           <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
@@ -1030,7 +1157,7 @@
           <div class="footer-col">
             <div class="footer-col-title">Navigácia</div>
             <ul class="footer-links">
-              <li><a href="/#uvod">Úvod</a></li>
+              <li><a href="../index.html">Úvod</a></li>
               <li><a href="sluzby.html">Služby</a></li>
               <li><a href="cennik.html">Cenník</a></li>
               <li><a href="o-mne.html">O mne</a></li>
@@ -1131,6 +1258,22 @@
         }
       });
     });
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
     /* ── Number counter ── */
     const counters = document.querySelectorAll('.pn-number[data-target]');
     if (counters.length) {
@@ -1157,7 +1300,7 @@
         });
         counted = true;
       };
-      const section = document.getElementById('podpora-numbers');
+      const section = document.getElementById('podpora-benefits');
       if (section) {
         new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting && !counted) { runCounters(); }

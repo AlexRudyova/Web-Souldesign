@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
-  <link rel="icon" type="image/svg+xml" href="../Obrazky/Logo/favicon.svg" />
+  <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -448,6 +448,116 @@
     .section-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
     .section-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.15; letter-spacing: 0.01em; color: var(--text-color); margin-bottom: 8px; }
     .section-header { text-align: center; max-width: 760px; margin: 0 auto clamp(40px, 6vh, 64px); }
+    .section-accent { width: 32px; height: 1px; background: rgba(0,117,153,0.35); margin: 14px auto 0; }
+
+    /* ═══ GD-SERVICES ═══ */
+    #gd-services { padding: clamp(80px,11vh,120px) 0; }
+    .gd-services-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: clamp(16px,2vw,28px); margin-top: clamp(48px,7vh,72px); }
+    .gd-service-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+    .gd-service-card .gd-service-title { margin-top: 10px; }
+    .gd-icon-wrap { transition: transform 0.3s ease; }
+    .gd-service-card:hover .gd-icon-wrap { transform: translateY(-6px); }
+    .gd-icon-wrap { position: relative; width: clamp(90px,8vw,112px); height: clamp(90px,8vw,112px); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .gd-icon-wrap::before { content: ''; position: absolute; inset: 0; background: url('../Obrazky/Ikony/Graficky design/ramcek.png') center/contain no-repeat; filter: brightness(0) saturate(100%) invert(38%) sepia(93%) saturate(562%) hue-rotate(162deg) brightness(90%) contrast(104%); }
+    .gd-icon-img { width: clamp(58px,5.2vw,72px); height: clamp(58px,5.2vw,72px); object-fit: contain; position: relative; z-index: 1; }
+    .gd-service-title { font-family: var(--font-head); font-size: clamp(15px,1.3vw,20px); font-weight: 500; color: var(--teal-dark); line-height: 1.25; }
+    .gd-service-desc { font-family: var(--font-body); font-size: clamp(13px,0.98vw,14px); color: var(--text-muted); line-height: 1.7; }
+
+    /* ═══ GD-PORTFOLIO ═══ */
+    #gd-portfolio { padding: clamp(80px,11vh,120px) 0; }
+    .gd-filter-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: clamp(32px,4.5vh,48px); flex-wrap: wrap; }
+    .gd-filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .gd-filter-btn { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 18px; border: 1px solid rgba(0,117,153,0.22); border-radius: 2px; background: transparent; color: var(--text-muted); cursor: pointer; transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease; }
+    .gd-filter-btn:hover, .gd-filter-btn.is-active { background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%); color: #fff; border-color: transparent; }
+    .gd-sort-wrap { position: relative; display: inline-flex; align-items: center; }
+    .gd-sort-select { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.08em; padding: 8px 34px 8px 14px; border: 1px solid rgba(0,117,153,0.22); border-radius: 2px; background: var(--bg-start); color: var(--text-muted); cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .gd-sort-wrap::after { content: ''; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); border: 4px solid transparent; border-top: 5px solid var(--teal); margin-top: 2px; pointer-events: none; }
+    .gd-portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(20px,2.2vw,28px); }
+    .gd-card { display: block; text-decoration: none; background: #fff; border: 1px solid rgba(0,117,153,0.09); border-radius: 3px; overflow: hidden; transition: box-shadow 0.25s ease, transform 0.25s ease; }
+    .gd-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-4px); }
+    .gd-card.is-hidden { display: none; }
+    .gd-card-img-wrap { overflow: hidden; aspect-ratio: 4/3; position: relative; }
+    .gd-card-img-wrap::after { content: ''; position: absolute; inset: 0; background: rgba(250,248,245,0.15); pointer-events: none; }
+    .gd-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease; display: block; }
+    .gd-card:hover .gd-card-img { transform: scale(1.03); }
+    .gd-card-body { padding: clamp(16px,2vh,22px) clamp(16px,1.8vw,22px); }
+    .gd-card-cat { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; display: block; }
+    .gd-card-title { font-family: var(--font-head); font-size: clamp(15px,1.25vw,19px); font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; line-height: 1.25; }
+    .gd-card-desc { font-family: var(--font-body); font-size: clamp(12px,0.82vw,13px); color: var(--text-muted); line-height: 1.65; }
+    .gd-portfolio-cta { display: flex; justify-content: center; margin-top: clamp(40px,6vh,60px); }
+
+    /* ═══ GD-CTA BANNER ═══ */
+    #gd-cta { padding: clamp(72px,10vh,108px) 0; background: var(--bg-start); position: relative; overflow: hidden; }
+    #gd-cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(250,248,245,0.93), rgba(250,248,245,0.93)), url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat; z-index: 0; pointer-events: none; }
+    #gd-cta .gd-cta-grid { position: relative; z-index: 1; }
+    .gd-cta-grid { display: grid; grid-template-columns: 1.3fr 1px 1.2fr auto; gap: clamp(20px,3vw,40px); align-items: center; position: relative; z-index: 1; max-width: 960px; margin: 0 auto; }
+    .gd-cta-sep { align-self: stretch; background: linear-gradient(to bottom, transparent 0%, rgba(0,117,153,0.22) 30%, rgba(0,117,153,0.22) 70%, transparent 100%); }
+    .gd-cta-heading { font-family: var(--font-head); font-size: clamp(18px,1.7vw,26px); font-weight: 400; line-height: 1.25; color: var(--teal-dark); }
+    .gd-cta-text { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,0.98vw,15px); color: var(--text-muted); line-height: 1.82; }
+    .gd-cta-btn-col { display: flex; justify-content: flex-end; }
+
+    /* ═══ GD-ABOUT ═══ */
+    #gd-about { padding: clamp(80px,11vh,120px) 0; }
+    .gda-row { display: grid; grid-template-columns: 1fr 52px 1fr; align-items: center; gap: 0; }
+    .gda-photo { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+    .gda-photo::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(250,248,245,0.18) 0%, rgba(250,248,245,0.38) 100%); }
+    .gda-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .gda-row:hover .gda-photo img { transform: scale(1.03); }
+    .gda-sep { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 12px; padding: 0 16px; }
+    .gda-sep__line { width: 1px; flex: 1; background: linear-gradient(180deg, transparent, rgba(0,117,153,0.25) 30%, rgba(0,117,153,0.25) 70%, transparent); }
+    .gda-sep__label { font-family: var(--font-body); font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(0,117,153,0.45); writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap; }
+    .gda-body { padding: 0 clamp(24px,3vw,48px); }
+    .gda-body__label { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 14px; }
+    .gda-body__title { font-family: var(--font-head); font-size: clamp(22px,2.6vw,40px); font-weight: 400; color: var(--teal-deeper); line-height: 1.15; margin-bottom: 10px; }
+    .gda-body__subtitle { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,0.95vw,15px); color: var(--teal); margin-bottom: clamp(22px,3vh,34px); display: block; }
+    .gda-body__text { font-family: var(--font-body); font-size: clamp(13px,0.95vw,15px); line-height: 1.85; color: var(--text-muted); margin-bottom: 18px; margin-top: 0; }
+    .gda-body__subtitle + .gda-body__text { margin-top: clamp(10px,1.5vh,18px); }
+    .gda-body__text:last-of-type { margin-bottom: clamp(22px,3vh,34px); }
+    .gda-body__link { font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,117,153,0.30); padding-bottom: 2px; transition: color 0.28s, border-color 0.28s; display: inline-flex; align-items: center; gap: 8px; }
+    .gda-body__link:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
+    .gda-body__link__arrow { transition: transform 0.28s ease; }
+    .gda-body__link:hover .gda-body__link__arrow { transform: translateX(6px); }
+
+    /* ═══ GDP-SLIDER ═══ */
+    .gdp-slider-wrap { position: relative; margin: 0 60px; }
+    .gdp-slider-container { overflow: hidden; padding: 10px 0; }
+    .gdp-slider-track { display: flex; transition: transform 1.3s cubic-bezier(0.45, 0, 0.15, 1); will-change: transform; }
+    .gdp-card-wrapper { flex: 0 0 25%; max-width: 25%; padding: 0 10px; box-sizing: border-box; }
+    .gdp-controls { display: flex; justify-content: center; margin-top: 32px; }
+    .gdp-dots { display: flex; gap: 8px; }
+    .gdp-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(0,117,153,0.15); border: none; cursor: pointer; transition: all 0.3s; }
+    .gdp-dot.active { background: var(--teal); transform: scale(1.4); }
+    .gdp-nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 28px; height: 28px; background: none; border: none; padding: 0; cursor: pointer; color: var(--teal-mid); display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 0px rgba(0,117,153,0)); transition: color 300ms ease, filter 300ms ease; }
+    .gdp-nav-arrow--prev { left: -50px; }
+    .gdp-nav-arrow--next { right: -50px; }
+    .gdp-nav-arrow:hover:not(:disabled) { color: rgba(0,168,214,1.0); filter: drop-shadow(0 0 10px rgba(0,117,153,0.18)); }
+    .gdp-nav-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+    .gdp-nav-arrow__border { position: absolute; top: 0; left: 0; pointer-events: none; overflow: visible; }
+    .gdp-nav-arrow__path { stroke: rgba(0,168,214,0.7); fill: transparent; transition: stroke 300ms ease; }
+    .gdp-nav-arrow:hover:not(:disabled) .gdp-nav-arrow__path { stroke: rgba(0,168,214,1.0); }
+
+    /* ═══ GD RESPONSIVE ═══ */
+    @media (max-width: 1100px) {
+      .gd-services-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 860px) {
+      .gda-row { grid-template-columns: 1fr; gap: clamp(24px,4vh,36px); }
+      .gda-sep { display: none; }
+      .gda-body { padding: 0; }
+      .gd-cta-grid { grid-template-columns: 1fr; text-align: center; }
+      .gd-cta-sep { display: none; }
+      .gd-cta-btn-col { justify-content: center; }
+      .gdp-slider-wrap { margin: 0 40px; }
+      .gdp-nav-arrow--prev { left: -36px; }
+      .gdp-nav-arrow--next { right: -36px; }
+    }
+    @media (max-width: 640px) {
+      .gd-services-grid { grid-template-columns: repeat(2,1fr); }
+      .gd-filter-bar { flex-direction: column; align-items: flex-start; }
+      .gdp-slider-wrap { margin: 0 32px; }
+      .gdp-nav-arrow--prev { left: -28px; }
+      .gdp-nav-arrow--next { right: -28px; }
+    }
   </style>
 </head>
 
@@ -463,7 +573,7 @@
 
     <nav aria-label="Hlavná navigácia">
       <ul class="header__nav">
-        <li><a href="/#uvod">Úvod</a></li>
+        <li><a href="../index.html">Úvod</a></li>
         <li class="nav-has-drop">
           <a href="sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
@@ -530,8 +640,277 @@
 
 
   <!-- ══════════════════════════════════════════════
-       SEKCIE — budú doplnené neskôr
+       ČO PRE VÁS VYTVORÍM
        ══════════════════════════════════════════════ -->
+  <section id="gd-services" aria-labelledby="gds-title">
+    <div class="container">
+
+      <header class="section-header" data-reveal>
+        <h2 class="section-title" id="gds-title">Grafika, ktorá má <span class="title-grad">zmysel.</span></h2>
+        <span class="section-label" style="margin-bottom:0;">Čo pre vás vytvorím</span>
+        <div class="section-accent"></div>
+      </header>
+
+      <div class="gd-services-grid">
+
+        <article class="gd-service-card" data-reveal data-delay="1">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/7.png" alt="" aria-hidden="true" style="filter: brightness(0) saturate(100%) invert(38%) sepia(93%) saturate(562%) hue-rotate(162deg) brightness(90%) contrast(104%);" />
+          </div>
+          <h3 class="gd-service-title">Branding</h3>
+          <p class="gd-service-desc">Jedinečné logá a vizuálne identity, ktoré vystihujú vašu značku a odlíšia vás od konkurencie.</p>
+        </article>
+
+        <article class="gd-service-card" data-reveal data-delay="2">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/tlačoviny.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="gd-service-title">Tlačoviny</h3>
+          <p class="gd-service-desc">Brožúry, letáky, vizitky a ďalšie tlačoviny, ktoré zanechajú profesionálny dojem.</p>
+        </article>
+
+        <article class="gd-service-card" data-reveal data-delay="3">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/sociálne siete.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="gd-service-title">Sociálne siete</h3>
+          <p class="gd-service-desc">Design príspevkov, príbehov a kampaní, ktoré pritiahnú pozornosť a budujú vašu komunitu.</p>
+        </article>
+
+        <article class="gd-service-card" data-reveal data-delay="1">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/prezentácie.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="gd-service-title">Prezentácie</h3>
+          <p class="gd-service-desc">Prehľadné a vizuálne pútavé prezentácie, ktoré zaujmú a jasne odkomunikujú vaše myšlienky.</p>
+        </article>
+
+        <article class="gd-service-card" data-reveal data-delay="2">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/digitálne materialy.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="gd-service-title">Digitálne materiály</h3>
+          <p class="gd-service-desc">E-booky, PDF návody, newslettery a ďalšie digitálne materiály ladiace s vašou značkou.</p>
+        </article>
+
+        <article class="gd-service-card" data-reveal data-delay="3">
+          <div class="gd-icon-wrap">
+            <img class="gd-icon-img" src="../Obrazky/Ikony/Graficky design/web design.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="gd-service-title">Web dizajn</h3>
+          <p class="gd-service-desc">Design webových stránok, ktorý spája estetiku s funkčnosťou a vytvára jedinečný online zážitok.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       O GRAFICKOM DIZAJNE
+       ══════════════════════════════════════════════ -->
+  <section id="gd-about">
+    <div class="container">
+      <div class="gda-row" data-reveal>
+
+        <div class="gda-photo">
+          <img src="../Obrazky/Omne/graficky design.png" alt="Grafický dizajn" loading="lazy" />
+        </div>
+
+        <div class="gda-sep" aria-hidden="true">
+          <span class="gda-sep__line"></span>
+          <span class="gda-sep__label">Grafický dizajn</span>
+          <span class="gda-sep__line"></span>
+        </div>
+
+        <div class="gda-body">
+          <h2 class="gda-body__title">Nechajte svoju značku<br><span class="title-grad">prehovoriť.</span></h2>
+          <span class="gda-body__subtitle">Design, ktorý si ľudia zapamätajú.</span>
+          <p class="gda-body__text">Grafiky srdcom, aj tak sa dá nazvať moja tvorba. Grafiky, ktoré rozprávajú váš príbeh a zanechajú stopu v tých, ktorí ich uvidia. Každá čiara, farba a detail sú tvorené so zámerom zachytiť vašu jedinečnosť a zanechať v ľuďoch pozitívnu emóciu.</p>
+          <p class="gda-body__text">Všetko, čo tvorím, v sebe nesie esenciu klienta, ktorú podtrhnem profesionálnym a pútavým vzhľadom.</p>
+          <a href="kontakt.html" class="gda-body__link">
+            Cesta za novou grafikou
+            <span class="gda-body__link__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       PORTFÓLIO
+       ══════════════════════════════════════════════ -->
+  <section id="gd-portfolio" aria-labelledby="gdp-title">
+    <div class="container">
+
+      <header class="section-header" data-reveal>
+        <h2 class="section-title" id="gdp-title">Ukážky <span class="title-grad">projektov.</span></h2>
+        <span class="section-label" style="margin-bottom:0;">Moje práce</span>
+        <div class="section-accent"></div>
+      </header>
+
+      <div class="gd-filter-bar" data-reveal>
+        <div class="gd-filter-btns" role="group" aria-label="Filtrovať podľa kategórie">
+          <button class="gd-filter-btn is-active" data-filter="*">Všetky</button>
+          <button class="gd-filter-btn" data-filter="branding">Branding</button>
+          <button class="gd-filter-btn" data-filter="tlacoviny">Tlačoviny</button>
+          <button class="gd-filter-btn" data-filter="socialne-siete">Sociálne siete</button>
+          <button class="gd-filter-btn" data-filter="prezentacie">Prezentácie</button>
+        </div>
+        <div class="gd-sort-wrap">
+          <select class="gd-sort-select" aria-label="Zoradiť">
+            <option value="newest">Najnovšie</option>
+            <option value="category">Podľa kategórie</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gdp-slider-wrap">
+
+        <button class="gdp-nav-arrow gdp-nav-arrow--prev" id="gdp-prev" aria-label="Predchádzajúci projekt">
+          <svg class="gdp-nav-arrow__border" width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path class="gdp-nav-arrow__path" stroke-width="1.5" d="M 7 0.75 L 32.25 0.75 A 3 3 0 0 1 35.25 3.75 L 35.25 28.25 L 28.25 35.25 L 3.75 35.25 A 3 3 0 0 1 0.75 32.25 L 0.75 7 Z"/>
+          </svg>
+          <i class="fa-solid fa-chevron-left" style="font-size:11px;position:relative;z-index:1;"></i>
+        </button>
+
+        <div class="gdp-slider-container" data-reveal>
+          <div class="gdp-slider-track" id="gdp-track">
+
+            <div class="gdp-card-wrapper" data-category="branding">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Sluzby/graficky design.png" alt="Vizuálna identita" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Branding</span>
+                  <h3 class="gd-card-title">Vizuálna identita</h3>
+                  <p class="gd-card-desc">Logo, farebná paleta a typografia pre budovanie silnej a zapamätateľnej značky.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="gdp-card-wrapper" data-category="tlacoviny">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Pozadie/close-up-hand-using-keyboard-laptop-typing-with-social-media-internet-min.jpg" alt="Katalóg produktov" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Tlačoviny</span>
+                  <h3 class="gd-card-title">Katalóg produktov</h3>
+                  <p class="gd-card-desc">Produktový katalóg v tlačenej aj digitálnej verzii s dôrazom na prehľadnosť a estetiku.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="gdp-card-wrapper" data-category="socialne-siete">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Sluzby/reklamne kampane.png" alt="Instagramová kampaň" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Sociálne siete</span>
+                  <h3 class="gd-card-title">Instagramová kampaň</h3>
+                  <p class="gd-card-desc">Séria grafík pre sociálne siete s konzistentnou estetikou a silným vizuálnym posolstvom.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="gdp-card-wrapper" data-category="prezentacie">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Pozadie/office-table-with-cup-coffee-keyboard-notepad-min.jpg" alt="Prezentácia pre klientov" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Prezentácie</span>
+                  <h3 class="gd-card-title">Prezentácia pre klientov</h3>
+                  <p class="gd-card-desc">Profesionálny slideshow s jasnou štruktúrou, vizuálnou hierarchiou a firemným štýlom.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="gdp-card-wrapper" data-category="branding">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Sluzby/webove stranky.png" alt="Brand manuál" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Branding</span>
+                  <h3 class="gd-card-title">Brand manuál</h3>
+                  <p class="gd-card-desc">Komplexný brand manuál s pravidlami použitia loga, farieb a typografie pre konzistentnú komunikáciu.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="gdp-card-wrapper" data-category="tlacoviny">
+              <a class="gd-card" href="kontakt.html">
+                <div class="gd-card-img-wrap">
+                  <img class="gd-card-img" src="../Obrazky/Pozadie/businesswoman-writing-note-sitting-her-desk-modern-office-min.jpg" alt="Firemná brožúra" loading="lazy" />
+                </div>
+                <div class="gd-card-body">
+                  <span class="gd-card-cat">Tlačoviny</span>
+                  <h3 class="gd-card-title">Firemná brožúra</h3>
+                  <p class="gd-card-desc">Elegantná brožúra prezentujúca služby a hodnoty firmy s dôrazom na profesionálny dojem.</p>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="gdp-nav-arrow gdp-nav-arrow--next" id="gdp-next" aria-label="Nasledujúci projekt">
+          <svg class="gdp-nav-arrow__border" width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path class="gdp-nav-arrow__path" stroke-width="1.5" d="M 7 0.75 L 32.25 0.75 A 3 3 0 0 1 35.25 3.75 L 35.25 28.25 L 28.25 35.25 L 3.75 35.25 A 3 3 0 0 1 0.75 32.25 L 0.75 7 Z"/>
+          </svg>
+          <i class="fa-solid fa-chevron-right" style="font-size:11px;position:relative;z-index:1;"></i>
+        </button>
+
+      </div>
+
+      <div class="gdp-controls">
+        <div class="gdp-dots" id="gdp-dots"></div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       CTA BANNER
+       ══════════════════════════════════════════════ -->
+  <section id="gd-cta" aria-label="Výzva na kontakt">
+    <div class="container">
+      <div class="gd-cta-grid">
+
+        <h2 class="gd-cta-heading" data-reveal>
+          Máte projekt, ktorý si zaslúži premyslený a <span class="title-grad">krásny design?</span>
+        </h2>
+
+        <div class="gd-cta-sep" aria-hidden="true"></div>
+
+        <p class="gd-cta-text" data-reveal data-delay="1">
+          Rada vám pomôžem premeniť vaše nápady na vizuálnu realitu.
+        </p>
+
+        <div class="gd-cta-btn-col" data-reveal data-delay="2">
+          <a href="kontakt.html" class="cta-btn cta-btn--filled">
+            <span class="cta-btn__left">
+              <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+              <span class="cta-btn__divider" aria-hidden="true"></span>
+              <span class="cta-btn__text">Chcem svoj design</span>
+            </span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
   <!-- ══════════════════════════════════════════════
@@ -558,7 +937,7 @@
           <div class="footer-col">
             <div class="footer-col-title">Navigácia</div>
             <ul class="footer-links">
-              <li><a href="/#uvod">Úvod</a></li>
+              <li><a href="../index.html">Úvod</a></li>
               <li><a href="sluzby.html">Služby</a></li>
               <li><a href="cennik.html">Cenník</a></li>
               <li><a href="o-mne.html">O mne</a></li>
@@ -647,6 +1026,101 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } });
       }, { threshold: 0.12 });
       revealEls.forEach(el => ro.observe(el));
+    }
+
+    // Portfolio slider + filter
+    const gdpTrack = document.getElementById('gdp-track');
+    if (gdpTrack) {
+      const gdpWrappers = gdpTrack.querySelectorAll('.gdp-card-wrapper');
+      const gdpPrevBtn = document.getElementById('gdp-prev');
+      const gdpNextBtn = document.getElementById('gdp-next');
+      const gdpDotsEl  = document.getElementById('gdp-dots');
+      let gdpIndex = 0;
+      let gdpCPV = 4; // cards per view
+
+      function gdpGetCPV() {
+        const w = window.innerWidth;
+        if (w <= 640) return 1;
+        if (w <= 860) return 2;
+        if (w <= 1100) return 3;
+        return 4;
+      }
+
+      function gdpVisible() {
+        return Array.from(gdpWrappers).filter(c => c.style.display !== 'none');
+      }
+
+      function gdpUpdate() {
+        gdpCPV = gdpGetCPV();
+        const visible = gdpVisible();
+        if (!visible.length) return;
+        const pages = Math.max(1, visible.length - gdpCPV + 1);
+        if (gdpIndex >= pages) gdpIndex = 0;
+
+        visible.forEach(c => {
+          c.style.flex = `0 0 ${100 / gdpCPV}%`;
+          c.style.maxWidth = `${100 / gdpCPV}%`;
+        });
+
+        const cw = visible[0].getBoundingClientRect().width;
+        gdpTrack.style.transform = `translateX(-${gdpIndex * cw}px)`;
+
+        gdpDotsEl.innerHTML = '';
+        for (let i = 0; i < pages; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'gdp-dot' + (i === gdpIndex ? ' active' : '');
+          dot.setAttribute('aria-label', `Projekt ${i + 1}`);
+          dot.addEventListener('click', () => { gdpIndex = i; gdpUpdate(); gdpReset(); });
+          gdpDotsEl.appendChild(dot);
+        }
+
+        gdpPrevBtn.disabled = gdpIndex === 0;
+        gdpNextBtn.disabled = gdpIndex >= pages - 1;
+      }
+
+      let gdpTimer = null;
+      function gdpStart() {
+        gdpTimer = setInterval(() => {
+          const pages = Math.max(1, gdpVisible().length - gdpCPV + 1);
+          gdpIndex = gdpIndex < pages - 1 ? gdpIndex + 1 : 0;
+          gdpUpdate();
+        }, 6000);
+      }
+      function gdpReset() { clearInterval(gdpTimer); gdpStart(); }
+
+      const gdpWrap = gdpTrack.closest('.gdp-slider-wrap');
+      if (gdpWrap) {
+        gdpWrap.addEventListener('mouseenter', () => clearInterval(gdpTimer));
+        gdpWrap.addEventListener('mouseleave', () => gdpStart());
+      }
+
+      gdpPrevBtn.addEventListener('click', () => {
+        if (gdpIndex > 0) { gdpIndex--; gdpUpdate(); gdpReset(); }
+      });
+      gdpNextBtn.addEventListener('click', () => {
+        const pages = Math.max(1, gdpVisible().length - gdpCPV + 1);
+        if (gdpIndex < pages - 1) { gdpIndex++; gdpUpdate(); gdpReset(); }
+      });
+
+      gdpUpdate();
+      gdpStart();
+      window.addEventListener('resize', gdpUpdate, { passive: true });
+
+      // Filter
+      const filterBtns = document.querySelectorAll('.gd-filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const filter = btn.dataset.filter;
+          gdpWrappers.forEach(wrapper => {
+            wrapper.style.display = (filter === '*' || wrapper.dataset.category === filter) ? '' : 'none';
+          });
+          gdpIndex = 0;
+          gdpUpdate();
+          gdpReset();
+        });
+      });
     }
   </script>
 
