@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Názov projektu | Soul Design</title>
+  <meta name="description" content="Krátky opis projektu pre vyhľadávače." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
+
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & TOKENY
+       ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --teal:        #007599;
+      --teal-mid:    #005f7a;
+      --teal-dark:   #003d52;
+      --teal-deeper: #002535;
+      --teal-glow:   #00a3c9;
+      --white:       #ffffff;
+      --bg-start:    #FAF8F5;
+      --bg-mid:      #E9F3F6;
+      --font-head:   'Frank Ruhl Libre', Georgia, serif;
+      --font-body:   'Lora', Georgia, serif;
+      --text-color:  #333333;
+      --text-muted:  #555555;
+      --text-light:  #888888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg-start); color: var(--text-color); overflow-x: hidden; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; position: relative; }
+    img { display: block; max-width: 100%; }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════ */
+    .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(16px,2.4vh,26px) clamp(24px,5vw,72px); display: flex; align-items: center; justify-content: space-between; background: transparent; transition: background-color 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
+    .site-header.scrolled { position: fixed; background: rgba(244,242,238,0.52); backdrop-filter: blur(18px) saturate(1.8) brightness(1.02); -webkit-backdrop-filter: blur(18px) saturate(1.8) brightness(1.02); box-shadow: 0 2px 20px rgba(0,0,0,0.10), inset 0 -1px 0 rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.18); padding: clamp(12px,1.8vh,18px) clamp(24px,5vw,72px); animation: headerSlideIn 0.3s ease-out; }
+    @keyframes headerSlideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+    .site-header.scrolled .header__logo img { filter: none; opacity: 1; }
+    .site-header.scrolled .header__nav a { color: rgba(0,63,82,0.80); }
+    .site-header.scrolled .header__nav a:hover { color: #003d52; }
+    .site-header.scrolled .header__burger span { background: var(--teal-dark); }
+    .header__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .header__logo img { height: clamp(48px,6.5vh,74px); width: auto; opacity: 0.90; }
+    .header__nav { display: flex; align-items: center; gap: clamp(20px,2.8vw,40px); list-style: none; }
+    .header__nav a { font-family: var(--font-body); font-size: clamp(11px,1vw,13px); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,63,82,0.80); text-decoration: none; position: relative; transition: color 0.28s ease; }
+    .header__nav a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: linear-gradient(90deg,#005f7a,#007599 35%,#00b5d8 70%,#00a3c9); transition: width 0.32s ease; }
+    .header__nav a:hover { color: var(--teal-dark); }
+    .header__nav a:hover::after { width: 100%; }
+    .nav__cta { display: inline-flex !important; align-items: center; justify-content: center; width: 148px; height: 40px; padding: 0 !important; clip-path: path("M 12 0 L 142 0 A 6 6 0 0 1 148 6 L 148 28 L 136 40 L 6 40 A 6 6 0 0 1 0 34 L 0 12 Z"); font-family: 'Playfair Display',Georgia,serif; font-size: 13px !important; font-weight: 600; letter-spacing: 0.05em !important; color: var(--white) !important; text-decoration: none; position: relative; isolation: isolate; }
+    .nav__cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a,#007599 40%,#00a3c9); z-index: -1; }
+    .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; width: auto; height: auto; background: linear-gradient(118deg,#007599,#00b5d8 55%,#006585); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .header__nav .nav__cta:hover::after { opacity: 1; }
+    .nav-has-drop { position: relative; }
+    .nav-has-drop > a { display: flex; align-items: center; gap: 5px; }
+    .nav-drop__arrow { display: inline-block; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.28s ease; flex-shrink: 0; }
+    .nav-has-drop:hover .nav-drop__arrow { transform: rotate(-135deg) translateY(-2px); }
+    .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 220px; background: rgba(250,248,245,0.95); backdrop-filter: blur(18px); border: 1px solid rgba(0,117,153,0.14); border-radius: 2px; padding: 18px 0 10px; list-style: none; opacity: 0; pointer-events: none; transition: opacity 0.26s ease, transform 0.26s ease; z-index: 200; }
+    .nav-has-drop:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown li a { display: block; padding: 10px 22px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,63,82,0.78); white-space: nowrap; }
+    .nav-dropdown li a::after { display: none; }
+    .nav-dropdown li a:hover { color: var(--teal); background: rgba(0,117,153,0.06); }
+    .header__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .header__burger span { display: block; width: 24px; height: 1.5px; background: var(--teal-dark); border-radius: 2px; }
+
+    /* ═══════════════════════════════════════════
+       TITLE GRADIENT & SPOLOČNÉ
+       ═══════════════════════════════════════════ */
+    .title-grad { background: linear-gradient(100deg,#005f7a,#007599 45%,#00a3c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-label { font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 14px; }
+    .section-accent { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,117,153,0.45) 30%, rgba(0,117,153,0.45) 70%, transparent); margin: 14px auto 0; }
+
+    /* ═══════════════════════════════════════════
+       CTA BUTTON
+       ═══════════════════════════════════════════ */
+    .cta-btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 0; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-decoration: none; cursor: pointer; border: none; position: relative; transition: filter 0.3s ease; width: 218px; height: 50px; padding: 0; }
+    .cta-btn__left { display: flex; align-items: center; flex: 1; height: 100%; gap: 0; padding-left: 14px; }
+    .cta-btn__icon { height: 22px; width: auto; flex-shrink: 0; filter: brightness(0) invert(1); }
+    .cta-btn__divider { width: 1px; height: 60%; background: rgba(255,255,255,0.35); margin: 0 10px; flex-shrink: 0; }
+    .cta-btn__text { flex: 1; text-align: left; }
+    .cta-btn__arrow { display: flex; align-items: center; padding-right: 14px; flex-shrink: 0; transition: transform 0.28s ease; }
+    .cta-btn--filled { clip-path: path("M 13 0 L 210 0 A 7 7 0 0 1 218 7 L 218 36 L 204 50 L 6 50 A 7 7 0 0 1 0 44 L 0 13 Z"); color: #fff; isolation: isolate; }
+    .cta-btn--filled::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a,#007599 40%,#00a3c9); z-index: -1; }
+    .cta-btn--filled::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#007599,#00b5d8 55%,#006585); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
+    .cta-btn--filled:hover::after { opacity: 1; }
+    .cta-btn--filled:hover { filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
+    .cta-btn--filled:hover .cta-btn__arrow { transform: translateX(4px); }
+    .cta-btn--outline { clip-path: path("M 13 0 L 210 0 A 7 7 0 0 1 218 7 L 218 36 L 204 50 L 6 50 A 7 7 0 0 1 0 44 L 0 13 Z"); color: var(--teal-mid); }
+    .cta-btn--outline .cta-btn__border { position: absolute; top: 0; left: 0; overflow: visible; pointer-events: none; }
+    .cta-btn--outline .cta-btn__border-path { stroke: rgba(0,168,214,0.7); fill: transparent; transition: stroke 300ms ease; }
+    .cta-btn--outline .cta-btn__divider { background: rgba(0,117,153,0.3); }
+    .cta-btn--outline:hover { filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
+    .cta-btn--outline:hover .cta-btn__border-path { stroke: rgba(0,168,214,1.0); }
+    .cta-btn--outline:hover .cta-btn__arrow { transform: translateX(4px); }
+
+
+    /* ═══════════════════════════════════════════
+       SEKCIA 1 — PROJEKT HERO
+       ═══════════════════════════════════════════ */
+    #projekt-hero { padding: clamp(120px,14vh,160px) 0 clamp(72px,10vh,110px); position: relative; background: var(--bg-start); overflow: hidden; }
+    #projekt-hero::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(240,232,218,0.72) 0%, rgba(240,232,218,0.18) 18%, transparent 36%), linear-gradient(to right, rgba(240,232,218,0.52) 0%, rgba(238,229,214,0.38) 28%, rgba(235,225,210,0.18) 52%, transparent 80%); }
+    #projekt-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to bottom, transparent 0%, rgba(250,248,245,0.52) 55%, rgba(250,248,245,0.92) 80%, #FAF8F5 100%); z-index: 2; pointer-events: none; }
+    #projekt-hero .container { position: relative; z-index: 3; }
+    .ph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: center; }
+    .ph-left { padding-top: 8px; }
+    .ph-category { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 18px; }
+    .ph-title { font-family: var(--font-head); font-size: clamp(28px,4vw,54px); font-weight: 400; color: var(--text-color); line-height: 1.1; margin-bottom: 14px; }
+    .ph-subtitle { font-family: var(--font-body); font-style: italic; font-size: clamp(14px,1.1vw,17px); color: var(--text-muted); margin-bottom: 24px; }
+    .ph-divider { width: 40px; height: 1px; background: linear-gradient(90deg,#005f7a,#00a3c9); margin-bottom: 24px; }
+    .ph-desc { font-family: var(--font-body); font-size: clamp(13px,0.95vw,15px); color: var(--text-muted); line-height: 1.85; margin-bottom: 36px; }
+    .ph-meta { display: flex; gap: clamp(24px,3vw,48px); margin-bottom: 36px; }
+    .ph-meta-item {}
+    .ph-meta-label { font-family: var(--font-body); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 4px; }
+    .ph-meta-value { font-family: var(--font-body); font-size: clamp(13px,0.95vw,15px); color: var(--text-color); }
+    .ph-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,117,153,0.30); padding-bottom: 2px; transition: color 0.25s, border-color 0.25s; }
+    .ph-back:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
+    .ph-back:hover .ph-back__arrow { transform: translateX(-4px); }
+    .ph-back__arrow { transition: transform 0.25s ease; }
+    .ph-image { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; }
+    .ph-image img { width: 100%; height: 100%; object-fit: cover; }
+    /* placeholder keď nie je obrázok */
+    .img-placeholder { width: 100%; height: 100%; background: #e8e4de; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #b8b0a8; }
+    .img-placeholder svg { width: 48px; height: 48px; opacity: 0.5; }
+    .img-placeholder span { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+
+    /* ═══════════════════════════════════════════
+       SEKCIA 2 — PREČO A PRE KOHO
+       ═══════════════════════════════════════════ */
+    #projekt-preco { padding: clamp(72px,10vh,110px) 0; background: #ffffff; }
+    .ppk-header { text-align: center; margin-bottom: clamp(48px,7vh,72px); }
+    .ppk-title { font-family: var(--font-head); font-size: clamp(24px,3vw,42px); font-weight: 400; color: var(--text-color); line-height: 1.15; margin-bottom: 0; }
+    .ppk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: start; }
+    .ppk-text p { font-family: var(--font-body); font-size: clamp(13px,0.95vw,15px); color: var(--text-muted); line-height: 1.85; margin-bottom: 20px; }
+    .ppk-text p:last-child { margin-bottom: 0; }
+    .ppk-cards { display: flex; flex-direction: column; gap: 16px; }
+    .ppk-card { background: var(--bg-start); border: 1px solid rgba(0,117,153,0.10); border-radius: 8px; padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .ppk-card-icon { width: 44px; height: 44px; flex-shrink: 0; margin-top: 2px; }
+    .ppk-card-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(35%) sepia(90%) saturate(580%) hue-rotate(155deg) brightness(88%); }
+    .ppk-card-content {}
+    .ppk-card-title { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; display: block; }
+    .ppk-card-text { font-family: var(--font-body); font-size: clamp(12px,0.88vw,13.5px); color: var(--text-muted); line-height: 1.72; }
+
+    /* ═══════════════════════════════════════════
+       SEKCIA 3 — PROCES TVORBY
+       ═══════════════════════════════════════════ */
+    #projekt-proces { padding: clamp(72px,10vh,110px) 0; position: relative; background: url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover fixed; }
+    #projekt-proces::before { content: ''; position: absolute; inset: 0; background: rgba(250,248,245,0.92); z-index: 0; pointer-events: none; }
+    #projekt-proces .container { position: relative; z-index: 1; }
+    .ppr-header { text-align: center; margin-bottom: clamp(48px,7vh,72px); }
+    .ppr-title { font-family: var(--font-head); font-size: clamp(24px,3vw,42px); font-weight: 400; color: var(--text-color); line-height: 1.15; }
+    .ppr-steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
+    .ppr-hex-wrap { position: relative; width: clamp(80px,7vw,100px); height: clamp(80px,7vw,100px); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ppr-hex-wrap::before { content: ''; position: absolute; inset: 0; background: url('../Obrazky/Ikony/projektova podpora/ramcek.png') center/contain no-repeat; filter: brightness(0) saturate(100%) invert(38%) sepia(93%) saturate(562%) hue-rotate(162deg) brightness(90%) contrast(104%); }
+    .ppr-step-icon { width: clamp(44px,4vw,56px); height: clamp(44px,4vw,56px); object-fit: contain; position: relative; z-index: 1; filter: brightness(0) invert(35%) sepia(90%) saturate(580%) hue-rotate(155deg) brightness(88%); }
+    .ppr-dash { flex: 1; min-width: 16px; border-top: 1px dashed rgba(0,117,153,0.30); align-self: flex-start; margin-top: clamp(40px,3.5vw,50px); }
+    .ppr-step-body { padding-top: 16px; text-align: center; width: 100%; }
+    .ppr-step-num { font-family: var(--font-body); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; color: var(--teal); display: block; margin-bottom: 4px; }
+    .ppr-step-name { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 8px; }
+    .ppr-step-desc { font-family: var(--font-body); font-size: clamp(11px,0.82vw,12.5px); color: var(--text-muted); line-height: 1.65; }
+    /* ── Kolibrik animácia ── */
+    #ppr-anim-wrap { position: relative; }
+    .ppr-svg-layer { position: absolute; left: 0; right: 0; pointer-events: none; z-index: 2; overflow: visible; }
+    .ppr-svg { width: 100%; height: 60px; display: block; overflow: visible; }
+    .ppr-path-bg { fill: none; stroke: rgba(0,117,153,0.12); stroke-width: 0.8; stroke-linecap: round; stroke-dasharray: 5 5; }
+    .ppr-path-line { fill: none; stroke: url(#ppr-line-grad); stroke-width: 1.2; stroke-dasharray: 5 5; opacity: 0.55; }
+    .ppr-deco-hb-wrap { position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; z-index: 10; transform-origin: center center; transition: opacity 0.7s ease; }
+    .ppr-deco-hb { width: clamp(80px,9vw,120px); height: auto; display: block; filter: drop-shadow(0 4px 18px rgba(0,117,153,0.22)); }
+    .ppr-step { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; opacity: 0; transform: translateY(14px); transition: opacity 0.85s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.85s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .ppr-step.is-revealed { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       SEKCIA 4 — GALÉRIA / VÝSLEDOK
+       ═══════════════════════════════════════════ */
+    #projekt-galeria { padding: clamp(72px,10vh,110px) 0; background: #ffffff; }
+    .pg-header { text-align: center; margin-bottom: clamp(36px,5vh,56px); }
+    .pg-title { font-family: var(--font-head); font-size: clamp(24px,3vw,42px); font-weight: 400; color: var(--text-color); }
+    .pg-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 12px; }
+    .pg-left { display: flex; flex-direction: column; gap: 12px; }
+    .pg-right { display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+    .pg-right-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pg-img { overflow: hidden; border-radius: 2px; }
+    .pg-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .pg-img:hover img { transform: scale(1.03); }
+    .pg-img--tall { aspect-ratio: 4/3; }
+    .pg-img--wide { aspect-ratio: 16/7; }
+    .pg-img--square { aspect-ratio: 1/1; }
+    .pg-img--med { aspect-ratio: 4/3; }
+    .pg-caption { text-align: center; margin-top: 24px; font-family: var(--font-body); font-style: italic; font-size: clamp(12px,0.88vw,13.5px); color: var(--text-light); }
+
+    /* ═══════════════════════════════════════════
+       SEKCIA 5 — ČO PROJEKT PRINIESOL
+       ═══════════════════════════════════════════ */
+    #projekt-dopad { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
+    .pd-header { text-align: center; margin-bottom: clamp(48px,7vh,72px); }
+    .pd-title { font-family: var(--font-head); font-size: clamp(24px,3vw,42px); font-weight: 400; color: var(--text-color); }
+    .pd-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,2.5vw,32px); }
+    .pd-item { text-align: center; padding: clamp(28px,4vh,40px) clamp(16px,2vw,24px); border: 1px solid rgba(0,117,153,0.10); border-radius: 2px; background: #ffffff; }
+    .pd-icon { width: 64px; height: 64px; margin: 0 auto 20px; }
+    .pd-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(35%) sepia(90%) saturate(580%) hue-rotate(155deg) brightness(88%); }
+    .pd-item-title { font-family: var(--font-head); font-size: clamp(15px,1.3vw,20px); font-weight: 500; color: var(--text-color); margin-bottom: 12px; }
+    .pd-item-text { font-family: var(--font-body); font-size: clamp(12px,0.88vw,13.5px); color: var(--text-muted); line-height: 1.72; }
+
+    /* ═══════════════════════════════════════════
+       CTA SEKCIA
+       ═══════════════════════════════════════════ */
+    #projekt-cta { padding: clamp(72px,10vh,108px) 0; background: var(--bg-start); position: relative; overflow: hidden; }
+    #projekt-cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(250,248,245,0.93), rgba(250,248,245,0.93)), url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat; z-index: 0; pointer-events: none; }
+    #projekt-cta .projekt-cta-grid { position: relative; z-index: 1; }
+    .projekt-cta-grid { display: grid; grid-template-columns: 1.3fr 1px 1.2fr auto; gap: clamp(20px,3vw,40px); align-items: center; max-width: 960px; margin: 0 auto; }
+    .projekt-cta-sep { align-self: stretch; background: linear-gradient(to bottom, transparent, rgba(0,117,153,0.22) 30%, rgba(0,117,153,0.22) 70%, transparent); }
+    .projekt-cta-heading { font-family: var(--font-head); font-size: clamp(18px,1.7vw,26px); font-weight: 400; line-height: 1.25; color: var(--teal-dark); }
+    .projekt-cta-text { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,0.98vw,15px); color: var(--text-muted); line-height: 1.82; }
+    .projekt-cta-btn-col { display: flex; justify-content: flex-end; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+    .site-footer { position: relative; background: linear-gradient(rgba(248,246,242,0.82),rgba(248,246,242,0.82)), url('../Obrazky/Pozadie/pozadie sluzby.png'); background-size: cover; background-position: center right; color: #444444; padding: clamp(68px,9vh,92px) 0 clamp(28px,4vh,44px); overflow: hidden; z-index: 5; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 2fr 1.1fr; gap: 0; padding-bottom: 36px; align-items: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .footer-brand__logo { height: clamp(100px,11vw,145px); width: auto; display: block; transition: transform 0.35s ease, opacity 0.35s ease; }
+    .footer-brand__logo:hover { transform: scale(1.05); opacity: 0.85; }
+    .footer-brand__socials { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+    .footer-brand__social-link { text-decoration: none; }
+    .footer-brand__icon-wrap { position: relative; width: 42px; height: 42px; border-radius: 4px; overflow: hidden; background: transparent; border: 1px solid rgba(0,117,153,0.35); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 15px; transition: transform 0.3s, border-color 0.36s ease; }
+    .footer-brand__icon-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg,#1AA0C2 0%,#0D89AB 45%,#007898 100%); opacity: 0; transition: opacity 0.36s ease; pointer-events: none; z-index: 0; }
+    .footer-brand__icon-wrap i { position: relative; z-index: 1; transition: color 0.36s ease; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap { transform: translateY(-1px); border-color: transparent; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap::after { opacity: 1; }
+    .footer-brand__social-link:hover .footer-brand__icon-wrap i { color: white; }
+    .footer-mid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px,3vw,40px); padding: 0 clamp(44px,6vw,80px); position: relative; }
+    .footer-mid::before, .footer-mid::after { content: ''; position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom,transparent 0%,rgba(15,45,58,0.08) 30%,rgba(15,45,58,0.08) 70%,transparent 100%); }
+    .footer-mid::before { left: 0; }
+    .footer-mid::after { right: 0; }
+    .footer-col-title { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; margin: 4px 0 0; padding: 0; }
+    .footer-links a { display: block; font-size: 13.5px; color: #444444; text-decoration: none; line-height: 1; padding: 6px 0; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-col--right { padding-left: clamp(28px,3.5vw,48px); }
+    .footer-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #444444; }
+    .footer-contact-item i { color: var(--teal); font-size: 13px; flex-shrink: 0; }
+    .footer-bottom { position: relative; width: 100%; min-height: 60px; display: flex; align-items: center; background: linear-gradient(118deg,#005f7a 0%,#007599 45%,#00a3c9 80%,#005f7a 100%); border-top: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+    .footer-bottom > .container { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-copyright { font-size: 13px; color: rgba(255,255,255,0.90); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.80); text-decoration: none; transition: color 0.3s; }
+    .footer-legal a:hover { color: #ffffff; }
+    .footer__hb { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); pointer-events: none; z-index: 0; mix-blend-mode: screen; animation: hbHover 2.8s ease-in-out infinite alternate; }
+    @keyframes hbHover { 0% { transform: translate(-50%,-58%); } 100% { transform: translate(-50%,-42%); } }
+    .footer__hb video { width: clamp(52px,5.5vw,70px); filter: grayscale(100%) contrast(200%) brightness(3.5); opacity: 0.65; display: block; }
+
+    /* ═══════════════════════════════════════════
+       DATA-REVEAL ANIMÁCIE
+       ═══════════════════════════════════════════ */
+    [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+    [data-delay="1"] { transition-delay: 0.1s; }
+    [data-delay="2"] { transition-delay: 0.2s; }
+    [data-delay="3"] { transition-delay: 0.3s; }
+
+    /* ═══════════════════════════════════════════
+       RESPONZIVITA
+       ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .ph-grid { grid-template-columns: 1fr; }
+      .ph-image { max-width: 600px; }
+      .ppk-grid { grid-template-columns: 1fr; }
+      .ppr-steps { flex-wrap: wrap; gap: 24px; justify-content: flex-start; }
+      .ppr-dash { display: none; }
+      .ppr-step { max-width: 140px; }
+      .pd-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-mid { padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+    @media (max-width: 768px) {
+      .header__nav { display: none; }
+      .header__burger { display: flex; }
+      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(25,27,28,0.96); backdrop-filter: blur(15px); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; }
+      .header__nav.mobile-active a { color: var(--white) !important; font-size: 15px; letter-spacing: 0.15em; }
+      .header__nav.mobile-active a::after { display: none; }
+      .pg-grid { grid-template-columns: 1fr; }
+      .pg-right-bottom { grid-template-columns: 1fr 1fr; }
+      .projekt-cta-grid { grid-template-columns: 1fr; }
+      .projekt-cta-sep { display: none; }
+      .projekt-cta-btn-col { justify-content: flex-start; }
+      .pd-grid { grid-template-columns: 1fr; }
+      .ph-meta { flex-wrap: wrap; gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-mid { flex-direction: column; gap: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER
+       ══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a href="../index.html" class="header__logo" aria-label="Soul Design – domov">
+      <img src="../Obrazky/Logo/Logo do hlavicky.png" alt="Soul Design" loading="eager" />
+    </a>
+    <nav aria-label="Hlavná navigácia">
+      <ul class="header__nav">
+        <li><a href="../index.html">Úvod</a></li>
+        <li class="nav-has-drop">
+          <a href="sluzby.html">Služby <span class="nav-drop__arrow" aria-hidden="true"></span></a>
+          <ul class="nav-dropdown" aria-label="Podstránky služieb">
+            <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
+            <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+            <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+            <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
+          </ul>
+        </li>
+        <li><a href="cennik.html">Cenník</a></li>
+        <li><a href="o-mne.html">O mne</a></li>
+        <li><a href="kontakt.html" class="nav__cta">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="header__burger" aria-label="Otvoriť menu" aria-expanded="false" id="burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIA 1 — PROJEKT HERO
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-hero">
+    <div class="container">
+      <div class="ph-grid">
+
+        <div class="ph-left" data-reveal>
+          <!-- KATEGÓRIA — napr. Branding, Grafický dizajn, Web -->
+          <span class="ph-category">Branding</span>
+
+          <!-- NÁZOV PROJEKTU -->
+          <h1 class="ph-title">Názov <span class="title-grad">projektu.</span></h1>
+
+          <!-- KRÁTKY PODNADPIS -->
+          <p class="ph-subtitle">Krátky podnadpis alebo opis projektu v jednej vete.</p>
+
+          <div class="ph-divider" aria-hidden="true"></div>
+
+          <!-- POPIS PROJEKTU -->
+          <p class="ph-desc">Tento projekt vznikol s cieľom vytvoriť vizuálnu identitu, ktorá odráža podstatu značky, jej hodnoty a zároveň osloví správnych ľudí. Každý detail má svoj význam a spolu tvoria harmonický celok.</p>
+
+          <!-- METADÁTA -->
+          <div class="ph-meta">
+            <div class="ph-meta-item">
+              <span class="ph-meta-label">Klient</span>
+              <span class="ph-meta-value">Názov klienta</span>
+            </div>
+            <div class="ph-meta-item">
+              <span class="ph-meta-label">Rok</span>
+              <span class="ph-meta-value">2024</span>
+            </div>
+            <div class="ph-meta-item">
+              <span class="ph-meta-label">Služby</span>
+              <span class="ph-meta-value">Branding, Tlačoviny, Sociálne siete</span>
+            </div>
+          </div>
+
+          <!-- SPÄŤ NA PREHĽAD -->
+          <a href="#" class="ph-back">
+            <span class="ph-back__arrow" aria-hidden="true">←</span>
+            Späť na prehľad prác
+          </a>
+        </div>
+
+        <!-- HLAVNÝ OBRÁZOK PROJEKTU -->
+        <div class="ph-image" data-reveal data-delay="1">
+          <!-- Nahradte src vlastným obrázkom -->
+          <!-- <img src="../Obrazky/Portfolio/nazov-projektu/hlavny.jpg" alt="Názov projektu" loading="eager" /> -->
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Obrázok projektu</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIA 2 — PREČO A PRE KOHO
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-preco">
+    <div class="container">
+
+      <div class="ppk-header" data-reveal>
+        <h2 class="ppk-title">Prečo a pre koho projekt <span class="title-grad">vznikol?</span></h2>
+        <span class="section-label" style="margin-top:0;margin-bottom:0;">O projekte</span>
+        <div class="section-accent" aria-hidden="true"></div>
+      </div>
+
+      <div class="ppk-grid">
+
+        <div class="ppk-text" data-reveal>
+          <!-- ĽAVÝ TEXT — kontext a pozadie projektu -->
+          <p>Tu je priestor priblížiť klienta, jeho príbeh, víziu a ciele projektu. Pár vetami vysvetlite, aká bola výzva, čo bolo dôležité zohľadniť a aké riešenie ste navrhli.</p>
+          <p>Pomôže to návštevníkovi lepšie pochopiť pozadie projektu a vytvoriť emocionálne spojenie s vašou prácou.</p>
+        </div>
+
+        <div class="ppk-cards" data-reveal data-delay="1">
+
+          <!-- KARTA: CIEĽ -->
+          <div class="ppk-card">
+            <div class="ppk-card-icon">
+              <img src="../Obrazky/Ikony/projektova podpora/1.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppk-card-content">
+              <span class="ppk-card-title">Cieľ</span>
+              <p class="ppk-card-text">Aký bol hlavný cieľ projektu a čo mal dizajn dosiahnuť.</p>
+            </div>
+          </div>
+
+          <!-- KARTA: VÝZVA -->
+          <div class="ppk-card">
+            <div class="ppk-card-icon">
+              <img src="../Obrazky/Ikony/projektova podpora/nacitenie.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppk-card-content">
+              <span class="ppk-card-title">Výzva</span>
+              <p class="ppk-card-text">S akými výzvami alebo potrebami klient prichádzal.</p>
+            </div>
+          </div>
+
+          <!-- KARTA: RIEŠENIE -->
+          <div class="ppk-card">
+            <div class="ppk-card-icon">
+              <img src="../Obrazky/Ikony/projektova podpora/kreativita.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppk-card-content">
+              <span class="ppk-card-title">Riešenie</span>
+              <p class="ppk-card-text">Aké riešenie ste navrhli a ako ste k nemu pristúpili.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIA 3 — PROCES TVORBY
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-proces">
+    <div class="container">
+
+      <div class="ppr-header" data-reveal>
+        <h2 class="ppr-title">Proces <span class="title-grad">tvorby.</span></h2>
+        <span class="section-label" style="margin-top:0;margin-bottom:0;">Ako sme pracovali</span>
+        <div class="section-accent" aria-hidden="true"></div>
+      </div>
+
+      <div id="ppr-anim-wrap">
+
+        <!-- SVG priamka + kolibrik -->
+        <div class="ppr-svg-layer" id="ppr-svg-layer" aria-hidden="true">
+          <svg id="ppr-svg" class="ppr-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="ppr-line-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#005f7a" />
+                <stop offset="45%"  stop-color="#007599" />
+                <stop offset="100%" stop-color="#00a3c9" />
+              </linearGradient>
+              <clipPath id="ppr-clip">
+                <rect id="ppr-clip-rect" x="-2" y="-20" width="0" height="100" />
+              </clipPath>
+            </defs>
+            <path class="ppr-path-bg"  d="M 0,30 L 1200,30" />
+            <path id="ppr-path" class="ppr-path-line" d="M 0,30 L 1200,30" clip-path="url(#ppr-clip)" />
+          </svg>
+          <div class="ppr-deco-hb-wrap" id="ppr-deco-hb-wrap">
+            <img class="ppr-deco-hb" src="../Obrazky/Logo/Kolibrik logo.png" alt="" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Kroky -->
+        <div class="ppr-steps" id="ppr-steps-row">
+
+          <div class="ppr-step" id="ppr-node-0">
+            <div class="ppr-hex-wrap">
+              <img src="../Obrazky/Ikony/Ako to funguje/5.png" class="ppr-step-icon" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppr-step-body">
+              <span class="ppr-step-num">01.</span>
+              <span class="ppr-step-name">Analýza</span>
+              <p class="ppr-step-desc">Spolu sme prešli ciele, hodnoty a cieľovú skupinu značky.</p>
+            </div>
+          </div>
+
+          <div class="ppr-step" id="ppr-node-1">
+            <div class="ppr-hex-wrap">
+              <img src="../Obrazky/Ikony/Ako to funguje/6.png" class="ppr-step-icon" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppr-step-body">
+              <span class="ppr-step-num">02.</span>
+              <span class="ppr-step-name">Koncept</span>
+              <p class="ppr-step-desc">Vytvorila som niekoľko kreatívnych konceptov a smerovaní.</p>
+            </div>
+          </div>
+
+          <div class="ppr-step" id="ppr-node-2">
+            <div class="ppr-hex-wrap">
+              <img src="../Obrazky/Ikony/Ako to funguje/7.png" class="ppr-step-icon" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppr-step-body">
+              <span class="ppr-step-num">03.</span>
+              <span class="ppr-step-name">Návrh</span>
+              <p class="ppr-step-desc">Detailne som rozpracovala vybraný koncept do finálnej vizuálnej podoby.</p>
+            </div>
+          </div>
+
+          <div class="ppr-step" id="ppr-node-3">
+            <div class="ppr-hex-wrap">
+              <img src="../Obrazky/Ikony/Ako to funguje/8.png" class="ppr-step-icon" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppr-step-body">
+              <span class="ppr-step-num">04.</span>
+              <span class="ppr-step-name">Úpravy</span>
+              <p class="ppr-step-desc">Na základe spätnej väzby sme doladili detaily do dokonalosti.</p>
+            </div>
+          </div>
+
+          <div class="ppr-step" id="ppr-node-4">
+            <div class="ppr-hex-wrap">
+              <img src="../Obrazky/Ikony/Ako to funguje/9.png" class="ppr-step-icon" alt="" aria-hidden="true" />
+            </div>
+            <div class="ppr-step-body">
+              <span class="ppr-step-num">05.</span>
+              <span class="ppr-step-name">Odovzdanie</span>
+              <p class="ppr-step-desc">Pripravila som všetky potrebné výstupy na použitie.</p>
+            </div>
+          </div>
+
+        </div><!-- /#ppr-steps-row -->
+      </div><!-- /#ppr-anim-wrap -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIA 4 — GALÉRIA / VÝSLEDOK
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-galeria">
+    <div class="container">
+
+      <div class="pg-header" data-reveal>
+        <h2 class="pg-title">Vizuálna identita v <span class="title-grad">praxi.</span></h2>
+        <span class="section-label" style="margin-top:0;margin-bottom:0;">Výsledok</span>
+        <div class="section-accent" aria-hidden="true"></div>
+      </div>
+
+      <div class="pg-grid" data-reveal>
+
+        <div class="pg-left">
+          <!-- Obrázok ľavý hore -->
+          <div class="pg-img pg-img--tall">
+            <!-- <img src="../Obrazky/Portfolio/nazov-projektu/galeria-1.jpg" alt="" loading="lazy" /> -->
+            <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          </div>
+          <!-- Obrázok ľavý dole -->
+          <div class="pg-img pg-img--wide">
+            <!-- <img src="../Obrazky/Portfolio/nazov-projektu/galeria-2.jpg" alt="" loading="lazy" /> -->
+            <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          </div>
+        </div>
+
+        <div class="pg-right">
+          <!-- Obrázok pravý hore (veľký) -->
+          <div class="pg-img pg-img--med">
+            <!-- <img src="../Obrazky/Portfolio/nazov-projektu/galeria-3.jpg" alt="" loading="lazy" /> -->
+            <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          </div>
+          <!-- Dva obrázky pravý dole -->
+          <div class="pg-right-bottom">
+            <div class="pg-img pg-img--square">
+              <!-- <img src="../Obrazky/Portfolio/nazov-projektu/galeria-4.jpg" alt="" loading="lazy" /> -->
+              <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+            </div>
+            <div class="pg-img pg-img--square">
+              <!-- <img src="../Obrazky/Portfolio/nazov-projektu/galeria-5.jpg" alt="" loading="lazy" /> -->
+              <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="pg-caption" data-reveal>Ukážky aplikácie vizuálnej identity na rôznych nosičoch a v praxi.</p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SEKCIA 5 — ČO PROJEKT PRINIESOL
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-dopad">
+    <div class="container">
+
+      <div class="pd-header" data-reveal>
+        <h2 class="pd-title">Čo projekt <span class="title-grad">priniesol.</span></h2>
+        <span class="section-label" style="margin-top:0;margin-bottom:0;">Dopad projektu</span>
+        <div class="section-accent" aria-hidden="true"></div>
+      </div>
+
+      <div class="pd-grid">
+
+        <div class="pd-item" data-reveal data-delay="1">
+          <div class="pd-icon">
+            <img src="../Obrazky/Ikony/hlavne vyhody/2.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="pd-item-title">Silnejšia značka</h3>
+          <p class="pd-item-text">Jednotná vizuálna identita pomáha značke vyniknúť a budovať dôveru.</p>
+        </div>
+
+        <div class="pd-item" data-reveal data-delay="2">
+          <div class="pd-icon">
+            <img src="../Obrazky/Ikony/projektova podpora/usmev.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="pd-item-title">Spojenie s klientom</h3>
+          <p class="pd-item-text">Dizajn, ktorý odráža hodnoty značky, oslovuje správnych ľudí.</p>
+        </div>
+
+        <div class="pd-item" data-reveal data-delay="3">
+          <div class="pd-icon">
+            <img src="../Obrazky/Ikony/hlavne vyhody/4.png" alt="" aria-hidden="true" />
+          </div>
+          <h3 class="pd-item-title">Priestor na rast</h3>
+          <p class="pd-item-text">Vizuálna identita je pripravená podporiť budúci rast a nové príležitosti.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       CTA SEKCIA
+       ══════════════════════════════════════════════ -->
+  <section id="projekt-cta">
+    <div class="container">
+      <div class="projekt-cta-grid" data-reveal>
+
+        <h2 class="projekt-cta-heading">Máte projekt, ktorý si zaslúži premyslený a <span class="title-grad">krásny dizajn?</span></h2>
+
+        <div class="projekt-cta-sep" aria-hidden="true"></div>
+
+        <p class="projekt-cta-text">Rada vám pomôžem premeniť vaše nápady na vizuálnu realitu.</p>
+
+        <div class="projekt-cta-btn-col">
+          <a class="cta-btn cta-btn--filled" href="kontakt.html">
+            <span class="cta-btn__left">
+              <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+              <span class="cta-btn__divider" aria-hidden="true"></span>
+              <span class="cta-btn__text" style="margin-left:8px;">Prepojme sa</span>
+            </span>
+            <span class="cta-btn__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Pätička stránky">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="../Obrazky/Logo/Hlavne logo.png" alt="Soul Design" class="footer-brand__logo" loading="lazy" />
+          <div class="footer-brand__socials">
+            <a href="https://www.facebook.com/alex.fecikova" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-rudyova-469001156/" class="footer-brand__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <div class="footer-brand__icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-mid">
+          <div class="footer-col">
+            <div class="footer-col-title">Navigácia</div>
+            <ul class="footer-links">
+              <li><a href="../index.html">Úvod</a></li>
+              <li><a href="sluzby.html">Služby</a></li>
+              <li><a href="cennik.html">Cenník</a></li>
+              <li><a href="o-mne.html">O mne</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Služby</div>
+            <ul class="footer-links">
+              <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
+              <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
+              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
+              <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--right">
+          <div class="footer-col-title">Kontakty</div>
+          <div class="footer-contact-item"><i class="fa-regular fa-user"></i><span>Alex Rudyová</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Študentská 2046/39<br>069 01 Snina</span></div>
+          <div class="footer-contact-item"><i class="fa-regular fa-envelope"></i><span>info@souldesign.sk</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-copyright">&copy; <span id="copyright-year"></span> Soul Design. Všetky práva vyhradené.</div>
+        <div class="footer-legal">
+          <a href="/ochrana-udajov">Ochrana údajov</a>
+          <span aria-hidden="true" style="color:rgba(255,255,255,0.35);">·</span>
+          <a href="/cookies">Cookies</a>
+        </div>
+      </div>
+      <div class="footer__hb" aria-hidden="true">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="../Obrazky/Logo/video kolibrik.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* ── Header scroll glass efekt ── */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Header burger ── */
+    const burger = document.getElementById('burger-btn');
+    const nav    = document.querySelector('.header__nav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        nav.classList.toggle('mobile-active', !isOpen);
+      });
+    }
+
+    /* ── Copyright rok ── */
+    const yr = document.getElementById('copyright-year');
+    if (yr) yr.textContent = new Date().getFullYear();
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    /* ── Proces tvorby — kolibrik letí po priamke ── */
+    (function () {
+      const wrap     = document.getElementById('ppr-anim-wrap');
+      const layer    = document.getElementById('ppr-svg-layer');
+      const pathEl   = document.getElementById('ppr-path');
+      const hbWrap   = document.getElementById('ppr-deco-hb-wrap');
+      const stepsRow = document.getElementById('ppr-steps-row');
+      if (!wrap || !layer || !pathEl || !hbWrap || !stepsRow) return;
+
+      const steps     = Array.from(stepsRow.querySelectorAll('.ppr-step'));
+      const triggered = steps.map(() => false);
+      const DUR       = 6000;
+      const NODE_T    = [0.10, 0.30, 0.50, 0.70, 0.90];
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        steps.forEach((s, i) => setTimeout(() => s.classList.add('is-revealed'), i * 160));
+        return;
+      }
+
+      function animate() {
+        const svgEl    = document.getElementById('ppr-svg');
+        const wrapRect = wrap.getBoundingClientRect();
+        const svgRect  = svgEl.getBoundingClientRect();
+
+        /* zarovnaj SVG layer tak, aby priamka (y=30 v SVG) šla stredom hexagónov */
+        const firstHex   = steps[0].querySelector('.ppr-hex-wrap');
+        const hexRect0   = firstHex.getBoundingClientRect();
+        const hexCenterY = hexRect0.top - wrapRect.top + hexRect0.height / 2;
+        layer.style.top  = (hexCenterY - 30) + 'px';
+
+        /* vypočítaj segmentovanú cestu — linka ide LEN medzi hexagónmi, nie cez ne */
+        const toSVG = 1200 / svgRect.width;
+        const gapPx = 14; /* pixel medzera medzi linkou a okrajom hexagónu */
+        let segPath = '';
+        steps.forEach((step, i) => {
+          const hBR  = step.querySelector('.ppr-hex-wrap').getBoundingClientRect();
+          const hexL = (hBR.left  - svgRect.left - gapPx) * toSVG;
+          const hexR = (hBR.right - svgRect.left + gapPx) * toSVG;
+          const segS = i === 0 ? 0 : (steps[i-1].querySelector('.ppr-hex-wrap').getBoundingClientRect().right - svgRect.left + gapPx) * toSVG;
+          if (hexL > segS) segPath += 'M ' + segS.toFixed(1) + ',30 L ' + hexL.toFixed(1) + ',30 ';
+          if (i === steps.length - 1 && hexR < 1200) segPath += 'M ' + hexR.toFixed(1) + ',30 L 1200,30';
+        });
+        const finalPath = segPath.trim() || 'M 0,30 L 1200,30';
+        pathEl.setAttribute('d', finalPath);
+        document.querySelector('.ppr-path-bg').setAttribute('d', finalPath);
+
+        const clipRect = document.getElementById('ppr-clip-rect');
+        hbWrap.style.opacity    = '1';
+        hbWrap.style.willChange = 'transform';
+
+        const hbW = hbWrap.offsetWidth;
+        const hbH = hbWrap.offsetHeight;
+        let startTs = null;
+
+        function frame(ts) {
+          if (!startTs) startTs = ts;
+          const p = Math.min(1, (ts - startTs) / DUR);
+
+          /* kolibrik letí lineárne zľava doprava (priamka) */
+          hbWrap.style.transform = 'translate(' + (p * svgRect.width - hbW / 2) + 'px,' + (30 - hbH / 2) + 'px)';
+
+          if (clipRect) clipRect.setAttribute('width', String(Math.max(0, p * 1200 + 3)));
+
+          /* plynulé strácanie sa na konci — posledných 28 % letu */
+          const fadeStart = 0.72;
+          if (p > fadeStart) {
+            hbWrap.style.transition = 'none';
+            hbWrap.style.opacity = String(Math.max(0, 1 - (p - fadeStart) / (1 - fadeStart)).toFixed(3));
+          }
+
+          NODE_T.forEach((threshold, i) => {
+            if (!triggered[i] && p >= threshold) {
+              triggered[i] = true;
+              setTimeout(() => steps[i].classList.add('is-revealed'), i * 120);
+            }
+          });
+
+          if (p < 1) requestAnimationFrame(frame);
+          else { hbWrap.style.willChange = 'auto'; }
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) { setTimeout(animate, 400); obs.disconnect(); }
+      }, { threshold: 0.25 });
+      obs.observe(wrap);
+    })();
+  </script>
+
+</body>
+</html>

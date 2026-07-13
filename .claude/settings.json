@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(git -C \"c:/Users/Uzivatel/Desktop/VC Weby/Web Souldesign/Web Souldesign\" diff HEAD podstranky/tvorba-web-stranok.html)"
+    ]
+  }
+}

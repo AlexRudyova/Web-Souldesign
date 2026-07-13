@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
@@ -399,10 +399,9 @@
 
     /* ── Dekoratívna linka pod nadpisom ── */
     .sub-hero__divider {
-      width: 44px;
-      height: 2px;
-      background: linear-gradient(90deg, #005f7a, #00a3c9);
-      border-radius: 2px;
+      width: 64px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #005f7a 25%, #00a3c9 75%, transparent);
       margin: clamp(14px, 2vh, 20px) 0 clamp(28px, 4vh, 38px);
     }
 
@@ -568,13 +567,13 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: rgba(25, 27, 28, 0.96);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        top: 100%; right: 16px; left: auto; width: max-content;
+        background: rgba(244, 242, 238, 0.80);
+        backdrop-filter: blur(18px) saturate(1.5);
+        -webkit-backdrop-filter: blur(18px) saturate(1.5);
         padding: 30px 40px;
         gap: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid rgba(0, 117, 153, 0.12);
         z-index: 200;
         animation: mobileMenuSlideDown 0.3s ease-out forwards;
       }
@@ -592,8 +591,8 @@
 
       .header__nav.mobile-active a::after { display: none; }
 
-      .site-header { padding: 16px 24px; }
-      .site-header.scrolled { padding: 12px 24px; }
+      .site-header { padding: 12px 24px; }
+      .site-header.scrolled { padding: 9px 24px; }
     }
   </style>
 </head>
@@ -721,6 +720,13 @@
           nav.classList.remove('mobile-active');
         });
       });
+      // Zatvoriť menu pri scrollovaní
+      window.addEventListener('scroll', () => {
+        if (nav.classList.contains('mobile-active')) {
+          nav.classList.remove('mobile-active');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
     }
   </script>
 

@@ -356,10 +356,9 @@
     }
 
     .sub-hero__divider {
-      width: 44px;
-      height: 2px;
-      background: linear-gradient(90deg, #005f7a, #00a3c9);
-      border-radius: 2px;
+      width: 64px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #005f7a 25%, #00a3c9 75%, transparent);
       margin: clamp(14px, 2vh, 20px) 0 clamp(28px, 4vh, 38px);
     }
 
@@ -922,153 +921,29 @@
        10. ZÁVEREČNÁ CTA SEKCIA
        ═══════════════════════════════════════════════ */
     #cta-bottom {
-      position: relative;
+      padding: clamp(72px,10vh,108px) 0;
       background: var(--bg-start);
-      padding: clamp(80px, 11vh, 120px) 0 clamp(80px, 11vh, 120px);
+      position: relative;
       overflow: hidden;
     }
-
     #cta-bottom::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(rgba(250,248,245,0.93), rgba(250,248,245,0.93)),
-        url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat;
+      background: linear-gradient(rgba(250,248,245,0.93), rgba(250,248,245,0.93)), url('../Obrazky/Pozadie/pozadie sluzby.png') center/cover no-repeat;
       z-index: 0;
       pointer-events: none;
     }
-
-    .cta-divider {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      margin: 0;
-      line-height: 0;
-    }
-
-    .cta-divider img {
-      height: 115px;
-      width: auto;
-      opacity: 1;
-      margin-top: -36px;
-      margin-bottom: -20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-bottom__inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .cta-bottom__content {
-      max-width: 680px;
-      text-align: center;
-    }
-
-    /* H2 — identické so section-title na homepage */
-    .cta-bottom__h2 {
-      font-family: var(--font-head);
-      font-weight: 400;
-      font-size: clamp(22px, 2.4vw, 36px);
-      color: var(--text-color);
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-      margin-bottom: 0;
-    }
-
-    .cta-bottom__rule {
-      width: 36px;
-      height: 1.5px;
-      background: linear-gradient(90deg, #005f7a, #00a3c9);
-      border-radius: 2px;
-      margin: 0 auto clamp(18px, 2.6vh, 28px);
-    }
-
-    .cta-bottom__text {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: clamp(14px, 1.1vw, 17px);
-      line-height: 1.75;
-      color: var(--text-muted);
-      margin-bottom: clamp(48px, 6vh, 70px);
-    }
-
-    /* Outline CTA button (štýl z homepage) */
-    .btn-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 30px;
-      border-radius: 14px 0;
-      font-family: var(--font-body);
-      font-size: clamp(13px, 1vw, 15px);
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--white);
-      text-decoration: none;
-      cursor: pointer;
-      position: relative;
-      border: 1px solid rgba(0, 117, 153, 0.15);
-      background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal) 100%);
-      box-shadow: 0 6px 24px rgba(0, 117, 153, 0.2);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-      isolation: isolate;
-    }
-
-    .btn-brand:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0, 117, 153, 0.3);
-    }
-
-    .btn-brand::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 14px 0;
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-glow) 100%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: -1;
-    }
-
-    .btn-brand:hover::after { opacity: 1; }
-
-    .btn-brand__arrow {
-      display: flex;
-      align-items: center;
-      transition: transform 0.3s;
-    }
-
-    .btn-brand:hover .btn-brand__arrow { transform: translateX(4px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--teal);
-      border: 1px solid var(--teal);
-      box-shadow: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline:hover {
-      color: var(--white);
-      background: var(--teal);
-      box-shadow: 0 8px 24px rgba(0, 117, 153, 0.15);
-    }
-
-    .btn-brand__icon {
-      height: auto;
-      max-width: 32px;
-      max-height: 28px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      flex-shrink: 0;
+    #cta-bottom .cta-grid { position: relative; z-index: 1; }
+    .cta-grid { display: grid; grid-template-columns: 1.3fr 1px 1.4fr 1px auto; gap: clamp(20px,3vw,40px); align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-grid-sep { align-self: stretch; background: linear-gradient(to bottom, transparent 0%, rgba(0,117,153,0.22) 30%, rgba(0,117,153,0.22) 70%, transparent 100%); }
+    .cta-grid-heading { font-family: var(--font-head); font-size: clamp(18px,1.7vw,26px); font-weight: 400; line-height: 1.25; color: var(--teal-dark); }
+    .cta-grid-text { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,0.98vw,15px); color: var(--text-muted); line-height: 1.82; }
+    .cta-grid-btn-col { display: flex; justify-content: flex-end; }
+    @media (max-width: 860px) {
+      .cta-grid { grid-template-columns: 1fr; text-align: center; }
+      .cta-grid-sep { display: none; }
+      .cta-grid-btn-col { justify-content: center; }
     }
 
     /* ═══════════════════════════════════════════════
@@ -1318,15 +1193,17 @@
       .header__burger { display: flex; }
       .header__nav.mobile-active {
         display: flex; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(25, 27, 28, 0.96);
-        backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        position: absolute; top: 100%; right: 16px; left: auto; width: max-content;
+        background: rgba(244, 242, 238, 0.80);
+        backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5);
         padding: 30px 40px; gap: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid rgba(0, 117, 153, 0.12);
         z-index: 200;
       }
-      .header__nav.mobile-active a { color: var(--white) !important; font-size: 15px; letter-spacing: 0.15em; }
+      .header__nav.mobile-active a { color: var(--text-color) !important; font-size: 13px; letter-spacing: 0.12em; }
       .header__nav.mobile-active a::after { display: none; }
+      .site-header { padding: 12px 24px; }
+      .site-header.scrolled { padding: 9px 24px; }
       .preco-grid { grid-template-columns: repeat(2, 1fr); }
       .sv3-item { grid-template-columns: 1fr; }
     }
@@ -1334,6 +1211,23 @@
     @media (max-width: 480px) {
       .preco-grid { grid-template-columns: 1fr; }
     }
+
+    /* ═══════════════════════════════════════════════
+       SKÚSENOSTI – SEKCIA
+    ═══════════════════════════════════════════════ */
+    #podpora-experience { padding: clamp(72px,10vh,110px) 0; background: var(--bg-start); }
+    .pe-intro { text-align: center; margin-bottom: clamp(40px,6vh,60px); }
+    .pe-intro-sub { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,1vw,16px); color: var(--text-muted); max-width: 640px; margin: 28px auto 0; line-height: 1.8; }
+    .pe-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(20px,2.5vw,36px); }
+    .pe-col { background: #ffffff; border: 1px solid rgba(0,117,153,0.10); border-radius: 12px; padding: clamp(28px,4vh,40px) clamp(20px,2vw,28px); }
+    .pe-col-icon { margin-bottom: 16px; }
+    .pe-col-icon img { width: 80px; height: 80px; object-fit: contain; }
+    .pe-col-icon img.teal-icon { filter: brightness(0) invert(35%) sepia(90%) saturate(580%) hue-rotate(155deg) brightness(88%); }
+    .pe-col-title { font-family: var(--font-head); font-size: clamp(15px,1.2vw,19px); font-weight: 500; color: var(--text-color); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,117,153,0.12); }
+    .pe-item { margin-bottom: 16px; }
+    .pe-item:last-child { margin-bottom: 0; }
+    .pe-item-title { font-family: var(--font-body); font-size: clamp(11px,0.82vw,12.5px); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .pe-item-text { font-size: clamp(12px,0.82vw,13.5px); color: var(--text-muted); line-height: 1.72; }
 
     /* ═══════════════════════════════════════════════
        REFERENCIE – SEKCIA
@@ -1883,6 +1777,82 @@
 
 
   <!-- ══════════════════════════════════════════════
+       SKÚSENOSTI
+       ══════════════════════════════════════════════ -->
+  <section id="podpora-experience" aria-labelledby="podpora-experience-title">
+    <div class="container">
+      <div class="pe-intro" data-reveal>
+        <h2 class="section-title" id="podpora-experience-title">Čo na to moje <span class="title-grad">skúsenosti?</span></h2>
+        <span class="section-label" style="margin-top:10px; margin-bottom:0;">Neustále sa rozvíjam a posúvam vpred</span>
+        <p class="pe-intro-sub">Rada a rýchlo sa učím nové veci a neustále sa vzdelávam. Vo svojej každodennej práci využívam moderné technológie a nástroje. Ovládam prstoklad a všetko okolo administratívy ma proste neskutočne baví.</p>
+      </div>
+      <div class="pe-grid">
+        <div class="pe-col" data-reveal data-delay="1">
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/1.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="pe-col-title">V čom som doma?</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Web development & Vibe Coding</div>
+            <div class="pe-item-text">Tvorba moderných webových stránok s využitím AI a vibe codingu. Vytváram rýchle, čisté a funkčné weby, ktoré nie sú závislé od množstva pluginov a zbytočnej administrácie.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Web dizajn a online projekty</div>
+            <div class="pe-item-text">Tvorba moderných webových stránok, UX myslenie, landing pages, úpravy a správa webov.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Grafika a vizuálna identita</div>
+            <div class="pe-item-text">Canva, Figma, AI nástroje, tvorba vizuálov, branding, grafiky pre sociálne siete a reklamné kampane.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">AI a automatizácie</div>
+            <div class="pe-item-text">Moderné AI riešenia, technické nastavenia, online platformy, prepájanie nástrojov a zjednodušovanie procesov.</div>
+          </div>
+        </div>
+        <div class="pe-col" data-reveal data-delay="2">
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/2.png" alt="" aria-hidden="true" loading="lazy" class="teal-icon" /></div>
+          <div class="pe-col-title">Moje vzdelanie</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Webařce pod rukou</div>
+            <div class="pe-item-text">Tvorba vibe coding webov. Web developerský kurz a práca s DIVI.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Grafický dizajn a vizuálna identita</div>
+            <div class="pe-item-text">Akreditované vzdelávanie Web Graphic Designer & Web Developer, Adobe nástroje, Figma a Canva.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">AI a digitálny marketing</div>
+            <div class="pe-item-text">AI nástroje v marketingu, tvorba videí, automatizácie, PPC reklama a moderné online stratégie.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Anglický jazyk</div>
+            <div class="pe-item-text">National Certificate English Level I – Stanmore College, London.</div>
+          </div>
+        </div>
+        <div class="pe-col" data-reveal data-delay="3">
+          <div class="pe-col-icon"><img src="../Obrazky/Ikony/projektova podpora/3.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="pe-col-title">Moje hodnoty</div>
+          <div class="pe-item">
+            <div class="pe-item-title">Tvoriť so zmyslom</div>
+            <div class="pe-item-text">Každý projekt vnímam ako jedinečný príbeh. Hľadám riešenia, ktoré sú nielen pekné, ale aj funkčné.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Rast a sloboda bytia</div>
+            <div class="pe-item-text">Rada sa neustále rozvíjam, učím nové veci a posúvam sa vpred.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Zvedavosť</div>
+            <div class="pe-item-text">Technológie sa menia každý deň. Baví ma objavovať nové možnosti a premieňať ich na praktické riešenia pre klientov.</div>
+          </div>
+          <div class="pe-item">
+            <div class="pe-item-title">Príroda a vnútorná rovnováha</div>
+            <div class="pe-item-text">Najlepšie nápady prichádzajú v tichu. Príroda je miestom, kde čerpám energiu, pokoj aj novú inšpiráciu.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
        REFERENCIE
        ══════════════════════════════════════════════ -->
   <section id="referencie" aria-labelledby="testimonials-title">
@@ -2156,32 +2126,31 @@
   <!-- ══════════════════════════════════════════════
        PREČO SPOLUPRACOVAŤ SO MNOU
        ══════════════════════════════════════════════ -->
-  <section id="cta-bottom" aria-labelledby="cta-bottom-title">
+  <section id="cta-bottom" aria-label="Výzva na kontakt">
     <div class="container">
-      <div class="cta-bottom__inner">
+      <div class="cta-grid">
 
-        <div class="cta-bottom__content" data-reveal>
-          <h2 class="cta-bottom__h2" id="cta-bottom-title">
-            Pripravení posunúť svoju značku<br>na vyššiu <span class="title-grad">úroveň?</span>
-          </h2>
-          <div class="cta-divider" aria-hidden="true">
-            <img src="../Obrazky/Ikony/Devider.png" alt="" />
-          </div>
-          <p class="cta-bottom__text">
-            Venujte sa svojmu podnikaniu a talentom naplno a veci, ktoré vás zaťažujú zverte do mojich rúk. Pomôžem vám zrealizovať váš sen o online podnikaní.
-          </p>
-          <a class="cta-btn cta-btn--filled" href="kontakt.html">
+        <h2 class="cta-grid-heading" id="cta-bottom-title" data-reveal>
+          Pripravení posunúť svoju značku o <span class="title-grad">úroveň vyššie?</span>
+        </h2>
+
+        <div class="cta-grid-sep" aria-hidden="true"></div>
+
+        <p class="cta-grid-text" data-reveal data-delay="1">
+          Venujte sa svojmu podnikaniu a talentom naplno a veci, ktoré vás zaťažujú zverte do mojich rúk. Pomôžem vám zrealizovať váš sen o online podnikaní.
+        </p>
+
+        <div class="cta-grid-sep" aria-hidden="true"></div>
+
+        <div class="cta-grid-btn-col" data-reveal data-delay="2">
+          <a href="kontakt.html" class="cta-btn cta-btn--filled">
             <span class="cta-btn__left">
-              <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png"
-                   alt="" aria-hidden="true" draggable="false" />
+              <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
               <span class="cta-btn__divider" aria-hidden="true"></span>
               <span class="cta-btn__text">Konzultácia zdarma</span>
             </span>
             <span class="cta-btn__arrow" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <line x1="3" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                <polyline points="14,6 20,12 14,18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
           </a>
         </div>
@@ -2296,6 +2265,13 @@
           nav.classList.remove('mobile-active');
         });
       });
+      // Zatvoriť menu pri scrollovaní
+      window.addEventListener('scroll', () => {
+        if (nav.classList.contains('mobile-active')) {
+          nav.classList.remove('mobile-active');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
     }
 
     /* ── Copyright year ── */

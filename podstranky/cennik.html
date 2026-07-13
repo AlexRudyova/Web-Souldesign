@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
@@ -67,7 +67,7 @@
     .sub-hero__content { position: relative; z-index: 10; width: 100%; max-width: 1400px; margin: 0 auto; padding: clamp(110px,14vh,160px) clamp(24px,5.5vw,80px) clamp(60px,8vh,100px); display: grid; grid-template-columns: 52% 48%; align-items: center; }
     .sub-hero__left { max-width: 560px; }
     .sub-hero__title { font-family: var(--font-head); font-weight: 500; font-size: clamp(28px,3.4vw,52px); line-height: 1.12; letter-spacing: 0.01em; color: var(--teal-dark); }
-    .sub-hero__divider { width: 44px; height: 2px; background: linear-gradient(90deg,#005f7a,#00a3c9); border-radius: 2px; margin: clamp(14px,2vh,20px) 0 clamp(28px,4vh,38px); }
+    .sub-hero__divider { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, #005f7a 25%, #00a3c9 75%, transparent); margin: clamp(14px,2vh,20px) 0 clamp(28px,4vh,38px); }
     .sub-hero__desc { font-family: var(--font-body); font-style: italic; font-size: clamp(13px,1.1vw,17px); font-weight: 400; letter-spacing: 0.03em; line-height: 1.6; color: rgba(0,61,82,0.80); margin-bottom: clamp(40px,7vh,70px); max-width: 460px; }
 
     /* ── SHARED ── */
@@ -265,6 +265,9 @@
 
     /* ── REKLAMNÉ KAMPANE CENNÍK — 4-stĺpcový layout ── */
     #cennik-rk-pricing .cweb-grid { grid-template-columns: 5fr 5fr 6fr; max-width: 1280px; align-items: start; }
+    #cennik-rk-pricing .cweb-grid > .cweb-card { min-width: 0; }
+    #cennik-rk-pricing .cweb-icon { width: clamp(82px,8vw,100px); height: clamp(82px,8vw,100px); }
+    #cennik-rk-pricing .cweb-icon-img { width: clamp(52px,5vw,66px); height: clamp(52px,5vw,66px); }
     @media (max-width: 900px) { #cennik-rk-pricing .cweb-grid { grid-template-columns: 1fr; max-width: 520px; } }
 
     /* ── FOOTER ── */
@@ -327,11 +330,42 @@
     @media (max-width: 640px) {
       .header__nav { display: none; }
       .header__burger { display: flex; }
-      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(25,27,28,0.96); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; }
-      .header__nav.mobile-active a { color: var(--white) !important; font-size: 15px; letter-spacing: 0.15em; }
+      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; right: 16px; left: auto; width: max-content; background: rgba(25,27,28,0.96); backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(0, 117, 153, 0.12); z-index: 200; }
+      .header__nav.mobile-active a { color: var(--text-color) !important; font-size: 13px; letter-spacing: 0.12em; }
       .header__nav.mobile-active a::after { display: none; }
-      .site-header { padding: 16px 24px; }
-      .site-header.scrolled { padding: 12px 24px; }
+      .site-header { padding: 12px 24px; }
+      .site-header.scrolled { padding: 9px 24px; }
+    }
+
+    /* ── #cennik-cta ── */
+    .ccta-top { padding: clamp(72px,10vh,120px) 0 clamp(56px,8vh,88px); background: var(--bg-start); text-align: center; }
+    .ccta-heading { font-family: var(--font-head); font-weight: 400; font-size: clamp(22px,2.8vw,40px); line-height: 1.3; color: var(--text-color); margin-bottom: clamp(10px,1.4vh,16px); }
+    .ccta-desc { font-family: var(--font-body); font-size: clamp(13px,0.95vw,15px); line-height: 1.75; color: var(--text-muted); margin-top: clamp(20px,3vh,30px); margin-bottom: clamp(48px,7vh,72px); }
+    .ccta-pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; max-width: 1100px; margin: 0 auto; }
+    .ccta-pillar { display: flex; flex-direction: column; align-items: center; padding: 0 clamp(16px,2.2vw,32px); border-right: 1px solid rgba(0,117,153,0.12); }
+    .ccta-pillar:last-child { border-right: none; }
+    .ccta-pillar-img { width: clamp(74px,7.5vw,100px); height: clamp(74px,7.5vw,100px); object-fit: contain; margin-bottom: 16px; }
+    .ccta-pillar-label { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-color); margin-bottom: 8px; font-weight: 500; }
+    .ccta-pillar-text { font-family: var(--font-body); font-size: clamp(11.5px,0.83vw,13px); line-height: 1.65; color: var(--text-muted); text-align: center; }
+    .ccta-bar { background: linear-gradient(118deg, #005f7a 0%, #007599 40%, #00a3c9 100%); padding: clamp(32px,5vh,50px) clamp(32px,4.5vw,60px); border-radius: 3px; max-width: 1100px; margin: clamp(64px,9vh,96px) auto 0; text-align: left; }
+    .ccta-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: clamp(28px,4vw,52px); }
+    .ccta-bar-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(18px,1.8vw,26px); color: #fff; line-height: 1.25; margin-bottom: 7px; }
+    .ccta-bar-sub { font-family: var(--font-body); font-size: clamp(12px,0.88vw,13.5px); color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 420px; }
+    .ccta-bar .pp-outline-btn { flex-shrink: 0; }
+    .ccta-bar .pp-outline-btn:hover .cta-btn__arrow { transform: translateX(5px); }
+    .ccta-bar .pp-outline-btn:hover .cta-btn__text { letter-spacing: 0.06em; }
+    #cennik-cta .cta-btn__text { margin-left: 8px; transition: letter-spacing 0.35s ease; }
+    @media (max-width: 900px) {
+      .ccta-pillars { grid-template-columns: repeat(2,1fr); }
+      .ccta-pillar { border-right: none; padding: 0 20px clamp(20px,3vh,28px); border-bottom: 1px solid rgba(0,117,153,0.12); }
+      .ccta-pillar:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+      .ccta-bar-inner { flex-direction: column; text-align: center; }
+      .ccta-bar-sub { max-width: none; }
+    }
+    @media (max-width: 560px) {
+      .ccta-pillars { grid-template-columns: 1fr; }
+      .ccta-pillar { border-right: none; border-bottom: 1px solid rgba(0,117,153,0.12); padding-bottom: clamp(16px,2.5vh,22px); }
+      .ccta-pillar:last-child { border-bottom: none; padding-bottom: 0; }
     }
   </style>
 </head>
@@ -578,11 +612,11 @@
             <ul class="cwi-extra-list">
               <li class="cwi-extra-item"><span>Branding a vizuálna identita.</span><span class="cwi-extra-price">od 250 €</span></li>
               <li class="cwi-extra-item"><span>Príprava textov (copywriting).</span><span class="cwi-extra-price">od 150 €</span></li>
-              <li class="cwi-extra-item"><span>Ikony a ilustrácie na mieru.</span><span class="cwi-extra-price">od 80 €</span></li>
-              <li class="cwi-extra-item"><span>Fotografie / AI vizuály.</span><span class="cwi-extra-price">od 80 €</span></li>
+              <li class="cwi-extra-item"><span>Ikony a ilustrácie na mieru.</span><span class="cwi-extra-price">od 50 €</span></li>
+              <li class="cwi-extra-item"><span>Fotografie / AI vizuály.</span><span class="cwi-extra-price">od 50 €</span></li>
               <li class="cwi-extra-item"><span>Blog / Novinky.</span><span class="cwi-extra-price">od 120 €</span></li>
               <li class="cwi-extra-item"><span>Pokročilé SEO.</span><span class="cwi-extra-price">od 150 €</span></li>
-              <li class="cwi-extra-item"><span>Mesačná technická podpora.</span><span class="cwi-extra-price">45 €/mes.</span></li>
+              <li class="cwi-extra-item"><span>Štvrťročná technická podpora.</span><span class="cwi-extra-price">45 €/mes.</span></li>
               <li class="cwi-extra-item"><span>Poplatok za doménu a hosting.</span><span class="cwi-extra-price">cca 50 €/rok</span></li>
               <li class="cwi-extra-item"><span>Viacjazyčná verzia webu.</span><span class="cwi-extra-price">od 120 €</span></li>
             </ul>
@@ -875,12 +909,12 @@
           <div class="cweb-divider"></div>
           <ul class="cweb-list">
             <li>priebežná optimalizácia kampaní</li>
-            <li>správa reklamného rozpočtu</li>
+            <li>revízia vašich textov</li>
             <li>testovanie výkonnosti</li>
             <li>mesačné vyhodnotenie</li>
             <li>konzultácie a odporúčania</li>
-            <li>drobné úpravy existujúcich reklám</li>
-            <li>1 nová jednoduchá statická kreatíva mesačne alebo 2 menšie úpravy dodaných kreatív</li>
+            <li>optimalizácia existujúcich reklám</li>
+            <li>vytvorenie a testovanie 2–3 variantov reklamy mesačne</li>
           </ul>
           <p class="cweb-desc">Nové reklamné kreatívy, rozsiahlejší copywriting, videá a landing pages nie sú súčasťou balíka.</p>
         </div>
@@ -897,7 +931,7 @@
                 <div style="font-family:var(--font-head);font-size:15px;font-weight:500;color:var(--text-color);line-height:1.3;">Reklamná grafika</div>
                 <div style="font-family:var(--font-body);font-size:12px;color:var(--text-light);line-height:1.4;">statická grafika, carousel, vizuály</div>
               </div>
-              <div style="font-family:var(--font-head);font-size:15px;font-weight:600;color:var(--teal);white-space:nowrap;flex-shrink:0;">od 45 €</div>
+              <div style="font-family:var(--font-head);font-size:15px;font-weight:600;color:var(--teal);white-space:nowrap;flex-shrink:0;">od 25 €</div>
             </div>
 
             <div style="display:flex; align-items:center; gap:11px; background:rgba(240,232,218,0.28); border:1px solid rgba(0,117,153,0.12); border-radius:2px; padding:9px 11px;">
@@ -906,7 +940,7 @@
                 <div style="font-family:var(--font-head);font-size:15px;font-weight:500;color:var(--text-color);line-height:1.3;">Video / Reels</div>
                 <div style="font-family:var(--font-body);font-size:12px;color:var(--text-light);line-height:1.4;">krátke video alebo reels do 30 sek.</div>
               </div>
-              <div style="font-family:var(--font-head);font-size:15px;font-weight:600;color:var(--teal);white-space:nowrap;flex-shrink:0;">od 80 €</div>
+              <div style="font-family:var(--font-head);font-size:15px;font-weight:600;color:var(--teal);white-space:nowrap;flex-shrink:0;">od 30 €</div>
             </div>
 
             <div style="display:flex; align-items:center; gap:11px; background:rgba(240,232,218,0.28); border:1px solid rgba(0,117,153,0.12); border-radius:2px; padding:9px 11px;">
@@ -942,21 +976,72 @@
 
       </div>
 
-      <!-- Informačný box -->
-      <div style="max-width:760px; margin: clamp(40px,6vh,64px) auto 0;" data-reveal>
-        <div class="cwi-block">
-          <div class="cwi-block-label">
-            <img src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" style="width:50px;height:50px;object-fit:contain;opacity:0.85;" />
-            Čo je súčasťou mesačnej správy?
-          </div>
-          <ul class="cwi-list">
-            <li>Mesačná správa reklamných kampaní zahŕňa priebežnú optimalizáciu, sledovanie výsledkov, konzultácie a jednu jednoduchú novú statickú reklamu mesačne alebo drobné úpravy existujúcich kreatív.</li>
-            <li>Rozsiahle grafické návrhy, nové kampane, videá, landing pages alebo komplexný copywriting pripravujem ako doplnkové služby podľa rozsahu projektu.</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
+  </section>
+
+
+  <!-- ══ ZÁVEREČNÁ CTA SEKCIA ══ -->
+  <section id="cennik-cta" aria-label="Záverečná výzva">
+
+    <div class="ccta-top">
+      <div class="container">
+
+        <h2 class="ccta-heading" data-reveal>Každý projekt je <span class="title-grad">jedinečný.</span></h2>
+
+        <p class="ccta-desc" data-reveal>
+          Rada vytvorím riešenie na mieru práve pre vás. Finálna ponuka závisí od rozsahu, cieľov a špecifických potrieb vášho projektu.
+        </p>
+
+        <div class="ccta-pillars" data-reveal>
+          <div class="ccta-pillar">
+            <img class="ccta-pillar-img" src="../Obrazky/Ikony/projektova podpora/ludsky pristup.png" alt="" aria-hidden="true" />
+            <div class="ccta-pillar-label">Osobný prístup</div>
+            <p class="ccta-pillar-text">Každý projekt riešim s pochopením a empatiou.</p>
+          </div>
+          <div class="ccta-pillar">
+            <img class="ccta-pillar-img" src="../Obrazky/Ikony/projektova podpora/kreativita.png" alt="" aria-hidden="true" />
+            <div class="ccta-pillar-label">Kreatívne riešenia</div>
+            <p class="ccta-pillar-text">Prepájam estetiku, funkčnosť a stratégiu.</p>
+          </div>
+          <div class="ccta-pillar">
+            <img class="ccta-pillar-img" src="../Obrazky/Ikony/projektova podpora/nacitenie.png" alt="" aria-hidden="true" />
+            <div class="ccta-pillar-label">Zameranie na výsledky</div>
+            <p class="ccta-pillar-text">Tvorím riešenia, ktoré podporujú rast vašej značky.</p>
+          </div>
+          <div class="ccta-pillar">
+            <img class="ccta-pillar-img" src="../Obrazky/Ikony/projektova podpora/spolahlivost.png" alt="" aria-hidden="true" />
+            <div class="ccta-pillar-label">Dlhodobá podpora</div>
+            <p class="ccta-pillar-text">Som tu pre vás aj po odovzdaní projektu.</p>
+          </div>
+        </div>
+
+        <div class="ccta-bar" data-reveal>
+        <div class="ccta-bar-inner">
+          <div>
+            <h3 class="ccta-bar-title">Pripravení posunúť svoju značku ďalej?</h3>
+            <p class="ccta-bar-sub">Ozvite sa mi a spoločne nájdeme najlepšie riešenie pre váš projekt.</p>
+          </div>
+          <div class="pp-outline-frame">
+            <a href="kontakt.html" class="cta-btn pp-outline-btn">
+              <svg class="pp-btn-svg" aria-hidden="true" viewBox="0 0 225 45" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 13 0 L 218 0 A 7 7 0 0 1 225 7 L 225 31 L 211 45 L 6 45 A 7 7 0 0 1 0 39 L 0 13 Z" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5"/>
+              </svg>
+              <span class="cta-btn__left">
+                <img class="cta-btn__icon" src="../Obrazky/Logo/Kolibrik logo.png" alt="" aria-hidden="true" draggable="false" />
+                <span class="cta-btn__divider" aria-hidden="true"></span>
+                <span class="cta-btn__text">Kontaktujte ma</span>
+              </span>
+              <span class="cta-btn__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
 
@@ -1042,6 +1127,13 @@
           nav.classList.remove('mobile-active');
         });
       });
+      // Zatvoriť menu pri scrollovaní
+      window.addEventListener('scroll', () => {
+        if (nav.classList.contains('mobile-active')) {
+          nav.classList.remove('mobile-active');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
     }
 
     const yearEl = document.getElementById('copyright-year');
