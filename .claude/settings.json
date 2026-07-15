@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(node -e ' *)",
-      "Bash(git -C \"c:/Users/Uzivatel/Desktop/VC Weby/Web Souldesign/Web Souldesign\" diff HEAD podstranky/tvorba-web-stranok.html)"
+      "Bash(git -C \"c:/Users/Uzivatel/Desktop/VC Weby/Web Souldesign/Web Souldesign\" diff HEAD podstranky/tvorba-web-stranok.html)",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\Uzivatel\\\\Desktop\\\\VC Weby\\\\Web Souldesign\\\\Web Souldesign\\\\podstranky\\\\sluzby.html\")"
     ]
   }
 }

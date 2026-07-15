@@ -13,6 +13,7 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
+  <link rel="stylesheet" href="../responsive.css" />
 
   <style>
     /* ═══════════════════════════════════════════════
@@ -243,6 +244,17 @@
     .nav-dropdown li a:hover {
       color: var(--teal);
       background: rgba(0, 117, 153, 0.06);
+    }
+
+    /* Force-close dropdown on scroll (touch/hover sticky fix) */
+    .nav-has-drop.nav-scroll-close .nav-dropdown {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: translateX(-50%) translateY(-6px) !important;
+      transition: opacity 0.26s ease, transform 0.26s ease !important;
+    }
+    .nav-has-drop.nav-scroll-close .nav-drop__arrow {
+      transform: rotate(45deg) translateY(-2px) !important;
     }
 
     .nav__cta:hover {
@@ -885,6 +897,7 @@
       display: block;
       margin-bottom: 14px;
     }
+    .srow-title-over { display: none; }
     .srow-body__title {
       font-family: var(--font-head);
       font-size: clamp(20px, 2vw, 32px);
@@ -1168,18 +1181,57 @@
        11. RESPONZIVITA
        ═══════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .preco-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      /* Hero */
+      .sub-hero { min-height: clamp(420px,55vh,650px); }
+      /* Icons */
+      .preco-icon { width: 108px; height: 108px; margin-bottom: 10px; }
+      .preco-icon img { width: 108px !important; height: 108px !important; }
+      /* Internal heading spacing */
+      #sluzby-rows header { margin-bottom: clamp(20px,2.5vh,32px) !important; }
+      .preco-header { margin-bottom: clamp(24px,3vh,36px); }
+      /* Layout */
+      .preco-grid { grid-template-columns: repeat(6, 1fr); gap: clamp(10px,1.5vw,24px); }
+      .preco-item { grid-column: span 2; }
+      .preco-item:nth-child(4) { grid-column: 2 / 4; }
+      .preco-item:nth-child(5) { grid-column: 4 / 6; }
       .cta-bottom__inner { grid-template-columns: 1fr; text-align: center; }
       .cta-bottom__photo { display: flex; justify-content: center; }
       .cta-bottom__rule { margin-left: auto; margin-right: auto; }
+      /* Section spacing */
+      #sluzby-rows { padding: clamp(14px,1.5vh,20px) 0 clamp(24px,2.5vh,36px); }
+      #preco { padding: clamp(28px,3vh,40px) 0; }
+      #cta-bottom { padding: clamp(20px,2.5vh,32px) 0; }
     }
 
     @media (max-width: 860px) {
-      .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(100px, 16vh, 140px); }
-      .sub-hero__left { max-width: 100%; }
-      .sub-hero__divider { margin-left: auto; margin-right: auto; }
-      .sub-hero__desc { margin-left: auto; margin-right: auto; }
-      .sub-hero__right { display: none; }
+      /* Hero: shrink to content, zero out the generic section padding from responsive.css */
+      .sub-hero { align-items: flex-start; min-height: 0 !important; padding: 0 !important; background-size: cover !important; }
+      /* H1 slightly lower + button closer to text (equal offset keeps hero height unchanged) */
+      .sub-hero__content { padding-top: clamp(110px,13vh,150px) !important; }
+      .sub-hero__desc { margin-bottom: clamp(18px,3.5vh,44px); }
+      /* Overlay: transparent at top for nav, opaque mid+bottom for text */
+      .sub-hero__overlay { background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(250,248,245,0.72) 40%, rgba(250,248,245,0.86) 65%, rgba(250,248,245,0.92) 100%); }
+      /* Floating island scrolled header */
+      .site-header.scrolled { left: 16px !important; right: 16px !important; top: 12px !important; border-radius: 8px !important; background: rgba(244,242,238,0.46) !important; box-shadow: 0 4px 24px rgba(0,0,0,0.18), inset 0 -1px 0 rgba(255,255,255,0.08) !important; padding: 10px 24px !important; }
+      /* Service rows: 2-col, portrait photo, body vertically centered with photo */
+      .srow-item, .srow-item:nth-child(even) { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px,3vw,36px); align-items: center; padding: clamp(24px,3.5vh,44px) 0; }
+      /* Service dividers: fade to transparent on left and right */
+      .srow-item { border-bottom: none; background-image: linear-gradient(to right, transparent 0%, rgba(0,117,153,0.14) 22%, rgba(0,117,153,0.14) 78%, transparent 100%); background-position: bottom; background-size: 100% 1px; background-repeat: no-repeat; }
+      .srow-item:first-child { border-top: none; background-image: linear-gradient(to right, transparent 0%, rgba(0,117,153,0.14) 22%, rgba(0,117,153,0.14) 78%, transparent 100%), linear-gradient(to right, transparent 0%, rgba(0,117,153,0.14) 22%, rgba(0,117,153,0.14) 78%, transparent 100%); background-position: bottom, top; background-size: 100% 1px, 100% 1px; background-repeat: no-repeat, no-repeat; }
+      .srow-photo { aspect-ratio: 3/4; padding: 8px; }
+      .srow-sep { display: none; }
+      .srow-num { display: none; }
+      .srow-body { padding: 0; }
+      /* Reference arrows: outside cards, not at screen edge */
+      .ref-nav-arrow--prev { left: -20px !important; }
+      .ref-nav-arrow--next { right: -20px !important; }
+      /* ODD: photo col1, body col2 */
+      .srow-item .srow-photo { grid-column: 1; grid-row: 1; }
+      .srow-item .srow-body { grid-column: 2; grid-row: 1; }
+      /* EVEN: photo col2, body col1 */
+      .srow-item:nth-child(even) .srow-photo { grid-column: 2; grid-row: 1; }
+      .srow-item:nth-child(even) .srow-body { grid-column: 1; grid-row: 1; }
+      /* Other */
       .sv3-grid { grid-template-columns: 1fr; }
       .sv3-item { grid-template-columns: 1fr 1fr; max-width: 600px; margin: 0 auto; }
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1194,22 +1246,38 @@
       .header__nav.mobile-active {
         display: flex; flex-direction: column;
         position: absolute; top: 100%; right: 16px; left: auto; width: max-content;
-        background: rgba(244, 242, 238, 0.80);
+        background: rgba(25,27,28,0.96);
         backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5);
         padding: 30px 40px; gap: 20px;
         border-bottom: 1px solid rgba(0, 117, 153, 0.12);
         z-index: 200;
       }
-      .header__nav.mobile-active a { color: var(--text-color) !important; font-size: 13px; letter-spacing: 0.12em; }
+      .header__nav.mobile-active a { color: #f5f1eb !important; font-size: 13px; letter-spacing: 0.12em; }
       .header__nav.mobile-active a::after { display: none; }
       .site-header { padding: 12px 24px; }
-      .site-header.scrolled { padding: 9px 24px; }
-      .preco-grid { grid-template-columns: repeat(2, 1fr); }
+      .site-header.scrolled { left: 0 !important; right: 0 !important; top: 0 !important; border-radius: 0 !important; background: rgba(244,242,238,0.82) !important; padding: 9px 24px !important; }
       .sv3-item { grid-template-columns: 1fr; }
+      #sluzby-rows { padding: clamp(28px,3.5vh,44px) 0 clamp(24px,3vh,36px); }
+      #preco { padding: clamp(28px,3.5vh,44px) 0; }
+      /* Service rows: revert to single column, photo above text */
+      .srow-item, .srow-item:nth-child(even) { grid-template-columns: 1fr; grid-template-rows: auto; gap: 0; align-items: start; }
+      .srow-photo { aspect-ratio: unset; height: 200px; }
+      .srow-item .srow-photo, .srow-item:nth-child(even) .srow-photo { grid-column: auto; grid-row: auto; order: 1; }
+      .srow-item .srow-body, .srow-item:nth-child(even) .srow-body { grid-column: auto; grid-row: auto; order: 2; padding-top: clamp(12px,1.8vh,20px); }
+      /* Reset preco centering */
+      .preco-grid { grid-template-columns: repeat(2, 1fr); }
+      .preco-item { grid-column: auto; }
+      .preco-item:nth-child(4), .preco-item:nth-child(5) { grid-column: auto; }
     }
 
     @media (max-width: 480px) {
       .preco-grid { grid-template-columns: 1fr; }
+      .pe-grid { grid-template-columns: 1fr; }
+    }
+
+    /* G-2: pe-grid collapse at tablet */
+    @media (max-width: 768px) {
+      .pe-grid { grid-template-columns: repeat(2,1fr); }
     }
 
     /* ═══════════════════════════════════════════════
@@ -1537,6 +1605,35 @@
     @media (prefers-reduced-motion: reduce) {
       [data-reveal] { opacity: 1; transform: none; transition: none; }
     }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 30px; align-items: start; }
+      .footer-mid { grid-template-columns: 1fr; padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-mid .footer-col:last-child { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer__hb { display: none; }
+    }
+
+    /* ── Source-order fix: rules below appear AFTER this block in desktop CSS ── */
+    @media (max-width: 1024px) {
+      #podpora-experience { padding: clamp(28px,3vh,40px) 0; }
+      #referencie { padding: clamp(28px,3vh,40px) 0; }
+      .pe-intro { margin-bottom: clamp(20px,2.5vh,32px); }
+      .section-header { margin: 0 auto clamp(20px,2.5vh,32px); }
+      .pe-col { padding: clamp(18px,2.8vh,32px) clamp(14px,1.8vw,22px); }
+    }
+    @media (max-width: 640px) {
+      #podpora-experience { padding: clamp(28px,3.5vh,44px) 0; }
+      #referencie { padding: clamp(28px,3.5vh,44px) 0; }
+      #cta-bottom { padding: clamp(24px,3vh,36px) 0; }
+    }
+    @media (max-width: 480px) {
+      .pe-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -1558,7 +1655,6 @@
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
             <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
             <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-            <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
             <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
           </ul>
         </li>
@@ -1636,6 +1732,9 @@
         <!-- 01 Webové stránky -->
         <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">01</div>
+          <div class="srow-title-over">
+            <span class="srow-body__label">Web design a tvorba webových stránok</span>
+          </div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/webove stranky.png" alt="Webové stránky" />
           </div>
@@ -1657,6 +1756,9 @@
         <!-- 02 Grafický dizajn -->
         <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">02</div>
+          <div class="srow-title-over">
+            <span class="srow-body__label">Vizuálna identita</span>
+          </div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/graficky design.png" alt="Grafický dizajn" />
           </div>
@@ -1677,6 +1779,9 @@
         <!-- 03 Reklamné kampane -->
         <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">03</div>
+          <div class="srow-title-over">
+            <span class="srow-body__label">Reklamné kampane</span>
+          </div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/reklamne kampane.png" alt="Reklamné kampane" />
           </div>
@@ -1690,13 +1795,16 @@
             <h3 class="srow-body__title">Kampane, ktoré oslovujú správnych <span class="title-grad">ľudí.</span></h3>
             <p class="srow-body__text">Prinášate hodnotu tým, čo tvoríte. Teraz už potrebujete len, aby vás objavili ostatní. Navrhnem a nastavím reklamné kampane na Facebooku a Instagrame tak, aby podporili vašu viditeľnosť, prinášali nové kontakty a pomáhali vašej značke rásť.</p>
             <p class="srow-body__text">Zameriavam sa na výkonnostnú reklamu, ktorá prináša výsledky – citlivo, zmysluplne a bez zbytočného tlaku.</p>
-            <a href="reklamne-kampane.html" class="srow-body__link">Získať viac zákazníkov →</a>
+            <a href="online-projektova-podpora.html" class="srow-body__link">Získať viac zákazníkov →</a>
           </div>
         </li>
 
         <!-- 04 Online asistentka -->
         <li class="srow-item" data-reveal>
           <div class="srow-num" aria-hidden="true">04</div>
+          <div class="srow-title-over">
+            <span class="srow-body__label">Online projektová podpora</span>
+          </div>
           <div class="srow-photo">
             <img src="../Obrazky/Sluzby/online asistentka.png" alt="Kreatívna online asistentka" />
           </div>
@@ -2197,7 +2305,6 @@
             <ul class="footer-links">
               <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
               <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
               <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
             </ul>
           </div>
@@ -2248,7 +2355,12 @@
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+      document.querySelectorAll('.nav-has-drop').forEach(el => el.classList.add('nav-scroll-close'));
     }, { passive: true });
+    document.querySelectorAll('.nav-has-drop').forEach(el => {
+      el.addEventListener('mouseenter', () => el.classList.remove('nav-scroll-close'));
+      el.addEventListener('touchstart', () => el.classList.remove('nav-scroll-close'), { passive: true });
+    });
 
     /* ── Mobile burger ── */
     const burger = document.getElementById('burger-btn');
@@ -2426,6 +2538,7 @@
       document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
     }
   </script>
+  <script src="../nav-touch.js"></script>
 
 </body>
 </html>

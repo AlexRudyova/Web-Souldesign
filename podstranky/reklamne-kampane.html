@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
+  <link rel="stylesheet" href="../responsive.css" />
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -395,6 +396,11 @@
       .rcta-btn { margin-top: 10px; }
     }
     @media (max-width: 640px) {
+      #rk-features { padding: clamp(36px,5vh,52px) 0; }
+      #rk-citat { padding: clamp(36px,5vh,52px) 0; }
+      #rk-about { padding: clamp(36px,5vh,52px) 0; }
+      #rk-faq { padding: clamp(32px,4.5vh,48px) 0 clamp(40px,5.5vh,60px); }
+      #rk-cta { padding: clamp(32px,4.5vh,48px) 0; }
       .rk-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
       .rk-about__grid { grid-template-columns: 1fr; }
       .rk-about__bullets-col { display: flex; flex-direction: column; grid-column: auto; }
@@ -406,6 +412,23 @@
       .header__nav.mobile-active a::after { display: none; }
       .site-header { padding: 12px 24px; }
       .site-header.scrolled { padding: 9px 24px; }
+    }
+    @media (max-width: 1024px) {
+      #rk-features { padding: clamp(52px,7vh,80px) 0; }
+      #rk-citat { padding: clamp(52px,7vh,80px) 0; }
+      #rk-about { padding: clamp(52px,7vh,80px) 0; }
+      #rk-faq { padding: clamp(44px,6vh,64px) 0 clamp(52px,7vh,80px); }
+      #rk-cta { padding: clamp(44px,6vh,64px) 0; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 30px; align-items: start; }
+      .footer-mid { grid-template-columns: 1fr; padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-mid .footer-col:last-child { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer__hb { display: none; }
     }
   </style>
 </head>
@@ -427,7 +450,6 @@
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
             <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
             <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-            <li><a href="reklamne-kampane.html" aria-current="page">Reklamné kampane</a></li>
             <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
           </ul>
         </li>
@@ -781,7 +803,6 @@
             <ul class="footer-links">
               <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
               <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
               <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
             </ul>
           </div>
@@ -879,6 +900,7 @@
       });
     });
   </script>
+  <script src="../nav-touch.js"></script>
 
 </body>
 </html>

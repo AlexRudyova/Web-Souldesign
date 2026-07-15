@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="icon" type="image/png" href="../Obrazky/Logo/favicon.png" />
+  <link rel="stylesheet" href="../responsive.css" />
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,6 +59,9 @@
     .nav__cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg,#005f7a 0%,#007599 40%,#00a3c9 100%); z-index: -1; }
     .header__nav .nav__cta::after { content: ''; position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(118deg,#007599 0%,#00b5d8 55%,#006585 100%); z-index: -1; opacity: 0; transition: opacity 0.36s ease; }
     .header__nav .nav__cta:hover::after { opacity: 1; }
+    /* Force-close dropdown on scroll (touch/hover sticky fix) */
+    .nav-has-drop.nav-scroll-close .nav-dropdown { opacity: 0 !important; pointer-events: none !important; transform: translateX(-50%) translateY(-6px) !important; transition: opacity 0.26s ease, transform 0.26s ease !important; }
+    .nav-has-drop.nav-scroll-close .nav-drop__arrow { transform: rotate(45deg) translateY(-2px) !important; }
     .nav__cta:hover { color: var(--white) !important; filter: drop-shadow(0 0 18px rgba(0,117,153,0.18)); }
     .nav-has-drop { position: relative; }
     .nav-has-drop > a { display: flex; align-items: center; gap: 5px; }
@@ -510,6 +514,39 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-mid { padding: 0; }
+      .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-col--right { padding-left: 0; }
+    }
+    @media (max-width: 860px) {
+      .sub-hero { align-items: flex-start; min-height: 0 !important; padding: 0 !important; background-size: cover !important; }
+      .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(110px,13vh,150px) !important; }
+      .sub-hero__left { max-width: 100%; }
+      .sub-hero__divider { margin-left: auto; margin-right: auto; }
+      .sub-hero__desc { margin-left: auto; margin-right: auto; margin-bottom: clamp(18px,3.5vh,44px); }
+      .sub-hero__right { display: none; }
+      .sub-hero__overlay { background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(250,248,245,0.72) 40%, rgba(250,248,245,0.86) 65%, rgba(250,248,245,0.92) 100%); }
+      .site-header.scrolled { left: 16px !important; right: 16px !important; top: 12px !important; border-radius: 8px !important; background: rgba(244,242,238,0.46) !important; box-shadow: 0 4px 24px rgba(0,0,0,0.18), inset 0 -1px 0 rgba(255,255,255,0.08) !important; padding: 10px 24px !important; }
+    }
+    @media (max-width: 640px) {
+      #om-intro { padding: clamp(36px,5vh,52px) 0; }
+      #om-misia { padding: clamp(36px,5vh,52px) 0; }
+      #om-pribeh { padding: clamp(36px,5vh,52px) 0; }
+      #om-son-citat { padding: clamp(36px,5vh,52px) 0; }
+      #om-journey { padding: clamp(36px,5vh,52px) 0; }
+      #om-closing { padding: clamp(36px,5vh,52px) 0; }
+      .header__nav { display: none; }
+      .header__burger { display: flex; }
+      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; right: 16px; left: auto; width: max-content; background: rgba(25,27,28,0.96); backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(0, 117, 153, 0.12); z-index: 200; }
+      .header__nav.mobile-active a { color: var(--text-color) !important; font-size: 13px; letter-spacing: 0.12em; }
+      .header__nav.mobile-active a::after { display: none; }
+      .site-header { padding: 12px 24px; }
+      .site-header.scrolled { left: 0 !important; right: 0 !important; top: 0 !important; border-radius: 0 !important; background: rgba(244,242,238,0.82) !important; padding: 9px 24px !important; }
+      #om-misia, #om-son-citat { background-attachment: scroll; }
+      .om-cta-services { gap: 20px; }
+      .om-scit-main br { display: none; }
+      .om-cta-title br { display: none; }
       .om-intro-grid { grid-template-columns: 1fr; }
       .om-intro-photo { max-width: 420px; }
       .om-pribeh-grid { grid-template-columns: 1fr; }
@@ -518,31 +555,24 @@
       .om-journey-photo-col { position: static; max-width: 420px; margin: 0 0 48px; }
       .om-closing-grid { grid-template-columns: 1fr; }
       .om-closing-photo { max-width: 420px; margin-top: 48px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-      .footer-mid { padding: 0; }
+    }
+    @media (max-width: 1024px) {
+      #om-intro { padding: clamp(14px,1.5vh,20px) 0 clamp(36px,4vh,50px); }
+      #om-misia { padding: clamp(36px,4vh,50px) 0; }
+      #om-pribeh { padding: clamp(36px,4vh,50px) 0; }
+      #om-son-citat { padding: clamp(36px,4vh,50px) 0; }
+      #om-journey { padding: clamp(36px,4vh,50px) 0; }
+      #om-closing { padding: clamp(20px,2.5vh,32px) 0; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 30px; align-items: start; }
+      .footer-mid { grid-template-columns: 1fr; padding: 0; }
       .footer-mid::before, .footer-mid::after { display: none; }
+      .footer-mid .footer-col:last-child { display: none; }
       .footer-col--right { padding-left: 0; }
     }
-    @media (max-width: 860px) {
-      .sub-hero__content { grid-template-columns: 1fr; text-align: center; padding-top: clamp(100px,16vh,140px); }
-      .sub-hero__left { max-width: 100%; }
-      .sub-hero__divider { margin-left: auto; margin-right: auto; }
-      .sub-hero__desc { margin-left: auto; margin-right: auto; }
-      .sub-hero__right { display: none; }
-      .sub-hero__overlay { background: rgba(250,248,245,0.82); }
-    }
-    @media (max-width: 640px) {
-      .header__nav { display: none; }
-      .header__burger { display: flex; }
-      .header__nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 100%; right: 16px; left: auto; width: max-content; background: rgba(25,27,28,0.96); backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5); padding: 30px 40px; gap: 20px; border-bottom: 1px solid rgba(0, 117, 153, 0.12); z-index: 200; }
-      .header__nav.mobile-active a { color: var(--text-color) !important; font-size: 13px; letter-spacing: 0.12em; }
-      .header__nav.mobile-active a::after { display: none; }
-      .site-header { padding: 12px 24px; }
-      .site-header.scrolled { padding: 9px 24px; }
-      #om-misia, #om-son-citat { background-attachment: scroll; }
-      .om-cta-services { gap: 20px; }
-      .om-scit-main br { display: none; }
-      .om-cta-title br { display: none; }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer__hb { display: none; }
     }
   </style>
 </head>
@@ -561,7 +591,6 @@
           <ul class="nav-dropdown" aria-label="Podstránky služieb">
             <li><a href="tvorba-web-stranok.html">Tvorba web stránok</a></li>
             <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-            <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
             <li><a href="online-projektova-podpora.html">Projektová podpora</a></li>
           </ul>
         </li>
@@ -804,7 +833,7 @@
             <img src="../Obrazky/Ikony/Omne/26.png" alt="" aria-hidden="true" loading="lazy" />
             <span>Grafický dizajn</span>
           </a>
-          <a class="om-cta-service" href="reklamne-kampane.html">
+          <a class="om-cta-service" href="online-projektova-podpora.html">
             <img src="../Obrazky/Ikony/Omne/27.png" alt="" aria-hidden="true" loading="lazy" />
             <span>Reklamné kampane</span>
           </a>
@@ -901,7 +930,6 @@
             <ul class="footer-links">
               <li><a href="tvorba-web-stranok.html">Webové stránky</a></li>
               <li><a href="graficky-dizajn.html">Grafický dizajn</a></li>
-              <li><a href="reklamne-kampane.html">Reklamné kampane</a></li>
               <li><a href="online-projektova-podpora.html">Online projektová podpora</a></li>
             </ul>
           </div>
@@ -936,7 +964,12 @@
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+      document.querySelectorAll('.nav-has-drop').forEach(el => el.classList.add('nav-scroll-close'));
     }, { passive: true });
+    document.querySelectorAll('.nav-has-drop').forEach(el => {
+      el.addEventListener('mouseenter', () => el.classList.remove('nav-scroll-close'));
+      el.addEventListener('touchstart', () => el.classList.remove('nav-scroll-close'), { passive: true });
+    });
 
     const burger = document.getElementById('burger-btn');
     const nav    = document.querySelector('.header__nav');
@@ -976,6 +1009,7 @@
       document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
     }
   </script>
+  <script src="../nav-touch.js"></script>
 
 </body>
 </html>
